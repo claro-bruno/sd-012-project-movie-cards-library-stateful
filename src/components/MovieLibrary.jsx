@@ -18,6 +18,7 @@ export default class MovieLibrary extends Component {
     this.state = initialState;
     this.movieAdd = this.movieAdd.bind(this);
     this.changeText = this.changeText.bind(this);
+    this.bookmarkedToggle = this.bookmarkedToggle.bind(this);
   }
 
   changeText(e) {
@@ -35,6 +36,23 @@ export default class MovieLibrary extends Component {
     } else {
       this.setState({
         searchText: '',
+        movies,
+      });
+    }
+  }
+
+  bookmarkedToggle(e) {
+    const { movies } = this.props;
+    const value = e.target.checked;
+    const filtered = movies.filter((movie) => movie.bookmarked);
+    if (value) {
+      this.setState({
+        bookmarkedOnly: value,
+        movies: filtered,
+      });
+    } else {
+      this.setState({
+        bookmarkedOnly: value,
         movies,
       });
     }
@@ -64,6 +82,7 @@ export default class MovieLibrary extends Component {
           searchText={ searchText }
           onSearchTextChange={ this.changeText }
           bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.bookmarkedToggle }
           selectedGenre={ selectedGenre }
         />
         <MovieList movies={ movies } />
