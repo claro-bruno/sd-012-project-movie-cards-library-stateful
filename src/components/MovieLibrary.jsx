@@ -1,5 +1,6 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import moviesData from '../data';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
@@ -77,7 +78,6 @@ export default class MovieLibrary extends Component {
   }
 
   movieAdd(movie) {
-    const { movies } = this.props;
     this.setState((previous) => {
       const newMovies = [...previous.movies];
       newMovies.push(movie);
@@ -110,3 +110,7 @@ export default class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
