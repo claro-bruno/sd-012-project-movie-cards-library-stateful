@@ -12,6 +12,13 @@ export default class AddMovie extends Component {
             type="text"
           />
         </label>
+        <label htmlFor="subtitle-input-label" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            data-testid="subtitle-input"
+            type="text"
+          />
+        </label>
       </form>
     );
   }
