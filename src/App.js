@@ -15,14 +15,15 @@ class App extends React.Component {
   }
 
   handleChange({ target }) {
-    const { name, value } = target;
+    const { name } = target;
+    const value = (target.type === 'checkbox') ? target.checked : target.value;
     this.setState({
-      [name]: value
-    })
+      [name]: value,
+    });
   }
 
   render() {
-    const { searchText } = this.state;
+    const { searchText, bookmarkedOnly } = this.state;
     return (
       <div>
         <div className="App">
@@ -31,7 +32,9 @@ class App extends React.Component {
         <div>
           <SearchBar
             searchText={ searchText }
-            onSearchTextChange={this.handleChange}
+            onSearchTextChange={ this.handleChange }
+            bookmarkedOnly={ bookmarkedOnly }
+            onBookmarkedChange={ this.handleChange }
           />
         </div>
       </div>

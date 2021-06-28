@@ -2,10 +2,16 @@ import React from 'react';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkChange } = this.props;
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+    } = this.props;
+
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor="search-bar">
+        <label data-testid="text-input-label" htmlFor="text-input">
           Inclui o texto:
           <input
             type="text"
@@ -15,13 +21,14 @@ class SearchBar extends React.Component {
             data-testid="text-input"
           />
         </label>
-        <label data-testid="checkbox-input-label">
+        <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
           Mostrar somente favoritos
           <input
-            type='checkbox'
+            type="checkbox"
+            name='bookmarkedOnly'
             data-testid="checkbox-input"
             checked={ bookmarkedOnly }
-            onChange={ onBookmarkChange }
+            onChange={ onBookmarkedChange }
           />
         </label>
       </form>
