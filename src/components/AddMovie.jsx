@@ -1,4 +1,5 @@
 import React from 'react';
+import DropdownList from './DropdownList';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -13,20 +14,19 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.submitChange = this.submitChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleStateChange(evt) {
-    const { name, value } = evt.target;
+  handleChange({ target }) {
+    const { name, value } = target;
     this.setState({
       [name]: value,
     });
   }
 
-  submitChange() {
+  handleClick() {
     const { onClick } = this.props;
-    const { state } = this;
-    onClick(state);
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -47,21 +47,18 @@ class AddMovie extends React.Component {
           onChange={ this.handleChange }
           value={ title }
         />
-
         <input
           name="subtitle"
           label="Subtítulo"
           onChange={ this.handleChange }
           value={ subtitle }
         />
-
         <input
           name="image"
           label="Imagem"
           onChange={ this.handleChange }
           value={ image }
         />
-
         <input
           name="storyline"
           label="Sinopse"
@@ -69,15 +66,17 @@ class AddMovie extends React.Component {
           value={ storyline }
           type="textarea"
         />
-
         <input
           name="rating"
           label="Avaliação"
           onChange={ this.handleChange }
           value={ rating }
         />
-
-        <button type="submit" data-testid="send-button" onClick={ this.handleChange }>
+        <DropdownList
+          value={ genre }
+          onChange={ this.handleChange }
+        />
+        <button type="submit" data-testid="send-button" onClick={ this.handleClick }>
           Adicionar filme
         </button>
       </form>
