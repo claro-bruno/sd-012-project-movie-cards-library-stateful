@@ -11,11 +11,13 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
+      filteredMovies: [],
     }
 
     this.handleSearchEvent = this.handleSearchEvent.bind(this);
     this.handleBookmarkedEvent = this.handleBookmarkedEvent.bind(this);
     this.handleGenreEvent = this.handleGenreEvent.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
   }
 
   handleSearchEvent(e) {
@@ -36,9 +38,30 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: value });
   }
 
+  filterMovies() {
+    const {
+      movies,
+      bookmarkedOnly,
+      selectedGenre,
+      searchText,
+    } = this.state;
+
+    const filteredMovies = movies.filter((movie) => {
+      const { title, subtitle, storyline, bookmarked, genre} = movie;
+      const searchBool = title.includes(searchText) ||
+        subtitle.includes(searchText) ||
+        storyline.includes(searchText);
+      const bookmarkBool = bookmarked === bookmarkedOnly;
+      const genreBool = genre.includes(selectedGenre);
+      return (searchBool && bookmarkBool && genreBool);
+    });
+    return filteredMovies;
+  }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    const { handleSearchEvent, handleBookmarkedEvent, handleGenreEvent } = this;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { handleSearchEvent, handleBookmarkedEvent, handleGenreEvent, filterMovies } = this;
+    filterMovies();
     return (
       <section>
         <SearchBar
@@ -49,6 +72,7 @@ class MovieLibrary extends React.Component {
           onBookmarkedChange={ handleBookmarkedEvent }
           onSelectedGenreChange={ handleGenreEvent }
         />
+        <MovieList movies={ filterMovies() }/>
       </section>
     );
   }
