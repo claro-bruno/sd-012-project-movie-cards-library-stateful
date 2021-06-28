@@ -13,12 +13,24 @@ constructor(){
   }
 }
 
+handle = ({ target }) => {
+  const { name, value} = target
+this.setState({
+  [name]: value,
+})
+console.log()
+}
+
   render(){
     const { onClick } = this.props
+    const { title } = this.state
     return(
       <div>
         <form data-testid="add-movie-form" >
-        {this.state.genre}
+        <label htmlFor="title-input" data-testid="title-input-label" >
+        Título
+          <input type="text" id="title-input" data-testid="title-input" name="title"value={title} onChange={this.handle}/>
+        </label>
         </form>
       </div>
     )
