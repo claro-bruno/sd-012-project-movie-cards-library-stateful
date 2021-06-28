@@ -19,15 +19,17 @@ class AddMovie extends Component {
   render() {
     return(
       <form data-testid="add-movie-form">
-        <label htmlFor="">
-          Titulo
+        <label htmlFor="title-input" data-testid="title-input-label">
+          Título
           <input
             type="text"
             name="title"
+            data-testid="title-input"
+            onChange={ this.state.title }
           />
         </label>
         <label htmlFor="">
-          Subtitulo
+          Subtítulo
           <input
             type="text"
             name="subtitle"
