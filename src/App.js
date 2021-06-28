@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar />
+      <SearchBar searchTest={ searchTest } />
     </div>
   );
 }
