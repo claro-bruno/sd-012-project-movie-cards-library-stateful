@@ -47,40 +47,40 @@ describe('15 - Crie um componente chamado `<MovieLibrary />`', () => {
   });
 });
 
-describe.skip('16 - Configure o estado inicial do componente `<MovieLibrary />`', () => {
-  it.skip('Defina o estado inicial de `searchText` como uma string vazia', () => {
+describe('16 - Configure o estado inicial do componente `<MovieLibrary />`', () => {
+  it('Defina o estado inicial de `searchText` como uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchText = getByTestId(textTestId);
     expect(searchText).toHaveValue('');
   });
 
-  it.skip('Defina o estado inicial de `bookmarkedOnly` como o boleano `falso`', () => {
+  it('Defina o estado inicial de `bookmarkedOnly` como o boleano `falso`', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const bookmarkedOnly = getByTestId(checkboxTestId);
     expect(bookmarkedOnly).not.toBeChecked();
   });
 
-  it.skip('Defina o estado inicial de `selectedGenre` como uma string vazia', () => {
+  it('Defina o estado inicial de `selectedGenre` como uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const selectInput = getByTestId(selectTestId);
     expect(selectInput).toHaveValue('');
   });
 
-  it.skip('Renderize todos os filmes passados pela prop `movies`', () => {
+  it('Renderize todos os filmes passados pela prop `movies`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const movieCards = getAllByTestId(movieCardTestId);
     expect(movieCards).toHaveLength(movies.length);
   });
 });
 
-describe.skip('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
-  it.skip('Renderize o componente `<SearchBar />`', () => {
+describe('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
+  it('Renderize o componente `<SearchBar />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchBar = getAllByTestId('search-bar-form');
     expect(searchBar).toHaveLength(1);
   });
 
-  it.skip('Altere o estado da `<SearchBar />` quando algo for digitado nela', () => {
+  it('Altere o estado da `<SearchBar />` quando algo for digitado nela', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchText = getByTestId(textTestId);
     event.type(searchText, 'My Search Text');
@@ -88,14 +88,14 @@ describe.skip('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () 
     expect(searchText).toHaveValue('My Search Text');
   });
 
-  it.skip('Disponibilize a opção de filtrar por favoritos', () => {
+  it('Disponibilize a opção de filtrar por favoritos', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const bookmarkedOnly = getByTestId(checkboxTestId);
     event.click(bookmarkedOnly);
     expect(bookmarkedOnly).toBeChecked();
   });
 
-  it.skip('Disponibilize a opção de filtrar por categorias', () => {
+  it('Disponibilize a opção de filtrar por categorias', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const selectInput = getByTestId(selectTestId);
     expect(selectInput).toHaveValue('');
@@ -126,7 +126,7 @@ describe.skip('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () 
     expect(movieCardTitle).toHaveTextContent(movies[0].title);
   });
 
-  it.skip('Filtre os filmes por subtítulo de acordo com o que for digitado na barra de busca', () => {
+  it('Filtre os filmes por subtítulo de acordo com o que for digitado na barra de busca', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const textInput = getByTestId(textTestId);
 
