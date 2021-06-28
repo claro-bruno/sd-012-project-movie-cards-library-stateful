@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Input extends Component {
+class Checkbox extends Component {
   render() {
-    const { label, type, name, searchText, onSearchTextChange } = this.props;
+    const { label, type, name, bookmarkedOnly, onBookmarkedChange } = this.props;
 
     return (
       <label htmlFor={ name } data-testid={ `${type}-input-label` }>
@@ -12,8 +12,8 @@ class Input extends Component {
           type={ type }
           id={ name }
           name={ name }
-          value={ searchText }
-          onChange={ onSearchTextChange }
+          checked={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
           data-testid={ `${type}-input` }
         />
       </label>
@@ -21,12 +21,12 @@ class Input extends Component {
   }
 }
 
-Input.propTypes = PropTypes.exact({
+Checkbox.propTypes = PropTypes.exact({
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
 }).isRequired;
 
-export default Input;
+export default Checkbox;

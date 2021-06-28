@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import Checkbox from './Checkbox';
 
 class SearchBar extends Component {
   render() {
@@ -15,6 +16,14 @@ class SearchBar extends Component {
           name="searchText"
           searchText={ searchText }
           onSearchTextChange={ onSearchTextChange }
+        />
+
+        <Checkbox
+          label="Mostrar somente favoritos"
+          type="checkbox"
+          name="bookmarkedOnly"
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ onBookmarkedChange }
         />
       </form>
     );
