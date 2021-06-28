@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
+import MovieList from './MovieList';
+// import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -13,14 +13,15 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies, // É assim??
+      // movies: props.movies, // ainda nao tenho certeza se esta certo
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange({ target }) {
-    const { name, value } = target;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
       [name]: value,
@@ -35,17 +36,15 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange="xablau" // callback pra atualizar searchText
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange="xablau" // callback pra atualizar bookmarkedOnly
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange="xablau" // callback pra atualizar selectedGenre
+          onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies } // passa filmes filtrados
-        // falta fazer requisito 18
+        <MovieList movies={ movies } // passa filmes filtrados falta fazer requisito 18 
         />
-        <AddMovie onClick="xablau" // callback que permite adicionar um novo filme ao final da lista
-        />
+        {/* <AddMovie onClick="xablau" // callback que permite adicionar um novo filme ao final da lista /> */}
       </div>
     );
   }

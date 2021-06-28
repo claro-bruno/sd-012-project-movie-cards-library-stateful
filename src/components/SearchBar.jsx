@@ -1,24 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class SearchBar extends React.Component {
+class SearchBar extends Component {
   render() {
-    const { filter } = this.props;
     const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-    } = filter;
+      searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange,
+    } = this.props;
     return (
       <form data-testid="search-bar-form">
-        [/** Resolvi um problema do link com o htmlFor consultado no link: https://stackoverflow.com/questions/54446655/eslint-rule-for-label */]
+        {/** Resolvi um problema do link com o htmlFor consultado no link: https://stackoverflow.com/questions/54446655/eslint-rule-for-label */}
         <label htmlFor="text-input-label" data-testid="text-input-label">
           Inclui o texto:
           <input
             type="text"
+            name="searchText"
             value={ searchText }
             onChange={ onSearchTextChange }
             data-testid="text-input"
@@ -29,6 +25,7 @@ class SearchBar extends React.Component {
           Mostrar somente favoritos
           <input
             type="checkbox"
+            name="bookmarkedOnly"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
@@ -38,6 +35,7 @@ class SearchBar extends React.Component {
         <label htmlFor="select-input-label" data-testid="select-input-label">
           Filtrar por gênero
           <select
+            name="selectedGenre"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
@@ -55,18 +53,12 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.propTypes = {
-  filter: PropTypes.shape({
-    searchText: PropTypes.string.isRequired,
-    onSearchTextChange: PropTypes.func.isRequired,
-    bookmarkedOnly: PropTypes.bool.isRequired,
-    onBookmarkedChange: PropTypes.func.isRequired,
-    selectedGenre: PropTypes.string.isRequired,
-    onSelectedGenreChange: PropTypes.func.isRequired,
-  }),
-};
-
-SearchBar.defaultProps = {
-  filter: { },
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
