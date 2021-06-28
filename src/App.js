@@ -7,13 +7,23 @@ import { movies } from './data';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie /* onClick={  }  *//>
+        <AddMovie onClick={ this.handleClick } />
       </div>
     );
   }
