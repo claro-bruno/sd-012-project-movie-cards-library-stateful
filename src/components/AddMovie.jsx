@@ -1,6 +1,10 @@
-/* eslint-disable max-lines-per-function */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import TitleInput from './TitleInput';
+import SubtitleInput from './SubtitleInput';
+import ImagePathInput from './ImagePathInput';
+import TextAreaInput from './TextAreaInput';
+import RatingInput from './RatingInput';
 
 class AddMovie extends Component {
   constructor() {
@@ -30,56 +34,23 @@ class AddMovie extends Component {
 
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            name="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            type="text"
-            name="storyLine"
-            value={ storyLine }
-            data-testid="storyline-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="rating-input" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-            value={ rating }
-            data-testid="rating-input"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <TitleInput valueTitleInput={ title } handleChangeTitle={ this.handleChange } />
+        <SubtitleInput
+          valueSubtitleInput={ subtitle }
+          handleChangeSubtitle={ this.handleChange }
+        />
+        <ImagePathInput
+          valueImageInput={ imagePath }
+          handleChangeImage={ this.handleChange }
+        />
+        <TextAreaInput
+          valueTextAreaInput={ storyLine }
+          handleChangeTextArea={ this.handleChange }
+        />
+        <RatingInput
+          valueRatingInput={ rating }
+          handleChangeRating={ this.handleChange }
+        />
         {onClick}
       </form>
     );
