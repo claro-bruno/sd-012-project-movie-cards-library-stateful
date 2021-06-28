@@ -10,6 +10,8 @@ function App() {
       <SearchBar
         onSearchTextChange
         searchText
+        selectedGenre
+        onSelectedGenreChange
       />
     </div>
   );
