@@ -6,7 +6,7 @@ class SearchBar extends React.Component {
       searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <p>Oi</p>
+      <form data-testid="search-bar-form" />
     );
   }
 }// implement AddMovie component here
