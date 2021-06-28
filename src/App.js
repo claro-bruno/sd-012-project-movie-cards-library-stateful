@@ -16,11 +16,17 @@ class App extends React.Component {
   }
 
   render() {
+    const { textInput } = this.state;
     return (
       <div className="App">
         <Header />
         <SearchBar
+          searchText={ textInput }
           onSearchTextChange={ this.handleChange }
+        // bookmarkedOnly
+        // onBookmarkedChange
+        // selectedGenre
+        // onSelectedGenreChange
         />
       </div>
     );
