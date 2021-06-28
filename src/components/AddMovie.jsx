@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import AddMovieInputs from './AddMovieInputs';
 
 const initialState = {
   title: '',
@@ -17,8 +18,17 @@ export default class AddMovie extends Component {
   }
 
   render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+
     return (
-      <form data-testid="add-movie-form" />
+      <form data-testid="add-movie-form">
+        <AddMovieInputs
+          value={ title }
+          name="title"
+          onChange={ this.handleChange }
+          inner="Título"
+        />
+      </form>
     );
   }
 }
