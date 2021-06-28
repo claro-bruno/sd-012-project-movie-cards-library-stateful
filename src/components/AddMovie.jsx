@@ -2,10 +2,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Input from './Input';
 import ImagePath from './ImagePath';
 import Storyline from './Storyline';
 import GenreInput from './GenreInput';
+import Input from './Input';
 
 
 class AddMovie extends React.Component {
