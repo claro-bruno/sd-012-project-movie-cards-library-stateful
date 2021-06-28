@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Input from './Input';
-import TextArea from './TextArea';
+import MovieInfos from './MovieInfos';
 
 class AddMovie extends Component {
   constructor() {
@@ -26,44 +26,26 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
 
     // const { onClick } = this.props;
 
     return (
       <form data-testid="add-movie-form">
-        <Input
-          label="Título"
-          type="text"
-          name="title"
-          value={ title }
-          dataTestId="title-input"
+        <MovieInfos
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+          storyline={ storyline }
           onChange={ this.handleChange }
         />
 
         <Input
-          label="Subtítulo"
-          type="text"
-          name="subtitle"
-          value={ subtitle }
-          dataTestId="subtitle-input"
-          onChange={ this.handleChange }
-        />
-
-        <Input
-          label="Imagem"
-          type="text"
-          name="imagePath"
-          value={ imagePath }
-          dataTestId="image-input"
-          onChange={ this.handleChange }
-        />
-
-        <TextArea
-          label="Sinopse"
-          name="storyline"
-          value={ storyline }
-          dataTestId="storyline-input"
+          label="Avaliação"
+          type="number"
+          name="rating"
+          value={ rating }
+          dataTestId="rating-input"
           onChange={ this.handleChange }
         />
       </form>
