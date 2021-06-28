@@ -12,7 +12,7 @@ class SearchBar extends React.Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <div>
+      <form data-testid="search-bar-form">
         Bora passar no lint com:
         {searchText}
         {onSearchTextChange}
@@ -20,7 +20,7 @@ class SearchBar extends React.Component {
         {onBookmarkedChange}
         {selectedGenre}
         {onSelectedGenreChange}
-      </div>
+      </form>
     );
   }
 }
