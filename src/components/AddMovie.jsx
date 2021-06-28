@@ -20,11 +20,15 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
+    // const { title } = this.state;
     return (
       <form data-testid="add-movie-form">
         { onClick() }
+        <label htmlFor="find-title" data-testid="title-input-label">
+          Título
+          <input type="text" id="find-title" data-testid="title-input" />
+        </label>
         <input type="text" id="find-subtitle" />
-        <input type="text" id="find-title" />
         <input type="text" id="find-image-path" />
         <input type="text" id="find-story-line" />
         <input type="text" id="find-rating" />
