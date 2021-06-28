@@ -24,10 +24,10 @@ class App extends React.Component {
         <SearchBar
           searchText={ textInput }
           onSearchTextChange={ this.handleChange }
-          bookmarkedOnly={favoritesOnly }
+          bookmarkedOnly={ favoritesOnly }
           onBookmarkedChange={ this.handleChange }
-        // selectedGenre
-        // onSelectedGenreChange
+          onSelectedGenreChange={ this.handleChange }
+          // selectedGenre
         />
       </div>
     );
