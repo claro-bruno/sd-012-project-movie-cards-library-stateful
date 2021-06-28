@@ -2,7 +2,7 @@ import React from 'react';
 
 class Subtitle extends React.Component {
   render() {
-    const { subtitle, handleChange } = this.props;
+    const { subtitle, handleChange, name } = this.props;
     return (
       <div>
         <label
@@ -14,6 +14,7 @@ class Subtitle extends React.Component {
             data-testid="subtitle-input"
             onChange={ handleChange }
             value={ subtitle }
+            name={ name }
           />
         </label>
       </div>
