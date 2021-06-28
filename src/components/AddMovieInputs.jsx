@@ -20,8 +20,12 @@ export default class AddMovieInputs extends Component {
   }
 }
 
+AddMovieInputs.defaultProps = {
+  value: undefined,
+};
+
 AddMovieInputs.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func.isRequired,
   name: PropTypes.string.isRequired,
   inner: PropTypes.string.isRequired,

@@ -29,6 +29,11 @@ export default class FilterInput extends Component {
   }
 }
 
+FilterInput.defaultProps = {
+  value: undefined,
+  checked: undefined,
+};
+
 FilterInput.propTypes = {
   type: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
@@ -36,6 +41,6 @@ FilterInput.propTypes = {
   labeltestid: PropTypes.string.isRequired,
   fieldtestid: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
-  checked: PropTypes.bool.isRequired,
+  value: PropTypes.string,
+  checked: PropTypes.bool,
 };
