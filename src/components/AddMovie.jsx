@@ -41,7 +41,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }))
+    }));
   }
 
   render() {
@@ -82,7 +82,11 @@ class AddMovie extends React.Component {
           value={ genre }
           func={ this.handleChange }
         />
-        <button type onClick={ () => this.handleSubmit(onClick) } data-testid="send-button">
+        <button
+          type="submit"
+          onClick={ () => this.handleSubmit(onClick) }
+          data-testid="send-button"
+        >
           Adicionar filme
         </button>
       </form>
