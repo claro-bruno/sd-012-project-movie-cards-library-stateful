@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Input from './generics/Input';
+import Select from './generics/Select';
+import genders from '../data/data';
 
 class SearchBar extends Component {
   render() {
@@ -11,41 +14,39 @@ class SearchBar extends Component {
       selectedGenre,
       onSelectedGenreChange,
     } = this.props;
+
     return (
       <form data-testid="search-bar-form">
-        <label
-          htmlFor="include-text"
-          data-testid="text-input-label"
-        >
 
-          Inclui o texto:
+        <Input
+          id="include-text"
+          dataTestidLabel="text-input-label"
+          textLabel="Inclui o texto:"
+          value={ searchText }
+          onChange={ onSearchTextChange }
+          dataTestidInput="text-input"
+        />
 
-          <input
-            id="include-text"
-            type="text"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-            data-testid="text-input"
-          />
+        <Input
+          id="show-favorites"
+          dataTestidLabel="checkbox-input-label"
+          textLabel="Mostrar somente favoritos"
+          type="checkbox"
+          checked={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
+          dataTestidInput="checkbox-input"
+        />
 
-        </label>
-
-        <label
-          htmlFor="show-favorites"
-          data-testid="checkbox-input-label"
-        >
-
-          Mostrar somente favoritos
-
-          <input
-            id="show-favorites"
-            type="checkbox"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-            data-testid="checkbox-input"
-          />
-
-        </label>
+        <Select
+          id="gender-filter"
+          dataTestidLabel="select-input-label"
+          dataTestidOption="select-option"
+          dataTestidSelect="select-input"
+          textLabel="Filtrar por gênero"
+          value={ selectedGenre }
+          onChange={ onSelectedGenreChange }
+          options={ genders }
+        />
 
       </form>
     );
