@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import TextArea from './TextArea';
+import SetRating from './SetRating';
 
 export default class AddMovie extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ export default class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     const { handleChange } = this;
 
     return (
@@ -62,6 +63,7 @@ export default class AddMovie extends Component {
           />
         </label>
         <TextArea handleChange={ handleChange } storyline={ storyline } />
+        <SetRating handleChange={ handleChange } rating={ rating } />
       </form>
     );
   }
