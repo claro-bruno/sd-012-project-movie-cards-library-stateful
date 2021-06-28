@@ -10,15 +10,17 @@ class App extends React.Component {
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
+      selectedGenre: '',
     };
 
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
   }
 
-  onSearchTextChange({ target }) {
+  handleChange({ target }) {
+    const { name, value } = target;
     this.setState({
-      searchText: target.value,
+      [name]: value,
     });
   }
 
@@ -29,18 +31,18 @@ class App extends React.Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
     return (
       <div className="App">
         <Header />
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.onSearchTextChange }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.onBookmarkedChange }
-          selectedGenre=""
-          onSelectedGenreChange=""
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleChange }
         />
       </div>
     );
