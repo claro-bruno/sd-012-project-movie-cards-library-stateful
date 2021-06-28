@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import AddMovieInputs from './AddMovieInputs';
 import AddMovieTextArea from './AddMovieTextArea';
 import AddMovieGenre from './AddMovieGenre';
