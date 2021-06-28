@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class FilterInput extends Component {
   render() {
@@ -27,3 +28,14 @@ export default class FilterInput extends Component {
     );
   }
 }
+
+FilterInput.propTypes = {
+  type: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  labeltestid: PropTypes.string.isRequired,
+  fieldtestid: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
+};
