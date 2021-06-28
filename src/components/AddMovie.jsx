@@ -14,8 +14,16 @@ class AddMovie extends React.Component {
     };
   }
 
+  handleClick() {
+    console.log('clicou!!!');
+  }
+
   render() {
-    return 'hello';
+    return (
+      <form data-testid="add-movie-form">
+        <p>hello</p>
+      </form>
+    );
   }
 }
 
