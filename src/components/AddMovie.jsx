@@ -14,6 +14,12 @@ class AddMovie extends Component {
     //   rating: 0,
     //   genre: 'action',
     };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange({ target }) {
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [target.name]: value });
   }
 
   render() {
@@ -29,7 +35,15 @@ class AddMovie extends Component {
     } = this.state;
     return (
       <form className="form-addMovie" data-testid="add-movie-form">
-        <Input id="add-title" textLabel="Título : " name="title" value={ title } />
+        <Input
+          id="add-title"
+          dataTestidLabel="title-input-label"
+          dataTestidInput="title-input"
+          textLabel="Título"
+          onChange={ this.handleChange }
+          name="title"
+          value={ title }
+        />
         <button type="submit" onClick={ onClick }>Adicionar</button>
       </form>
     );
