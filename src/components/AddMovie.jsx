@@ -2,18 +2,18 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AddMovieForm from './AddMovieForm';
 
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
 class AddMovie extends Component {
   constructor() {
     super();
-
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = initialState;
   }
 
   handleChange = ({ target }) => {
@@ -24,12 +24,17 @@ class AddMovie extends Component {
     });
   }
 
-  render() {
+  submitButton = () => {
     const { onClick } = this.props;
+    onClick();
+    this.setState(initialState);
+  }
+
+  render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <AddMovieForm
-        onClick={ onClick }
+        onClick={ this.submitButton }
         onChange={ this.handleChange }
         title={ title }
         subtitle={ subtitle }
@@ -41,9 +46,5 @@ class AddMovie extends Component {
     );
   }
 }
-
-AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
 
 export default AddMovie;
