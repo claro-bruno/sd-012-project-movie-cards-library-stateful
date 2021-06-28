@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddStory extends Component {
   render() {
@@ -16,3 +17,9 @@ export default class AddStory extends Component {
     );
   }
 }
+
+AddStory.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+};
