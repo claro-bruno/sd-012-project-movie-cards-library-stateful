@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import SearchBar from './SearchBar';
-import MovieList from './MovieList';
-import AddMovie from './AddMovie';
+// import MovieList from './MovieList';
+// import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { movies } = this.props;
+    // const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
@@ -42,7 +42,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <div>
+        {/* <div>
           {bookmarkedOnly === false
             ? <MovieList movies={ movies } />
             : console.log('somente favoritados')}
@@ -52,19 +52,19 @@ class MovieLibrary extends Component {
           {searchText === ''
             ? <MovieList movies={ movies } />
             : <MovieList movies={ movies.filter((movie) => movie.title.includes(searchText) || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText)) } />}
-        </div>
+        </div> */}
 
-        <AddMovie onClick="xablau" // callback que permite adicionar um novo filme ao final da lista
-        />
+        {/* <AddMovie onClick="xablau" // callback que permite adicionar um novo filme ao final da lista
+        /> */}
       </div>
     );
   }
 }
 
-MovieLibrary.propTypes = {
+/* MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.object,
   ).isRequired,
-};
+}; */
 
 export default MovieLibrary;

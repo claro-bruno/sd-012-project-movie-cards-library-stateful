@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -27,8 +27,11 @@ class AddMovie extends React.Component {
 
   // eslint-disable-next-line max-lines-per-function
   render() {
-    const { onClick } = this.props;
-    const { title, handleChange, subtitle, imagePath, storyline, rating, genre } = this.state;
+    // const { onClick } = this.props;
+    const {
+      title, handleChange, subtitle, imagePath,
+      storyline, rating, genre,
+    } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input-label" data-testid="title-input-label">
@@ -108,8 +111,8 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = {
+/* AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
-};
+}; */
 
 export default AddMovie;
