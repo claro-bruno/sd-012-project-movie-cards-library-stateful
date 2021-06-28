@@ -5,8 +5,6 @@ class AddMovie extends React.Component {
   constructor() {
     super();
 
-    this.onClick = this.onClick.bind(this);
-
     this.state = {
       subtitle: '',
       title: '',
