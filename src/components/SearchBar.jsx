@@ -1,5 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import TextInput from './TextInput';
+import CheckboxInput from './CheckboxInput';
+import SelectInput from './SelectInput';
 
 class SearchBar extends React.Component {
   render() {
@@ -12,42 +15,34 @@ class SearchBar extends React.Component {
       onSelectedGenreChange,
     } = this.props;
 
+    const options = [
+      { value: '', text: 'Todos' },
+      { value: 'action', text: 'Ação' },
+      { value: 'comedy', text: 'Comédia' },
+      { value: 'thriller', text: 'Suspense' },
+    ];
+
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="text-input" data-testid="text-input-label">
-          Inclui o texto
-          <input
-            type="text"
-            data-testid="text-input"
-            name="search-bar"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-          />
-        </label>
-        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            type="checkbox"
-            data-testid="checkbox-input"
-            name="favorite-only"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-          />
-        </label>
-        <label htmlFor="filter" data-testid="select-input-label">
-          Filtrar por gênero
-          <select
-            data-testid="select-input"
-            name="filter"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-          >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        <TextInput
+          text="Inclui o texto"
+          name="search-bar"
+          value={ searchText }
+          onChange={ onSearchTextChange }
+        />
+        <CheckboxInput
+          text="Mostrar somente favoritos"
+          name="favorite-only"
+          checked={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
+        />
+        <SelectInput
+          text="Filtrar por gênero"
+          name="filter"
+          value={ selectedGenre }
+          onChange={ onSelectedGenreChange }
+          options={ options }
+        />
       </form>
     );
   }
