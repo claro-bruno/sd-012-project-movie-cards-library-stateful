@@ -27,6 +27,7 @@ export default class MovieLibrary extends Component {
     this.changeText = this.changeText.bind(this);
     this.bookmarkedToggle = this.bookmarkedToggle.bind(this);
     this.changeGenre = this.changeGenre.bind(this);
+    this.changeParentThis = this.changeState.bind(this);
   }
 
   changeText(e) {
@@ -83,14 +84,18 @@ export default class MovieLibrary extends Component {
     }
   }
 
-  async movieAdd(movie) {
-    this.setState((previous) => {
+  async changeState(movie, props) {
+    props.setState((previous) => {
       const newMovies = [...previous.movies];
       newMovies.push(movie);
       return { movies: newMovies };
     });
-    const { callback } = this.props;
-    await callback(movie);
+  }
+
+  movieAdd(movie) {
+    const { parentThis } = this.props;
+    this.changeState(movie, this);
+    this.changeState(movie, parentThis);
   }
 
   render() {
@@ -119,10 +124,10 @@ export default class MovieLibrary extends Component {
 }
 
 MovieLibrary.defaultProps = {
-  callback: undefined,
+  parentThis: undefined,
 };
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  callback: PropTypes.func,
+  parentThis: PropTypes.arrayOf(PropTypes.object),
 };
