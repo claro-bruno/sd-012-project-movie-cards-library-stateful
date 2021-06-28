@@ -5,7 +5,11 @@ class SearchBar extends React.Component {
   render() {
     // const { filter } = this.props;
     // const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = filter;
-    return 'xablau';
+    return (
+      <form data-testid="search-bar-form">
+        <input type="text" />
+      </form>
+    );
   }
 }
 
