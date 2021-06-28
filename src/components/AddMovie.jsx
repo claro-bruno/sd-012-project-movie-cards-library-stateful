@@ -4,6 +4,7 @@ import InputTitulo from './InputTitulo';
 import InputText from './InputText';
 import InputImg from './InputImg';
 import Textarea from './Textarea';
+import InputNumber from './InputNumber';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -13,19 +14,20 @@ export default class AddMovie extends Component {
       title: '',
       imagePath: '',
       storyline: '',
-      //  rating: 0,
+      rating: 0,
       //  genre: 'action',
     };
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputTitulo title={ title } />
-        <InputText onChange={ subtitle } />
-        <InputImg onChange={ imagePath } />
-        <Textarea onChange={ storyline } />
+        <InputText subtitle={ subtitle } />
+        <InputImg imagePath={ imagePath } />
+        <Textarea storyline={ storyline } />
+        <InputNumber rating={ rating } />
       </form>
     );
   }
