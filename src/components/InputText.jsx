@@ -10,6 +10,7 @@ class Input extends React.Component {
       inputType,
       inputValue,
       onChangeInput,
+      checkedInput,
     } = this.props;
     return (
       <label data-testid={ labelId } htmlFor={ inputId }>
@@ -18,6 +19,7 @@ class Input extends React.Component {
           data-testid={ inputId }
           type={ inputType }
           value={ inputValue }
+          checked={ checkedInput }
           onChange={ onChangeInput }
         />
       </label>
@@ -32,6 +34,7 @@ Input.propTypes = {
   inputType: PropTypes.string.isRequired,
   inputValue: PropTypes.func.isRequired,
   onChangeInput: PropTypes.func.isRequired,
+  checkedInput: PropTypes.string.isRequired,
 };
 
 export default Input;
