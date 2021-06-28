@@ -1,5 +1,6 @@
 import React from 'react';
 import GenericInput from './GenericInput';
+import AddMovieSelect from './AddMovieSelect';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -67,6 +68,7 @@ class AddMovie extends React.Component {
             onChange={ this.onChangeHandler }
           />
         </label>
+        <AddMovieSelect onChange={ this.onChangeHandler } />
       </form>
     );
   }
