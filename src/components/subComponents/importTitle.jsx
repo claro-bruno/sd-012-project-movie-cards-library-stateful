@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class ImportTitles extends React.Component {
+class ImportTitle extends React.Component {
   render() {
     const { handleChange, importMovieTitle } = this.props;
     return (
@@ -20,9 +20,9 @@ class ImportTitles extends React.Component {
   }
 }
 
-ImportTitles.propTypes = {
+ImportTitle.propTypes = {
   handleChange: PropTypes.func.isRequired,
   importMovieTitle: PropTypes.string.isRequired,
 };
 
-export default ImportTitles;
+export default ImportTitle;
