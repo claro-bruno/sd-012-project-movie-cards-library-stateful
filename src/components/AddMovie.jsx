@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import TextInput from './TextInput';
+import TextAreaInput from './TextAreaInput';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -52,16 +53,13 @@ class AddMovie extends Component {
           value={imagePath}
           handleChange={this.handleChange}
         />
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            type="text"
-            data-testid="storyline-input"
-            name="storyline"
-            value={storyline}
-            onChange={this.handleChange}
-          />
-        </label>
+        <TextAreaInput
+          id="storyline"
+          label="Sinopse"
+          name="storyline"
+          value={storyline}
+          handleChange={this.handleChange}
+        />
         <label htmlFor="rating-input" data-testid="rating-input-label">
           Avaliação
           <input
