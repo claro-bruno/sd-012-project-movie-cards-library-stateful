@@ -1,8 +1,10 @@
 import React from 'react';
-import AddMovieImg from './AddMovieComponents/AddMovieImg';
 import AddMovieSubtitle from './AddMovieComponents/AddMovieSubtitle';
 import AddMovieTitle from './AddMovieComponents/AddMovieTitle';
+import AddMovieImg from './AddMovieComponents/AddMovieImg';
 import AddMovieStoryLine from './AddMovieComponents/AddMovieStoryLine';
+import AddMovieRating from './AddMovieComponents/AddMovieRating';
+import AddMovieGenre from './AddMovieComponents/AddMovieGenre';
 
 class AddMovie extends React.Component {
   render() {
@@ -12,6 +14,8 @@ class AddMovie extends React.Component {
         <AddMovieSubtitle />
         <AddMovieImg />
         <AddMovieStoryLine />
+        <AddMovieRating />
+        <AddMovieGenre />
       </form>
     );
   }
