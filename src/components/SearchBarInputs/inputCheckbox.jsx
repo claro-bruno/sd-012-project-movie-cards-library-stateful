@@ -3,6 +3,7 @@ import React from 'react';
 class InputCheckbox extends React.Component {
 
   render() {
+    const {checkedId, onChangeCheck} = this.props
     return <>
       <label
       htmlFor="inputCheckbox"
@@ -11,8 +12,8 @@ class InputCheckbox extends React.Component {
         <input
           type="checkbox"
           id="inputCheckbox"
-          checked={bookmarkedOnly}
-          onChange={onBookmarkedChange}
+          checked={checkedId}
+          onChange={onChangeCheck}
           data-testid="checkbox-input"
         />
       </label>

@@ -16,7 +16,7 @@ class App extends React.Component {
     }
   }
   
-  
+
 
   render() {
     return (
@@ -24,7 +24,7 @@ class App extends React.Component {
         <Header />
         <SearchBar 
           searchText=''
-          onSearchTextChange=''
+          onSearchTextChange={() => console.log('oi')}
           bookmarkedOnly=''
           onBookmarkedChange=''
           selectedGenre=''

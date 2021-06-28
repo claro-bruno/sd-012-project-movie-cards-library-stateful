@@ -12,9 +12,9 @@ class SearchBar extends React.Component {
        onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props
     return <>
     <form data-testid="search-bar-form">
-      <InputText value={searchText} onChange={onSearchTextChange} />
-      <InputCheckbox checked={bookmarkedOnly} onChange={onBookmarkedChange} />
-      <InputSelect vallue={selectedGenre} onChange={onSelectedGenreChange} />
+      <InputText valueId={searchText} onChangeEvent={onSearchTextChange} />
+      <InputCheckbox checkedId={bookmarkedOnly} onChangeCheck={onBookmarkedChange} />
+      <InputSelect selectValue={selectedGenre} onChangeSelect={onSelectedGenreChange} />
     </form>
     </>
   }
