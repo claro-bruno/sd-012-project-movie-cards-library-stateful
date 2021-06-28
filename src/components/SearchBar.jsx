@@ -1,1 +1,29 @@
-// implement SearchBar component here
+import React from 'react';
+
+class SearchBar extends React.Component {
+  render() {
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
+    return (
+      <form data-testid="search-bar-form">
+        <label data-testid="text-input-label" htmlFor="search-input">
+          Inclui o texto:
+          <input data-testid="text-input" name="search-input" value={ searchText } onChange={ onSearchTextChange } type="text" />
+        </label>
+
+        <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
+          <input type="checkbox" checked={ bookmarkedOnly } onChange={ onBookmarkedChange } data-testid="checkbox-input" name="checkbox-input" />
+          Mostrar somente favoritos
+        </label>
+      </form>
+    );
+  }
+}
+
+export default SearchBar;
