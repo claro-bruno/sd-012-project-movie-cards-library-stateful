@@ -23,8 +23,18 @@ class SearchBar extends Component {
             inputValue={ searchText }
             onChangeInput={ onSearchTextChange }
             inputTestId="text-input"
-            inputId="text-includes"
+            inputId="input-includes"
             inputName="includes"
+          />
+          <Input
+            inputLabel="Mostrar somente favoritos"
+            inputLabelTestId="checkbox-input-label"
+            inputValue="favorites"
+            inputChecked={ bookmarkedOnly }
+            onChangeInput={ onBookmarkedChange }
+            inputId="input-favorite"
+            inputTestId="checkbox-input"
+            inputName="favorites"
           />
         </form>
       </section>

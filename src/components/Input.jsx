@@ -10,6 +10,7 @@ class Input extends Component {
       inputLabelTestId,
       inputType,
       inputName,
+      inputChecked,
       inputValue,
       onChangeInput,
       inputIsRequired,
@@ -25,6 +26,7 @@ class Input extends Component {
           type={ inputType }
           name={ inputName }
           value={ inputValue }
+          checked={ inputChecked }
           onChange={ onChangeInput }
           required={ inputIsRequired }
           maxLength={ inputMaxlength }
@@ -42,6 +44,7 @@ Input.propTypes = {
   inputType: PropTypes.string,
   inputName: PropTypes.string.isRequired,
   inputValue: PropTypes.string.isRequired,
+  inputChecked: PropTypes.bool,
   onChangeInput: PropTypes.func.isRequired,
   inputIsRequired: PropTypes.bool,
   inputMaxlength: PropTypes.number,
@@ -51,6 +54,7 @@ Input.defaultProps = {
   inputType: 'text',
   inputTestId: '',
   inputLabelTestId: '',
+  inputChecked: false,
   inputIsRequired: true,
   inputMaxlength: 1000,
 };
