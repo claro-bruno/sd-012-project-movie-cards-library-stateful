@@ -15,10 +15,12 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: '',
     };
+    console.log(this.state);
   }
 
   render() {
     const { onClick } = this.props;
+    console.log(onClick);
     return (
       <div>
         <form data-testid="add-movie-form">
