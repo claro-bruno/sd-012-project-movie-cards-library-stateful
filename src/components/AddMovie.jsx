@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import TextArea from './TextArea';
 import SetRating from './SetRating';
 import SelectGenre from './SelectGenre';
+import AddMovieBtn from './AddMovieBtn';
 
 export default class AddMovie extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ export default class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(event) {
@@ -27,9 +29,23 @@ export default class AddMovie extends Component {
     });
   }
 
+  handleClick() {
+    const { onClick } = this.props;
+    const { movie } = this.state;
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+    onClick(movie);
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { handleChange } = this;
+    const { handleChange, handleClick } = this;
 
     return (
       <form data-testid="add-movie-form">
@@ -66,6 +82,7 @@ export default class AddMovie extends Component {
         <TextArea handleChange={ handleChange } storyline={ storyline } />
         <SetRating handleChange={ handleChange } rating={ rating } />
         <SelectGenre handleChange={ handleChange } genre={ genre } />
+        <AddMovieBtn onClick={ handleClick } />
       </form>
     );
   }
