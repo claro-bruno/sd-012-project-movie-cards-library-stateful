@@ -83,12 +83,14 @@ export default class MovieLibrary extends Component {
     }
   }
 
-  movieAdd(movie) {
+  async movieAdd(movie) {
     this.setState((previous) => {
       const newMovies = [...previous.movies];
       newMovies.push(movie);
       return { movies: newMovies };
     });
+    const { callback } = this.props;
+    await callback(movie);
   }
 
   render() {
@@ -117,6 +119,11 @@ export default class MovieLibrary extends Component {
   }
 }
 
+MovieLibrary.defaultProps = {
+  callback: undefined,
+};
+
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  callback: PropTypes.func,
 };
