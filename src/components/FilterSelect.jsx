@@ -9,7 +9,7 @@ export default class FilterSelect extends Component {
       <label
         htmlFor="genre-filter"
         data-testid="select-input-label"
-        id="select-input-label"
+        className="select-input-label"
       >
         Filtrar por gênero
         <select

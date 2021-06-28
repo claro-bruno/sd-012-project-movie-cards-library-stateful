@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FilterInput from './FilterInput';
-// import GenreOption from './GenreOption';
 import FilterSelect from './FilterSelect';
 
 export default class SearchBar extends Component {

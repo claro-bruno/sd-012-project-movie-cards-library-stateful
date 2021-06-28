@@ -14,7 +14,7 @@ export default class FilterInput extends Component {
       checked } = this.props;
 
     return (
-      <label htmlFor={ id } data-testid={ labeltestid } id={ labeltestid }>
+      <label htmlFor={ id } data-testid={ labeltestid } className={ labeltestid }>
         {label}
         <input
           type={ type }
