@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import ButtonAddMovie from './ButtonAddMovie';
+import SelectGenre from './SelectGenre';
+import RatingForAddMovie from './RatingForAddMovie';
+import TextAreaForAddMovie from './TextAreaForAddMovie';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -9,6 +13,10 @@ class AddMovie extends Component {
     this.state = {
       subtitle: '',
       title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     };
   }
 
@@ -19,9 +27,23 @@ class AddMovie extends Component {
     });
   }
 
+  handleClick() {
+    const { onClick } = this.props;
+    const { movie } = this.state;
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+    onClick(movie);
+  }
+
   render() {
-    const { handleChange } = this;
-    const { subtitle, title } = this.state;
+    const { handleClick, handleChange } = this;
+    const { subtitle, title, storyline, imagePath, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title">
@@ -44,6 +66,20 @@ class AddMovie extends Component {
             data-testid="subtitle-input"
           />
         </label>
+        <label data-testid="image-input-label" htmlFor="imagePath">
+          Imagem
+          <input
+            name="imagePath"
+            type="text"
+            value={ imagePath }
+            onChange={ handleChange }
+            data-testid="image-input"
+          />
+        </label>
+        <TextAreaForAddMovie handleChange={ handleChange } storyline={ storyline } />
+        <RatingForAddMovie handleChange={ handleChange } rating={ rating } />
+        <SelectGenre handleChange={ handleChange } genre={ genre } />
+        <ButtonAddMovie handleClick={ handleClick } />
       </form>
     );
   }
