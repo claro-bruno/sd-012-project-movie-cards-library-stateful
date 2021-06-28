@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
@@ -7,8 +8,18 @@ class MovieLibrary extends React.Component {
     super(props);
 
     this.state = {
-
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre:'',
+      movies: props.movies,
     };
+  }
+
+  onChangeHandlerML({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    })
   }
 
   onClick(objeto) {
@@ -16,9 +27,19 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
+    const { props, state } = this;
+    const { movies } = props;
     return (
       <div>
-        <SearchBar />
+        <SearchBar
+          searchText={ state.searchText }
+          onSearchTextChange={ this.onChangeHandlerML }
+          bookmarkedOnly= { state.bookmarkedOnly }
+          onBookmarkedChange= { this.onChangeHandlerML }
+          selectedGenre= { state.selectedGenre }
+          onSelectedGenreChange = { this.onChangeHandlerML }
+        />
+        <MovieList />
         <AddMovie onClick={ this.onClick } />
       </div>
     );
