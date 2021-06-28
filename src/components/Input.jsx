@@ -43,8 +43,8 @@ Input.propTypes = {
   inputType: PropTypes.string.isRequired,
   inputValue: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number
-  ]), 
+    PropTypes.number,
+  ]),
   inputOnChange: PropTypes.func.isRequired,
   inputChecked: PropTypes.bool,
 };

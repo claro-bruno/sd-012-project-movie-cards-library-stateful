@@ -26,14 +26,14 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
 
   onChangeHandler({ target }) {
     const { name, value } = target;
     this.setState({
       [name]: value,
-    })
+    });
   }
 
   onClickHandler(onClick) {
@@ -42,41 +42,35 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { props } = this;
+    const { props, state } = this;
     const { onClick } = props;
     return (
       <form data-testid="add-movie-form">
         {INPUT_INFOS.map((input) => (
-          <Input 
+          <Input
             key={ input.Name }
             labelDataTestId={ input.labelDataTestId }
             inputLabel={ input.Label }
             inputDataTestId={ input.DataTestId }
             inputName={ input.Name }
             inputType={ input.Type }
-            inputValue={ this.state[input.Name] }
+            inputValue={ state[input.Name] }
             inputOnChange={ this.onChangeHandler }
           />
         ))}
-        <label
-          htmlFor="storyline" 
-          data-testid="storyline-input-label"
-        >
+        <label htmlFor="storyline" data-testid="storyline-input-label">
           Sinopse
           <textarea
             name="storyline"
-            value={ this.state.storyline }
+            value={ state.storyline }
             data-testid="storyline-input"
             onChange={ this.onChangeHandler }
           />
         </label>
-        <label 
-          htmlFor="genre"
-          data-testid="genre-input-label"
-        >
+        <label htmlFor="genre" data-testid="genre-input-label">
           Gênero
-          <select 
-            name="genre" 
+          <select
+            name="genre"
             onChange={ this.onChangeHandler }
             data-testid="genre-input"
           >
@@ -85,11 +79,13 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button 
+        <button
           type="button"
           data-testid="send-button"
-          onClick={ () => this.onClickHandler('teste') }
-        >Adicionar filme</button>
+          onClick={ () => this.onClickHandler(onClick) }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
@@ -97,6 +93,6 @@ class AddMovie extends React.Component {
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
-}
+};
 
 export default AddMovie;
