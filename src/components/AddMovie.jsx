@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import InputsAddMovie from './InputsAddMovie';
+import SelectAddMovie from './SelectAddMovie';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleReset = this.handleReset.bind(this);
 
     this.state = {
       subtitle: '',
@@ -22,6 +24,17 @@ class AddMovie extends React.Component {
     const { name, value } = target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  handleReset() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -55,45 +68,21 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="genre-input" data-testid="genre-input-label">
-          Gênero
-          <select
-            name="genre"
-            value={ genre }
-            data-testid="genre-input"
-            onChange={ this.handleChange }
-          >
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
-        Bora passar no lint com:
-        {`${onClick}`}
+        <SelectAddMovie genre={ genre } handleChange={ this.handleChange } />
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ () => {
+            onClick(this.state);
+            this.handleReset();
+          } }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
-
-// const data = [
-//   { name: 'title', value: title, tid: 'title-input', desc: 'Título' },
-//   { name: 'subtitle', value: subtitle, tid: 'subtitle-input', desc: 'Subtítulo' },
-//   { name: 'imagePath', value: imagePath, tid: 'image-input', desc: 'Imagem' },
-// ];
-
-// {data.map((datum, key) => {
-//   return (
-//   <label key={ key } htmlFor={ datum.tid } data-tid={ `${datum.tid}-label` }>
-//     {datum.desc}
-//     <input
-//       name={ datum.name }
-//       type={ datum.type }
-//       value={ datum.value }
-//       data-testid={ datum.id }
-//       onChange={ () => this.handleChange(event) }
-//     />
-//   </label>
-// )})}
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
