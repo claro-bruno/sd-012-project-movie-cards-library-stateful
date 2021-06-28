@@ -30,22 +30,22 @@ class AddMovie extends Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
 
     return (
       <section>
         <form data-testid="add-movie-form">
-          <Input
-            inputLabel="Título"
-            inputLabelTestId="title-input-label"
+          <Input 
+            inputLabel="Título" 
+            inputLabelTestId="title-input-label" 
             inputValue={ title }
-            onChangeInput={ this.handleChange }
-            inputId="add-title"
-            inputTestId="title-input"
+            onChangeInput={ this.handleChange } 
+            inputId="add-title" 
+            inputTestId="title-input" 
             inputName="title"
           />
-          <Input
-            inputLabel="Subtítulo"
+          <Input 
+            inputLabel="Subtítulo" 
             inputLabelTestId="subtitle-input-label"
             inputValue={ subtitle }
             onChangeInput={ this.handleChange }
@@ -70,6 +70,16 @@ class AddMovie extends Component {
             textareaId="add-storyline"
             textareaTestId="storyline-input"
             textareaName="storyline"
+          />
+          <Input
+            inputType="number"
+            inputLabel="Avaliação"
+            inputLabelTestId="rating-input-label"
+            inputValue={ rating }
+            onChangeInput={ this.handleChange }
+            inputId="add-rating"
+            inputTestId="rating-input"
+            inputName="rating"
           />
         </form>
       </section>
