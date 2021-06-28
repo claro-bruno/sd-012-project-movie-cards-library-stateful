@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Input from './Input';
 
 class AddMovie2 extends React.Component {
@@ -49,5 +50,12 @@ class AddMovie2 extends React.Component {
     );
   }
 }
+
+AddMovie2.propTypes = {
+  storyline: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  genre: PropTypes.string.isRequired,
+  change: PropTypes.func.isRequired,
+};
 
 export default AddMovie2;
