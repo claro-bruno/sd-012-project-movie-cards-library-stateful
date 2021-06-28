@@ -1,4 +1,5 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
@@ -25,7 +26,7 @@ class SearchBar extends React.Component {
           Mostrar somente favoritos
           <input
             type="checkbox"
-            name='bookmarkedOnly'
+            name="bookmarkedOnly"
             data-testid="checkbox-input"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
@@ -35,5 +36,12 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = ({
+  searchText: Proptypes.string,
+  onSearchTextChange: Proptypes.func,
+  bookmarkedOnly: Proptypes.bool,
+  onBookmarkedChange: Proptypes.func,
+}).isRequired;
 
 export default SearchBar;
