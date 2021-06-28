@@ -8,22 +8,22 @@ class SearchBar extends React.Component {
     return (
       <form data-testid="search-bar-form">
         <label data-testid="text-input-label">
+          Inclui o texto:
           <input
+            type="text"
             data-testid="text-input"
             value={ searchText }
             onChange={ onSearchTextChange }
-          >
-            Inclui o texto:
-          </input>
+          />
         </label>
         <label data-testid="checkbox-input-label">
+          Mostrar somente favoritos
           <input
+            type="checkbox"
             data-testid="checkbox-input"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
-          >
-            Mostrar somente favoritos
-          </input>
+          />
         </label>
         <select
           data-testid="select-input"
