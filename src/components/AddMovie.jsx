@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import ImagePath from './ImagePath';
 import Storyline from './Storyline';
+import GenreInput from './GenreInput';
 
 
 class AddMovie extends React.Component {
@@ -62,6 +63,10 @@ class AddMovie extends React.Component {
           title="Avaliação"
           name="rating"
           value={ rating }
+          func={ this.handleChange }
+        />
+        <GenreInput
+          value={ genre }
           func={ this.handleChange }
         />
       </form>
