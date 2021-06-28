@@ -31,8 +31,8 @@ body {
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  min-height: 450px;
   margin: 5px;
+  min-height: 450px;
   overflow: hidden;
   width: 300px;
 }
@@ -83,32 +83,32 @@ body {
 }
 
 .filter-style {
-  display: flex;
-  justify-content: space-around;
   align-items: center;
+  display: flex;
   height: 80px;
+  justify-content: space-around;
 }
 
 .fieldset-style {
+  align-items: center;
   background-color: #343a40;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  color: white;
   padding: 30px;
 }
 
 .label-style {
-  text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: Lucida Sans , Lucida Sans Regular , Lucida Grande , sans-serif;
   font-weight: 700;
+  text-align: center;
 }
 
 .button-style, .button-style:hover {
-  color:#fff;
-  background-color:#3f51b5;
-  border:none;
+  background-color: #3f51b5;
+  border: none;
   border-radius: 3%;
+  color: white;
   padding: 8px 16px;
 }
