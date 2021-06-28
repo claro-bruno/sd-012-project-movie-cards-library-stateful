@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import GenericInput from './GenericInput';
 import AddMovieSelect from './AddMovieSelect';
+import AddMovieTextarea from './AddMovieTextarea';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -22,8 +24,13 @@ class AddMovie extends React.Component {
     console.log(name);
   }
 
+  sendBtn() {
+    console.log('test');
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <GenericInput
@@ -50,28 +57,30 @@ class AddMovie extends React.Component {
           type="text"
           onChange={ this.onChangeHandler }
         />
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyline"
-            id="storyline-input"
-            value={ storyline }
-            data-testid="storyline-input"
-            onChange={ this.onChangeHandler }
-          />
-          <GenericInput
-            label="Avaliação"
-            name="rating"
-            id="rating-input"
-            value={ rating }
-            type="number"
-            onChange={ this.onChangeHandler }
-          />
-        </label>
-        <AddMovieSelect onChange={ this.onChangeHandler } />
+        <GenericInput
+          label="Avaliação"
+          name="rating"
+          id="rating-input"
+          value={ rating }
+          type="number"
+          onChange={ this.onChangeHandler }
+        />
+        <AddMovieTextarea onChange={ this.onChangeHandler } storyline={ storyline } />
+        <AddMovieSelect onChange={ this.onChangeHandler } value={ genre } />
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ onClick }
+        >
+          Adicionar Filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
