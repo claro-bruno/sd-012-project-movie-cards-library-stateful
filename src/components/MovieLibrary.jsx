@@ -42,8 +42,18 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies } // passa filmes filtrados falta fazer requisito 18 
-        />
+        <div>
+          {/* {bookmarkedOnly === false
+            ? <MovieList movies={ movies } />
+            : console.log('somente favoritados')} */}
+
+          {selectedGenre === ''
+            ? <MovieList movies={ movies } />
+            : <MovieList movies={ movies.filter((movie) => movie.genre === selectedGenre) } />}
+
+
+        </div>
+
         {/* <AddMovie onClick="xablau" // callback que permite adicionar um novo filme ao final da lista /> */}
       </div>
     );
