@@ -6,21 +6,25 @@ import Imagem from './AddMovieComponents/Imagem';
 import Sinopse from './AddMovieComponents/Sinopse';
 import Avaliacao from './AddMovieComponents/Avaliacao';
 import Genero from './AddMovieComponents/Genero';
+import propTypes from 'prop-types';
+
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+}
 
 class AddMovie extends React.Component {
   constructor() {
     super();
 
     this.handleAddMovies = this.handleAddMovies.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = initialState;
   }
 
   handleAddMovies({ target }) {
@@ -31,9 +35,13 @@ class AddMovie extends React.Component {
     });
   }
 
+  handleClick() {
+    this.setState(initialState);
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-
+    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <Titulo
@@ -69,7 +77,7 @@ class AddMovie extends React.Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ this.handleAddMovies }
+          onClick={ (event) => {event.preventDefault(); this.handleClick(); onClick()} }
         >
           Adicionar filme
         </button>
@@ -78,5 +86,11 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: propTypes.func.isRequired,
+};
+
+
 
 export default AddMovie;
