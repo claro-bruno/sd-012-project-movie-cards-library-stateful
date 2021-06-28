@@ -21,7 +21,7 @@ class RatingInput extends Component {
 }
 
 RatingInput.propTypes = {
-  valueRatingInput: PropTypes.func.isRequired,
+  valueRatingInput: PropTypes.number.isRequired,
   handleChangeRating: PropTypes.func.isRequired,
 };
 

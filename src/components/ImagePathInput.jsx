@@ -21,7 +21,7 @@ class ImagePathInput extends Component {
 }
 
 ImagePathInput.propTypes = {
-  valueImageInput: PropTypes.func.isRequired,
+  valueImageInput: PropTypes.string.isRequired,
   handleChangeImage: PropTypes.func.isRequired,
 };
 
