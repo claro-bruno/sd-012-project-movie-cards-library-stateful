@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
@@ -11,8 +12,8 @@ class AddMovie extends Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyLine: '',
-      // rating: 0,
+      storyLine: '',
+      rating: 0,
       // genre: 'action',
     };
   }
@@ -25,13 +26,14 @@ class AddMovie extends Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyLine, rating } = this.state;
 
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
+            type="text"
             name="title"
             value={ title }
             data-testid="title-input"
@@ -41,6 +43,7 @@ class AddMovie extends Component {
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
           <input
+            type="text"
             name="subtitle"
             value={ subtitle }
             data-testid="subtitle-input"
@@ -50,9 +53,30 @@ class AddMovie extends Component {
         <label htmlFor="image-input" data-testid="image-input-label">
           Imagem
           <input
+            type="text"
             name="imagePath"
             value={ imagePath }
             data-testid="image-input"
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            type="text"
+            name="storyLine"
+            value={ storyLine }
+            data-testid="storyline-input"
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor="rating-input" data-testid="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            name="rating"
+            value={ rating }
+            data-testid="rating-input"
             onChange={ this.handleChange }
           />
         </label>
