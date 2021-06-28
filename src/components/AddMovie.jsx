@@ -1,6 +1,9 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import Image from './Image';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -30,38 +33,15 @@ class AddMovie extends React.Component {
     const { props, state, newCard } = this;
     const { onClick } = props;
     const { title,
-      subtitle } = state;
+      subtitle,
+      imagePath,
+      storyline } = state;
     return (
       <div>
         <form data-testid="add-movie-form">
-          <label
-            htmlFor="title"
-            data-testid="title-input-label"
-          >
-            Título
-            <input
-              type="text"
-              name="title"
-              value={ title }
-              onChange={ newCard }
-              data-testid="title-input"
-              id="title"
-            />
-          </label>
-          <label
-            htmlFor="subtitle"
-            data-testid="subtitle-input-label"
-          >
-            Subtítulo
-            <input
-              type="text"
-              name="subtitle"
-              value={ subtitle }
-              onChange={ newCard }
-              data-testid="subtitle-input"
-              id="subtitle"
-            />
-          </label>
+          <Title title={ title } newCard={ newCard } />
+          <Subtitle subtitle={ subtitle } newCard={ newCard } />
+          <Image image={ imagePath } newCard={ newCard } />
         </form>
       </div>
     );
