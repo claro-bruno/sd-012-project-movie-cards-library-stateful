@@ -32,6 +32,22 @@ export default class AddMovie extends Component {
             data-testid="storyline-input"
           />
         </label>
+        <label data-testid="rating-input-label" htmlFor="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            data-testid="rating-input"
+            defaultValue="0"
+          />
+        </label>
+        <label data-testid="genre-input-label" htmlFor="genre-input-label">
+          Gênero
+          <select data-testid="genre-input">
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
+        </label>
       </form>
     );
   }
