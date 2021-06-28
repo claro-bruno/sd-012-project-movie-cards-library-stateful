@@ -9,7 +9,12 @@ class AddMovie extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.submitMovie = this.submitMovie.bind(this);
+
     this.state = {
+      // ImportTitle: '',
+      // ImportSubtitle: '',
+      // ImagePath: '',
       importRating: 0,
     };
   }
@@ -20,13 +25,18 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  submitMovie(e) {
+    e.preventDefault();
+    console.log(e.target);
+  }
+
   render() {
-    const { importMovieTitle, importMovieSubtitle } = this.state;
+    const { importTitle, importMovieSubtitle } = this.state;
     const { imagePath, importRating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <ImportTitle
-          importMovieTitle={ importMovieTitle }
+          importMovieTitle={ importTitle }
           handleChange={ this.handleChange }
         />
         <ImportSubtitle
@@ -51,7 +61,21 @@ class AddMovie extends React.Component {
           importRating={ importRating }
           handleChange={ this.handleChange }
         />
-
+        <label htmlFor="importGenre" data-testid="genre-input-label">
+          Gênero
+          <select name="" id="importGenre" data-testid="genre-input">
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
+        </label>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.submitMovie }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
