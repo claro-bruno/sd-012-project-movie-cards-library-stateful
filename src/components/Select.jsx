@@ -8,7 +8,7 @@ class Input extends Component {
     return (
       <div className="mb-3">
         <label
-          lassName="form-label"
+          className="form-label"
           data-testid={ `${name}-input-label` }
           htmlFor={ `${name}-input` }
         >
