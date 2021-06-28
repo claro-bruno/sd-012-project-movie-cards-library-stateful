@@ -3,20 +3,21 @@ import SearchBar from './SearchBar';
 
 class MovieLibrary extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: '',
-    }
+    };
   }
+
   render() {
-    return(
+    return (
       <form>
         <SearchBar />
       </form>
-    )
+    );
   }
 }
 
