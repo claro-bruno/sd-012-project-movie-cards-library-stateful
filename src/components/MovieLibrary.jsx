@@ -15,10 +15,10 @@ class MovieLibrary extends React.Component {
       movies: props.movies,
     };
     this.handleAddMovie = this.handleAddMovie.bind(this);
-    this.searchTextChange = this.searchTextChange.bind(this);
-    this.bookmarkedChange = this.bookmarkedChange.bind(this);
-    this.selectedGenreChange = this.selectedGenreChange.bind(this);
-    this.movieFilter = this.movieFilter.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.filterMovie = this.filterMovie.bind(this);
   }
 
   handleAddMovie(movieData) {
@@ -28,25 +28,25 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  searchTextChange(evt) {
+  onSearchTextChange(evt) {
     this.setState({
       searchText: evt.target.value,
     });
   }
 
-  bookmarkedChange(evt) {
+  onBookmarkedChange(evt) {
     this.setState({
       bookmarkedOnly: evt.target.checked,
     });
   }
 
-  selectedGenreChange(evt) {
+  onSelectedGenreChange(evt) {
     this.setState({
       selectedGenre: evt.target.value,
     });
   }
 
-  movieFilter() {
+  filterMovie() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return movies
       .filter(({ genre }) => genre.includes(selectedGenre))
@@ -65,15 +65,15 @@ class MovieLibrary extends React.Component {
       <>
         <SearchBar
           searchText={ searchText }
-          searchTextChange={ this.searchTextChange }
+          searchTextChange={ this.onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
-          bookmarkedChange={ this.bookmarkedChange }
+          bookmarkedChange={ this.onBookmarkedChange }
           selectedGenre={ selectedGenre }
-          selectedGenreChange={ this.selectedGenreChange }
+          selectedGenreChange={ this.onSelectedGenreChange }
         />
 
         <MovieList
-          movies={ this.movieFilter() }
+          movies={ this.filterMovie() }
         />
 
         <AddMovie onClick={ this.handleAddMovie } />
