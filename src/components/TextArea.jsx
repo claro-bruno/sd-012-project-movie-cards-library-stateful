@@ -3,14 +3,13 @@ import PropTypes from 'prop-types';
 
 class Input extends Component {
   render() {
-    const { type, name, id, label, callback, value } = this.props;
+    const { name, label, callback, value } = this.props;
 
     return (
-      <label data-testid={ `${id}-input-label` } htmlFor={ `${id}-input` }>
+      <label data-testid={ `${name}-input-label` } htmlFor={ `${name}-input` }>
         { label }
-        <input
-          data-testid={ `${id}-input` }
-          type={ type }
+        <textarea
+          data-testid={ `${name}-input` }
           name={ name }
           onChange={ callback }
           value={ value }
@@ -21,9 +20,7 @@ class Input extends Component {
 }
 
 Input.propTypes = {
-  type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  id: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   callback: PropTypes.func.isRequired,
   value: PropTypes.oneOfType([

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from './Input';
 import Select from './Select';
+import TextArea from './TextArea';
 
 class AddMovie extends Component {
   constructor() {
@@ -24,14 +25,16 @@ class AddMovie extends Component {
     });
   }
 
+  // eslint-disable-next-line max-lines-per-function
   render() {
-    const { title, subtitle, imagePath, rating, genre } = this.state;
+    const { title, subtitle, imagePath, rating, genre, storyline } = this.state;
 
     return (
       <form data-testid="add-movie-form">
         <Input
           type="text"
           name="title"
+          id="title"
           label="Título"
           value={ title }
           callback={ this.handleChange }
@@ -40,6 +43,7 @@ class AddMovie extends Component {
         <Input
           type="text"
           name="subtitle"
+          id="subtitle"
           label="Subtítulo"
           value={ subtitle }
           callback={ this.handleChange }
@@ -48,14 +52,23 @@ class AddMovie extends Component {
         <Input
           type="text"
           name="imagePath"
+          id="image"
           label="Imagem"
           value={ imagePath }
+          callback={ this.handleChange }
+        />
+
+        <TextArea
+          name="storyline"
+          label="Sinopse"
+          value={ storyline }
           callback={ this.handleChange }
         />
 
         <Input
           type="number"
           name="rating"
+          id="rating"
           label="Avaliação"
           value={ rating }
           callback={ this.handleChange }
