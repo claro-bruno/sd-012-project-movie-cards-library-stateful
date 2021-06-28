@@ -30,8 +30,13 @@ class AddMovie extends React.Component {
 
   renderTitle = (title) => {
     const item = (
-      <label htmlFor="title-input-label" data-testid="title-input-label">
+      <label
+        className="label-style"
+        htmlFor="title-input-label"
+        data-testid="title-input-label"
+      >
         Título
+        <br />
         <input
           name="title"
           data-testid="title-input"
@@ -46,8 +51,13 @@ class AddMovie extends React.Component {
 
   renderSubtitle = (subtitle) => {
     const item = (
-      <label htmlFor="subtitle-irnput-label" data-testid="subtitle-input-label">
+      <label
+        className="label-style"
+        htmlFor="subtitle-irnput-label"
+        data-testid="subtitle-input-label"
+      >
         Subtítulo
+        <br />
         <input
           name="subtitle"
           data-testid="subtitle-input"
@@ -62,8 +72,13 @@ class AddMovie extends React.Component {
 
   renderImage = (imagePath) => {
     const item = (
-      <label htmlFor="image-input-label" data-testid="image-input-label">
+      <label
+        className="label-style"
+        htmlFor="image-input-label"
+        data-testid="image-input-label"
+      >
         Imagem
+        <br />
         <input
           name="imagePath"
           data-testid="image-input"
@@ -78,8 +93,13 @@ class AddMovie extends React.Component {
 
   renderSinopse = (storyline) => {
     const item = (
-      <label htmlFor="storyline-input-label" data-testid="storyline-input-label">
+      <label
+        className="label-style"
+        htmlFor="storyline-input-label"
+        data-testid="storyline-input-label"
+      >
         Sinopse
+        <br />
         <textarea
           name="storyline"
           data-testid="storyline-input"
@@ -93,12 +113,19 @@ class AddMovie extends React.Component {
 
   renderRating = (rating) => {
     const item = (
-      <label htmlFor="rating-input-label" data-testid="rating-input-label">
+      <label
+        className="label-style"
+        htmlFor="rating-input-label"
+        data-testid="rating-input-label"
+      >
         Avaliação
+        <br />
         <input
           name="rating"
           data-testid="rating-input"
           type="number"
+          min="0"
+          max="5"
           value={ rating }
           onChange={ this.handleChange }
         />
@@ -109,8 +136,13 @@ class AddMovie extends React.Component {
 
   renderGenre = (genre) => {
     const item = (
-      <label htmlFor="genre-input-label" data-testid="genre-input-label">
+      <label
+        className="label-style"
+        htmlFor="genre-input-label"
+        data-testid="genre-input-label"
+      >
         Gênero
+        <br />
         <select
           name="genre"
           value={ genre }
@@ -130,6 +162,7 @@ class AddMovie extends React.Component {
     const item = (
       <button
         type="button"
+        className="button-style"
         data-testid="send-button"
         onClick={ () => this.resetStateAddMovie(onClick) }
       >
@@ -144,13 +177,15 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
-        { this.renderTitle(title) }
-        { this.renderSubtitle(subtitle) }
-        { this.renderImage(imagePath) }
-        { this.renderSinopse(storyline) }
-        { this.renderRating(rating) }
-        { this.renderGenre(genre) }
-        { this.renderButton(onClick) }
+        <fieldset className="fieldset-style">
+          { this.renderTitle(title) }
+          { this.renderSubtitle(subtitle) }
+          { this.renderImage(imagePath) }
+          { this.renderSinopse(storyline) }
+          { this.renderRating(rating) }
+          { this.renderGenre(genre) }
+          { this.renderButton(onClick) }
+        </fieldset>
       </form>
     );
   }
