@@ -5,6 +5,10 @@ import SearchBar from './SearchBar';
 import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
+  placeHolderFunction() {
+    console.log('test');
+  }
+
   render() {
     const { movies } = this.props;
 
@@ -12,9 +16,11 @@ class MovieList extends React.Component {
       <main className="main">
         <SearchBar
           searchText=""
-          onSearchTextChange=""
-          bookmarkedOnly="false"
-          onBookmarkedChange=""
+          onSearchTextChange={ this.placeHolderFunction }
+          bookmarkedOnly={ false }
+          onBookmarkedChange={ this.placeHolderFunction }
+          selectedGenre=""
+          onSelectedGenreChange={ this.placeHolderFunction }
         />
         <div data-testid="movie-list" className="movie-list">
           { movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
