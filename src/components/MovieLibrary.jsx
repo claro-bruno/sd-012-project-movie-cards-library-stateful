@@ -1,6 +1,6 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
-import movies from '../data';
+import moviesData from '../data';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -9,7 +9,7 @@ const initialState = {
   searchText: '',
   bookmarkedOnly: false,
   selectedGenre: '',
-  movies,
+  movies: moviesData,
 };
 
 export default class MovieLibrary extends Component {
@@ -17,6 +17,27 @@ export default class MovieLibrary extends Component {
     super(props);
     this.state = initialState;
     this.movieAdd = this.movieAdd.bind(this);
+    this.changeText = this.changeText.bind(this);
+  }
+
+  changeText(e) {
+    const { movies } = this.props;
+    const value = e.target.value.toLowerCase();
+    if (value !== '') {
+      const filtered = movies
+        .filter((movie) => movie.title.toLowerCase().includes(value)
+        || movie.subtitle.toLowerCase().includes(value)
+        || movie.storyline.toLowerCase().includes(value));
+      this.setState({
+        searchText: e.target.value,
+        movies: filtered,
+      });
+    } else {
+      this.setState({
+        searchText: '',
+        movies,
+      });
+    }
   }
 
   movieAdd(movie) {
@@ -29,11 +50,22 @@ export default class MovieLibrary extends Component {
   }
 
   render() {
-    const { movies } = this.state;
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+      movies,
+    } = this.state;
+
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.changeText }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
+        />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.movieAdd } />
       </div>
