@@ -12,10 +12,10 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    this.handleInput = this.handleInput.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleInput(e) {
+  handleChange(e) {
     const { value, name } = e.target;  
     this.setState({ [name]: value });
   }
@@ -23,7 +23,7 @@ class AddMovie extends React.Component {
   render() {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
-    const { handleInput } = this;
+    const { handleChange } = this;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label">
@@ -32,7 +32,7 @@ class AddMovie extends React.Component {
             type="text"
             name="title"
             value={ title }
-            onChange={ handleInput }
+            onChange={ handleChange }
             data-testid="title-input"
           />
         </label>
@@ -42,7 +42,7 @@ class AddMovie extends React.Component {
             type="text"
             name="subtitle"
             value={ subtitle }
-            onChange={ handleInput }
+            onChange={ handleChange }
             data-testid="subtitle-input"
           />
         </label>
@@ -52,7 +52,7 @@ class AddMovie extends React.Component {
             type="text"
             name="imagePath"
             value={ imagePath }
-            onChange={ handleInput }
+            onChange={ handleChange }
             data-testid="image-input"
           />
         </label>
@@ -61,7 +61,7 @@ class AddMovie extends React.Component {
           <textarea
             name="storyLine"
             value={ storyLine }
-            onChange={ handleInput }
+            onChange={ handleChange }
             data-testid="storyline-input"
           />
         </label>
@@ -71,9 +71,17 @@ class AddMovie extends React.Component {
             type="number"
             name="rating"
             value={ rating }
-            onChange={ handleInput }
+            onChange={ handleChange }
             data-testid="rating-input"
           />
+        </label>
+        <label data-testid="genre-input-label">
+          Gênero
+          <select name="genre" value={ genre } onChange={ handleChange } data-testid="genre-input">
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
         </label>
       </form>
     );
