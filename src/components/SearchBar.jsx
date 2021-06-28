@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 class SearchBar extends Component {
   render() {
     return (
-      <div> </div>
+      <div>
+        <form data-testid="search-bar-form" />
+      </div>
+
     );
   }
 }
