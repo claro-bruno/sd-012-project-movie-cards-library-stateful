@@ -19,11 +19,18 @@ export default class AddMovie extends Component {
     super();
     this.state = initialState;
     this.handleChange = this.handleChange.bind(this);
+    this.handleRateChange = this.handleRateChange.bind(this);
   }
 
   handleChange(e) {
     this.setState({
       [e.target.name]: e.target.value,
+    });
+  }
+
+  handleRateChange(e) {
+    this.setState({
+      rating: Number(e.target.value),
     });
   }
 
@@ -65,7 +72,7 @@ export default class AddMovie extends Component {
           id="rating-input"
           value={ rating }
           name="rating"
-          onChange={ this.handleChange }
+          onChange={ this.handleRateChange }
           inner="Avaliação"
         />
         <AddMovieGenre value={ genre } onChange={ this.handleChange } />
