@@ -8,8 +8,8 @@ class AddMovie extends Component {
     super();
     this.state = {
       title: '',
-    //   subtitle: '',
-    //   imagePath: '',
+      subtitle: '',
+      imagePath: '',
     //   storyline: '',
     //   rating: 0,
     //   genre: 'action',
@@ -27,8 +27,8 @@ class AddMovie extends Component {
 
     const {
       title,
-    //   subtitle,
-    //   imagePath,
+      subtitle,
+      imagePath,
     //   storyline,
     //   rating,
     //   genre,
@@ -50,8 +50,17 @@ class AddMovie extends Component {
           dataTestidInput="subtitle-input"
           textLabel="Subtítulo"
           onChange={ this.handleChange }
-          name="title"
-          value={ title }
+          name="subtitle"
+          value={ subtitle }
+        />
+        <Input
+          id="add-image"
+          dataTestidLabel="image-input-label"
+          dataTestidInput="image-input"
+          textLabel="Imagem"
+          onChange={ this.handleChange }
+          name="imagePath"
+          value={ imagePath }
         />
         <button type="submit" onClick={ onClick }>Adicionar</button>
       </form>
