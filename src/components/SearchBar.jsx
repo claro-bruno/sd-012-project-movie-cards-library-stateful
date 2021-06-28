@@ -7,9 +7,9 @@ class SearchBar extends Component {
     // const { selectedGenre, onSelectedGenreChange, onBookmarkedChange } = this.props;
 
     return (
-      <section>
-        <p>to aqui</p>
-      </section>
+      <form data-testid="search-bar-form">
+        <p>To aqui</p>
+      </form>
     );
   }
 }
