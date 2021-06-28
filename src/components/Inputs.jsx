@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Inputs extends React.Component {
   render() {
@@ -45,5 +46,13 @@ class Inputs extends React.Component {
     );
   }
 }
+
+Inputs.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default Inputs;

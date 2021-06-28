@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Inputs from './Inputs';
 import DropdownList from './DropdownList';
 
 class AddMovie extends React.Component {
@@ -39,40 +40,27 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, image, storyline, rating, genre } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <input
-          name="title"
-          label="Título"
-          onChange={ this.handleChange }
-          value={ title }
+        <Inputs
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+          storyline={ storyline }
+          handleChange={ this.handleChange }
         />
-        <input
-          name="subtitle"
-          label="Subtítulo"
-          onChange={ this.handleChange }
-          value={ subtitle }
-        />
-        <input
-          name="image"
-          label="Imagem"
-          onChange={ this.handleChange }
-          value={ image }
-        />
-        <input
-          name="storyline"
-          label="Sinopse"
-          onChange={ this.handleChange }
-          value={ storyline }
-          type="textarea"
-        />
-        <input
-          name="rating"
-          label="Avaliação"
-          onChange={ this.handleChange }
-          value={ rating }
-        />
+        <label data-testid="rating-input-label" htmlFor="rating-input">
+          Avaliação
+          <input
+            data-testid="rating-input"
+            name="rating"
+            type="number"
+            onChange={ this.handleChange }
+            value={ rating }
+          />
+        </label>
+
         <DropdownList
           value={ genre }
           onChange={ this.handleChange }
