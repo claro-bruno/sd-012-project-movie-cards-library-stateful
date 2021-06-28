@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import AddMovieInputs from './AddMovieInputs';
+import AddMovieTextArea from './AddMovieTextArea';
 
 const initialState = {
   title: '',
@@ -19,7 +20,6 @@ export default class AddMovie extends Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const image = imagePath;
     return (
       <form data-testid="add-movie-form">
         <AddMovieInputs
@@ -42,6 +42,11 @@ export default class AddMovie extends Component {
           name="imagePath"
           onChange={ this.handleChange }
           inner="Imagem"
+        />
+        <AddMovieTextArea
+          value={ storyline }
+          onChange={ this.handleChange }
+          name="storyline"
         />
       </form>
     );
