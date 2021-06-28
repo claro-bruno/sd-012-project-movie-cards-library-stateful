@@ -91,6 +91,19 @@ class AddMovie extends React.Component {
     );
   }
 
+  renderGenre() {
+    return (
+      <label data-testid="genre-input-label" htmlFor="genre-input">
+        Gênero
+        <select data-testid="genre-input" id="genre-input">
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
   render() {
     // const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -100,6 +113,7 @@ class AddMovie extends React.Component {
         { this.renderImage() }
         { this.renderStoryline() }
         { this.renderRating() }
+        { this.renderGenre() }
       </form>
     );
   }
