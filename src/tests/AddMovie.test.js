@@ -51,7 +51,7 @@ beforeEach(() => {
   genreInputLabel = queryByTestId('genre-input-label');
   genreOptions = queryAllByTestId('genre-option');
   sendButton = queryByTestId('send-button');
-});
+});q
 
 describe('6 - Crie um componente chamado `<AddMovie />`', () => {
   it('Renderize o componente', () => {
