@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from './Input';
+import AddMovie1 from './AddMovie1';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -8,6 +9,7 @@ class AddMovie extends React.Component {
       title: '',
       subtitle: '',
       imagePath: '',
+      rating: 0,
     };
   }
 
@@ -20,37 +22,10 @@ class AddMovie extends React.Component {
 
   render() {
     // const { onClick } = this.props;
-    // const { title, subtitle, imagePath, storyline, rating } = this.state;
+    // const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <Input
-          dataTestidLabel="title-input-label"
-          htmlFor="text-addmovie"
-          labelText="Título"
-          id="text-addmovie"
-          type="text"
-          name="title"
-          dataTestidInput="title-input"
-          // value={ title }
-        />
-        <Input
-          type="text"
-          labelText="Subtítulo"
-          dataTestidLabel="subtitle-input-label"
-          // value={ subtitle }
-          dataTestidInput="subtitle-input"
-          // change={ this.handleChange }
-          name="subtitle"
-        />
-        <Input
-          type="text"
-          labelText="Imagem"
-          dataTestidLabel="image-input-label"
-          // value={ imagePath }
-          dataTestidInput="image-input"
-          // change={ this.handleChange }
-          name="imagePath"
-        />
+        <AddMovie1 />
         <label
           data-testid="storyline-input-label"
           htmlFor="textarea-addmovie"
@@ -71,7 +46,25 @@ class AddMovie extends React.Component {
           // value={ rating }
           dataTestidInput="rating-input"
           change={ this.handleChange }
+          name="rating"
         />
+        <label
+          data-testid="genre-input-label"
+          htmlFor="select-addmovie"
+        >
+          Gênero
+          <select
+            id="select-addmovie"
+            // value={ genre }
+            data-testid="genre-input"
+            onChange={ this.handleChange }
+            name="genre"
+          >
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
+        </label>
       </form>
     );
   }
