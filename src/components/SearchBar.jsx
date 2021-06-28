@@ -14,8 +14,7 @@ class SearchBar extends React.Component {
     } = filter;
     return (
       <form data-testid="search-bar-form">
-        [/** Resolvi um problema do link com o htmlFor consultado no link:
-        https://stackoverflow.com/questions/54446655/eslint-rule-for-label */]
+        [/** Resolvi um problema do link com o htmlFor consultado no link: https://stackoverflow.com/questions/54446655/eslint-rule-for-label */]
         <label htmlFor="text-input-label" data-testid="text-input-label">
           Inclui o texto:
           <input
@@ -42,7 +41,8 @@ class SearchBar extends React.Component {
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
-            id="select-input-label">
+            id="select-input-label"
+          >
             <option value="" data-testid="select-option">Todos</option>
             <option value="action" data-testid="select-option">Ação</option>
             <option value="comedy" data-testid="select-option">Comédia</option>

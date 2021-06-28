@@ -28,7 +28,7 @@ class AddMovie extends React.Component {
   // eslint-disable-next-line max-lines-per-function
   render() {
     const { onClick } = this.props;
-    const { title, handleChange, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, handleChange, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input-label" data-testid="title-input-label">
@@ -84,6 +84,19 @@ class AddMovie extends React.Component {
             data-testid="rating-input"
             id="rating-input-label"
           />
+        </label>
+        <label htmlFor="genre-input-label" data-testid="genre-input-label">
+          Gênero
+          <select
+            value={ genre }
+            onChange={ handleChange }
+            data-testid="genre-input"
+            id="genre-input-label"
+          >
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
         </label>
         
       </form>
