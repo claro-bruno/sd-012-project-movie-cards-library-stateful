@@ -5,8 +5,8 @@ import Input from './Input';
 
 class SearchBar extends Component {
   render() {
-    const { searchText, onSearchTextChange /* bookmarkedOnly */ } = this.props;
-    // const { selectedGenre, onSelectedGenreChange, onBookmarkedChange } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly } = this.props;
+    const { /* selectedGenre, onSelectedGenreChange, */ onBookmarkedChange } = this.props;
 
     return (
       <form data-testid="search-bar-form">
@@ -19,6 +19,15 @@ class SearchBar extends Component {
           inputTestId="text-input"
           labelId="txtInput"
         />
+        <Input
+          label="Mostrar somente favoritos"
+          labelTestId="checkbox-input-label"
+          type="checkbox"
+          checked={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
+          inputTestId="checkbox-input"
+          labelId="checkboxInput"
+        />
       </form>
     );
   }
@@ -27,6 +36,12 @@ class SearchBar extends Component {
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func.isRequired,
+};
+
+SearchBar.defaultProps = {
+  bookmarkedOnly: false,
 };
 
 export default SearchBar;
