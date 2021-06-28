@@ -5,6 +5,8 @@ class SeachBar extends React.Component {
   render() {
     const { searchText,
       onSearchTextChange,
+      onBookmarkedChange,
+      bookmarkedOnly,
     } = this.props;
     return (
       <form data-testid="search-bar-form">
@@ -15,6 +17,15 @@ class SeachBar extends React.Component {
             data-testid="text-input"
             value={ searchText }
             onChange={ onSearchTextChange }
+          />
+        </label>
+        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input
+            type="checkbox"
+            data-testid="checkbox-input"
+            onChange={ onBookmarkedChange }
+            checked={ bookmarkedOnly }
           />
         </label>
       </form>
