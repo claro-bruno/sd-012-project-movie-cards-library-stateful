@@ -41,15 +41,20 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange="xablau" // callback pra atualizar selectedGenre
         />
-        <MovieList movies={ movies } />
-        <AddMovie onClick="xablau" />
+        <MovieList movies={ movies } // passa filmes filtrados
+        // falta fazer requisito 18
+        />
+        <AddMovie onClick="xablau" // callback que permite adicionar um novo filme ao final da lista
+        />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.array.isRequired, // ??
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
 };
 
 export default MovieLibrary;
