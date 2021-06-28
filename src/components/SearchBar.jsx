@@ -3,13 +3,16 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText } = this.props;
+    const { searchText, onSearchTextChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor>
+        <label data-testid="text-input-label" htmlFor="input">
           Inclui o texto:
           <input
+            data-testid="text-input"
+            type="text"
             value={ searchText }
+            onChange={ onSearchTextChange }
           />
         </label>
       </form>
@@ -19,6 +22,7 @@ class SearchBar extends React.Component {
 
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

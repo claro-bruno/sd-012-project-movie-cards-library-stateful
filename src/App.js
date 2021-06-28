@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar seachText="" />
+      <SearchBar searchText="" onSearchTextChange={ () => console.log('xablau') } />
     </div>
   );
 }
