@@ -43,13 +43,17 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <div>
-          {/* {bookmarkedOnly === false
+          {bookmarkedOnly === false
             ? <MovieList movies={ movies } />
-            : console.log('somente favoritados')} */}
+            : console.log('somente favoritados')}
 
           {selectedGenre === ''
             ? <MovieList movies={ movies } />
             : <MovieList movies={ movies.filter((movie) => movie.genre === selectedGenre) } />}
+
+          {searchText === ''
+            ? <MovieList movies={ movies } />
+            : <MovieList movies={ movies.filter((movie) => movie.title.includes(searchText) || movie.subtitle.includes(searchText) || movie.storyline.includes(searchText)) } />}
 
 
         </div>
