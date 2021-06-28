@@ -9,7 +9,7 @@
   border-radius: 0 0 5px 0;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 10px;
   position: fixed;
   top: 0;
   width: 30%;
@@ -19,12 +19,30 @@
   color: white;
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-align: center;
+}
+
+.add-form label input, .add-form label textarea {
+  border: none;
+  border-radius: 5px;
+  width: 80%;
 }
 
 .add-form textarea {
   height: 100px;
   resize: none;
+}
+
+.add-form .add-btn {
+  background-color: red;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  height: 50px;
+  margin: 20px auto;
+  width: 50%;
 }
 
 body {
