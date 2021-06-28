@@ -18,14 +18,15 @@ class MovieLibrary extends Component {
     this.setState = {
       inputValue: e.target.value,
     };
+    console.log(this.state.inputValue);
   }
 
   render() {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar onChange={this.handleInput}/>
-        <MovieList movies={ movies } />
+        <SearchBar parentThis={ this } />
+        <MovieList movies={ movies } inputValue={ this.state.inputValue } />
         {/* <AddMovie /> */}
       </div>
     );
