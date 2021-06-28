@@ -23,6 +23,7 @@ export default class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         <AddMovieInputs
+          type="text"
           id="title-input"
           value={ title }
           name="title"
@@ -30,6 +31,7 @@ export default class AddMovie extends Component {
           inner="Título"
         />
         <AddMovieInputs
+          type="text"
           id="subtitle-input"
           value={ subtitle }
           name="subtitle"
@@ -37,6 +39,7 @@ export default class AddMovie extends Component {
           inner="Subtítulo"
         />
         <AddMovieInputs
+          type="text"
           id="image-input"
           value={ imagePath }
           name="imagePath"
@@ -47,6 +50,14 @@ export default class AddMovie extends Component {
           value={ storyline }
           onChange={ this.handleChange }
           name="storyline"
+        />
+        <AddMovieInputs
+          type="number"
+          id="rating-input"
+          value={ rating }
+          name="rating"
+          onChange={ this.handleChange }
+          inner="Avaliação"
         />
       </form>
     );
