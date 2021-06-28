@@ -24,7 +24,7 @@ class SearchBar extends Component {
             onChangeInput={ onSearchTextChange }
             inputTestId="text-input"
             inputId="input-includes"
-            inputName="includes"
+            inputName="searchText"
           />
           <Input
             inputType="checkbox"
@@ -35,10 +35,10 @@ class SearchBar extends Component {
             onChangeInput={ onBookmarkedChange }
             inputId="input-favorite"
             inputTestId="checkbox-input"
-            inputName="favorites"
+            inputName="bookmarkedOnly"
           />
           <Select
-            selectName="genre"
+            selectName="selectedGenre"
             onChangeSelect={ onSelectedGenreChange }
             selectId="select-genre"
             selectTestId="select-input"
