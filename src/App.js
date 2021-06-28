@@ -7,7 +7,14 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar />
+      <SearchBar
+        searchText={ searchText }
+        onSearchTextChange={ onSearchTextChange }
+        bookmarkedOnly={ bookmarkedOnly }
+        onBookmarkedChange={ onBookmarkedChange }
+        selectedGenre={ selectedGenre }
+        onSelectedGenreChange={ onSelectedGenreChange }
+      />
     </div>
   );
 }
