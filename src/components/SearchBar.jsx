@@ -11,6 +11,7 @@ class SearchBar extends React.Component {
         {this.onBookmarkedChange}
         {this.selectedGenre}
         {this.onSelectedGenreChange}
+        <form data-testid="search-bar-form" />
       </section>
 
     );
