@@ -49,9 +49,18 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
+        <label htmlFor="image-input" data-testid="image-input-label">
+          Imagem
+          <input
+            name="imagePath"
+            type="text"
+            value={ imagePath }
+            data-testid="image-input"
+            onChange={ this.handleChange }
+          />
+        </label>
         Bora passar no lint com:
         { onClick }
-        { imagePath }
         { storyLine }
         { rating }
         { genre }
