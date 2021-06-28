@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       subtitle: '',
       title: '',
@@ -12,7 +12,9 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+    this.initialState = this.state;
     this.handleChange = this.handleChange.bind(this);
+    this.onClickr = this.onClickr.bind(this);
   }
 
   handleChange({ target }) {
@@ -21,9 +23,14 @@ class AddMovie extends Component {
     });
   }
 
+  onClickr() {
+    const { onClick } = this.props;
+    onClick();
+    this.setState(this.initialState);
+  }
+
   // eslint-disable-next-line max-lines-per-function
   render() {
-    const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -95,6 +102,13 @@ class AddMovie extends Component {
             </option>
           </select>
         </label>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.onClickr }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }

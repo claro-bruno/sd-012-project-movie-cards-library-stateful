@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
+  // eslint-disable-next-line max-lines-per-function
   render() {
     const {
       searchText,
