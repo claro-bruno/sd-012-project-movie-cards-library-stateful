@@ -28,38 +28,13 @@ class AddMovie extends Component {
             onChange={ this.state.title }
           />
         </label>
-        <label htmlFor="">
+        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
           <input
             type="text"
             name="subtitle"
-          />
-        </label>
-        <label htmlFor="">
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-          />
-        </label>
-        <label htmlFor="">
-          Sinopse
-          <textarea
-            name="storyline"
-          />
-        </label>
-        <label htmlFor="">
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-          />
-        </label>
-        <label htmlFor="">
-          Gênero
-          <input
-            type="text"
-            name="genre"
+            data-testid="subtitle-input"
+            onChange={ this.state.subtitle }
           />
         </label>
       </form>
