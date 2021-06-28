@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-class TextInput extends Component {
+class SelectInput extends Component {
   render() {
-    const { id, label, name, value, handleChange} = this.props
-    return(
-        <label htmlFor={`${id}-input`} data-testid={`${id}-input-label`}>
-        {label}
+    const { id, label, name, value, handleChange } = this.props;
+    return (
+      <label htmlFor={ `${id}-input` } data-testid={ `${id}-input-label` }>
+        { label }
         <select
-          data-testid={`${id}-input`}
-          name={name}
+          data-testid={ `${id}-input` }
+          name={ name }
           value={ value }
           onChange={ handleChange }
         >
@@ -27,4 +28,12 @@ class TextInput extends Component {
   }
 }
 
-export default TextInput;
+SelectInput.propTypes = {
+  id: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
+
+export default SelectInput;
