@@ -27,6 +27,7 @@ class SearchBar extends React.Component {
         <TextInput
           text="Inclui o texto"
           name="search-bar"
+          testid="text"
           value={ searchText }
           onChange={ onSearchTextChange }
         />
@@ -39,6 +40,7 @@ class SearchBar extends React.Component {
         <SelectInput
           text="Filtrar por gênero"
           name="filter"
+          testid="select"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
           options={ options }

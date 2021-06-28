@@ -1,26 +1,28 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class TextInput extends React.Component {
+class AreaInput extends React.Component {
   render() {
     const { name, value, onChange, text, testid } = this.props;
     return (
       <label htmlFor={ name } data-testid={ `${testid}-input-label` }>
         { text }
-        <input
+        <textarea
           type="text"
           data-testid={ `${testid}-input` }
           name={ name }
           id={ name }
           value={ value }
           onChange={ onChange }
+          cols="30"
+          rows="10"
         />
       </label>
     );
   }
 }
 
-TextInput.propTypes = {
+AreaInput.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -28,4 +30,4 @@ TextInput.propTypes = {
   testid: PropTypes.string.isRequired,
 };
 
-export default TextInput;
+export default AreaInput;
