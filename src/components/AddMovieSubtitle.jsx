@@ -11,7 +11,7 @@ class AddMovieSubtitle extends Component {
           type="text"
           id="subtitle-input"
           data-testid="subtitle-input"
-          name="title"
+          name="subtitle"
           value={ subtitle }
           onChange={ handle }
         />

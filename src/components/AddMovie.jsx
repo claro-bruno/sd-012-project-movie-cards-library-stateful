@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddMovieTitle from './AddMovieTitle';
 import AddMovieSubtitle from './AddMovieSubtitle';
+import AddMovieImagePath from './AddMovieImagePath'
 
 class AddMovie extends Component {
   constructor() {
@@ -24,12 +25,13 @@ handle = ({ target }) => {
 
 render() {
   const { onClick } = this.props;
-  const { title, subtitle } = this.state;
+  const { title, subtitle, imagePath } = this.state;
   return (
     <div>
       <form data-testid="add-movie-form">
         <AddMovieTitle handle={ this.handle } title={ title } />
-        <AddMovieSubtitle handle={ this.handle } title={ subtitle } />
+        <AddMovieSubtitle handle={ this.handle } subtitle={ subtitle } />
+        <AddMovieImagePath handle={ this.handle } imagePath={ imagePath } />
       </form>
     </div>
   );
