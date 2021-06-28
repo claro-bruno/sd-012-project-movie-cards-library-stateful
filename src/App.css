@@ -4,8 +4,8 @@
 }
 
 .add-form {
-  background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -53,8 +53,8 @@ body {
 }
 
 .movie-list {
-  background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -69,8 +69,8 @@ body {
   flex-direction: column;
   height: 500px;
   margin: 5px;
-  padding: 0;
   overflow: hidden;
+  padding: 0;
   transition: 0.3s;
   width: 300px;
 }
@@ -101,14 +101,14 @@ body {
   color: #6c757d;
   font-size: 16px;
   font-weight: 500;
-  text-align: right;
   margin: 0 0 8px;
+  text-align: right;
 }
 
 .movie-card-storyline {
   font-size: 14px;
-  text-align: justify;
   padding: 20px;
+  text-align: justify;
 }
 
 .rating {
