@@ -3,13 +3,28 @@ import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <SearchBar />
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {};
+  }
+
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({ [name]: value });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <SearchBar
+          onSearchTextChange={ this.handleChange }
+        />
+      </div>
+    );
+  }
 }
 
 export default App;
