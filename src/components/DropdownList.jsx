@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class DropdownList extends React.Component {
   render() {
@@ -21,5 +22,10 @@ class DropdownList extends React.Component {
     );
   }
 }
+
+DropdownList.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default DropdownList;
