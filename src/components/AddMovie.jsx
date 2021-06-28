@@ -25,17 +25,25 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
 
     // const { onClick } = this.props;
 
     return (
       <form data-testid="add-movie-form">
         <Input
-          label="Título:"
+          label="Título"
           type="text"
           name="title"
           value={ title }
+          onChange={ this.handleChange }
+        />
+
+        <Input
+          label="Subtítulo"
+          type="text"
+          name="subtitle"
+          value={ subtitle }
           onChange={ this.handleChange }
         />
       </form>
