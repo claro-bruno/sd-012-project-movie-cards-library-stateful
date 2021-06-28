@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class TextInput extends React.Component {
+class NumberInput extends React.Component {
   render() {
     const { name, value, onChange, text, testid } = this.props;
     return (
       <label htmlFor={ name } data-testid={ `${testid}-input-label` }>
         { text }
         <input
-          type="text"
+          type="number"
           data-testid={ `${testid}-input` }
           name={ name }
           id={ name }
@@ -20,7 +20,7 @@ class TextInput extends React.Component {
   }
 }
 
-TextInput.propTypes = {
+NumberInput.propTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -28,4 +28,4 @@ TextInput.propTypes = {
   testid: PropTypes.string.isRequired,
 };
 
-export default TextInput;
+export default NumberInput;
