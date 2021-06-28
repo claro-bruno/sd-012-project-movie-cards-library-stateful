@@ -2,7 +2,7 @@ import React from 'react';
 
 class Title extends React.Component {
   render() {
-    const { title, handleChange } = this.props;
+    const { title, handleChange, name } = this.props;
     return (
       <div>
         <label data-testid="title-input-label" htmlFor="title-input">

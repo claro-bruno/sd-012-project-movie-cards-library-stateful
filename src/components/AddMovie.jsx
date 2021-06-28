@@ -3,7 +3,8 @@ import React from 'react';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import Image from './Image';
-// import Synopsis from './Synopsis';
+import Synopsis from './Synopsis';
+import Appraisal from './Appraisal';
 // import Genre from './Genre';
 // import ButtonAddMovie from './ButtonAddMovie';
 
@@ -18,6 +19,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange({ target }) {
@@ -32,28 +34,34 @@ class AddMovie extends React.Component {
     const { onClick, subtitle,
       title, imagePath,
       storyline, rating,
-      genre, handleChange } = this.state;
+      genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <Title
           name="title"
           value={ title }
-          onChange={ handleChange }
+          handleChange={ this.handleChange }
         />
         <Subtitle
           name="subtitle"
           value={ subtitle }
-          onChange={ handleChange }
+          handleChange={ this.handleChange }
         />
         <Image
-          name={ imagePath }
+          name="imagePath"
           value={ imagePath }
-          onChange={ handleChange }
+          handleChange={ this.handleChange }
         />
-        {/* <Synopsis />
-        <Rating />
-        <Genre />
-        <ButtonAddMovie /> */}
+        <Synopsis
+          name="storyline"
+          value={ storyline }
+          handleChange={ this.handleChange }
+        />
+        <Appraisal
+          name="rating"
+          handleChange={ this.handleChange }
+          value={ rating }
+        />
       </form>
     );
   }
