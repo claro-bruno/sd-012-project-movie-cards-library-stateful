@@ -1,17 +1,32 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class GenericInput extends React.Component {
   render() {
-    const { name, value, dataId, onChange, type } = this.props;
+    const { label, name, id, value, onChange, type } = this.props;
     return (
-      <input
-        type={ type }
-        value={ value }
-        data-testid={ dataId }
-        onChange={ onChange }
-      />
+      <label htmlFor={ id } data-testid={ `${id}-label` }>
+        { label }
+        <input
+          name={ name }
+          id={ id }
+          type={ type }
+          value={ value }
+          data-testid={ id }
+          onChange={ onChange }
+        />
+      </label>
     );
   }
 }
+
+GenericInput.propTypes = {
+  label: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  type: PropTypes.string.isRequired,
+};
 
 export default GenericInput;
