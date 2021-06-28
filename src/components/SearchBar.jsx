@@ -1,5 +1,6 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
+
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -14,7 +15,19 @@ class SearchBar extends Component {
       selectedGenre,
       onSelectedGenreChange,
     } = this.props;
-    return <form data-testid="search-bar-form" />;
+    return (
+      <form data-testid="search-bar-form">
+        <label data-testid="text-input-label">
+          Inclui o texto:
+          <input
+            type="text"
+            data-testid="text-input"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
+        </label>
+      </form>
+    );
   }
 }
 
