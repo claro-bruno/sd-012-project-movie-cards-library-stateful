@@ -5,6 +5,7 @@ class Input extends React.Component {
   render() {
     const {
       inputId,
+      inputName,
       testIdInput,
       testIdLabel,
       typeInput,
@@ -26,6 +27,7 @@ class Input extends React.Component {
           checked={ checked }
           onChange={ onChange }
           data-testid={ testIdInput }
+          name={ inputName }
         />
       </label>
     );
@@ -33,14 +35,27 @@ class Input extends React.Component {
 }
 
 Input.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.string.isRequired,
-  typeInput: PropTypes.string.isRequired,
-  testIdLabel: PropTypes.string.isRequired,
-  testIdInput: PropTypes.string.isRequired,
-  inputId: PropTypes.string.isRequired,
-  labelText: PropTypes.string.isRequired,
-  checked: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  inputName: PropTypes.string,
+  onChange: PropTypes.func,
+  typeInput: PropTypes.string,
+  testIdLabel: PropTypes.string,
+  testIdInput: PropTypes.string,
+  inputId: PropTypes.string,
+  labelText: PropTypes.string,
+  checked: PropTypes.bool,
+};
+
+Input.defaultProps = {
+  value: '',
+  inputName: '',
+  onChange: console.log,
+  typeInput: '',
+  testIdLabel: '',
+  testIdInput: '',
+  inputId: '',
+  labelText: '',
+  checked: false,
 };
 
 export default Input;

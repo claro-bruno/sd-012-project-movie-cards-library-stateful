@@ -27,8 +27,13 @@ class Select extends React.Component {
 }
 
 Select.propTypes = {
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.string.isRequired,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+};
+
+Select.defaultProps = {
+  selectedGenre: '',
+  onSelectedGenreChange: console.log,
 };
 
 export default Select;
