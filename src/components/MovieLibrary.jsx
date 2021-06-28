@@ -2,9 +2,20 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class MovieLibrary extends Component {
-  render() {
+  constructor() {
+    super();
+
     const { movies } = this.props;
 
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: movies,
+    };
+  }
+
+  render() {
     return (
       <section>
         Movie Library
