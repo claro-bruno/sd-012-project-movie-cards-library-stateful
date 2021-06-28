@@ -1,6 +1,7 @@
 import React from 'react';
 import ImportTitle from './subComponents/importTitle';
 import ImportSubtitle from './subComponents/ImportSubtitle';
+import ImagePath from './subComponents/ImagePath';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -28,17 +29,11 @@ class AddMovie extends React.Component {
           importMovieSubtitle={ importMovieSubtitle }
           handleChange={ this.handleChange }
         />
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            data-testid="image-input"
-            name="imagePath"
-            value={ imagePath }
-            id="imagePath"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <ImagePath
+          imagePath={ imagePath }
+          handleChange={ this.handleChange }
+
+        />
         <label htmlFor="importTextarea" data-testid="storyline-input-label">
           Sinopse
           <textarea
