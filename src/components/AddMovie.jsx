@@ -17,7 +17,9 @@ constructor(){
     const { onClick } = this.props
     return(
       <div>
+        <form data-testid="add-movie-form" >
         {this.state.genre}
+        </form>
       </div>
     )
   }
