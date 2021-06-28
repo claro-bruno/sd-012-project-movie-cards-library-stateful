@@ -3,12 +3,14 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import Textarea from './Textarea';
 import SelectGender from './SelectGender';
+import Button from './Button';
 
 class AddMovie extends Component {
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.onClickButton = this.onClickButton.bind(this);
 
     this.state = {
       subtitle: '',
@@ -29,8 +31,20 @@ class AddMovie extends Component {
     });
   }
 
-  render() {
+  onClickButton() {
     const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
@@ -90,6 +104,11 @@ class AddMovie extends Component {
             selectLabel="Gênero"
             selectLabelTestId="genre-input-label"
             selectValue={ genre }
+          />
+          <Button
+            buttonText="Adicionar filme"
+            onClickButton={ this.onClickButton }
+            buttonTestId="send-button"
           />
         </form>
       </section>
