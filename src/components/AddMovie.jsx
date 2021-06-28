@@ -21,6 +21,7 @@ class AddMovie extends Component {
     });
   }
 
+  // eslint-disable-next-line max-lines-per-function
   render() {
     const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
@@ -54,6 +55,26 @@ class AddMovie extends Component {
             data-testid="image-input"
             onChange={ this.handleChange }
             name="imagePath"
+          />
+        </label>
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse:
+          <textarea
+            type="text"
+            value={ storyline }
+            data-testid="storyline-input"
+            onChange={ this.handleChange }
+            name="storyline"
+          />
+        </label>
+        <label htmlFor="rating-input" data-testid="rating-input-label">
+          Avaliação:
+          <input
+            type="number"
+            value={ rating }
+            data-testid="rating-input"
+            onChange={ this.handleChange }
+            name="rating"
           />
         </label>
       </form>
