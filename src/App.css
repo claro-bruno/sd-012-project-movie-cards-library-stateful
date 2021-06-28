@@ -9,6 +9,11 @@ body {
   font-size: 16px;
 }
 
+#text-input-label, #select-input-label {
+  display:flex;
+  flex-direction: column;
+}
+
 .movie-card-header {
   align-items: center;
   background-color: black;

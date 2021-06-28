@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FilterInput from './FilterInput';
-import GenreOption from './GenreOption';
+// import GenreOption from './GenreOption';
+import FilterSelect from './FilterSelect';
 
 export default class SearchBar extends Component {
   render() {
@@ -34,21 +35,7 @@ export default class SearchBar extends Component {
           id="favorites-filter"
           fieldtestid="checkbox-input"
         />
-        <label htmlFor="genre-filter" data-testid="select-input-label">
-          Filtrar por gênero
-          <select
-            id="genre-filter"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-            data-testid="select-input"
-          >
-            <GenreOption inner="Todos" value="" testid="select-option" />
-            <GenreOption inner="Ação" value="action" testid="select-option" />
-            <GenreOption inner="Comédia" value="comedy" testid="select-option" />
-            <GenreOption inner="Suspense" value="thriller" testid="select-option" />
-          </select>
-        </label>
-
+        <FilterSelect value={ selectedGenre } onChange={ onSelectedGenreChange } />
       </form>
     );
   }
