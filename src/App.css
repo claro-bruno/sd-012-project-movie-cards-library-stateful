@@ -4,8 +4,27 @@
 }
 
 .add-form {
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 5px 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 30%;
+}
+
+.add-form label {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.add-form textarea {
+  height: 100px;
+  resize: none;
 }
 
 body {
@@ -57,7 +76,7 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 48px 30px;
 }
 
@@ -67,13 +86,12 @@ body {
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
   height: 500px;
   margin: 5px;
   overflow: hidden;
   padding: 0;
   transition: 0.3s;
-  width: 300px;
+  width: 24%;
 }
 
 .movie-card:hover {
@@ -128,6 +146,7 @@ body {
 .titles {
   background-color: black;
   border-radius: 0 0 2px 2px;
+  box-shadow: 0 2px 5px black;
   padding: 5px;
 }
 
