@@ -1,4 +1,5 @@
 import React from 'react';
+import ImportTitles from './subComponents/importTitle';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -18,17 +19,10 @@ class AddMovie extends React.Component {
     const { importMovieTitle, importMovieSubtitle, imagePath } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="importMovieTitle" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            data-testid="title-input"
-            name="importMovieTitle"
-            value={ importMovieTitle }
-            id="importMovieTitle"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <ImportTitles
+          importMovieTitle={ importMovieTitle }
+          handleChange={ this.handleChange }
+        />
         <label htmlFor="importMovieSubtitle" data-testid="subtitle-input-label">
           Subtítulo
           <input
