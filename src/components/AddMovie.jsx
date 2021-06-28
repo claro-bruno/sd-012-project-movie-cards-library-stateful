@@ -1,12 +1,13 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import InputTitulo from './InputTitulo';
+import InputText from './InputText';
 
 export default class AddMovie extends Component {
   constructor() {
     super();
     this.state = {
-      //     subtitle: '',
+      subtitle: '',
       title: '',
       //     imagePath: '',
       //     storyline: '',
@@ -16,10 +17,11 @@ export default class AddMovie extends Component {
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputTitulo title={ title } />
+        <InputText onChange={ subtitle } />
       </form>
     );
   }
