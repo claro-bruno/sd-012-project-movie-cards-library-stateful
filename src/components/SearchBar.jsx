@@ -14,7 +14,7 @@ class SearchBar extends Component {
 
     return (
       <section>
-        <form data-testid="text-input-label">
+        <form data-testid="search-bar-form">
           SearchBar Form
         </form>
       </section>
