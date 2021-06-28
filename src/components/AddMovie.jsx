@@ -1,21 +1,26 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import InputTitulo from './InputTitulo';
 
 export default class AddMovie extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     subtitle: '',
-  //     tittle: '',
-  //     imagePath: '',
-  //     storyline: '',
-  //     rating: 0,
-  //     genre: 'action',
-  //   };
-  // }
+  constructor() {
+    super();
+    this.state = {
+      //     subtitle: '',
+      title: '',
+      //     imagePath: '',
+      //     storyline: '',
+      //     rating: 0,
+      //     genre: 'action',
+    };
+  }
 
   render() {
-    // const { subtitle, title, imagePath, storyline, rating, genre } = this.state
-    return (<form data-testid="add-movie-form" />);
+    const { title } = this.state;
+    return (
+      <form data-testid="add-movie-form">
+        <InputTitulo title={ title } />
+      </form>
+    );
   }
 }
