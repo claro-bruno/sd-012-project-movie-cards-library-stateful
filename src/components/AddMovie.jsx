@@ -24,7 +24,7 @@ export default class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath } = this.state;
     const { handleChange } = this;
 
     return (
@@ -46,6 +46,16 @@ export default class AddMovie extends Component {
             data-testid="subtitle-input"
             name="subtitle"
             value={ subtitle }
+            onChange={ handleChange }
+          />
+        </label>
+        <label htmlFor="imagePath" data-testid="image-input-label">
+          Imagem
+          <input
+            type="text"
+            data-testid="image-input"
+            name="imagePath"
+            value={ imagePath }
             onChange={ handleChange }
           />
         </label>
