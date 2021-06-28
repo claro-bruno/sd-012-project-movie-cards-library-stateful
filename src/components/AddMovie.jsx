@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import TextArea from './TextArea';
+
 export default class AddMovie extends Component {
   constructor(props) {
     super(props);
@@ -59,15 +61,7 @@ export default class AddMovie extends Component {
             onChange={ handleChange }
           />
         </label>
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyline"
-            data-testid="storyline-input"
-            value={ storyline }
-            onChange={ handleChange }
-          />
-        </label>
+        <TextArea handleChange={ handleChange } storyline={ storyline } />
       </form>
     );
   }
