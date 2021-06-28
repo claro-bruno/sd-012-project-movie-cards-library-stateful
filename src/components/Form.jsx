@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import Select from './Select';
 
 class Form extends React.Component {
   render() {
@@ -28,7 +29,6 @@ class Form extends React.Component {
           innerText="Imagem"
           inputId="image-input"
           nameInput="imagePath"
-          typeInput="text"
           valueInput={ state.imagePath }
           onChangeInput={ onChange }
         />
@@ -50,6 +50,7 @@ class Form extends React.Component {
           valueInput={ state.rating }
           onChangeInput={ onChange }
         />
+        <Select state={ state } onChange={ onChange } />
       </form>
     );
   }
