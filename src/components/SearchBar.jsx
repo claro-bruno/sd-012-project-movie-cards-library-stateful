@@ -11,10 +11,13 @@ class SearchBar extends Component {
     return (
       <form data-testid="search-bar-form">
         <Input
+          label="Inclui o texto:"
+          labelTestId="text-input-label"
           type="text"
           value={ searchText }
           onChange={ onSearchTextChange }
-          data-testid="text-input"
+          inputTestId="text-input"
+          labelId="txtInput"
         />
       </form>
     );
