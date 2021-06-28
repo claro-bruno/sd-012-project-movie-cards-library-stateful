@@ -50,6 +50,16 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
+        <label htmlFor="image-input" data-testid="image-input-label">
+          Imagem
+          <input
+            type="text"
+            data-testid="image-input"
+            name="imagePath"
+            value={ imagePath }
+            onChange={ this.handleChange }
+          />
+        </label>
       </form>
     );
   }
