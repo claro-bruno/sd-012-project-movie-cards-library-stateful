@@ -4,8 +4,8 @@ import './App.css';
 import SearchBar from './components/SearchBar';
 import AddMovie from './components/AddMovie';
 
-function teste() {
-  console.log('teste');
+function teste(state) {
+  console.log(state);
 }
 
 function App() {
