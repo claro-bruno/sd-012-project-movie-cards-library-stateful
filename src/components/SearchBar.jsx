@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-  
   render() {
-
     const {
       searchText,
       onSearchTextChange,
@@ -14,19 +12,55 @@ class SearchBar extends React.Component {
       onSelectedGenreChange,
     } = this.props;
 
-    return(
-      <h1>Oi!</h1>
-    )
+    return (
+      <form data-testid="search-bar-form">
+        <label htmlFor="searchText" data-testid="text-input-label">
+          Inclui o texto:
+          <input
+            type="text"
+            name="searchText"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+            data-testid="text-input"
+          />
+        </label>
+        <label htmlFor="checkbox" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input
+            type="checkbox"
+            name="checkbox"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+            data-testid="checkbox-input"
+          />
+        </label>
+        <label htmlFor="genre" data-testid="select-input-label">
+          Filtrar por gênero
+          <select
+            name="genre"
+            id="genre"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+            data-testid="select-input"
+          >
+            <option value="" data-testid="select-input">Todos</option>
+            <option value="action" data-testid="select-input">Ação</option>
+            <option value="comedy" data-testid="select-input">Comédia</option>
+            <option value="thriller" data-testid="select-input">Suspense</option>
+          </select>
+        </label>
+      </form>
+    );
   }
 }
 
-SearchBar.proptypes = {
+SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
-}
+};
 
 export default SearchBar;
