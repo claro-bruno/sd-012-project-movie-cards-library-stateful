@@ -3,17 +3,11 @@ import PropTypes from 'prop-types';
 
 class searchBar extends React.Component {
   render() {
-    const { searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-    } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
+      // Consegui reduzir as linhas do render graças à dica da colega Adriana Biberg: dividir as props em apenas duas linhas
     return (
       <form data-testid="search-bar-form">
-        {searchText + onSearchTextChange + bookmarkedOnly
-        + onBookmarkedChange + selectedGenre + onSelectedGenreChange}
         <label data-testid="text-input-label" htmlFor="input-includes">
           Inclui o texto:
           <input
@@ -37,6 +31,21 @@ class searchBar extends React.Component {
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
           />
+        </label>
+        <label htmlFor="filter-genre" data-testid="select-input-label">
+          Filtrar por gênero
+          <select
+            name="filter-genre"
+            id="filter-genre"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+            data-testid="select-input"
+          >
+            <option value="" data-testid="select-option">Todos</option>
+            <option value="action" data-testid="select-option">Ação</option>
+            <option value="comedy" data-testid="select-option">Comédia</option>
+            <option value="thriller" data-testid="select-option">Suspense</option>
+          </select>
         </label>
       </form>);
   }
