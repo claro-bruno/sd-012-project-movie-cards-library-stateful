@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import Select from './Select';
 
 class SearchBar extends Component {
   render() {
@@ -10,7 +11,7 @@ class SearchBar extends Component {
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange
+      onSelectedGenreChange,
     } = this.props;
 
     return (
@@ -35,6 +36,15 @@ class SearchBar extends Component {
             inputId="input-favorite"
             inputTestId="checkbox-input"
             inputName="favorites"
+          />
+          <Select
+            selectName="genre"
+            onChangeSelect={ onSelectedGenreChange }
+            selectId="select-genre"
+            selectTestId="select-input"
+            selectLabel="Filtrar por gênero"
+            selectLabelTestId="select-input-label"
+            selectValue={ selectedGenre }
           />
         </form>
       </section>
