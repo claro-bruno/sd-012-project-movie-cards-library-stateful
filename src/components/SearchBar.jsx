@@ -1,6 +1,7 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Input from './Input';
 
 class SearchBar extends Component {
   render() {
@@ -9,16 +10,12 @@ class SearchBar extends Component {
 
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor="inputTxt">
-          Inclui o texto:
-          <input
-            type="text"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-            data-testid="text-input"
-            id="inputTxt"
-          />
-        </label>
+        <Input
+          type="text"
+          value={ searchText }
+          onChange={ onSearchTextChange }
+          data-testid="text-input"
+        />
       </form>
     );
   }
