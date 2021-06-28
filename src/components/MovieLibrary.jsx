@@ -22,6 +22,7 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
+      moviesAfterAddition: movies,
     };
   }
 
@@ -34,19 +35,20 @@ class MovieLibrary extends Component {
     }, () => this.filterMovies());
   }
 
-  onClickAdd(movie) { // Lógica implementada a partir de pesquisas do colega Eric kreis
+  onClickAdd(movie) { // Lógica para adicionar item em array sem usar o .push() implementada a partir de pesquisas do colega Eric kreis
     const { movies } = this.state;
     const moviesList = [...movies, movie];
     this.setState({
       movies: moviesList,
+      moviesAfterAddition: moviesList,
     });
   }
 
   filterMovies() {
-    const { movies } = this.props;
+    const { moviesAfterAddition } = this.state;
 
     this.setState({
-      movies,
+      movies: moviesAfterAddition,
     });
 
     this.filterByBookmark();
