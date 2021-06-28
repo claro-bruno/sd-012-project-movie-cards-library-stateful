@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import TextInput from './TextInput';
 import TextAreaInput from './TextAreaInput';
+import NumberInput from './NumberInput';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -60,16 +61,13 @@ class AddMovie extends Component {
           value={storyline}
           handleChange={this.handleChange}
         />
-        <label htmlFor="rating-input" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            data-testid="rating-input"
-            name="rating"
-            value={rating}
-            onChange={this.handleChange}
-          />
-        </label>
+        <NumberInput
+          id="rating"
+          label="Avaliação"
+          name="rating"
+          value={rating}
+          handleChange={this.handleChange}
+        />
         <label htmlFor="genre-input" data-testid="genre-input-label">
           Gênero
           <select
