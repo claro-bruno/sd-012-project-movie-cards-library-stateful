@@ -19,15 +19,17 @@ class AddMovie extends Component {
     const { onClick } = this.props;
 
     return (
-      <div>
-        AddMovie
-      </div>
+      <section>
+        <form data-testid="add-movie-form">
+          Formulário Add Movie
+        </form>
+      </section>
     );
   }
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
