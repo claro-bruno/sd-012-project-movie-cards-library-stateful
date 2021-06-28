@@ -7,7 +7,9 @@ export default class SearchBar extends Component {
       searchText,
       onSearchTextChange,
       bookmarkedOnly,
-      onBookmarkedChange } = this.props;
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label data-testid="text-input-label" htmlFor="text-input-label">
@@ -18,15 +20,28 @@ export default class SearchBar extends Component {
             value={ searchText }
             onChange={ onSearchTextChange }
           />
-          <label data-testid="checkbox-input-label" htmlFor="checkbox-input-label">
-            Mostrar somente favoritos
-            <input
-              data-testid="checkbox-input"
-              type="checkbox"
-              checked={ bookmarkedOnly }
-              onChange={ onBookmarkedChange }
-            />
-          </label>
+        </label>
+        <label data-testid="checkbox-input-label" htmlFor="checkbox-input-label">
+          Mostrar somente favoritos
+          <input
+            data-testid="checkbox-input"
+            type="checkbox"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+          />
+        </label>
+        <label data-testid="select-input-label" htmlFor="Label-Filter">
+          Filtrar por gênero
+          <select
+            data-testid="select-input"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+          >
+            <option value="" data-testid="select-option">Todos</option>
+            <option value="action" data-testid="select-option">Ação</option>
+            <option value="comedy" data-testid="select-option">Comédia</option>
+            <option value="thriller" data-testid="select-option">Suspense</option>
+          </select>
         </label>
       </form>
     );
@@ -38,4 +53,6 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
