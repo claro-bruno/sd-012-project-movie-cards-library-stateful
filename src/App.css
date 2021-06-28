@@ -3,6 +3,11 @@
   src: url('./fonts/TheGodfather-rgRK.ttf');
 }
 
+.add-form {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
 body {
   background: url('./images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg') no-repeat fixed;
   background-size: cover;
@@ -49,6 +54,7 @@ body {
 
 .movie-list {
   background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
