@@ -22,19 +22,23 @@ class MovieLibrary extends React.Component {
 
   onSearchTextChange({ target }) {
     const { value } = target;
-    const { props, state } = this;
+    const { props } = this;
     const { movies } = props;
     const movieFilter = movies
       .filter((movie) => movie.title.includes(value)
         || movie.subtitle.includes(value)
         || movie.storyline.includes(value));
-    this.setState({
-      searchText: value,
-    }, () => (state.searchText !== '' ? this.setState({
-      movies: movieFilter,
-    }) : this.setState({
-      movies,
-    })));
+    if (value !== '') {
+      this.setState({
+        searchText: value,
+        movies: movieFilter,
+      });
+    } else {
+      this.setState({
+        searchText: value,
+        movies,
+      });
+    }
   }
 
   onBookmarkedChange({ target }) {
@@ -42,27 +46,36 @@ class MovieLibrary extends React.Component {
     const { props } = this;
     const { movies } = props;
     const movieFilter = movies.filter((movie) => movie.bookmarked);
-    this.setState({
-      bookmarkedOnly: checked,
-    }, () => (checked ? this.setState({
-      movies: movieFilter,
-    }) : this.setState({
-      movies,
-    })));
+    if (checked) {
+      this.setState({
+        bookmarkedOnly: checked,
+        movies: movieFilter,
+      });
+    } else {
+      this.setState({
+        bookmarkedOnly: checked,
+        movies,
+      });
+    }
   }
 
   onSelectedGenreChange({ target }) {
     const { value } = target;
-    const { props, state } = this;
+    const { props } = this;
     const { movies } = props;
     const movieFilter = movies.filter((movie) => movie.genre === value);
-    this.setState({
-      selectedGenre: value,
-    }, () => (state.selectedGenre !== '' ? this.setState({
-      movies: movieFilter,
-    }) : this.setState({
-      movies,
-    })));
+    console.log(value);
+    if (value !== '') {
+      this.setState({
+        selectedGenre: value,
+        movies: movieFilter,
+      });
+    } else {
+      this.setState({
+        selectedGenre: value,
+        movies,
+      });
+    }
   }
 
   onClick(objeto) {
