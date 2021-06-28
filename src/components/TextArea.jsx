@@ -6,15 +6,22 @@ class Input extends Component {
     const { name, label, callback, value } = this.props;
 
     return (
-      <label data-testid={ `${name}-input-label` } htmlFor={ `${name}-input` }>
-        { label }
+      <div className="form-floating mb-3">
+        <label
+          className="form-label"
+          data-testid={ `${name}-input-label` }
+          htmlFor={ `${name}-input` }
+        >
+          { label }
+        </label>
         <textarea
+          className="form-control"
           data-testid={ `${name}-input` }
           name={ name }
           onChange={ callback }
           value={ value }
         />
-      </label>
+      </div>
     );
   }
 }

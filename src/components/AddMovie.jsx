@@ -95,7 +95,7 @@ class AddMovie extends Component {
     const { onClick } = this.props;
 
     return (
-      <form data-testid="add-movie-form">
+      <form className="container mb-5" data-testid="add-movie-form">
         {this.makeTitle(title)}
         {this.makeSubtitle(subtitle)}
         {this.makeImage(imagePath)}
@@ -117,6 +117,7 @@ class AddMovie extends Component {
         />
 
         <button
+          className="btn btn-dark btn-block"
           data-testid="send-button"
           type="button"
           onClick={ () => {

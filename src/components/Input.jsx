@@ -6,16 +6,23 @@ class Input extends Component {
     const { type, name, id, label, callback, value } = this.props;
 
     return (
-      <label data-testid={ `${id}-input-label` } htmlFor={ `${id}-input` }>
-        { label }
+      <div className="mb-3">
+        <label
+          className="form-label"
+          data-testid={ `${id}-input-label` }
+          htmlFor={ `${id}-input` }
+        >
+          { label }
+        </label>
         <input
+          className="form-control"
           data-testid={ `${id}-input` }
           type={ type }
           name={ name }
           onChange={ callback }
           value={ value }
         />
-      </label>
+      </div>
     );
   }
 }

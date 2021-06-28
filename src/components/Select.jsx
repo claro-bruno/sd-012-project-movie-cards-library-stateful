@@ -6,9 +6,16 @@ class Input extends Component {
     const { name, label, callback, value } = this.props;
 
     return (
-      <label data-testid={ `${name}-input-label` } htmlFor={ `${name}-input` }>
-        { label }
+      <div className="mb-3">
+        <label
+          lassName="form-label"
+          data-testid={ `${name}-input-label` }
+          htmlFor={ `${name}-input` }
+        >
+          { label }
+        </label>
         <select
+          className="form-select form-control"
           data-testid={ `${name}-input` }
           name={ name }
           onChange={ callback }
@@ -18,7 +25,7 @@ class Input extends Component {
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
-      </label>
+      </div>
     );
   }
 }
