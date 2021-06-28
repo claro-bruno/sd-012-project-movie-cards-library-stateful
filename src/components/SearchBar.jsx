@@ -10,8 +10,11 @@ class searchBar extends React.Component {
       selectedGenre,
       onSelectedGenreChange,
     } = this.props;
-    return searchText + onSearchTextChange + bookmarkedOnly
-      + onBookmarkedChange + selectedGenre + onSelectedGenreChange;
+    return (
+      <form data-testid="search-bar-form">
+        {searchText + onSearchTextChange + bookmarkedOnly
+        + onBookmarkedChange + selectedGenre + onSelectedGenreChange}
+      </form>);
   }
 }
 
