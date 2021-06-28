@@ -4,8 +4,8 @@ import InputsAddMovie from './InputsAddMovie';
 import SelectAddMovie from './SelectAddMovie';
 
 class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.handleChange = this.handleChange.bind(this);
     this.handleReset = this.handleReset.bind(this);
