@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from './components/Header';
 import './App.css';
 import movies from './data';

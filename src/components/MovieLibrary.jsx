@@ -1,5 +1,9 @@
 // implement MovieLibrary component here
 import React, { Component } from 'react';
+import movies from '../data';
+import MovieList from './MovieList';
+import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 const initialState = {
   searchText: '',
@@ -8,18 +12,21 @@ const initialState = {
   movies,
 };
 
-export class MovieLibrary extends Component {
+export default class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props;
     this.state = initialState;
   }
 
   render() {
+    const { movies } = this.props;
     return (
-      <div />
+      <div>
+        <h2> My awesome movie library </h2>
+        <SearchBar />
+        <MovieList movies={ movies } />
+        <AddMovie />
+      </div>
     );
   }
 }
-
-export default MovieLibrary;
