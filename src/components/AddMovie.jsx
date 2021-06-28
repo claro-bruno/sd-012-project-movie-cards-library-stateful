@@ -24,7 +24,7 @@ export default class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     const { handleChange } = this;
 
     return (
@@ -56,6 +56,15 @@ export default class AddMovie extends Component {
             data-testid="image-input"
             name="imagePath"
             value={ imagePath }
+            onChange={ handleChange }
+          />
+        </label>
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="storyline"
+            data-testid="storyline-input"
+            value={ storyline }
             onChange={ handleChange }
           />
         </label>
