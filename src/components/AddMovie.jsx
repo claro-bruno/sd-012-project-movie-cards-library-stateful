@@ -1,10 +1,10 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
 
+    this.handleChange = this.handleChange.bind(this);
     this.state = {};
   }
 
@@ -15,11 +15,19 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { importMovieTitle } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="importMovieTitle" data-testid="title-input-label">
           Título
-          <input type="text" name="" id="importMovieTitle" data-testid="title-input" />
+          <input
+            type="text"
+            name="importMovieTitle"
+            value={ importMovieTitle }
+            id="importMovieTitle"
+            data-testid="title-input"
+            onChange={ this.handleChange }
+          />
         </label>
       </form>
     );
