@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import AddMovie from './AddMovie';
+import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
 class MovieLibrary extends Component {
+  constructor() {
+    super();
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+    };
+  }
+
   render() {
-    const { movies } = this.props;
     return (
       <div>
         <SearchBar />
-        <AddMovie />
+        <MovieList />
       </div>
     );
   }
