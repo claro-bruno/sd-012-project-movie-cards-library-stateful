@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React from 'react';
 import ImportTitle from './subComponents/importTitle';
 import ImportSubtitle from './subComponents/ImportSubtitle';
@@ -12,9 +13,10 @@ class AddMovie extends React.Component {
     this.submitMovie = this.submitMovie.bind(this);
 
     this.state = {
-      // ImportTitle: '',
-      // ImportSubtitle: '',
-      // ImagePath: '',
+      importTitle: '',
+      importSubtitle: '',
+      importStoryline: '',
+      imagePath: '',
       importRating: 0,
     };
   }
@@ -25,22 +27,22 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  submitMovie(e) {
-    e.preventDefault();
-    console.log(e.target);
+  submitMovie(evt) {
+    evt.preventDefault();
   }
 
   render() {
-    const { importTitle, importMovieSubtitle } = this.state;
+    const { importTitle, importSubtitle } = this.state;
     const { imagePath, importRating } = this.state;
+    const { importStoryline } = this.state;
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" onSubmit={ (e) => e.preventDefault() }>
         <ImportTitle
-          importMovieTitle={ importTitle }
+          importTitle={ importTitle }
           handleChange={ this.handleChange }
         />
         <ImportSubtitle
-          importMovieSubtitle={ importMovieSubtitle }
+          importSubtitle={ importSubtitle }
           handleChange={ this.handleChange }
         />
         <ImagePath
@@ -53,6 +55,7 @@ class AddMovie extends React.Component {
           <textarea
             data-testid="storyline-input"
             name="importStoryline"
+            value={ importStoryline }
             id="importTextarea"
             onChange={ this.handleChange }
           />

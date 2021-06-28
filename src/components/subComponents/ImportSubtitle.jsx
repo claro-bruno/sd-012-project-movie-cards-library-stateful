@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 
 class ImportSubtitle extends React.Component {
   render() {
-    const { handleChange, importMovieSubtitle } = this.props;
+    const { handleChange, importSubtitle } = this.props;
     return (
-      <label htmlFor="importMovieSubtitle" data-testid="subtitle-input-label">
+      <label htmlFor="importSubtitle" data-testid="subtitle-input-label">
         Subtítulo
         <input
           type="text"
           data-testid="subtitle-input"
-          name="importMovieSubtitle"
-          value={ importMovieSubtitle }
-          id="importMovieSubtitle"
+          name="importSubtitle"
+          value={ importSubtitle }
+          id="importSubtitle"
           onChange={ handleChange }
         />
       </label>
@@ -22,7 +22,7 @@ class ImportSubtitle extends React.Component {
 
 ImportSubtitle.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  importMovieSubtitle: PropTypes.string.isRequired,
+  importSubtitle: PropTypes.string.isRequired,
 };
 
 export default ImportSubtitle;
