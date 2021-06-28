@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Input from './Input';
 
 class AddMovie extends Component {
   constructor() {
@@ -23,42 +24,41 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, rating } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title-input">
-          Título
-          <input
-            data-testid="title-input"
-            type="text"
-            name="title"
-            onChange={ this.handleChange }
-            value={ title }
-          />
-        </label>
+        <Input
+          type="text"
+          name="title"
+          label="Título"
+          value={ title }
+          callback={ this.handleChange }
+        />
 
-        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            type="text"
-            name="subtitle"
-            onChange={ this.handleChange }
-            value={ subtitle }
-          />
-        </label>
+        <Input
+          type="text"
+          name="subtitle"
+          label="Subtítulo"
+          value={ subtitle }
+          callback={ this.handleChange }
+        />
 
-        <label data-testid="image-input-label" htmlFor="image-input">
-          Imagem
-          <input
-            data-testid="image-input"
-            type="text"
-            name="imagePath"
-            onChange={ this.handleChange }
-            value={ imagePath }
-          />
-        </label>
+        <Input
+          type="text"
+          name="imagePath"
+          label="Imagem"
+          value={ imagePath }
+          callback={ this.handleChange }
+        />
+
+        <Input
+          type="number"
+          name="rating"
+          label="Avaliação"
+          value={ rating }
+          callback={ this.handleChange }
+        />
       </form>
     );
   }
