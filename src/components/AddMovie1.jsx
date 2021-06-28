@@ -3,34 +3,34 @@ import Input from './Input';
 
 class AddMovie1 extends React.Component {
   render() {
+    const { title, subtitle, imagePath, change } =this.props;
     return (
       <div>
         <Input
           dataTestidLabel="title-input-label"
-          htmlFor="text-addmovie"
           labelText="Título"
-          id="text-addmovie"
           type="text"
           name="title"
           dataTestidInput="title-input"
-          // value={ title }
+          value={ title }
+          change={ change }
         />
         <Input
           type="text"
           labelText="Subtítulo"
           dataTestidLabel="subtitle-input-label"
-          // value={ subtitle }
+          value={ subtitle }
           dataTestidInput="subtitle-input"
-          // change={ this.handleChange }
+          change={ change }
           name="subtitle"
         />
         <Input
           type="text"
           labelText="Imagem"
           dataTestidLabel="image-input-label"
-          // value={ imagePath }
+          value={ imagePath }
           dataTestidInput="image-input"
-          // change={ this.handleChange }
+          change={ change }
           name="imagePath"
         />
       </div>
