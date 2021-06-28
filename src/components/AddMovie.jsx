@@ -9,7 +9,7 @@ class AddMovie extends React.Component {
 
     this.state = {
       title: '',
-      /*       subtitle: '',
+/*       subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -39,6 +39,16 @@ class AddMovie extends React.Component {
           value={ title }
           onChange={ this.handleChange }
           labelText="Título"
+        />
+        <Input
+          inputId="subtitle"
+          inputName="subtitle"
+          testIdInput="subtitle-input"
+          testIdLabel="subtitle-input-label"
+          typeInput="text"
+          value={ title }
+          onChange={ this.handleChange }
+          labelText="Subtítulo"
         />
       </form>
     );
