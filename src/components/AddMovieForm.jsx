@@ -39,6 +39,7 @@ class AddMovieForm extends Component {
         <TextArea storyline={ storyline } onChange={ onChange } />
         <Input
           label="Avaliação"
+          type="number"
           value={ rating }
           id="rating"
           onChange={ onChange }
@@ -61,7 +62,10 @@ AddMovieForm.propTypes = {
   subtitle: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
   storyline: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   genre: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
