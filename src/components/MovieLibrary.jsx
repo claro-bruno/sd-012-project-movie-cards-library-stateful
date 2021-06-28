@@ -1,10 +1,22 @@
 import React from 'react';
 
 class MovieLibrary extends React.Component {
+  constructor() {
+    super();
+
+    const { movies } = this.props;
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies,
+    };
+  }
+
   render() {
-    // const { movies } = this.state;
     return (
-      <h1>Requisito 15</h1>
+      <h1>{ this.state }</h1>
     );
   }
 }
