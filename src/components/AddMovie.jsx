@@ -2,13 +2,16 @@ import React from 'react';
 import ImportTitle from './subComponents/importTitle';
 import ImportSubtitle from './subComponents/ImportSubtitle';
 import ImagePath from './subComponents/ImagePath';
+import ImportRating from './subComponents/ImportRating';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    this.state = {};
+    this.state = {
+      importRating: 0,
+    };
   }
 
   handleChange({ target }) {
@@ -18,7 +21,8 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { importMovieTitle, importMovieSubtitle, imagePath } = this.state;
+    const { importMovieTitle, importMovieSubtitle } = this.state;
+    const { imagePath, importRating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <ImportTitle
@@ -37,11 +41,17 @@ class AddMovie extends React.Component {
         <label htmlFor="importTextarea" data-testid="storyline-input-label">
           Sinopse
           <textarea
-            id="importTextarea"
             data-testid="storyline-input"
+            name="importStoryline"
+            id="importTextarea"
             onChange={ this.handleChange }
           />
         </label>
+        <ImportRating
+          importRating={ importRating }
+          handleChange={ this.handleChange }
+        />
+
       </form>
     );
   }
