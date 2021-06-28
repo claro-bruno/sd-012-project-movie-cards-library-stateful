@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
@@ -7,13 +8,14 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
+    const { movies } = this.props;
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
-      filteredMovies: [],
-    }
+      movies,
+    };
 
     this.handleSearchEvent = this.handleSearchEvent.bind(this);
     this.handleBookmarkedEvent = this.handleBookmarkedEvent.bind(this);
@@ -30,8 +32,8 @@ class MovieLibrary extends React.Component {
 
   handleBookmarkedEvent(e) {
     const { checked } = e.target;
-    
-    this.setState({ bookmarkedOnly: checked});
+
+    this.setState({ bookmarkedOnly: checked });
   }
 
   handleGenreEvent(e) {
@@ -54,13 +56,13 @@ class MovieLibrary extends React.Component {
       searchText,
     } = this.state;
     const filteredMovies = movies.filter((movie) => {
-      const { title, subtitle, storyline, bookmarked, genre} = movie;
-     
-      const searchBool = searchText !== '' ?
-      (title.includes(searchText) ||
-      subtitle.includes(searchText) ||
-      storyline.includes(searchText)) :
-      true;
+      const { title, subtitle, storyline, bookmarked, genre } = movie;
+
+      const searchBool = searchText !== ''
+        ? (title.includes(searchText)
+        || subtitle.includes(searchText)
+        || storyline.includes(searchText))
+        : true;
       const bookmarkBool = bookmarkedOnly ? bookmarked : true;
       const genreBool = genre.includes(selectedGenre);
 
@@ -88,11 +90,23 @@ class MovieLibrary extends React.Component {
           onBookmarkedChange={ handleBookmarkedEvent }
           onSelectedGenreChange={ handleGenreEvent }
         />
-        <MovieList movies={ filterMovies() }/>
-        <AddMovie onClick={ handleAddMovie }/>
+        <MovieList movies={ filterMovies() } />
+        <AddMovie onClick={ handleAddMovie } />
       </section>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+    bookmarked: PropTypes.bool,
+    genre: PropTypes.string,
+  })).isRequired,
+};
 
 export default MovieLibrary;

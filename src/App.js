@@ -32,7 +32,8 @@ function App() {
       bookmarked: false,
       genre: 'thriller',
     },
-  ];  
+  ];
+
   return (
     <div className="App">
       <Header />
