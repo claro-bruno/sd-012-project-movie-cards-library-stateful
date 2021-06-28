@@ -22,6 +22,7 @@ class Select extends Component {
   render() {
     const {
       id,
+      name,
       classNameLabel,
       classNameSelect,
       onChange,
@@ -44,6 +45,7 @@ class Select extends Component {
 
         <select
           id={ id }
+          name={ name }
           data-testid={ dataTestidSelect }
           value={ value }
           onChange={ onChange }
@@ -61,6 +63,7 @@ class Select extends Component {
 
 Select.propTypes = {
   id: PropTypes.string.isRequired,
+  name: PropTypes.string,
   classNameLabel: PropTypes.string,
   classNameSelect: PropTypes.string,
   onChange: PropTypes.func,
@@ -73,6 +76,7 @@ Select.propTypes = {
 };
 
 Select.defaultProps = {
+  name: '',
   classNameLabel: '',
   classNameSelect: '',
   onChange: () => {},
