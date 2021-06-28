@@ -9,10 +9,21 @@ class SearchBar extends Component {
       bookmarkedOnly, 
       onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange
+      onSelectedGenreChange,
     } = this.props;
     return (
-      <form data-testid="search-bar-form"></form>
+      <form data-testid="search-bar-form">
+        <label htmlFor="text-input" data-testid="text-input-label">
+          Inclui o texto:
+          <input
+            data-testid="text-input"
+            id="text-input"
+            type="text"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
+        </label>
+      </form>
     );
   }
 }
@@ -24,6 +35,6 @@ SearchBar.propTypes = {
   onBookmarkedChange: PropTypes.func,
   selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func,
-}
+};
 
 export default SearchBar;
