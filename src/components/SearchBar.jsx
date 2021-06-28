@@ -5,26 +5,20 @@ import React, { Component } from 'react';
 // import AddMovie from './AddMovie';
 
 class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-    };
-  }
-
-  onSearchTextChange = () => {}
-
-  onBookmarkedChange = () => {}
-
-  onSelectedGenreChange = () => {}
-
   render() {
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
+      selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="search-input" data-testid="text-input-label">
-          <input type="text" id="search-input" data-testid="text-input" />
+          Inclui o texto:
+          <input
+            type="text"
+            id="search-input"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+            data-testid="text-input"
+          />
         </label>
       </form>
     );
