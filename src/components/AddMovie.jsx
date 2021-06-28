@@ -18,6 +18,13 @@ export default class AddMovie extends Component {
   constructor() {
     super();
     this.state = initialState;
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
   }
 
   render() {
