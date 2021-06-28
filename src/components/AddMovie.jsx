@@ -32,17 +32,30 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         {INPUT_INFOS.map((input) => (
-          <Input key={ input.Name }
-          labelDataTestId={ input.labelDataTestId }
-          inputLabel={ input.Label }
-          inputDataTestId={ input.DataTestId }
-          inputName={ input.Name }
-          inputType={ input.Type }
-          inputValue={ this.state[input.Name] }
-          inputOnChange={ this.onChangeHandler }
-        />
+          <Input 
+            key={ input.Name }
+            labelDataTestId={ input.labelDataTestId }
+            inputLabel={ input.Label }
+            inputDataTestId={ input.DataTestId }
+            inputName={ input.Name }
+            inputType={ input.Type }
+            inputValue={ this.state[input.Name] }
+            inputOnChange={ this.onChangeHandler }
+          />
         ))}
-        
+        <label
+          htmlFor="storyline" 
+          data-testid="storyline-input-label"
+        >
+          Sinopse
+          <textarea
+            name="storyline"
+            value={ this.state.storyline }
+            data-testid="storyline-input"
+            onChange={ this.onChangeHandler }
+          />
+          <label></label>
+        </label>
       </form>
     );
   }
