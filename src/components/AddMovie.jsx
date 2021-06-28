@@ -1,7 +1,10 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputText from './InputText';
+import Input from './Input';
+import ImagePath from './ImagePath';
+import Storyline from './Storyline';
+
 
 class AddMovie extends React.Component {
   constructor() {
@@ -32,47 +35,35 @@ class AddMovie extends React.Component {
 
     return (
       <form action="" data-testid="add-movie-form">
-        <InputText
+        <Input
+          type="text"
           title="Título"
           name="title"
           value={ title }
           func={ this.handleChange }
         />
-        <InputText
+        <Input
+          type="text"
           title="Subtítulo"
           name="subtitle"
           value={ subtitle }
           func={ this.handleChange }
         />
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-            value={ imagePath }
-            onChange={ this.handleChange }
-            data-testid="image-input"
-          />
-        </label>
-        <label htmlFor="storyline" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            name="storyline"
-            value={ storyline }
-            onChange={ this.handleChange }
-            data-testid="storyline-input"
-          />
-        </label>
-        <label htmlFor="rating" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-            value={ rating }
-            onChange={ this.handleChange }
-            data-testid="rating-input"
-          />
-        </label>
+        <ImagePath
+          value={ imagePath }
+          func={ this.handleChange }
+        />
+        <Storyline
+          value={ storyline }
+          func={ this.handleChange }
+        />
+        <Input
+          type="number"
+          title="Avaliação"
+          name="rating"
+          value={ rating }
+          func={ this.handleChange }
+        />
       </form>
     );
   }
