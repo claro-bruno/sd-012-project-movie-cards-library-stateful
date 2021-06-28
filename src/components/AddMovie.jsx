@@ -1,6 +1,7 @@
 import React from 'react';
 import TextInput from './AddMovie-Inputs/TextInput';
 import TextArea from './AddMovie-Inputs/TextArea';
+import Select from './AddMovie-Inputs/Select';
 
 class addMovie extends React.Component {
   constructor() {
@@ -74,6 +75,17 @@ class addMovie extends React.Component {
         labelTitle="Avaliação"
         nome="rating"
         tipo="number"
+        />
+        <Select
+        valorInicial={ this.state.genre }
+        valorAlterado={ this.handleChanger }
+        dataTestidLabel="genre-input-label"
+        dataTestid="genre-input"
+        dataTestidOption="genre-option"
+        labelTitle="Gênero"
+        nome="genre"
+        optionValue={ ["action", "comedy", "thriller"] }
+        array={ ["Ação", "Comédia", "Suspense"] }
         />
         
 
