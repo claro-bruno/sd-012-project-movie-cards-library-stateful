@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import INPUT_INFOS from '../formInputInfos';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      rating: 5,
+      rating: 0,
       genre: 'action',
     }
   }
@@ -30,15 +31,18 @@ class AddMovie extends React.Component {
     const { onClick } = props;
     return (
       <form data-testid="add-movie-form">
-        <Input
-          labelDataTestId="text-input-label"
-          inputLabel="Título"
-          inputDataTestId="title-input"
-          inputName="title"
-          inputType="text"
-          inputValue={ this.state.title }
+        {INPUT_INFOS.map((input) => (
+          <Input key={ input.Name }
+          labelDataTestId={ input.labelDataTestId }
+          inputLabel={ input.Label }
+          inputDataTestId={ input.DataTestId }
+          inputName={ input.Name }
+          inputType={ input.Type }
+          inputValue={ this.state[input.Name] }
           inputOnChange={ this.onChangeHandler }
         />
+        ))}
+        
       </form>
     );
   }

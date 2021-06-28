@@ -41,7 +41,10 @@ Input.propTypes = {
   inputDataTestId: PropTypes.string.isRequired,
   inputName: PropTypes.string.isRequired,
   inputType: PropTypes.string.isRequired,
-  inputValue: PropTypes.string,
+  inputValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]), 
   inputOnChange: PropTypes.func.isRequired,
   inputChecked: PropTypes.bool,
 };
