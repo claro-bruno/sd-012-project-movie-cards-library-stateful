@@ -8,7 +8,7 @@ class SearchBar extends Component {
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
-      selectdGenre,
+      selectedGenre,
       onSelectedGenreChange,
     } = this.props;
     return (
@@ -34,6 +34,20 @@ class SearchBar extends Component {
               data-testid="checkbox-input"
             />
           </label>
+          <label data-testid="select-input-label" htmlFor="search-select">
+            Filtrar por gênero
+            <select
+              value={ selectedGenre }
+              onChange={ onSelectedGenreChange }
+              id="search-select"
+              data-testid="select-input"
+            >
+              <option data-testid="select-option" value="">Todos</option>
+              <option data-testid="select-option" value="action">Ação</option>
+              <option data-testid="select-option" value="comedy">Comédia</option>
+              <option data-testid="select-option" value="thriller">Suspense</option>
+            </select>
+          </label>
         </form>
       </div>
     );
@@ -45,7 +59,7 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
-  selectdGenre: PropTypes.string.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
