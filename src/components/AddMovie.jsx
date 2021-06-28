@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import Image from './Image';
+import Storyline from './Storyline';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -42,6 +43,7 @@ class AddMovie extends React.Component {
           <Title title={ title } newCard={ newCard } />
           <Subtitle subtitle={ subtitle } newCard={ newCard } />
           <Image image={ imagePath } newCard={ newCard } />
+          <Storyline storyline={ storyline } newCard={ newCard } />
         </form>
       </div>
     );
