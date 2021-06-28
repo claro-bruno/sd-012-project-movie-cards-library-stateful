@@ -29,7 +29,8 @@ class AddMovie extends Component {
     });
   }
 
-  onClickButton() {
+  onClickButton(e) {
+    e.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({

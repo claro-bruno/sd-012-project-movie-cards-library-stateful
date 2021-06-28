@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class MovieLibrary extends Component {
     this.filterByGenre = this.filterByGenre.bind(this);
     this.filterBySearch = this.filterBySearch.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
+    this.onClickAdd = this.onClickAdd.bind(this);
 
     this.state = {
       searchText: '',
@@ -32,12 +34,21 @@ class MovieLibrary extends Component {
     }, () => this.filterMovies());
   }
 
+  onClickAdd(movie) { // Lógica implementada a partir de pesquisas do colega Eric kreis
+    const { movies } = this.state;
+    const moviesList = [...movies, movie];
+    this.setState({
+      movies: moviesList,
+    });
+  }
+
   filterMovies() {
     const { movies } = this.props;
 
     this.setState({
       movies,
     });
+
     this.filterByBookmark();
     this.filterByGenre();
     this.filterBySearch();
@@ -90,6 +101,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ stateMovies } />
+        <AddMovie onClick={ this.onClickAdd } />
       </section>
     );
   }
