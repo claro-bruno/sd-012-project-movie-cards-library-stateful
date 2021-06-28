@@ -14,7 +14,7 @@ class MovieList extends React.Component {
     );
   }
 }
-
+// sd
 MovieList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.object,
