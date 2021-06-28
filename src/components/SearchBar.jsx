@@ -28,6 +28,7 @@ class SearchBar extends Component {
             inputName="includes"
           />
           <Input
+            inputType="checkbox"
             inputLabel="Mostrar somente favoritos"
             inputLabelTestId="checkbox-input-label"
             inputValue="favorites"
