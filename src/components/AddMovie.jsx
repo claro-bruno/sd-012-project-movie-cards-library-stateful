@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -64,6 +65,16 @@ class AddMovie extends React.Component {
             name="storyline"
             data-testid="storyline-input"
             value={ storyline }
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor="rating-input-label" data-testid="rating-input-label">
+          Avaliação
+          <input
+            name="rating"
+            data-testid="rating-input"
+            type="number"
+            value={ rating }
             onChange={ this.handleChange }
           />
         </label>
