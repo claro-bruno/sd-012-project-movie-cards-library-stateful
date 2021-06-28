@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import AddMovieInputs from './AddMovieInputs';
 import AddMovieTextArea from './AddMovieTextArea';
 import AddMovieGenre from './AddMovieGenre';
+import Button from './Button';
 
 const initialState = {
   title: '',
@@ -61,6 +62,7 @@ export default class AddMovie extends Component {
           inner="Avaliação"
         />
         <AddMovieGenre value={ genre } onChange={ this.handleChange } />
+        <Button onClick={ this.handleClick } />
       </form>
     );
   }
