@@ -20,7 +20,7 @@ class AddMovie extends React.Component {
 
   render() {
     // const { onClick } = this.props;
-    // const { title, subtitle, imagePath } = this.state;
+    // const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
         <Input
@@ -40,6 +40,7 @@ class AddMovie extends React.Component {
           // value={ subtitle }
           dataTestidInput="subtitle-input"
           // change={ this.handleChange }
+          name="subtitle"
         />
         <Input
           type="text"
@@ -48,7 +49,21 @@ class AddMovie extends React.Component {
           // value={ imagePath }
           dataTestidInput="image-input"
           // change={ this.handleChange }
+          name="imagePath"
         />
+        <label
+          data-testid="storyline-input-label"
+          htmlFor="textarea-addmovie"
+        >
+          Sinopse
+          <textarea
+            id="textarea-addmovie"
+            // value={ storyline }
+            data-testid="storyline-input"
+            // onChange={ this.handleChange }
+            name="storyline"
+          />
+        </label>
       </form>
     );
   }
