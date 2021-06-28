@@ -38,43 +38,43 @@ class AddMovie extends Component {
           id="title"
           label="Título"
           name="title"
-          value={title}
-          handleChange={this.handleChange}
+          value={ title }
+          handleChange={ this.handleChange }
         />
         <TextInput
           id="subtitle"
           label="Subtítulo"
           name="subtitle"
-          value={subtitle}
-          handleChange={this.handleChange}
+          value={ subtitle }
+          handleChange={ this.handleChange }
         />
         <TextInput
           id="image"
           label="Imagem"
           name="imagePath"
-          value={imagePath}
-          handleChange={this.handleChange}
+          value={ imagePath }
+          handleChange={ this.handleChange }
         />
         <TextAreaInput
           id="storyline"
           label="Sinopse"
           name="storyline"
-          value={storyline}
-          handleChange={this.handleChange}
+          value={ storyline }
+          handleChange={ this.handleChange }
         />
         <NumberInput
           id="rating"
           label="Avaliação"
           name="rating"
-          value={rating}
-          handleChange={this.handleChange}
+          value={ rating }
+          handleChange={ this.handleChange }
         />
         <SelectInput
           id="genre"
           label="Gênero"
           name="genre"
-          value={genre}
-          handleChange={this.handleChange}
+          value={ genre }
+          handleChange={ this.handleChange }
         />
       </form>
     );
