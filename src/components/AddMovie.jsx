@@ -7,7 +7,6 @@ import Storyline from './Storyline';
 import GenreInput from './GenreInput';
 import Input from './Input';
 
-
 class AddMovie extends React.Component {
   constructor() {
     super();
