@@ -11,9 +11,8 @@ class MovieList extends React.Component {
       <div data-testid="movie-list" className="movie-list">
         { movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
       </div>
-      <form>
-        <SearchBar movies={movies}/>
-      </form>
+        <SearchBar />
+
     );
   }
 }
