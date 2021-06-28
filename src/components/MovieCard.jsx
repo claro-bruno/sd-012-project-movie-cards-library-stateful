@@ -10,8 +10,10 @@ class MovieCard extends React.Component {
       <div className="movie-card" data-testid="movie-card">
         <img alt="Movie Cover" className="movie-card-image" src={ imagePath } />
         <div className="movie-card-body">
-          <h4 data-testid="movie-card-title" className="movie-card-title">{title}</h4>
-          <h5 className="movie-card-subtitle">{subtitle}</h5>
+          <div className="titles">
+            <h4 data-testid="movie-card-title" className="movie-card-title">{title}</h4>
+            <h5 className="movie-card-subtitle">{subtitle}</h5>
+          </div>
           <p className="movie-card-storyline">{storyline}</p>
         </div>
         <Rating rating={ rating } />
