@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class AddMovie extends Component {
   constructor() {
     super();
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -13,6 +14,10 @@ class AddMovie extends Component {
     };
   }
 
+  handleChange(event) {
+    this.setState({ title: event.target.value });
+  }
+
   render() {
     return (
       <form data-testid="add-movie-form">
@@ -21,6 +26,7 @@ class AddMovie extends Component {
           <input
             data-testid="title-input"
             type="text"
+            onChange={ this.handleChange }
           />
         </label>
       </form>
