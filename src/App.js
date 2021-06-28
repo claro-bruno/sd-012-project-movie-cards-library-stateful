@@ -6,7 +6,7 @@ import './App.css';
 class App extends React.Component {
   constructor() {
     super();
-
+    this.handleChange = this.handleChange.bind(this);
     this.state = {};
   }
 

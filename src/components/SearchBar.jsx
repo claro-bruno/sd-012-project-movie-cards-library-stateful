@@ -1,27 +1,26 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
+    const { onSearchTextChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="textInput" data-testid="text-input-label">
+        <label htmlFor="text-input" data-testid="text-input-label">
           Inclui o texto
-          <input type="text" name="" id="textInput" />
+          <input type="text" data-testid="text-input" id="text-input" onChange={onSearchTextChange} />
         </label>
-        <label htmlFor="checkbox">
-          <input type="checkbox" name="" id="checkbox" />
-        </label>
-        <label htmlFor="select">
-          <select name="" id="select">
-            <option value="">Todos</option>
-            <option value="action">Ação</option>
-            <option value="comedy">Comédia</option>
-            <option value="thriller">Suspense</option>
-          </select>
+        <label htmlFor="checkbox" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input type="checkbox" name="" id="checkbox" data-testid="checkbox-input" />
         </label>
       </form>
     );
   }
 }
+
+SearchBar.propTypes = {
+  onSearchTextChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;
