@@ -7,23 +7,13 @@ import movies from './data';
 import './App.css';
 
 class App extends Component {
-  constructor() {
-    super();
-
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange() {
-
-  }
-
   render() {
     return (
       <div className="App">
         <Header />
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.handleChange } />
+        <AddMovie /* onClick={  }  *//>
       </div>
     );
   }

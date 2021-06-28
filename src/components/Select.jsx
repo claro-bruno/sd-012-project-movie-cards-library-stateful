@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 class Select extends Component {
   render() {
     const genres = [
-      { genre: 'Todos', value: '' },
-      { genre: 'Ação', value: 'action' },
-      { genre: 'Comédia', value: 'comedy' },
-      { genre: 'Suspense', value: 'thriller' },
+      { genre: 'Todos', genreValue: '' },
+      { genre: 'Ação', genreValue: 'action' },
+      { genre: 'Comédia', genreValue: 'comedy' },
+      { genre: 'Suspense', genreValue: 'thriller' },
     ];
 
-    const { label, type, name, selectedGenre, onSelectedGenreChange } = this.props;
+    const { label, type, name, value, onChange } = this.props;
 
     return (
       <label htmlFor={ name } data-testid="select-input-label">
@@ -18,16 +18,16 @@ class Select extends Component {
         <select
           id={ name }
           name={ name }
-          value={ selectedGenre }
-          onChange={ onSelectedGenreChange }
+          value={ value }
+          onChange={ onChange }
           data-testid={ `${type}-input` }
         >
 
-          {genres.map(({ genre, value }) => {
+          {genres.map(({ genre, genreValue }) => {
             const optionTag = (
               <option
-                key={ value }
-                value={ value }
+                key={ genreValue }
+                value={ genreValue }
                 data-testid={ `${type}-option` }
               >
                 { genre }
@@ -46,8 +46,8 @@ Select.propTypes = PropTypes.exact({
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 }).isRequired;
 
 export default Select;

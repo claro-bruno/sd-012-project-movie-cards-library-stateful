@@ -14,25 +14,25 @@ class SearchBar extends Component {
         <Input
           label="Inclui o texto:"
           type="text"
-          name="searchText"
-          searchText={ searchText }
-          onSearchTextChange={ onSearchTextChange }
+          name="text"
+          value={ searchText }
+          onChange={ onSearchTextChange }
         />
 
         <Checkbox
           label="Mostrar somente favoritos"
           type="checkbox"
-          name="bookmarkedOnly"
-          bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ onBookmarkedChange }
+          name="checkbox"
+          checked={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
         />
 
         <Select
           label="Filtrar por gênero"
           type="select"
-          name="selectedGenre"
-          selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ onSelectedGenreChange }
+          name="select"
+          value={ selectedGenre }
+          onChange={ onSelectedGenreChange }
         />
       </form>
     );
