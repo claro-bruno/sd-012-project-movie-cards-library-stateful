@@ -3,11 +3,17 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import Checkbox from './Checkbox';
 import Select from './Select';
+import { genres } from '../data';
 
 class SearchBar extends Component {
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.props;
     const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this.props;
+
+    const genresOptions = [
+      { genre: 'Todos', genreValue: '' },
+      ...genres,
+    ];
 
     return (
       <form data-testid="search-bar-form">
@@ -31,11 +37,11 @@ class SearchBar extends Component {
 
         <Select
           label="Filtrar por gênero"
-          type="select"
           name="select"
           dataTestId="select-input"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
+          options={ genresOptions }
         />
       </form>
     );

@@ -3,14 +3,7 @@ import PropTypes from 'prop-types';
 
 class Select extends Component {
   render() {
-    const genres = [
-      { genre: 'Todos', genreValue: '' },
-      { genre: 'Ação', genreValue: 'action' },
-      { genre: 'Comédia', genreValue: 'comedy' },
-      { genre: 'Suspense', genreValue: 'thriller' },
-    ];
-
-    const { label, type, name, value, dataTestId, onChange } = this.props;
+    const { label, name, value, dataTestId, onChange, options } = this.props;
 
     return (
       <label htmlFor={ name } data-testid={ `${dataTestId}-label` }>
@@ -23,12 +16,12 @@ class Select extends Component {
           data-testid={ dataTestId }
         >
 
-          {genres.map(({ genre, genreValue }) => {
+          {options.map(({ genre, genreValue }) => {
             const optionTag = (
               <option
                 key={ genreValue }
                 value={ genreValue }
-                data-testid={ `${type}-option` }
+                data-testid={ `${name}-option` }
               >
                 { genre }
               </option>
@@ -49,6 +42,10 @@ Select.propTypes = PropTypes.exact({
   value: PropTypes.string.isRequired,
   dataTestId: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.exact({
+    genre: PropTypes.string.isRequired,
+    genreValue: PropTypes.string.isRequired,
+  })).isRequired,
 }).isRequired;
 
 export default Select;
