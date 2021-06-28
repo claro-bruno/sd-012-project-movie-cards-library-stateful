@@ -18,6 +18,15 @@ export default class MovieLibrary extends Component {
     this.state = initialState;
   }
 
+  movieAdd(movie) {
+    const { movies } = this.props;
+    this.setState((previous) => {
+      const newMovies = [...previous.movies];
+      newMovies.push(movie);
+      return { movies: newMovies };
+    });
+  }
+
   render() {
     const { movies } = this.props;
     return (
@@ -25,7 +34,7 @@ export default class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.movieAdd } />
       </div>
     );
   }

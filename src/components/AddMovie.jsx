@@ -20,6 +20,7 @@ export default class AddMovie extends Component {
     this.state = initialState;
     this.handleChange = this.handleChange.bind(this);
     this.handleRateChange = this.handleRateChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange(e) {
@@ -32,6 +33,13 @@ export default class AddMovie extends Component {
     this.setState({
       rating: Number(e.target.value),
     });
+  }
+
+  handleClick = (e) => {
+    e.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(initialState);
   }
 
   render() {
