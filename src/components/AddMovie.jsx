@@ -25,9 +25,10 @@ class AddMovie extends React.Component {
     });
   }
 
+  // eslint-disable-next-line max-lines-per-function
   render() {
     const { onClick } = this.props;
-    const { title, handleChange, subtitle, imagePath } = this.state;
+    const { title, handleChange, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title-input-label" data-testid="title-input-label">
@@ -45,7 +46,7 @@ class AddMovie extends React.Component {
           Subtítulo
           <input
             type="text"
-            name="title"
+            name="subtitle"
             value={ subtitle }
             onChange={ handleChange }
             data-testid="subtitle-input"
@@ -56,11 +57,32 @@ class AddMovie extends React.Component {
           Imagem
           <input
             type="text"
-            name="title"
+            name="imagePath"
             value={ imagePath }
             onChange={ handleChange }
             data-testid="image-input"
             id="image-input-label"
+          />
+        </label>
+        <label htmlFor="storyline-input-label" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="storyline"
+            value={ storyline }
+            onChange={ handleChange }
+            data-testid="storyline-input"
+            id="storyline-input-label"
+          />
+        </label>
+        <label htmlFor="rating-input-label" data-testid="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            name="rating"
+            value={ rating }
+            onChange={ handleChange }
+            data-testid="rating-input"
+            id="rating-input-label"
           />
         </label>
         
