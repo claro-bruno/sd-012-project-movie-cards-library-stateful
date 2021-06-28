@@ -15,7 +15,7 @@ export default class SearchBar extends Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <form data-testid="search-bar-form">
+      <form data-testid="search-bar-form" className="filter-form">
         <FilterInput
           label="Inclui o texto"
           labeltestid="text-input-label"
@@ -37,6 +37,7 @@ export default class SearchBar extends Component {
         <label htmlFor="genre-filter" data-testid="select-input-label">
           Filtrar por gênero
           <select
+            id="genre-filter"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
