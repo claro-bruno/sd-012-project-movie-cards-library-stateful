@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
 import Textarea from './Textarea';
+import SelectGender from './SelectGender';
 
 class AddMovie extends Component {
   constructor() {
@@ -30,7 +31,7 @@ class AddMovie extends Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
       <section>
@@ -80,6 +81,15 @@ class AddMovie extends Component {
             inputId="add-rating"
             inputTestId="rating-input"
             inputName="rating"
+          />
+          <SelectGender
+            selectName="genre"
+            onChangeSelect={ this.handleChange }
+            selectId="add-genre"
+            selectTestId="genre-input"
+            selectLabel="Gênero"
+            selectLabelTestId="genre-input-label"
+            selectValue={ genre }
           />
         </form>
       </section>
