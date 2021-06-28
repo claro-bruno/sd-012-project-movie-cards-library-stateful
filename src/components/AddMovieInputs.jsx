@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddMovieInputs extends Component {
   render() {
@@ -19,4 +20,11 @@ export default class AddMovieInputs extends Component {
   }
 }
 
-
+AddMovieInputs.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  inner: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+};
