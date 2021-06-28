@@ -16,6 +16,7 @@ export default class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.state = initialState;
+    this.movieAdd = this.movieAdd.bind(this);
   }
 
   movieAdd(movie) {
@@ -28,7 +29,7 @@ export default class MovieLibrary extends Component {
   }
 
   render() {
-    const { movies } = this.props;
+    const { movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
