@@ -12,14 +12,17 @@ class SearchBar extends Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <p>
-        {searchText}
-        {onSearchTextChange}
-        {bookmarkedOnly}
-        {onBookmarkedChange}
-        {selectedGenre}
-        {onSelectedGenreChange}
-      </p>
+      <form data-testid="search-bar-form">
+        <label htmlFor="text-input" data-testid="text-input-label">
+          Inclui o texto:
+          <input
+            type="text"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+            data-testid="text-input"
+          />
+        </label>
+      </form>
     );
   }
 }
