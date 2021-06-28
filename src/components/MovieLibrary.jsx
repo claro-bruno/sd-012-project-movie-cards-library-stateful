@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import movies from '../data';
+import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.filterByBookmark = this.filterByBookmark.bind(this);
 
     this.state = {
       searchText: '',
@@ -23,11 +24,21 @@ class MovieLibrary extends Component {
 
     this.setState({
       [name]: value,
-    });
+    }, () => this.filterByBookmark());
+  }
+
+  filterByBookmark() {
+    const { bookmarkedOnly, movies: stateMovies } = this.state;
+
+    if (bookmarkedOnly) {
+      this.setState({
+        movies: stateMovies.filter(({ bookmarked }) => bookmarked === true),
+      });
+    }
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies: stateMovies } = this.state;
     return (
       <section>
         <SearchBar
@@ -38,13 +49,10 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ this.handleChange }
           onSelectedGenreChange={ this.handleChange }
         />
+        <MovieList movies={ stateMovies } />
       </section>
     );
   }
 }
-
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 export default MovieLibrary;
