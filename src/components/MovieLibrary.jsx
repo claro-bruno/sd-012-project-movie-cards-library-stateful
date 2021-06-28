@@ -19,18 +19,27 @@ class MovieLibrary extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  handleChange({ target }) {
+    const { name, value } = target;
+
+    this.setState({
+      [name]: value,
+    });
+  }
+
   render() {
     const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText="xablau"
-          onSearchTextChange="xablau"
-          bookmarkedOnly="xablau"
-          onBookmarkedChange="xablau"
-          selectedGenre="xablau"
-          onSelectedGenreChange="xablau"
+          searchText={ searchText }
+          onSearchTextChange="xablau" // callback pra atualizar searchText
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange="xablau" // callback pra atualizar bookmarkedOnly
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange="xablau" // callback pra atualizar selectedGenre
         />
         <MovieList movies={ movies } />
         <AddMovie onClick="xablau" />
