@@ -3,8 +3,6 @@ import React from 'react';
 class SearchBar extends React.Component {
   render() {
     return (
-      <body>
-      <div>
         <form
           action=""
           data-testid="search-bar-form"
@@ -15,8 +13,8 @@ class SearchBar extends React.Component {
             <input
               id="Inclui o texto"
               type="text"
-              value="searchText"
-              onChange="onSearchTextChange"
+              value={this.props.searchText}
+              onChange={this.props.onSearchTextChange}
               data-testid="text-input"
             />Inclui o texto
           </label>
@@ -24,10 +22,9 @@ class SearchBar extends React.Component {
           data-testid="checkbox-input-label"
           >Mostrar somente favoritos
             <input
-              checked="bookmarkedOnly"
+              checked={this.props.bookmarkedOnly}
               data-testid="checkbox-input"
-              book="bookmarkedOnly"
-              onChange="onBookmarkedChange"
+              onChange={this.props.onBookmarkedChange}
               name=""
               type="checkbox"
             />
@@ -35,8 +32,8 @@ class SearchBar extends React.Component {
           <label data-testid="select-input-label">Filtrar por gênero
             <select 
               data-testid="select-input"
-              value="selectedGenre"
-              onChange="onSelectedGenreChange"
+              value={this.props.selectedGenre}
+              onChange={this.props.onSelectedGenreChange}
               id=""
               name="">
                 <option data-testid="select-option" value="">Todos</option>
@@ -46,8 +43,6 @@ class SearchBar extends React.Component {
             </select>
           </label>
         </form>
-      </div>
-    </body>   
     )
   }
 }
