@@ -1,9 +1,13 @@
 import React from 'react';
+import SearchText from './SearchBar/SearchText';
 
 class SearchBar extends React.Component {
   render() {
+    const { searchText, onSearchTextChange } = this.props;
     return (
-      <form data-testid="search-bar-form" />
+      <form data-testid="search-bar-form">
+        <SearchText searchText={ searchText } onSearchTextChange={ onSearchTextChange } />
+      </form>
     );
   }
 }
