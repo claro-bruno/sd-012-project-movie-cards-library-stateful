@@ -1,8 +1,8 @@
 import React from 'react';
-// import FormAddMovie from './FormAddMovie';
 import InputSimple from './InputSimple';
 import InputTextArea from './InputTextArea';
 import ImgInputAddMovie from './ImgInputAddMovie';
+import SelectGenre from './SelectGenre';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
@@ -14,7 +14,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: "action",
+      genre: 'action',
     };
     this.handler = this.handler.bind(this);
   }
@@ -25,7 +25,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating } = this.state;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputSimple
@@ -53,6 +53,7 @@ class AddMovie extends React.Component {
           labelText="Avaliação"
           onChange={ this.handler }
         />
+        <SelectGenre value={ genre } onChange={ this.handler } />
       </form>
     );
   }
