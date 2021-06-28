@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Input from './Input';
+import AddMovieForm from './AddMovieForm';
 
 class AddMovie extends Component {
   constructor() {
@@ -16,49 +16,34 @@ class AddMovie extends Component {
     };
   }
 
+  handleChange = ({ target }) => {
+    const { value } = target;
+    const id = target.id === 'image' ? 'imagePath' : target.id;
+    this.setState({
+      [id]: value,
+    });
+  }
+
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { onClick } = this.props;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
-        <Input
-          id="movie-title-input"
-          dataTestIdLabel="title-input-label"
-          label="Título"
-          value={ title }
-          dataTestIdInput="title-input"
-        />
-        <Input
-          id="movie-subtitle-input"
-          dataTestIdLabel="subtitle-input-label"
-          label="Subtítulo"
-          value={ subtitle }
-          dataTestIdInput="subtitle-input"
-        />
-        <Input
-          id="movie-image-input"
-          dataTestIdLabel="image-input-label"
-          label="Imagem"
-          value={ imagePath }
-          dataTestIdInput="image-input"
-        />
-        <label htmlFor="movie-storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            id="movie-storyline-input"
-            data-testid="storyline-input"
-            value={ storyline }
-          />
-        </label>
-        <Input
-          id="movie-rating-input"
-          dataTestIdLabel="rating-input-label"
-          label="Avaliação"
-          value={ rating }
-          dataTestIdInput="rating-input"
-        />
-      </form>
+      <AddMovieForm
+        onClick={ onClick }
+        onChange={ this.handleChange }
+        title={ title }
+        subtitle={ subtitle }
+        imagePath={ imagePath }
+        storyline={ storyline }
+        rating={ rating }
+        genre={ genre }
+      />
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
