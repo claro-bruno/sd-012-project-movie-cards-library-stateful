@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Input from './addmovie-components/Input';
-import inputsProps from './addmovie-components/inputs-props';
+import inputsProps from './addmovie-components/inputsProps';
 
 class AddMovie extends Component {
   constructor() {
