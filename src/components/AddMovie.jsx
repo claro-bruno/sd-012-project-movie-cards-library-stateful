@@ -25,38 +25,66 @@ class AddMovie extends Component {
     });
   }
 
-  // eslint-disable-next-line max-lines-per-function
+  makeTitle(value) {
+    return (
+      <Input
+        type="text"
+        name="title"
+        id="title"
+        label="Título"
+        value={ value }
+        callback={ this.handleChange }
+      />
+    );
+  }
+
+  makeSubtitle(value) {
+    return (
+      <Input
+        type="text"
+        name="subtitle"
+        id="subtitle"
+        label="Subtítulo"
+        value={ value }
+        callback={ this.handleChange }
+      />
+    );
+  }
+
+  makeImage(value) {
+    return (
+      <Input
+        type="text"
+        name="imagePath"
+        id="image"
+        label="Imagem"
+        value={ value }
+        callback={ this.handleChange }
+      />
+    );
+  }
+
+  makeRating(value) {
+    return (
+      <Input
+        type="number"
+        name="rating"
+        id="rating"
+        label="Avaliação"
+        value={ value }
+        callback={ this.handleChange }
+      />
+    );
+  }
+
   render() {
     const { title, subtitle, imagePath, rating, genre, storyline } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <Input
-          type="text"
-          name="title"
-          id="title"
-          label="Título"
-          value={ title }
-          callback={ this.handleChange }
-        />
-
-        <Input
-          type="text"
-          name="subtitle"
-          id="subtitle"
-          label="Subtítulo"
-          value={ subtitle }
-          callback={ this.handleChange }
-        />
-
-        <Input
-          type="text"
-          name="imagePath"
-          id="image"
-          label="Imagem"
-          value={ imagePath }
-          callback={ this.handleChange }
-        />
+        {this.makeTitle(title)}
+        {this.makeSubtitle(subtitle)}
+        {this.makeImage(imagePath)}
 
         <TextArea
           name="storyline"
@@ -65,14 +93,7 @@ class AddMovie extends Component {
           callback={ this.handleChange }
         />
 
-        <Input
-          type="number"
-          name="rating"
-          id="rating"
-          label="Avaliação"
-          value={ rating }
-          callback={ this.handleChange }
-        />
+        {this.makeRating(rating)}
 
         <Select
           name="genre"
