@@ -3,15 +3,9 @@ import PropTypes from 'prop-types';
 
 class InputSimple extends React.Component {
   render() {
-    const {
-      labelText,
-      LabelDataTestid,
-      InputDataTestid,
-      type,
-      name,
-      value,
-      onChange,
-    } = this.props;
+    const { labelText, type, name, value, onChange } = this.props;
+    const LabelDataTestid = `${name}-input-label`;
+    const InputDataTestid = `${name}-input`;
     return (
       <label data-testid={ LabelDataTestid } htmlFor={ InputDataTestid }>
         {labelText}
@@ -34,8 +28,6 @@ InputSimple.defaultProps = {
 
 InputSimple.propTypes = {
   labelText: PropTypes.string.isRequired,
-  InputDataTestid: PropTypes.string.isRequired,
-  LabelDataTestid: PropTypes.string.isRequired,
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,

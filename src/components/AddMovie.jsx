@@ -10,7 +10,7 @@ class AddMovie extends React.Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: "action",
     };
     this.textInputHandler = this.textInputHandler.bind(this);
@@ -22,13 +22,14 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline } = this.state;
+    const { subtitle, title, imagePath, storyline, rating } = this.state;
     return (
       <FormAddMovie
         subtitle={ subtitle }
         title={ title }
         imagePath={ imagePath }
         storyline={ storyline }
+        rating={ rating }
         textInputHandler={ this.textInputHandler }
       />
     );

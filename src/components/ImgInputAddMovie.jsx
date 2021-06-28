@@ -1,23 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class InputTextArea extends React.Component {
+class ImgInputAddMovie extends React.Component {
   render() {
-    const {
-      name,
-      value,
-      onChange,
-    } = this.props;
-
-    const LabelDataTestid = 'storyline-input-label';
-    const InputDataTestid = 'storyline-input';
-
+    const { value, onChange } = this.props;
+    const LabelDataTestid = 'image-input-label';
+    const InputDataTestid = 'image-input';
     return (
       <label data-testid={ LabelDataTestid } htmlFor={ InputDataTestid }>
-        Sinopse
-        <textarea
+        Imagem
+        <input
           data-testid={ InputDataTestid }
-          name={ name }
+          type="text"
+          name="imagePath"
           value={ value }
           id={ InputDataTestid }
           onChange={ onChange }
@@ -27,10 +22,9 @@ class InputTextArea extends React.Component {
   }
 }
 
-InputTextArea.propTypes = {
-  name: PropTypes.string.isRequired,
+ImgInputAddMovie.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
-export default InputTextArea;
+export default ImgInputAddMovie;
