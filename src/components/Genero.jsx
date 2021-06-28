@@ -27,6 +27,6 @@ class Genero extends React.Component {
 Genero.propTypes = {
   genre: PropTypes.string,
   handleChange: PropTypes.func,
-};
+}.isRequired;
 
 export default Genero;

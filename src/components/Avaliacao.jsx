@@ -6,12 +6,12 @@ class Avaliacao extends React.Component {
     const { rating, handleChange } = this.props;
 
     return (
-      <label htmlFor="Avaliação" data-testid="rating-input-label">
+      <label htmlFor="rating" data-testid="rating-input-label">
         Avaliação
         <input
           type="number"
           name="rating"
-          id="Avaliação"
+          id="rating"
           data-testid="rating-input"
           onChange={ handleChange }
           value={ rating }
@@ -24,6 +24,6 @@ class Avaliacao extends React.Component {
 Avaliacao.propTypes = {
   rating: PropTypes.number,
   handleChange: PropTypes.func,
-};
+}.isRequired;
 
 export default Avaliacao;

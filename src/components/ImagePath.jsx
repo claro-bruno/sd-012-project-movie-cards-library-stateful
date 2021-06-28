@@ -12,7 +12,7 @@ class ImagePath extends React.Component {
           type="text"
           name="imagePath"
           id="Imagem"
-          data-testid="subtitle-input"
+          data-testid="image-input"
           onChange={ handleChange }
           value={ imagePath }
         />
@@ -24,6 +24,6 @@ class ImagePath extends React.Component {
 ImagePath.propTypes = {
   imagePath: PropTypes.string,
   handleChange: PropTypes.func,
-};
+}.isRequired;
 
 export default ImagePath;

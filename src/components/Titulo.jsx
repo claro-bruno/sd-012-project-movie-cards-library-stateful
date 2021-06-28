@@ -24,6 +24,6 @@ class Titulo extends React.Component {
 Titulo.propTypes = {
   title: PropTypes.string,
   handleChange: PropTypes.func,
-};
+}.isRequired;
 
 export default Titulo;

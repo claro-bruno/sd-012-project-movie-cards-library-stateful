@@ -6,12 +6,12 @@ class Subtitulo extends React.Component {
     const { subtitle, handleChange } = this.props;
 
     return (
-      <label htmlFor="Subtítulo" data-testid="subtitle-input-label">
+      <label htmlFor="subtitle" data-testid="subtitle-input-label">
         Subtítulo
         <input
           type="text"
           name="subtitle"
-          id="Subtítulo"
+          id="subtitle"
           data-testid="subtitle-input"
           onChange={ handleChange }
           value={ subtitle }
@@ -24,6 +24,6 @@ class Subtitulo extends React.Component {
 Subtitulo.propTypes = {
   subtitle: PropTypes.string,
   handleChange: PropTypes.func,
-};
+}.isRequired;
 
 export default Subtitulo;

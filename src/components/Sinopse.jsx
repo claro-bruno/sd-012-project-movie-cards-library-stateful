@@ -6,10 +6,10 @@ class Sinopse extends React.Component {
     const { storyline, handleChange } = this.props;
 
     return (
-      <label htmlFor="Sinopse">
+      <label htmlFor="storyline" data-testid="storyline-input-label">
         Sinopse
         <textarea
-          id="Sinopse"
+          id="storyline"
           name="storyline"
           value={ storyline }
           data-testid="storyline-input"
@@ -23,6 +23,6 @@ class Sinopse extends React.Component {
 Sinopse.propTypes = {
   storyline: PropTypes.string,
   handleChange: PropTypes.func,
-};
+}.isRequired;
 
 export default Sinopse;
