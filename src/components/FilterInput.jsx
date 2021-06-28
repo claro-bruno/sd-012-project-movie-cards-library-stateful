@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 
 export default class FilterInput extends Component {
   render() {
-    const { type,
+    const {
+      type,
       label,
-      name,
+      id,
       labeltestid,
       fieldtestid,
       onChange,
@@ -12,11 +13,11 @@ export default class FilterInput extends Component {
       checked } = this.props;
 
     return (
-      <label htmlFor={ name } data-testid={ labeltestid }>
+      <label htmlFor={ id } data-testid={ labeltestid }>
         {label}
         <input
           type={ type }
-          name={ name }
+          id={ id }
           data-testid={ fieldtestid }
           onChange={ onChange }
           value={ value }
