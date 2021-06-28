@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Input from './Input';
+import Select from './Select';
 
 class AddMovie extends Component {
   constructor() {
@@ -24,7 +25,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, rating } = this.state;
+    const { title, subtitle, imagePath, rating, genre } = this.state;
 
     return (
       <form data-testid="add-movie-form">
@@ -57,6 +58,13 @@ class AddMovie extends Component {
           name="rating"
           label="Avaliação"
           value={ rating }
+          callback={ this.handleChange }
+        />
+
+        <Select
+          name="genre"
+          label="Gênero"
+          value={ genre }
           callback={ this.handleChange }
         />
       </form>
