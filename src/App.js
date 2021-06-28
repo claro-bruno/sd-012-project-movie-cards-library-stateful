@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <MovieList movies={ movies } />
-      <AddMovie onClick={ () => console.log('test') } />
+      <AddMovie onClick={ () => 'test' } />
     </div>
   );
 }

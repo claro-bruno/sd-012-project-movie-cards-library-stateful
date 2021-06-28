@@ -16,21 +16,31 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.onChangeHandler = this.onChangeHandler.bind(this);
+    this.onClickHandle = this.onClickHandle.bind(this);
   }
 
   onChangeHandler({ target }) {
     const { value, name } = target;
     this.setState({ [name]: value });
-    console.log(name);
+    // console.log(name);
   }
 
-  sendBtn() {
-    console.log('test');
+  onClickHandle(evt) {
+    evt.preventDefault();
+    const { onClick } = this.props;
+    onClick();
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <GenericInput
@@ -70,9 +80,9 @@ class AddMovie extends React.Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ onClick }
+          onClick={ this.onClickHandle }
         >
-          Adicionar Filme
+          Adicionar filme
         </button>
       </form>
     );
