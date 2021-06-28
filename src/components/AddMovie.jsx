@@ -14,6 +14,7 @@ class AddMovie extends React.Component {
 
     this.ratingChange = this.ratingChange.bind(this);
     this.titleChange = this.titleChange.bind(this);
+    this.genreChange = this.genreChange.bind(this);
   }
 
   titleChange(e) {
@@ -25,6 +26,12 @@ class AddMovie extends React.Component {
   ratingChange(e) {
     this.setState({
       rating: e.target.value,
+    });
+  }
+
+  genreChange(e) {
+    this.setState({
+      genre: e.target.value,
     });
   }
 
@@ -64,7 +71,7 @@ class AddMovie extends React.Component {
         </label>
         <label htmlFor="genre-input" data-testid="genre-input-label">
           Gênero
-          <select data-testid="genre-input" onChange={ genre }>
+          <select data-testid="genre-input" onChange={ this.genreChange }>
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
