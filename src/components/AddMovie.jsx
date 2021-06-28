@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import TextInput from './TextInput';
 import TextAreaInput from './TextAreaInput';
 import NumberInput from './NumberInput';
+import SelectInput from './SelectInput';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -68,25 +69,13 @@ class AddMovie extends Component {
           value={rating}
           handleChange={this.handleChange}
         />
-        <label htmlFor="genre-input" data-testid="genre-input-label">
-          Gênero
-          <select
-            data-testid="genre-input"
-            name="genre"
-            value={genre}
-            onChange={this.handleChange}
-          >
-            <option data-testid="genre-option" value="action" selected>
-              Ação
-            </option>
-            <option data-testid="genre-option" value="comedy">
-              Comédia
-            </option>
-            <option data-testid="genre-option" value="thriller">
-              Suspense
-            </option>
-          </select>
-        </label>
+        <SelectInput
+          id="genre"
+          label="Gênero"
+          name="genre"
+          value={genre}
+          handleChange={this.handleChange}
+        />
       </form>
     );
   }
