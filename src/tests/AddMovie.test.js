@@ -59,7 +59,7 @@ describe('6 - Crie um componente chamado `<AddMovie />`', () => {
   });
 });
 
-describe.only('7 - Renderize um formulário dentro de `<AddMovie />`', () => {
+describe('7 - Renderize um formulário dentro de `<AddMovie />`', () => {
   it('Renderize 1, e apenas 1, form', () => {
     expect(form).toHaveLength(1);
   });
@@ -107,7 +107,7 @@ describe('9 - Renderize um input do tipo texto dentro do formulário em `<AddMov
   });
 });
 
-describe('10 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o caminho da imagem do novo filme', () => {
+describe.only('10 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o caminho da imagem do novo filme', () => {
   it('Renderize um input de texto para quem usa inserir a url da imagem do filme', () => {
     expect(imageInput).toBeInTheDocument();
   });
