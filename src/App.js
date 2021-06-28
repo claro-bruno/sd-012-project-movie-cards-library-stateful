@@ -9,7 +9,9 @@ class App extends React.Component {
 
     this.state = {
       searchText: '',
-    }
+      onlyFavorites: false,
+      genre: '',
+    };
 
     this.handleChanger = this.handleChanger.bind(this);
   }
@@ -17,17 +19,25 @@ class App extends React.Component {
   handleChanger({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    
+
     this.setState({
       [name]: value,
-    })
+    });
   }
 
   render() {
+    const { searchText, onlyFavorites, genre } = this.state;
     return (
       <div className="App">
-      <Header />
-      <SearchBar onSearchTextChange={ this.handleChanger } searchText={ this.state.searchText }/>
+        <Header />
+        <SearchBar
+          onSearchTextChange={ this.handleChanger }
+          searchText={ searchText }
+          onBookmarkedChange={ this.handleChanger }
+          onSelectedGenreChange={ this.handleChanger }
+          bookmarkedOnly={ onlyFavorites }
+          selectedGenre={ genre }
+        />
       </div>
     );
   }
