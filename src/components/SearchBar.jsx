@@ -23,6 +23,7 @@ class SearchBar extends React.Component {
           />
         </label>
         <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
+          Mostrar somente favoritos:
           <input
             id="checkbox-input"
             type="checkbox"
