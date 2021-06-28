@@ -6,29 +6,33 @@ import ImgInputAddMovie from './ImgInputAddMovie';
 
 class FormAddMovie extends React.Component {
   render() {
-    const { subtitle, title, imagePath, storyline, textInputHandler } = this.props;
+    const { subtitle, title, imagePath, storyline, rating, handler } = this.props;
     return (
       <form data-testid="add-movie-form">
         <InputSimple
           labelText="Título"
           name="title"
           value={ title }
-          onChange={textInputHandler }
+          onChange={ handler }
         />
         <InputSimple
           labelText="Subtítulo"
           name="subtitle"
           value={ subtitle }
-          onChange={ textInputHandler }
+          onChange={ handler }
         />
-        <ImgInputAddMovie value={ imagePath } onChange={ textInputHandler } />
-        <InputTextArea name="storyline" value={ storyline } onChange={ textInputHandler } />
-        {/* <InputSimple
+        <ImgInputAddMovie value={ imagePath } onChange={ handler } />
+        <InputTextArea
+          name="storyline"
+          value={ storyline }
+          onChange={ handler }
+        />
+        <InputSimple
           name="rating"
           value={ rating }
           labelText="Avaliação"
-          onChange={textInputHandler}
-        /> */}
+          onChange={ handler }
+        />
       </form>
     );
   }
@@ -39,7 +43,8 @@ FormAddMovie.propTypes = {
   title: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
   storyline: PropTypes.string.isRequired,
-  textInputHandler: PropTypes.func.isRequired,
+  rating: PropTypes.number.isRequired,
+  handler: PropTypes.func.isRequired,
 };
 
 export default FormAddMovie;

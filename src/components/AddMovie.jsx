@@ -1,5 +1,8 @@
 import React from 'react';
-import FormAddMovie from './FormAddMovie';
+// import FormAddMovie from './FormAddMovie';
+import InputSimple from './InputSimple';
+import InputTextArea from './InputTextArea';
+import ImgInputAddMovie from './ImgInputAddMovie';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
@@ -13,10 +16,10 @@ class AddMovie extends React.Component {
       rating: 0,
       // genre: "action",
     };
-    this.textInputHandler = this.textInputHandler.bind(this);
+    this.handler = this.handler.bind(this);
   }
 
-  textInputHandler(event) {
+  handler(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
@@ -24,14 +27,33 @@ class AddMovie extends React.Component {
   render() {
     const { subtitle, title, imagePath, storyline, rating } = this.state;
     return (
-      <FormAddMovie
-        subtitle={ subtitle }
-        title={ title }
-        imagePath={ imagePath }
-        storyline={ storyline }
-        rating={ rating }
-        textInputHandler={ this.textInputHandler }
-      />
+      <form data-testid="add-movie-form">
+        <InputSimple
+          labelText="Título"
+          name="title"
+          value={ title }
+          onChange={ this.handler }
+        />
+        <InputSimple
+          labelText="Subtítulo"
+          name="subtitle"
+          value={ subtitle }
+          onChange={ this.handler }
+        />
+        <ImgInputAddMovie value={ imagePath } onChange={ this.handler } />
+        <InputTextArea
+          name="storyline"
+          value={ storyline }
+          onChange={ this.handler }
+        />
+        <InputSimple
+          name="rating"
+          type="number"
+          value={ rating }
+          labelText="Avaliação"
+          onChange={ this.handler }
+        />
+      </form>
     );
   }
 }
