@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddGenre extends Component {
   render() {
@@ -22,3 +23,8 @@ export default class AddGenre extends Component {
     );
   }
 }
+
+AddGenre.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
