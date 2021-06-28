@@ -1,4 +1,6 @@
 import React from 'react';
+import InputSimple from './InputSimple';
+import InputTextArea from './InputTextArea';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
@@ -8,7 +10,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: "",
+      storyline: '',
       // rating: 0,
       // genre: "action",
     };
@@ -21,44 +23,45 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath } = this.state;
+    const { subtitle, title, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title-input">
-          Título
-          <input
-            data-testid="title-input"
-            type="text"
-            name="title"
-            value={ title }
-            id="title-input"
-            onChange={ this.textInputHandler }
-          />
-        </label>
+        <InputSimple
+          labelText="Título"
+          LabelDataTestid="title-input-label"
+          InputDataTestid="title-input"
+          name="title"
+          value={ title }
+          onChange={ this.textInputHandler }
+        />
 
-        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            type="text"
-            name="subtitle"
-            value={ subtitle }
-            id="subtitle-input"
-            onChange={ this.textInputHandler }
-          />
-        </label>
+        <InputSimple
+          labelText="Subtítulo"
+          LabelDataTestid="subtitle-input-label"
+          InputDataTestid="subtitle-input"
+          name="subtitle"
+          value={ subtitle }
+          onChange={ this.textInputHandler }
+        />
 
-        <label data-testid="image-input-label" htmlFor="img-input">
-          Imagem
-          <input
-            data-testid="image-input"
-            type="text"
-            name="imagePath"
-            value={ imagePath }
-            id="img-input"
-            onChange={ this.textInputHandler }
-          />
-        </label>
+        <InputSimple
+          labelText="Imagem"
+          LabelDataTestid="image-input-label"
+          InputDataTestid="image-input"
+          name="imagePath"
+          value={ imagePath }
+          onChange={ this.textInputHandler }
+        />
+
+        <InputTextArea
+          labelText="Sinopse"
+          LabelDataTestid="storyline-input-label"
+          InputDataTestid="storyline-input"
+          name="storyline"
+          value={ storyline }
+          onChange={ this.textInputHandler }
+        />
+
       </form>
     );
   }
