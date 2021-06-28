@@ -17,7 +17,7 @@ class AddMovie extends Component {
 
   handleChange({ target }) {
     this.setState({
-      title: target.value,
+      [target.name]: target.value,
     });
   }
 
@@ -33,6 +33,17 @@ class AddMovie extends Component {
             value={ title }
             data-testid="title-input"
             onChange={ this.handleChange }
+            name="title"
+          />
+        </label>
+        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+          Subtítulo:
+          <input
+            type="text"
+            value={ subtitle }
+            data-testid="subtitle-input"
+            onChange={ this.handleChange }
+            name="subtitle"
           />
         </label>
       </form>
