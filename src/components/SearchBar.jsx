@@ -1,5 +1,6 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import FilterInput from './FilterInput';
 import GenreOption from './GenreOption';
 
@@ -51,3 +52,12 @@ export default class SearchBar extends Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
