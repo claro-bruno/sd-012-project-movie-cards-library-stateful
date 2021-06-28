@@ -34,7 +34,7 @@ const textTestId = 'text-input';
 const checkboxTestId = 'checkbox-input';
 const selectTestId = 'select-input';
 
-it.describe('1 - Crie um componente chamado `<SearchBar />`', () => {
+describe('1 - Crie um componente chamado `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('Renderize o componente `<SearchBar />`, recebendo as devidas props', () => {
@@ -45,7 +45,7 @@ it.describe('1 - Crie um componente chamado `<SearchBar />`', () => {
 describe('2 - Renderize um formulário dentro de `<SearchBar />`', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it('Renderize 1, e apenas 1, form dentro de `SearchBar`', () => {
+  it.only('Renderize 1, e apenas 1, form dentro de `SearchBar`', () => {
     const { getAllByTestId } = searchBar();
     const form = getAllByTestId('search-bar-form');
     expect(form).toHaveLength(1);
