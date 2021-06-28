@@ -11,20 +11,21 @@ class App extends React.Component {
   }
 
   handleChange({ target }) {
-    const { name, value } = target;
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
   }
 
   render() {
-    const { textInput } = this.state;
+    const { textInput, favoritesOnly } = this.state;
     return (
       <div className="App">
         <Header />
         <SearchBar
           searchText={ textInput }
           onSearchTextChange={ this.handleChange }
-        // bookmarkedOnly
-        // onBookmarkedChange
+          bookmarkedOnly={favoritesOnly }
+          onBookmarkedChange={ this.handleChange }
         // selectedGenre
         // onSelectedGenreChange
         />
