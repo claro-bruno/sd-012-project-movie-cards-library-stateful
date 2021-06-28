@@ -9,40 +9,47 @@ class SearchBar extends React.Component {
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
     } = this.props;
 
     return (
-      <section>
-        <form data-testid="search-bar-form">
-          <label
-            data-testid="text-input-label"
-            htmlFor="input-text"
+      <form data-testid="search-bar-form">
+        <label data-testid="text-input-label" htmlFor="text">
+          Inclui o texto
+          <input
+            id="text"
+            type="text"
+            data-testid="text-input"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
+        </label>
+        <label data-testid="checkbox-input-label" htmlFor="input-checkbox">
+          Mostrar somente favoritos
+          <input
+            id="input-checkbox"
+            type="checkbox"
+            data-testid="checkbox-input"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+          />
+        </label>
+        <label data-testid="select-input-label" htmlFor="select">
+          Filtrar por gênero
+          <select
+            data-testid="select-input"
+            id="select"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
           >
-            Inclui o texto
-            <input
-              id="input-text"
-              type="text"
-              data-testid="text-input"
-              value={ searchText }
-              onChange={ onSearchTextChange }
-            />
-          </label>
-          <label
-            data-testid="checkbox-input-label"
-            htmlFor="input-checkbox"
-          >
-            Mostrar somente favoritos
-            <input
-              id="input-checkbox"
-              type="checkbox"
-              data-testid="checkbox-input"
-              checked={ bookmarkedOnly }
-              onChange={ onBookmarkedChange }
-            />
-          </label>
-        </form>
-      </section>
-
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
+        </label>
+      </form>
     );
   }
 }
@@ -53,6 +60,8 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 
 };
 
