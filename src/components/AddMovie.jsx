@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Input from './addmovie-components/Input';
+import inputsProps from './addmovie-components/inputs-props';
 
 class AddMovie extends Component {
   constructor() {
@@ -26,46 +27,26 @@ class AddMovie extends Component {
 
   render() {
     const {
-      subtitle,
-      title,
-      imagePath,
       storyline,
-      rating,
-      genre,
     } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <Input
-          labelText="Título"
-          dataTestIdLabel="title-input-label"
-          type="text"
-          name="title"
-          id="title-input"
-          dataTestIdInput="title-input"
-          value={ title }
-          handleChange={ this.handleChange }
-        />
-        <Input
-          labelText="Subtítulo"
-          dataTestIdLabel="subtitle-input-label"
-          type="text"
-          name="subtitle"
-          id="subtitle-input"
-          dataTestIdInput="subtitle-input"
-          value={ subtitle }
-          handleChange={ this.handleChange }
-        />
-        <Input
-          labelText="Imagem"
-          dataTestIdLabel="image-input-label"
-          type="text"
-          name="imagePath"
-          id="image-input"
-          dataTestIdInput="image-input"
-          value={ imagePath }
-          handleChange={ this.handleChange }
-        />
+        { inputsProps.map((input) => {
+          const { state } = this;
+          return (
+            <Input
+              key={ input.name }
+              labelText={ input.labelText }
+              dataTestIdLabel={ input.dataTestIdLabel }
+              type={ input.type }
+              name={ input.name }
+              id={ input.id }
+              dataTestIdInput={ input.dataTestIdInput }
+              value={ state[input.name] }
+              handleChange={ this.handleChange }
+            />);
+        })}
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <textarea
