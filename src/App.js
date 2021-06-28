@@ -10,7 +10,7 @@ class App extends React.Component {
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
-      // selectedGenre: '',
+      selectedGenre: '',
     };
   }
 
@@ -23,7 +23,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <div className="App">
@@ -35,6 +35,8 @@ class App extends React.Component {
             onSearchTextChange={ this.handleChange }
             bookmarkedOnly={ bookmarkedOnly }
             onBookmarkedChange={ this.handleChange }
+            selectedGenre={ selectedGenre }
+            onSelectedGenreChange={ this.handleChange }
           />
         </div>
       </div>
