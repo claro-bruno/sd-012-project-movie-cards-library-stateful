@@ -68,6 +68,13 @@ class AddMovie extends React.Component {
           />
         </label>
         <MovieGenre name="genre" value={ genre } onChange={ this.handleChange } />
+        <button
+          onClick={ () => this.clickEvent }
+          data-testid="send-button"
+          type="submit"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
