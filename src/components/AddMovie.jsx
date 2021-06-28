@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import InputsAddMovie from './InputsAddMovie';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -29,36 +30,12 @@ class AddMovie extends React.Component {
     const { subtitle, title, imagePath, storyLine, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            name="title"
-            type="text"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            name="subtitle"
-            type="text"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem
-          <input
-            name="imagePath"
-            type="text"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <InputsAddMovie
+          subtitle={ subtitle }
+          title={ title }
+          imagePath={ imagePath }
+          handleChange={ this.handleChange }
+        />
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <textarea
@@ -68,12 +45,42 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
+        <label htmlFor="rating-input" data-testid="rating-input-label">
+          Avaliação
+          <input
+            name="rating"
+            type="number"
+            value={ rating }
+            data-testid="rating-input"
+            onChange={ this.handleChange }
+          />
+        </label>
         Bora passar no lint com:
-        {`${onClick}${rating}${genre}`}
+        {`${onClick}${genre}`}
       </form>
     );
   }
 }
+
+// const data = [
+//   { name: 'title', value: title, tid: 'title-input', desc: 'Título' },
+//   { name: 'subtitle', value: subtitle, tid: 'subtitle-input', desc: 'Subtítulo' },
+//   { name: 'imagePath', value: imagePath, tid: 'image-input', desc: 'Imagem' },
+// ];
+
+// {data.map((datum, key) => {
+//   return (
+//   <label key={ key } htmlFor={ datum.tid } data-tid={ `${datum.tid}-label` }>
+//     {datum.desc}
+//     <input
+//       name={ datum.name }
+//       type={ datum.type }
+//       value={ datum.value }
+//       data-testid={ datum.id }
+//       onChange={ () => this.handleChange(event) }
+//     />
+//   </label>
+// )})}
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
