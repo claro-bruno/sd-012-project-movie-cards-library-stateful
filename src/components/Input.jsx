@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
@@ -24,5 +25,18 @@ class Input extends React.Component {
     );
   }
 }
+
+Input.propTypes = {
+  dataTestidLabel: PropTypes.string.isRequired,
+  htmlFor: PropTypes.string.isRequired,
+  labelText: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  dataTestidInput: PropTypes.string.isRequired,
+  change: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
+};
 
 export default Input;
