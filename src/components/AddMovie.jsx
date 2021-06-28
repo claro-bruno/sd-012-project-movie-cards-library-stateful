@@ -59,11 +59,17 @@ class AddMovie extends React.Component {
             onChange={ this.handleChange }
           />
         </label>
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="storyLine"
+            value={ storyLine }
+            data-testid="storyline-input"
+            onChange={ this.handleChange }
+          />
+        </label>
         Bora passar no lint com:
-        { onClick }
-        { storyLine }
-        { rating }
-        { genre }
+        {`${onClick}${rating}${genre}`}
       </form>
     );
   }
