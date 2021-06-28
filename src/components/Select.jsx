@@ -21,7 +21,7 @@ class Select extends Component {
               <option
                 key={ genreValue }
                 value={ genreValue }
-                data-testid={ `${name}-option` }
+                data-testid={ `${(name === 'genre' ? name : 'select')}-option` }
               >
                 { genre }
               </option>
