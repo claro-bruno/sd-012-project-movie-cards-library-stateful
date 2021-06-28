@@ -23,7 +23,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath } = this.state;
 
     return (
       <form data-testid="add-movie-form">
@@ -46,6 +46,17 @@ class AddMovie extends Component {
             name="subtitle"
             onChange={ this.handleChange }
             value={ subtitle }
+          />
+        </label>
+
+        <label data-testid="image-input-label" htmlFor="image-input">
+          Imagem
+          <input
+            data-testid="image-input"
+            type="text"
+            name="imagePath"
+            onChange={ this.handleChange }
+            value={ imagePath }
           />
         </label>
       </form>
