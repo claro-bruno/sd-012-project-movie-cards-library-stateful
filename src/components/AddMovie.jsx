@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import Textarea from './Textarea';
 
 class AddMovie extends Component {
   constructor() {
@@ -29,7 +30,7 @@ class AddMovie extends Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
 
     return (
       <section>
@@ -60,6 +61,15 @@ class AddMovie extends Component {
             inputId="add-image"
             inputTestId="image-input"
             inputName="imagePath"
+          />
+          <Textarea
+            textareaLabel="Sinopse"
+            textareaLabelTestId="storyline-input-label"
+            textareaValue={ storyline }
+            onChangeTextarea={ this.handleChange }
+            textareaId="add-storyline"
+            textareaTestId="storyline-input"
+            textareaName="storyline"
           />
         </form>
       </section>
