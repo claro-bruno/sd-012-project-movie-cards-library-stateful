@@ -4,7 +4,8 @@
 }
 
 body {
-  background-color: black;
+  background: url('./images/felix-mooneeram-evlkOfkQ5rE-unsplash.jpg') no-repeat fixed;
+  background-size: cover;
   box-sizing: border-box;
   font-size: 16px;
 }
@@ -47,7 +48,7 @@ body {
 }
 
 .movie-list {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -80,7 +81,6 @@ body {
 
 .movie-card-body {
   flex: 1 1 auto;
-  /* padding: 20px; */
 }
 
 .movie-card-title {
