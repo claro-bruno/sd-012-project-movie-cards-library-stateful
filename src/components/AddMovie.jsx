@@ -14,12 +14,27 @@ class AddMovie extends Component {
     };
   }
 
+  getTextInput = (event) => {
+    this.setState({
+      [event.target.id]: event.target.value,
+    });
+  }
+
   render() {
     const { title, subtitle, storyline, imagePath, rating } = this.state;
-    const { onClick } = this.props;
+    const { getTextInput } = this;
     return (
       <form data-testid="add-movie-form" action="">
-        7 Requisito
+        <label htmlFor="title" data-testid="title-input-label">
+          Título
+          <input
+            id="title"
+            type="text"
+            value={ title }
+            onChange={ getTextInput }
+            data-testid="title-input"
+          />
+        </label>
       </form>
     );
   }
