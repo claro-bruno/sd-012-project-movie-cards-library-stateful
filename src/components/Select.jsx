@@ -10,17 +10,17 @@ class Select extends Component {
       { genre: 'Suspense', genreValue: 'thriller' },
     ];
 
-    const { label, type, name, value, onChange } = this.props;
+    const { label, type, name, value, dataTestId, onChange } = this.props;
 
     return (
-      <label htmlFor={ name } data-testid="select-input-label">
+      <label htmlFor={ name } data-testid={ `${dataTestId}-label` }>
         { label }
         <select
           id={ name }
           name={ name }
           value={ value }
           onChange={ onChange }
-          data-testid={ `${type}-input` }
+          data-testid={ dataTestId }
         >
 
           {genres.map(({ genre, genreValue }) => {
@@ -47,6 +47,7 @@ Select.propTypes = PropTypes.exact({
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
+  dataTestId: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 }).isRequired;
 

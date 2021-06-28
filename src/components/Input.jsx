@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 class Input extends Component {
   render() {
-    const { label, type, name, value, onChange } = this.props;
+    const { label, type, name, value, dataTestId, onChange } = this.props;
 
     return (
-      <label htmlFor={ name } data-testid={ `${name}-input-label` }>
+      <label htmlFor={ name } data-testid={ `${dataTestId}-label` }>
         { label }
         <input
           type={ type }
@@ -14,7 +14,7 @@ class Input extends Component {
           name={ name }
           value={ value }
           onChange={ onChange }
-          data-testid={ `${name}-input` }
+          data-testid={ dataTestId }
         />
       </label>
     );
@@ -26,6 +26,7 @@ Input.propTypes = PropTypes.exact({
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
+  dataTestId: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 }).isRequired;
 

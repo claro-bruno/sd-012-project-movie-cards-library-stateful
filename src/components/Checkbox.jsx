@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 class Checkbox extends Component {
   render() {
-    const { label, type, name, checked, onChange } = this.props;
+    const { label, type, name, checked, dataTestId, onChange } = this.props;
 
     return (
-      <label htmlFor={ name } data-testid={ `${type}-input-label` }>
+      <label htmlFor={ name } data-testid={ `${dataTestId}-label` }>
         { label }
         <input
           type={ type }
@@ -14,7 +14,7 @@ class Checkbox extends Component {
           name={ name }
           checked={ checked }
           onChange={ onChange }
-          data-testid={ `${type}-input` }
+          data-testid={ dataTestId }
         />
       </label>
     );
@@ -26,6 +26,7 @@ Checkbox.propTypes = PropTypes.exact({
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   checked: PropTypes.bool.isRequired,
+  dataTestId: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 }).isRequired;
 
