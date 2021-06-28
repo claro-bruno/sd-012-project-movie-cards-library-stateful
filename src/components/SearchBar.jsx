@@ -17,7 +17,6 @@ class SearchBar extends Component {
     return (
       <section>
         <form data-testid="search-bar-form">
-          SearchBar Form
           <Input
             inputLabel="Inclui o texto:"
             inputLabelTestId="text-input-label"
