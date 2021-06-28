@@ -4,19 +4,35 @@
 }
 
 body {
-  background-color: whitesmoke;
+  background-color: black;
   box-sizing: border-box;
   font-size: 16px;
+}
+
+.filter-form {
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 10px;
 }
 
 .filter-form .text-input-label, .filter-form .select-input-label {
   display: flex;
   flex-direction: column;
+  text-align: center;
+}
+
+.filter-form .checkbox-input-label {
+  align-items: center;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
 .movie-card-header {
   align-items: center;
-  background-color: black;
   display: flex;
   height: 100px;
   justify-content: center;
@@ -31,6 +47,7 @@ body {
 }
 
 .movie-list {
+  background-color: black;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
