@@ -8,16 +8,18 @@ class Input extends React.Component {
       labelDataTestId,
       inputLabel,
       inputDataTestId,
+      inputName,
       inputType,
       inputValue,
       inputOnChange,
       inputChecked,
     } = props;
     return (
-      <label htmlFor={ inputDataTestId } data-testid={ labelDataTestId }>
+      <label htmlFor={ inputName } data-testid={ labelDataTestId }>
         { inputLabel }
         <input
           data-testid={ inputDataTestId }
+          name={ inputName }
           type={ inputType }
           value={ inputValue }
           onChange={ inputOnChange }
