@@ -11,7 +11,7 @@ export default class InputText extends Component {
           <input
             type="text"
             data-testid="subtitle-input"
-            defaultvalue={ subtitle }
+            defaultValue={ subtitle }
           />
         </label>
       </div>
