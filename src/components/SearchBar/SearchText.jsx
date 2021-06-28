@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchText extends React.Component {
   render() {
@@ -20,3 +21,8 @@ class SearchText extends React.Component {
 }
 
 export default SearchText;
+
+SearchText.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+};

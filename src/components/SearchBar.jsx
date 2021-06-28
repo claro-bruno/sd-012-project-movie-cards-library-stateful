@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchText from './SearchBar/SearchText';
 
 class SearchBar extends React.Component {
@@ -13,3 +14,8 @@ class SearchBar extends React.Component {
 }
 
 export default SearchBar;
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+};
