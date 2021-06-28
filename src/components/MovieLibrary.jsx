@@ -8,6 +8,15 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: props.movies, // É assim??
+    };
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   render() {
@@ -31,7 +40,7 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.array.isRequired,
+  movies: PropTypes.array.isRequired, // ??
 };
 
 export default MovieLibrary;
