@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import Input from './Input';
 import ImagePath from './ImagePath';
 import Storyline from './Storyline';
