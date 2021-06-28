@@ -39,6 +39,7 @@ Input.propTypes = {
   labelDataTestId: PropTypes.string.isRequired,
   inputLabel: PropTypes.string.isRequired,
   inputDataTestId: PropTypes.string.isRequired,
+  inputName: PropTypes.string.isRequired,
   inputType: PropTypes.string.isRequired,
   inputValue: PropTypes.string,
   inputOnChange: PropTypes.func.isRequired,

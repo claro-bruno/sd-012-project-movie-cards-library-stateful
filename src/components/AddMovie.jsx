@@ -6,6 +6,8 @@ class AddMovie extends React.Component {
   constructor(props) {
     super(props);
 
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+
     this.state = {
       subtitle: '',
       title: '',
@@ -17,7 +19,10 @@ class AddMovie extends React.Component {
   }
 
   onChangeHandler({ target }) {
-    console.log(target.name);
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    })
   }
 
   render() {
@@ -29,6 +34,7 @@ class AddMovie extends React.Component {
           labelDataTestId="text-input-label"
           inputLabel="Título"
           inputDataTestId="title-input"
+          inputName="title"
           inputType="text"
           inputValue={ this.state.title }
           inputOnChange={ this.onChangeHandler }
