@@ -13,11 +13,34 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e) {
+    const { name } = e.target;
+    const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.props;
     return (
-      <form data-testid="add-movie-form"/>
+      <form data-testid="add-movie-form">
+        <label htmlFor="title-input" data-testid="title-input-label">
+          Título
+          <input
+            type="text"
+            data-testid="title-input"
+            name="title"
+            value={ title }
+            onChange={ this.handleChange }
+          />
+        </label>
+      </form>
     );
   }
 }
