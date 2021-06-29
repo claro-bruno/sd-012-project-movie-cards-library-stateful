@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 import moviesData from '../data';
 
 class MovieLibrary extends React.Component {
@@ -20,6 +21,7 @@ class MovieLibrary extends React.Component {
     this.markFilter = this.markFilter.bind(this);
     this.checkFilter = this.checkFilter.bind(this);
     this.textFilter = this.textFilter.bind(this);
+    this.click = this.click.bind(this);
   }
 
   handleChange(e) {
@@ -92,6 +94,10 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  click(movie) {
+    this.setState(({ movies }) => ({ movies: [...movies, movie] }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly,
       selectedGenre, movies } = this.state;
@@ -107,6 +113,9 @@ class MovieLibrary extends React.Component {
         />
         <MovieList
           movies={ movies }
+        />
+        <AddMovie
+          onClick={ this.click }
         />
       </div>
     );
