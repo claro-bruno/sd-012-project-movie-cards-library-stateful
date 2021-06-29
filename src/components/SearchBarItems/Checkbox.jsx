@@ -21,14 +21,15 @@ class Checkbox extends React.Component {
 
   render() {
     // const { bookmarkedOnly } = this.state;
-    const { inputType, inputLabel, onChangeCheckbox, inputValue } = this.props;
+    const { inputType, inputLabel, onChangeCheckbox, checked } = this.props;
     return (
       <label htmlFor="checkbox-input-label" data-testid="checkbox-input-label">
         {inputLabel}
         <input
+          data-testid="checkbox-input"
           id="checkbox-input-label"
           type={ inputType }
-          value={ inputValue }
+          checked={ checked }
           onChange={ onChangeCheckbox }
         />
       </label>
@@ -36,11 +37,11 @@ class Checkbox extends React.Component {
   }
 }
 
-Checkbox.propTypes = {
+Checkbox.propTypes = PropTypes.shape({
   inputType: PropTypes.string.isRequired,
   inputLabel: PropTypes.string.isRequired,
   onChangeCheckbox: PropTypes.func.isRequired,
-  inputValue: PropTypes.string.isRequired,
-};
+  checked: PropTypes.bool.isRequired,
+}).isRequired;
 
 export default Checkbox;

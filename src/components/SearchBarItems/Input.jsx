@@ -23,6 +23,7 @@ class Input extends React.Component {
       <label htmlFor="text-input-label" data-testid="text-input-label">
         {inputLabel}
         <input
+          data-testid="text-input"
           id="text-input-label"
           type={ inputType }
           value={ inputValue }
@@ -33,11 +34,11 @@ class Input extends React.Component {
   }
 }
 
-Input.propTypes = {
+Input.propTypes = PropTypes.shape({
   inputType: PropTypes.string.isRequired,
   inputLabel: PropTypes.string.isRequired,
   onChangeInput: PropTypes.func.isRequired,
   inputValue: PropTypes.string.isRequired,
-};
+}).isRequired;
 
 export default Input;

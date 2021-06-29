@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import SelectOption from './SelectOption';
 
 class Select extends React.Component {
   // constructor() {
@@ -18,31 +19,30 @@ class Select extends React.Component {
 
   render() {
     // const { selectedGenre } = this.state;
-    const { inputType, inputLabel, onChangeSelect, inputValue } = this.props;
+    const { inputLabel, onChangeSelect, inputValue } = this.props;
     return (
       <label htmlFor="select-input-label" data-testid="select-input-label">
         {inputLabel}
         <select
           id="select-input"
-          type={ inputType }
+          data-testid="select-input"
           value={ inputValue }
           onChange={ onChangeSelect }
         >
-          <option value="" data-testid="select-option">Todos</option>
-          <option value="action" data-testid="select-option">Ação</option>
-          <option value="comedy" data-testid="select-option">Comédia</option>
-          <option value="thriller" data-testid="select-option">Thriller</option>
+          <SelectOption value="" optionName="Todos" />
+          <SelectOption value="action" optionName="Ação" />
+          <SelectOption value="comedy" optionName="Comédia" />
+          <SelectOption value="thriller" optionName="Suspense" />
         </select>
       </label>
     );
   }
 }
 
-Select.propTypes = {
-  inputType: PropTypes.string.isRequired,
+Select.propTypes = PropTypes.shape({
   inputLabel: PropTypes.string.isRequired,
   onChangeSelect: PropTypes.func.isRequired,
   inputValue: PropTypes.string.isRequired,
-};
+}).isRequired;
 
 export default Select;
