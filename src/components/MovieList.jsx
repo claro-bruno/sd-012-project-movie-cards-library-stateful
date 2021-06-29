@@ -5,8 +5,7 @@ import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
   render() {
-    const { movies } = this.props;
-    const inputValue = this.props.inputValue;
+    const { movies, inputValue } = this.props;
 
     return (
       <div data-testid="movie-list" className="movie-list">
