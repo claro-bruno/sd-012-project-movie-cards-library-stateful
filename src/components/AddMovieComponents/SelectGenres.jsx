@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Select from '../generics/Select';
-import data from '../../data';
+import genres from '../../data/genres';
 
-delete data.genres.Todos;
+delete genres.Todos;
 
 class SelectGenres extends Component {
   render() {
@@ -17,7 +17,7 @@ class SelectGenres extends Component {
         name="genre"
         onChange={ onChange }
         value={ value }
-        options={ data.genres }
+        options={ genres }
         dataTestidOption="genre-option"
       />
     );

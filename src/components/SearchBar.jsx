@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './generics/Input';
 import Select from './generics/Select';
-import data from '../data';
+import genres from '../data/genres';
 
 class SearchBar extends Component {
   render() {
@@ -47,7 +47,7 @@ class SearchBar extends Component {
           textLabel="Filtrar por gênero"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
-          options={ data.genres }
+          options={ genres }
           name="selectedGenre"
         />
       </form>

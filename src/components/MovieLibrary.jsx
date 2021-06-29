@@ -32,8 +32,11 @@ class MovieLibrary extends Component {
       || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
       return check;
     });
+
     const favorite = marked ? search.filter((movie) => (movie.bookmarked)) : search;
+
     const result = genre ? favorite.filter((movie) => movie.genre === genre) : favorite;
+
     return result;
   }
 
