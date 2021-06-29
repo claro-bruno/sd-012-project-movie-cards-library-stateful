@@ -11,6 +11,7 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     this.state = {
       searchText: '',
@@ -78,8 +79,10 @@ class MovieLibrary extends React.Component {
     }
   }
 
-  onClick(objeto) {
-    console.log(objeto);
+  onClick(object) {
+    this.setState((previousState) => ({
+      movies: [...previousState.movies, object],
+    }));
   }
 
   render() {
