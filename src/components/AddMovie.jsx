@@ -2,6 +2,7 @@
 import React from 'react';
 import Input from './components-items/Input';
 import TextArea from './components-items/TextArea';
+import TitleSubImage from './components-items/TitleSubImage';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
@@ -31,32 +32,11 @@ class AddMovie extends React.Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <Input
-          inputLabel="Título"
-          inputDataTestId="title-input"
-          inputLabelId="title-input-label"
-          inputType="text"
-          inputValue={ title }
-          onChangeInput={ this.handleChange }
-          name="title"
-        />
-        <Input
-          inputLabel="Subtítulo"
-          inputDataTestId="subtitle-input"
-          inputLabelId="subtitle-input-label"
-          inputType="text"
-          inputValue={ subtitle }
-          onChangeInput={ this.handleChange }
-          name="subtitle"
-        />
-        <Input
-          inputLabel="Imagem"
-          inputDataTestId="image-input"
-          inputLabelId="image-input-label"
-          inputType="text"
-          inputValue={ imagePath }
-          onChangeInput={ this.handleChange }
-          name="imagePath"
+        <TitleSubImage
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+          handleChange={ this.handleChange }
         />
         <TextArea
           inputLabel="Sinopse"
@@ -65,6 +45,15 @@ class AddMovie extends React.Component {
           inputValue={ storyline }
           onChangeInput={ this.handleChange }
           name="storyline"
+        />
+        <Input
+          inputLabel="Avaliação"
+          inputDataTestId="rating-input"
+          inputLabelId="rating-input-label"
+          inputType="number"
+          inputValue={ rating }
+          onChangeInput={ this.handleChange }
+          name="rating"
         />
       </form>
     );
