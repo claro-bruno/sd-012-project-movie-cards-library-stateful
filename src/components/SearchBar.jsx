@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import Checkbox from './Checkbox';
 
 class SearchBar extends Component {
+  // eslint-disable-next-line max-lines-per-function
   render() {
     const { searchText,
       onSearchTextChange,
@@ -15,29 +17,24 @@ class SearchBar extends Component {
       <form className="container" data-testid="search-bar-form">
         <Input
           type="text"
-          name="searchText"
           id="text"
+          name="text"
           label="Inclui o texto:"
           value={ searchText }
           callback={ onSearchTextChange }
         />
 
-        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            data-testid="checkbox-input"
-            type="checkbox"
-            name="bookmarkedOnly"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-          />
-        </label>
+        <Checkbox
+          id="checkbox"
+          label="Mostrar somente favoritos"
+          checked={ bookmarkedOnly }
+          callback={ onBookmarkedChange }
+        />
 
         <label htmlFor="select-input" data-testid="select-input-label">
           Filtrar por gênero
           <select
             data-testid="select-input"
-            name="selectedGenre"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
           >
