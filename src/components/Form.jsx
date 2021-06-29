@@ -7,7 +7,7 @@ class Form extends React.Component {
   render() {
     const { state, onChange } = this.props;
     return (
-      <form data-testid="add-movie-form">
+      <div>
         <Input
           labelId="title-input-label"
           innerText="Título"
@@ -51,7 +51,7 @@ class Form extends React.Component {
           onChangeInput={ onChange }
         />
         <Select state={ state } onChange={ onChange } />
-      </form>
+      </div>
     );
   }
 }

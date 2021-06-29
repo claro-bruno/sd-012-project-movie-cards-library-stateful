@@ -1,5 +1,5 @@
 import React from 'react';
-import Form from './Form';
+import FormBody from './Form';
 
 const state = {
   subtitle: '',
@@ -27,10 +27,24 @@ class AddMovie extends React.Component {
     });
   }
 
+  onClick() {
+    this.setState(state);
+  }
+
   render() {
-    // const { title, subtitle, imagePath, storyline } = this.state;
+    const { onClick } = this.props;
     return (
-      <Form onChange={ this.handleClick } state={ this.state } />
+      <form data-testid="add-movie-form">
+        <FormBody onChange={ this.handleClick } state={ this.state } />
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ () => onClick(state) }
+        >
+          Adicionar filme
+        </button>
+      </form>
+
     );
   }
 }

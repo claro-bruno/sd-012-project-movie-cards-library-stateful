@@ -5,6 +5,12 @@ import AddMovie from './components/AddMovie';
 import './App.css';
 
 class App extends React.Component {
+  constructor() {
+    super();
+
+    this.onClick = this.onClick.bind(this);
+  }
+
   render() {
     return (
       <div className="App">
@@ -13,7 +19,7 @@ class App extends React.Component {
           searchText=""
           onSearchTextChange={ () => console.log('xablau') }
         />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
