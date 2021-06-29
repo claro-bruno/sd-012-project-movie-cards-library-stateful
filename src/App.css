@@ -29,19 +29,22 @@
 }
 
 .add-form label input, .add-form label textarea {
-  border: 2px solid rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 5px;
   width: 80%;
 }
 
 .add-form label select {
-  border: 2px solid rgba(0, 0, 0, 0);
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 5px;
 }
 
 .add-form input:focus, .add-form textarea:focus, .add-form select:focus {
-  border: 2px solid rgb(100, 100, 100);
+  border: 1px solid rgb(100, 100, 100);
   outline: none;
+  transform: scale(1.03);
+  transition: 0.3s;
 }
 
 
@@ -59,10 +62,12 @@
 
 .add-form .add-btn:hover {
   background-color: rgb(255, 85, 85);
+  transform: scale(1.03);
   transition: 0.3s;
 }
 
 .add-form .add-btn:focus {
+  transform: scale(1.03);
   outline: none;
 }
 
