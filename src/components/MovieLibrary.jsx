@@ -13,14 +13,12 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies: props.movies, // ainda nao tenho certeza se esta certo
+      movies: props.movies,
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
-    this.filterByBookmarkedOnly = this.filterByBookmarkedOnly.bind(this);
-    this.filterBySelectedGenre = this.filterBySelectedGenre.bind(this);
-    this.filterBySearchText = this.filterBySearchText.bind(this);
   }
 
   handleChange({ target }) {
@@ -32,10 +30,14 @@ class MovieLibrary extends Component {
     });
   }
 
-  /* handleSubmit(event) {
-    event.preventDefault();
-    return console.log(event);
-  } */
+  handleSubmit(event) {
+    const { movies } = this.props;
+    /** Consultei o repositório da Diogo Sant`anna para resolver a insercao dos novos filmes do state.
+       * Link do repositório https://github.com/tryber/sd-012-project-movie-cards-library-stateful/pull/109 */
+    this.setState({
+      movies: [...movies, event],
+    });
+  }
 
   filterMovies(movies) {
     const { bookmarkedOnly, selectedGenre, searchText } = this.state;
@@ -75,8 +77,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -95,8 +96,7 @@ class MovieLibrary extends Component {
               : this.filterMovies(movies)
           }
         </div>
-
-        <AddMovie onClick={ () => console.log('xablau') } />
+        <AddMovie onClick={ this.handleSubmit } />
       </div>
     );
   }
