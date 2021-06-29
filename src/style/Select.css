@@ -6,6 +6,7 @@
 
 .select {
   border: none;
+  border-radius: 8px;
   padding: 5px 10px;
   width: 200px;
 }
