@@ -30,7 +30,7 @@ InputChecked.propTypes = {
   labelText: PropTypes.string.isRequired,
   inputId: PropTypes.string.isRequired,
   inputType: PropTypes.string.isRequired,
-  checkedInput: PropTypes.func.isRequired,
+  checkedInput: PropTypes.bool.isRequired,
   onChangeInput: PropTypes.func.isRequired,
 };
 
