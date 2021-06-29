@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Select extends React.Component {
+class SelectGenre extends React.Component {
   render() {
     const {
       selectName,
@@ -23,9 +23,6 @@ class Select extends React.Component {
           value={ selectValue }
           onChange={ selectOnChange }
         >
-          <option data-testid={ optionId } value="">
-            Todos
-          </option>
           <option data-testid={ optionId } value="action">
             Ação
           </option>
@@ -41,7 +38,7 @@ class Select extends React.Component {
   }
 }
 
-Select.propTypes = {
+SelectGenre.propTypes = {
   selectName: PropTypes.string,
   dataLabelId: PropTypes.string,
   htmlForId: PropTypes.string,
@@ -52,7 +49,7 @@ Select.propTypes = {
   optionId: PropTypes.string,
 };
 
-Select.defaultProps = {
+SelectGenre.defaultProps = {
   selectName: '',
   dataLabelId: '',
   htmlForId: '',
@@ -63,4 +60,4 @@ Select.defaultProps = {
   optionId: '',
 };
 
-export default Select;
+export default SelectGenre;

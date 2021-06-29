@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from './myComponents/Select';
-import AddMovie from './AddMovie';
 
 class SearchBar extends React.Component {
   render() {
@@ -57,14 +56,13 @@ SearchBar.propTypes = {
   onSelectedGenreChange: PropTypes.func,
 };
 
-// SearchBar.defaultProps = {
-//   dataLabelId: '',
-//   htmlForId: '',
-//   labelInput: '',
-//   selectId: '',
-//   selectValue: '',
-//   selectOnChange: '',
-//   optionId: '',
-// };
+SearchBar.defaultProps = {
+  searchText: '',
+  onSearchTextChange: '',
+  bookmarkedOnly: true,
+  onBookmarkedChange: '',
+  selectedGenre: '',
+  onSelectedGenreChange: '',
+};
 
 export default SearchBar;
