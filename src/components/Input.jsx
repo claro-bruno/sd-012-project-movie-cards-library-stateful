@@ -43,7 +43,10 @@ Input.propTypes = {
   inputLabelTestId: PropTypes.string,
   inputType: PropTypes.string,
   inputName: PropTypes.string.isRequired,
-  inputValue: PropTypes.string.isRequired,
+  inputValue: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]).isRequired,
   inputChecked: PropTypes.bool,
   onChangeInput: PropTypes.func.isRequired,
   inputIsRequired: PropTypes.bool,
