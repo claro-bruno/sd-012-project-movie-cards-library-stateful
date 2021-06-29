@@ -24,8 +24,10 @@ class MovieLibrary extends Component {
 
   filterMovies(movieList) {
     const { bookmarkedOnly: marked, selectedGenre: genre, searchText } = this.state;
+
     const search = movieList.filter((movie) => {
-      const check = (movie.title.toLowerCase().includes(searchText.toLowerCase())
+      const check = (movie.title.toLowerCase()
+        .includes(searchText.toLowerCase())
       || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
       || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
       return check;
