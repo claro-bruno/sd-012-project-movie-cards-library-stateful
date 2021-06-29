@@ -17,6 +17,7 @@ class AddMovie extends React.Component {
     this.state = state;
 
     this.handleClick = this.handleClick.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   handleClick({ target }) {
@@ -39,7 +40,7 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ () => onClick(state) }
+          onClick={ this.onClick }
         >
           Adicionar filme
         </button>
