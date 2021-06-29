@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import Select from './Select';
 
 class SearchBar extends Component {
   render() {
@@ -28,19 +29,14 @@ class SearchBar extends Component {
           inputTestId="checkbox-input"
           labelId="checkboxInput"
         />
-        <label data-testid="select-input-label" htmlFor="selectField">
-          Filtrar por gênero
-          <select
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-            data-testid="select-input"
-          >
-            <option value="" data-testid="select-option">Todos</option>
-            <option value="action" data-testid="select-option">Ação</option>
-            <option value="comedy" data-testid="select-option">Comédia</option>
-            <option value="thriller" data-testid="select-option">Suspense</option>
-          </select>
-        </label>
+        <Select
+          label="Filtrar por gênero"
+          labelTestId="select-input-label"
+          labelId="selectField"
+          value={ selectedGenre }
+          onChange={ onSelectedGenreChange }
+          selectTestId="select-input"
+        />
       </form>
     );
   }

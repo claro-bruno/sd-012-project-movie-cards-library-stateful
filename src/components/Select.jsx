@@ -1,20 +1,22 @@
-/* import React, { Component } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Select extends Component {
   render() {
-    const { label, labelTestId, selectedGenre, onSelectedGenreChange, options, labelId } = this.props;
+    const { label, labelTestId, value, onChange, labelId, selectTestId } = this.props;
     return (
       <section>
-        <label htmlFor={ labelId } data-testid={ labelTestId }>
+        <label data-testid={ labelTestId } htmlFor={ labelId }>
           { label }
           <select
-            name=""
-            id=""
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
+            value={ value }
+            onChange={ onChange }
+            data-testid={ selectTestId }
           >
-            <option key="todos" value="todos" id={ labelId } ></option>
-            { options.map((item) => <option key={item} value={ item }> { item }</option>)}
+            <option value="" data-testid="select-option">Todos</option>
+            <option value="action" data-testid="select-option">Ação</option>
+            <option value="comedy" data-testid="select-option">Comédia</option>
+            <option value="thriller" data-testid="select-option">Suspense</option>
           </select>
         </label>
       </section>
@@ -22,4 +24,13 @@ class Select extends Component {
   }
 }
 
-export default Select; */
+Select.propTypes = {
+  label: PropTypes.string.isRequired,
+  labelTestId: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  labelId: PropTypes.string.isRequired,
+  selectTestId: PropTypes.string.isRequired,
+};
+
+export default Select;
