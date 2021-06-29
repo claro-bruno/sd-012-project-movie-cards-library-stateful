@@ -28,7 +28,10 @@ class AddMovie extends React.Component {
           Título
           <input type="text" id="find-title" data-testid="title-input" />
         </label>
-        <input type="text" id="find-subtitle" />
+        <label htmlFor="find-subtitle" data-testid="subtitle-input-label">
+          Subtítulo
+          <input type="text" id="find-subtitle" data-testid="subtitle-input" />
+        </label>
         <input type="text" id="find-image-path" />
         <input type="text" id="find-story-line" />
         <input type="text" id="find-rating" />
