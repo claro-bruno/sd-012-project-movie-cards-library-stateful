@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
@@ -20,13 +20,13 @@ class Input extends React.Component {
   }
 }
 
-Input.propTypes = PropTypes.exact({
-  label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  dataTestId: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-}).isRequired;
+// Input.propTypes = PropTypes.exact({
+//   label: PropTypes.string.isRequired,
+//   type: PropTypes.string.isRequired,
+//   name: PropTypes.string.isRequired,
+//   value: PropTypes.string.isRequired,
+//   dataTestId: PropTypes.string.isRequired,
+//   onChange: PropTypes.func.isRequired,
+// }).isRequired;
 
 export default Input;
