@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import InputRender from './InputRender';
+import TextArea from './TextArea';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -10,7 +11,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: '',
+      storyline: '',
       rating: 0,
       // genre: 'action',
     };
@@ -25,7 +26,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputRender
@@ -49,6 +50,10 @@ class AddMovie extends React.Component {
           initValue={ imagePath }
           onChange={ this.handleChange }
           nameState="imagePath"
+        />
+        <TextArea
+          initValue={ storyline }
+          onChange={ this.handleChange }
         />
         <InputRender
           name="rating"

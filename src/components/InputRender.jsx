@@ -25,7 +25,7 @@ class InputRender extends React.Component {
 InputRender.propTypes = {
   name: PropTypes.string.isRequired,
   nome: PropTypes.string.isRequired,
-  initValue: PropTypes.string.isRequired,
+  initValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   onChange: PropTypes.func.isRequired,
   type: PropTypes.string.isRequired,
   nameState: PropTypes.string.isRequired,
