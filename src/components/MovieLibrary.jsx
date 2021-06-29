@@ -10,11 +10,20 @@ class MovieLibrary extends React.Component {
     const { movies } = this.props;
     this.state = {
       searchText: '',
-      bookmarkedOnly: true,
+      bookmarkedOnly: false,
       selectedGenre: 'action',
       movies,
     };
   }
+
+    filerFavorites = () => {
+      const { movies } = this.props;
+      const filtered = movies.filter((movie) => {
+        const { bookmarkedOnly } = this.state;
+        return !bookmarkedOnly ? movie.bookmarked === bookmarkedOnly : true;
+      });
+      this.setState({ movies: filtered });
+    }
 
   handleChange = ({ target }) => {
     const { id, value } = target;
@@ -28,6 +37,7 @@ class MovieLibrary extends React.Component {
     } else {
       this.setState({ bookmarkedOnly: false });
     }
+    this.filerFavorites();
   }
 
   render() {
