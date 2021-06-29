@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 class ButtonForm extends Component {
   render() {
-    const { handleSubmitButton } = this.props;
+    const { onClick } = this.props;
 
     return (
-      <button type="button" data-testid="send-button" onClick={ handleSubmitButton }>
+      <button type="button" data-testid="send-button" onClick={ onClick }>
         Adicionar filme
       </button>
     );
@@ -14,7 +14,7 @@ class ButtonForm extends Component {
 }
 
 ButtonForm.propTypes = {
-  handleSubmitButton: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ButtonForm;
