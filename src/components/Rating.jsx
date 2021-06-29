@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../css/rating.css';
 
 class Rating extends React.Component {
   render() {
