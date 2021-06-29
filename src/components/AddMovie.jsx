@@ -4,6 +4,7 @@ import ButtonAdd from './ButtonAdd';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
+import Storyline from './Storyline';
 
 /**
  * Consultei o repositório do Wendell Costa para resolver essa parte.
@@ -32,8 +33,6 @@ class AddMovie extends Component {
   }
   render() {
     const {
-      imagePath,
-      storyline,
       rating,
       genre,
     } = this.state;
@@ -43,19 +42,7 @@ class AddMovie extends Component {
         <Title value={ this.state.title } handleChange={ this.handle } />
         < Subtitle value={ this.state.subtitle } handleChange={ this.handle } />
         < ImagePath value={ this.state.imagePath } handleChange={ this.handle } />
-        <label
-          htmlFor="storyline-input"
-          data-testid="storyline-input-label"
-        >
-          Sinopse
-          <textarea
-            name="storyline"
-            value={ storyline }
-            data-testid="storyline-input"
-            onChange={ this.handleChange }
-          >
-          </textarea>
-        </label>
+        < Storyline value={ this.state.storyline } handleChange={ this.handle } />
         <label
           data-testid="rating-input-label"
           htmlFor="rating-input"
