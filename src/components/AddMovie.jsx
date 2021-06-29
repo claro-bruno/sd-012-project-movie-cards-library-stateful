@@ -12,17 +12,18 @@ const initialState = {
 };
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { ...initialState };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange({ target }) {
-    const { name, value } = target;
+    const { name, value, type } = target;
+    const newValue = type === 'number' ? +value : value;
     this.setState({
-      [name]: value,
+      [name]: newValue,
     });
   }
 
@@ -32,13 +33,49 @@ class AddMovie extends Component {
       <label htmlFor="storyline-input" data-testid="storyline-input-label">
         Sinopse
         <input
-          type="text"
           name="storyline"
           id="storyline-input"
           data-testid="storyline-input"
           value={ storyline }
           onChange={ this.handleChange }
         />
+      </label>
+    );
+  }
+
+  inputRating() {
+    const { rating } = this.setState;
+    return (
+      <label htmlFor="rating-input" data-testid="rating-input-label">
+        Avaliação
+        <input
+          type="number"
+          name="rating"
+          id="rating-input"
+          data-testid="rating-input"
+          value={ rating }
+          onChange={ this.handleChange }
+        />
+      </label>
+    );
+  }
+
+  inputSelect() {
+    const { genre } = this.state;
+    return (
+      <label htmlFor="genre-input" data-testid="genre-input-label">
+        Gênero
+        <select
+          name="genre"
+          id="genre-input"
+          data-testid="genre-input"
+          value={ genre }
+          onChange={ this.handleChange }
+        >
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
+        </select>
       </label>
     );
   }
@@ -52,7 +89,6 @@ class AddMovie extends Component {
         <label htmlFor="title-input" data-testid="title-input-label">
           Título
           <input
-            type="text"
             name="title"
             id="title-input"
             data-testid="title-input"
@@ -63,7 +99,6 @@ class AddMovie extends Component {
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
           <input
-            type="text"
             name="subtitle"
             id="subtitle-input"
             data-testid="subtitle-input"
@@ -74,7 +109,6 @@ class AddMovie extends Component {
         <label htmlFor="image-input" data-testid="image-input-label">
           Imagem
           <input
-            type="text"
             name="imagePath"
             id="image-input"
             data-testid="image-input"
@@ -83,6 +117,8 @@ class AddMovie extends Component {
           />
         </label>
         { this.inputStoryline() }
+        { this.inputRating() }
+        { this.inputSelect() }
       </form>
     );
   }
