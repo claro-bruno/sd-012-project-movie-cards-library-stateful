@@ -6,12 +6,14 @@ import ImagePathInput from './ImagePathInput';
 import TextAreaInput from './TextAreaInput';
 import RatingInput from './RatingInput';
 import SelectInput from './SelectInput';
+import ButtonForm from './ButtonForm';
 
 class AddMovie extends Component {
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
     this.state = {
       subtitle: '',
@@ -29,8 +31,21 @@ class AddMovie extends Component {
     });
   }
 
-  render() {
+  handleSubmit(event) {
+    event.preventDefault();
     const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
 
     return (
@@ -56,7 +71,9 @@ class AddMovie extends Component {
           valueSelectInput={ genre }
           handleChangeSelect={ this.handleChange }
         />
-        {onClick}
+        <ButtonForm
+          handleSubmitButton={ this.handleSubmit }
+        />
       </form>
     );
   }
