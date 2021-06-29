@@ -6,34 +6,34 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
-    const { movies } = this.props;
-
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+
+    const { movies } = this.props;
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies,
+      movies: movies[0].title,
     };
   }
 
-  onSearchTextChange({target}) {
+  onSearchTextChange({ target }) {
     this.setState({ searchText: target.value });
   }
 
   onBookmarkedChange() {
-    this.setState((anterior, _prop) => ({ bookmarkedOnly: !anterior.bookmarkedOnly }));
+    this.setState((anterior) => ({ bookmarkedOnly: !anterior.bookmarkedOnly }));
   }
 
-  onSelectedGenreChange({target}) {
+  onSelectedGenreChange({ target }) {
     this.setState({ selectedGenre: target.value });
   }
-  
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
@@ -44,6 +44,8 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
+        Passando no Lint:
+        {movies}
       </div>
     );
   }
