@@ -1,35 +1,160 @@
 .form-addMovie {
-  align-items: center;
-  background-color: azure;
+  background-color: #c2c2c2;
+  border: 2px solid #f48024;
   border-radius: 10px;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
   margin: 10px auto;
   padding: 30px;
-  width: 75%;
+  width: 80%;
 }
 
 .form-addMovie label {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  width: 300;
+  width: 100%;
 }
 
 .form-addMovie input {
   border-radius: 5px;
-  margin: 10px;
   outline: none;
   padding: 5px;
-  width: 240px;
+  width: 80%;
+}
+
+.form-addMovie input:hover {
+  border: #f48024 solid 2px;
+}
+
+.form-addMovie input:focus {
+  border: #f48024 solid 2px;
+}
+
+.form-addMovie label:nth-child( 4 ) input {
+  border-radius: 5px;
+  margin-right: 70%;
+  outline: none;
+  padding: 5px;
+  width: 10%;
+}
+
+.form-addMovie select {
+  background-color: #fafafa;
+  border: solid 2px;
+  border-radius: 5px;
+  margin-right: 60%;
+  outline: none;
+  padding: 5px;
+  width: 20%;
+}
+
+.form-addMovie select:hover {
+  border: #f48024 solid 2px;
+}
+
+.form-addMovie select:focus {
+  border: #f48024 solid 2px;
 }
 
 .form-addMovie textarea {
+  border: solid 2px;
   border-radius: 5px;
-  margin: 10px;
+  height: 200px;
   outline: none;
   padding: 5px;
   resize: none;
-  width: 255px;
+  width: 80%;
+}
+
+.form-addMovie textarea:hover {
+  border: #f48024 solid 2px;
+}
+
+.form-addMovie textarea:focus {
+  border: #f48024 solid 2px;
+}
+
+.form-addMovie button {
+  align-self: stretch;
+  background-color: #dd3308;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 2px 3px 0 2px rgb(58, 58, 58);
+  color: white;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-size: 14pt;
+  height: 40px;
+  margin: 10px auto;
+  opacity: 0.8;
+  outline: none;
+  text-align: center;
+  transition: all 0.4s ease;
+  width: 50%;
+}
+
+.form-addMovie button:hover {
+  opacity: 1;
+}
+
+.form-addMovie button:active {
+  box-shadow: 0 0 0 0 rgb(58, 58, 58) , inset 3px 3px 3px rgb(58, 58, 58);
+  transform: translate(3px, 3px);
+}
+
+@media screen and ( max-width : 598px ) {
+
+  .page-title {
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  .form-addMovie label:nth-child( 4 ) input {
+    margin-right: 60%;
+    width: 20%;
+  }
+
+  .form-addMovie select {
+    margin-right: 50%;
+    width: 30%;
+  }
+}
+
+@media screen and ( max-width : 500px ) {
+
+  .form-addMovie {
+    font-size: 12px;
+  }
+
+  .form-addMovie button {
+    font-size: 16px;
+  }
+}
+
+@media screen and ( max-width : 400px ) {
+
+  .form-addMovie {
+    font-size: 12px;
+  }
+
+  .form-addMovie label {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .form-addMovie label:nth-child( 4 ) input {
+    margin-right: 0;
+    text-align: center;
+    width: 30%;
+  }
+
+  .form-addMovie select {
+    margin-right: 0;
+    width: 50%;
+  }
+
+  .form-addMovie button {
+    font-size: 12px;
+  }
 }

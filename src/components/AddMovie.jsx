@@ -77,9 +77,10 @@ class AddMovie extends Component {
         <InputTitle value={ title } onChange={ this.handleChange } />
         <InputSubtitle onChange={ this.handleChange } value={ subtitle } />
         <InputImage onChange={ this.handleChange } value={ imagePath } />
-        <TextAreaStoryline onChange={ this.handleChange } value={ storyline } />
         <InputRating onChange={ this.handleChange } value={ Number(rating) } />
         <SelectGenres onChange={ this.handleChange } value={ genre } />
+        <TextAreaStoryline onChange={ this.handleChange } value={ storyline } />
+
         <ButtonSend onClick={ (e) => this.handleClick(e, onClick) } />
       </form>
     );

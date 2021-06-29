@@ -16,3 +16,11 @@
   margin: 10px;
   text-align: center;
 }
+
+@media screen and ( max-width : 598px ) {
+
+  .page-title {
+    font-size: 30px;
+    font-weight: 500;
+  }
+}
