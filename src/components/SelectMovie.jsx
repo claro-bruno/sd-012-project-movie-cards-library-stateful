@@ -12,9 +12,11 @@ class SelectMovie extends React.Component {
         Gênero
         <select
           data-testid="genre-input"
+          name="genre"
           onChange={ onChange }
+          value={ initValue }
         >
-          <option value={ initValue } data-testid="genre-option">Ação</option>
+          <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>

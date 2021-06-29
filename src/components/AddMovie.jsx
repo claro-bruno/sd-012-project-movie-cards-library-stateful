@@ -4,18 +4,20 @@ import InputRender from './InputRender';
 import TextArea from './TextArea';
 import SelectMovie from './SelectMovie';
 
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = initialState;
 
     this.handleChange = this.handleChange.bind(this);
   }
@@ -25,24 +27,34 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  btnFunc = (e) => {
+    e(this.state);
+  }
+
+  onSubmitForm = (e) => {
+    e.preventDefault();
+    this.setState(initialState);
+  }
+
   render() {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" onSubmit={ this.onSubmitForm }>
         <InputRender
           name="title"
           nome="Título"
           initValue={ title }
           onChange={ this.handleChange }
+          type="text"
           nameState="title"
-          onClick={ onClick }
         />
         <InputRender
           name="subtitle"
           nome="Subtítulo"
           initValue={ subtitle }
           onChange={ this.handleChange }
+          type="text"
           nameState="subtitle"
         />
         <InputRender
@@ -50,12 +62,10 @@ class AddMovie extends React.Component {
           nome="Imagem"
           initValue={ imagePath }
           onChange={ this.handleChange }
+          type="text"
           nameState="imagePath"
         />
-        <TextArea
-          initValue={ storyline }
-          onChange={ this.handleChange }
-        />
+        <TextArea initValue={ storyline } onChange={ this.handleChange } />
         <InputRender
           name="rating"
           nome="Avaliação"
@@ -64,10 +74,14 @@ class AddMovie extends React.Component {
           type="number"
           nameState="rating"
         />
-        <SelectMovie
-          initValue={ genre }
-          onChange={ this.handleChange }
-        />
+        <SelectMovie initValue={ genre } onChange={ this.handleChange } />
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ this.btnFunc(onClick) }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
