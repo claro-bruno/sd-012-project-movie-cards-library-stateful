@@ -1,4 +1,24 @@
+.input-text-div {
+  display: flex;
+  flex-direction: column;
+}
+
 .input-text {
   border: none;
   padding: 5px 10px;
+  width: 90%;
+}
+
+.input-checkbox-div {
+  align-items: baseline;
+  display: flex;
+}
+
+.input-checkbox-label {
+  order: 1;
+}
+
+.input-checkbox {
+  margin: 5px;
+  order: 0;
 }

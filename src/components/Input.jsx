@@ -19,8 +19,14 @@ class Input extends Component {
     } = this.props;
 
     return (
-      <label htmlFor={ inputId } data-testid={ inputLabelTestId }>
-        {inputLabel}
+      <div className={ `input-${inputType}-div` }>
+        <label
+          htmlFor={ inputId }
+          data-testid={ inputLabelTestId }
+          className={ `input-${inputType}-label` }
+        >
+          {inputLabel}
+        </label>
         <input
           id={ inputId }
           data-testid={ inputTestId }
@@ -33,7 +39,7 @@ class Input extends Component {
           required={ inputIsRequired }
           maxLength={ inputMaxlength }
         />
-      </label>
+      </div>
     );
   }
 }
