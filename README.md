@@ -482,7 +482,7 @@ Dentro desse formulário haverá campos usados para preencher informações do n
 
 - O input deve ter seu valor inicial provido pelo estado inicial do componente, via `title`;
 
-- Esse input deve apresentar o atributo `data-testid="title-input"`
+- Esse input deve apresentar o atributo `data-testid="ttile-input"`
 
 - A propriedade `onChange` deve atualizar o estado de `<AddMovie />`, atribuindo a `title` o atual título contido no input.
 

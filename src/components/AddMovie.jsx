@@ -28,8 +28,8 @@ class addMovie extends React.Component {
     });
   }
 
-  onClick2() {
-    this.props.onClick()
+  onClick2(onClick) {
+    onClick({...this.state})
     this.setState({
       subtitle: '',
       title: '',
@@ -102,7 +102,7 @@ class addMovie extends React.Component {
         <Button
           buttonTitle="Adicionar filme"
           dataTestid="send-button"
-          click={ this.onClick2 }
+          click={ () => this.onClick2(onClick) }
         />
         
 

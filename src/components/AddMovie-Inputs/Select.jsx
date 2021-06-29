@@ -10,11 +10,12 @@ class Select extends React.Component {
       labelTitle,
       nome,
       optionValue,
-      array } = this.props;
+      array,
+      id } = this.props;
     return(
-      <label data-testid={ dataTestidLabel }>
+      <label data-testid={ dataTestidLabel } htmlFor={ id }>
         { labelTitle }
-        <select data-testid={ dataTestid } name={ nome } onChange={ valorAlterado } value={ valorInicial }>
+        <select data-testid={ dataTestid } name={ nome } onChange={ valorAlterado } value={ valorInicial } id={ id }>
           { array.map((item, index) => <option data-testid={ dataTestidOption } key={ index } value={ optionValue[index] }>{ item }</option>)}
         </select>
       </label>
