@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Appraisal extends React.Component {
   render() {
-    const { value, handleChange, name } = this.props;
+    const { value, handleChange } = this.props;
     return (
       <label
         data-testid="rating-input-label"
@@ -20,4 +21,8 @@ class Appraisal extends React.Component {
     );
   }
 }
+Appraisal.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};
 export default Appraisal;

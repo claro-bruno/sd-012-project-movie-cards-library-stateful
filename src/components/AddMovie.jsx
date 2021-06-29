@@ -1,12 +1,12 @@
 // implement AddMovie component here
 import React from 'react';
-import Title from './Title';
-import Subtitle from './Subtitle';
-import Image from './Image';
-import Synopsis from './Synopsis';
-import Appraisal from './Appraisal';
-import Genre from './Genre';
-// import ButtonAddMovie from './ButtonAddMovie';
+import Title from './moviespecs/Title';
+import Subtitle from './moviespecs/Subtitle';
+import Image from './moviespecs/Image';
+import Synopsis from './moviespecs/Synopsis';
+import Appraisal from './moviespecs/Appraisal';
+import Genre from './moviespecs/Genre';
+import Button from './moviespecs/Button';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -31,7 +31,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick, subtitle,
+    const { subtitle,
       title, imagePath,
       storyline, rating,
       genre } = this.state;
@@ -66,6 +66,11 @@ class AddMovie extends React.Component {
           name="genre"
           value={ genre }
           handleChange={ this.handleChange }
+        />
+        <Button
+          name="button"
+          labelButton="Adicionar filme"
+          // onClick={  }
         />
       </form>
     );

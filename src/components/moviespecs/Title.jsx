@@ -1,15 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Title extends React.Component {
   render() {
-    const { title, handleChange, name } = this.props;
+    const { title, handleChange } = this.props;
     return (
       <div>
         <label data-testid="title-input-label" htmlFor="title-input">
           Título
           <input
             type="text"
-            name={ name }
+            name="title"
             data-testid="title-input"
             value={ title }
             onChange={ handleChange }
@@ -19,4 +20,8 @@ class Title extends React.Component {
     );
   }
 }
+Title.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+};
 export default Title;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Checkbox extends React.Component {
   render() {
@@ -17,3 +18,8 @@ class Checkbox extends React.Component {
   }
 }
 export default Checkbox;
+
+Checkbox.propTypes = {
+  bookmarkedOnly: PropTypes.func.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+};
