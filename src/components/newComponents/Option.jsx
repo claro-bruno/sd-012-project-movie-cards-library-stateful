@@ -3,14 +3,22 @@ import Proptypes from 'prop-types';
 
 class Option extends Component {
   render() {
-    const { value, type, dataId } = this.props;
+    const { value, name, type, dataId } = this.props;
 
-    return (<option value={ value } data-testid={ `${dataId}-option` }>{ type }</option>
+    return (
+      <option
+        name={ name }
+        value={ value }
+        data-testid={ `${dataId}-option` }
+      >
+        { type }
+      </option>
     );
   }
 }
 
 Option.propTypes = {
+  name: Proptypes.string.isRequired,
   type: Proptypes.string.isRequired,
   dataId: Proptypes.string.isRequired,
   value: Proptypes.string.isRequired,

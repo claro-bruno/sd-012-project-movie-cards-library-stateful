@@ -4,11 +4,12 @@ import Option from './Option';
 
 class Select extends Component {
   render() {
-    const { dataId, message, onChange, value } = this.props;
+    const { dataId, message, onChange, value, name } = this.props;
     return (
       <label htmlFor={ dataId } data-testid={ `${dataId}-input-label` }>
         { message }
         <select
+          name={ name }
           value={ value }
           id={ dataId }
           onChange={ onChange }
@@ -25,6 +26,7 @@ class Select extends Component {
 }
 
 Select.propTypes = {
+  name: Proptypes.string.isRequired,
   dataId: Proptypes.string.isRequired,
   message: Proptypes.string.isRequired,
   onChange: Proptypes.func.isRequired,

@@ -17,18 +17,25 @@ class SearchBar extends Component {
       <form data-testid="search-bar-form">
         <div>
           <Input
+            type="text"
+            name="searchText"
             message="Inclui o texto:"
             dataId="text"
             value={ searchText }
             onChange={ onSearchTextChange }
           />
           <Input
+            type="checkbox"
+            name="bookmarkedOnly"
             message="Mostrar somente favoritos"
             dataId="checkbox"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
           />
           <Select
+            type="select"
+            tag="select"
+            name="selectedGenre"
             message="Filtrar por gênero"
             dataId="select"
             value={ selectedGenre }
