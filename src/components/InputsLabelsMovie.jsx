@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import inputsLabels from '../dataInputsAndLabels';
 
 class InputsLabelsMovie extends React.Component {
@@ -25,5 +26,10 @@ class InputsLabelsMovie extends React.Component {
       ));
   }
 }
+
+InputsLabelsMovie.propTypes = {
+  handlerChange: PropTypes.func.isRequired,
+  state: PropTypes.string.isRequired,
+};
 
 export default InputsLabelsMovie;

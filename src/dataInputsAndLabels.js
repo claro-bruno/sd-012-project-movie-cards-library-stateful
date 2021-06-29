@@ -4,7 +4,7 @@ const inputsLabels = [
     idLabel: 'title-input-label',
     idInput: 'title-input',
     inputName: 'title',
-    inputType: 'text',  
+    inputType: 'text',
   },
   {
     labelContent: 'Subtítulo',
@@ -17,7 +17,7 @@ const inputsLabels = [
     labelContent: 'Imagem',
     idLabel: 'image-input-label',
     idInput: 'image-input',
-    inputName: 'image',
+    inputName: 'imagePath',
     inputType: 'text',
   }, {
     labelContent: 'Avaliação',
