@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Input from './addmovie-components/Input';
+import Input from './Input';
 import inputsProps from './addmovie-components/inputsProps';
 import Select from './Select';
 import optionsProps from './addmovie-components/optionsProps';
