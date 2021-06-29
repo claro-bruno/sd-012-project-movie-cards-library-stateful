@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
-import MovieCard from './MovieCard';
+import MovieList from './MovieList';
+import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor() {
@@ -18,7 +19,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { movies, textInput, favoritesOnly, genreOption } = this.props;
+    const { textInput, favoritesOnly, genreOption } = this.state;
 
     return (
       <div>
@@ -30,10 +31,8 @@ class MovieLibrary extends React.Component {
           selectedGenre={ genreOption }
           onSelectedGenreChange={ this.handleChange }
         />
-        <div className="movie-list">
-          {movies.map((movie, index) => (
-            <MovieCard movie={ movie } key={ `Movie Title ${index + 1}` } />
-          ))}
+        <div>
+          <MovieList movies={ movies } />
         </div>
       </div>
     );
@@ -42,9 +41,6 @@ class MovieLibrary extends React.Component {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  textInput: PropTypes.string.isRequired,
-  favoritesOnly: PropTypes.string.isRequired,
-  genreOption: PropTypes.string.isRequired,
 };
 
 export default MovieLibrary;
