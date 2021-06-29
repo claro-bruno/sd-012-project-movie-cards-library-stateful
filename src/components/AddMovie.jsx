@@ -1,4 +1,5 @@
 import React from 'react';
+import InputsLabelsMovie from './InputsLabelsMovie';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -15,6 +16,7 @@ class AddMovie extends React.Component {
     this.ratingChange = this.ratingChange.bind(this);
     this.titleChange = this.titleChange.bind(this);
     this.genreChange = this.genreChange.bind(this);
+    this.storylineChange = this.storylineChange.bind(this);
   }
 
   titleChange(e) {
@@ -35,40 +37,20 @@ class AddMovie extends React.Component {
     });
   }
 
+  storylineChange(e) {
+    this.setState({
+      storyline: e.target.value,
+    });
+  }
+
+
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre, onClick } = this.state;
+  
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="title-input-label">
-          Título
-          <input
-            data-testid="title-input"
-            type="text"
-            onChange={ this.titleChange }
-            value={ title }
-          />
-        </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input data-testid="subtitle-input" type="text" value={ subtitle } />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem
-          <input data-testid="image-input" type="text" value={ imagePath } />
-        </label>
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea data-testid="storyline-input" type="text" value={ storyline } />
-        </label>
-        <label htmlFor="rating-input" data-testid="rating-input-label">
-          Avaliação
-          <input
-            data-testid="rating-input"
-            type="number"
-            value={ rating }
-            onChange={ this.ratingChange }
-          />
-        </label>
+        <InputsLabelsMovie />
         <label htmlFor="genre-input" data-testid="genre-input-label">
           Gênero
           <select data-testid="genre-input" onChange={ this.genreChange }>
