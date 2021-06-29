@@ -59,7 +59,7 @@ Input.defaultProps = {
   inputLabelTestId: '',
   inputChecked: false,
   inputIsRequired: true,
-  inputMaxlength: 1000,
+  inputMaxlength: 250,
 };
 
 export default Input;
