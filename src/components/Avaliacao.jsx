@@ -22,7 +22,10 @@ class Avaliacao extends React.Component {
 }
 
 Avaliacao.propTypes = {
-  rating: PropTypes.number,
+  rating: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   handleChange: PropTypes.func,
 }.isRequired;
 
