@@ -2,9 +2,22 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      subtitle:'',
+      title:'',
+      imagePath:'',
+      storyLine:'',
+      rating:0,
+      genre: 'action',
+    };
+  }
+
   render() {
     return (
-      'Oi, eu sou o componente AddMovie.'
+      <form data-testid="add-movie-form"> </form>
     );
   }
 }
