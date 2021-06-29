@@ -42,8 +42,15 @@ class MovieLibrary extends Component {
   render() {
     const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const filteredMovies = movies.filter((movie) => movie.title.includes(searchText)
-    && movie.genre.includes(selectedGenre));
+    const filteredMovies = movies.filter((movie) => {
+      if (bookmarkedOnly === false) return movie;
+      return movie.bookmarked === true;
+    }).filter((movie) => {
+      if (selectedGenre === '') return movie;
+      return movie.genre === selectedGenre;
+    }).filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
     return (
       <div>
         <SearchBar
