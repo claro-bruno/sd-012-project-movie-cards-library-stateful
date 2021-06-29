@@ -6,7 +6,7 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor({ movies }) {
-    super(movies);
+    super();
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
