@@ -5,13 +5,12 @@ class SearchText extends React.Component {
   render() {
     const { searchText, onSearchTextChange } = this.props;
     return (
-      <label htmlFor="searchText" data-testid="text-input-label">
+      <label htmlFor="text-input" data-testid="text-input-label">
         Inclui o texto
         <input
           data-testid="text-input"
           name="searchText"
           type="text"
-          id="searchText"
           value={ searchText }
           onChange={ onSearchTextChange }
         />
