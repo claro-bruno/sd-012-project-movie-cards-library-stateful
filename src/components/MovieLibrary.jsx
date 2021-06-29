@@ -42,7 +42,10 @@ class MovieLibrary extends React.Component {
       this.setState({ movies: propMovies });
       return;
     }
-    const filteredMovies = movies.filter(({ title }) => title.includes(searchText));
+    const filteredMovies = movies.filter(({ title, subtitle, storyline }) => {
+      const concatString = `${title}${subtitle}${storyline}`;
+      return concatString.includes(searchText);
+    });
     this.setState({ movies: filteredMovies });
   }
 
