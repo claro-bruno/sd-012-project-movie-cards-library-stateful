@@ -43,7 +43,7 @@ class addMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePatch, storyline, rating, genre } = this.state;
+    const { title, subtitle, imagePatch, storyline, rating, selectedGenre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <AddMovieForm
@@ -63,7 +63,7 @@ class addMovie extends React.Component {
           tipo="number"
         />
         <Select
-          valorInicial={ genre }
+          valorInicial={ selectedGenre }
           valorAlterado={ this.handleChanger }
           dataTestidLabel="genre-input-label"
           dataTestid="genre-input"

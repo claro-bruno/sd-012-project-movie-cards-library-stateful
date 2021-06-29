@@ -36,7 +36,7 @@ class Select extends React.Component {
 }
 
 Select.propTypes = {
-  optionValue: PropTypes.string.isRequired,
+  optionValue: PropTypes.arrayOf(PropTypes.string).isRequired,
   dataTestidOption: PropTypes.string.isRequired,
   array: PropTypes.arrayOf(PropTypes.string).isRequired,
   id: PropTypes.string.isRequired,

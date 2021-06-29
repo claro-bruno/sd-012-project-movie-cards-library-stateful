@@ -32,7 +32,7 @@ class TextInput extends React.Component {
 }
 
 TextInput.propTypes = {
-  valorInicial: PropTypes.string.isRequired,
+  valorInicial: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   valorAlterado: PropTypes.func.isRequired,
   dataTestid: PropTypes.string.isRequired,
   dataTestidLabel: PropTypes.string.isRequired,
