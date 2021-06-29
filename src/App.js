@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
-import movies from './data'
+import movies from './data';
 import SearchBar from './components/SearchBar';
 import './App.css';
 
