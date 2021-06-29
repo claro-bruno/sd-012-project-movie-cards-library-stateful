@@ -2,29 +2,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends React.Component {
   constructor() {
     super();
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
     this.handleChange = this.handleChange.bind(this);
+    this.onClickBtn = this.onClickBtn.bind(this);
+    this.state = initialState;
   }
 
-  handleChange() {
-    this.setState((estadoAnterior) => ({
-      title: estadoAnterior.title,
-      subtitle: estadoAnterior.subtitle,
-      imagePath: estadoAnterior.imagePath,
-      storyline: estadoAnterior.storyline,
-      rating: estadoAnterior.rating,
-      genre: estadoAnterior.genre,
-    }));
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  onClickBtn() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(initialState);
   }
 
   titleInput(title) {
@@ -33,7 +39,7 @@ class AddMovie extends React.Component {
         Título
         <input
           type="text"
-          name="input-title"
+          name="title"
           id="input-title"
           defaultValue={ title }
           onChange={ this.handleChange }
@@ -50,7 +56,7 @@ class AddMovie extends React.Component {
         Subtítulo
         <input
           type="text"
-          name="input-subtitle"
+          name="subtitle"
           id="input-subtitle"
           defaultValue={ subtitle }
           onChange={ this.handleChange }
@@ -67,7 +73,7 @@ class AddMovie extends React.Component {
         Imagem
         <input
           type="text"
-          name="input-image"
+          name="imagePath"
           id="input-image"
           defaultValue={ inputImage }
           onChange={ this.handleChange }
@@ -83,7 +89,7 @@ class AddMovie extends React.Component {
       <label htmlFor="input-sinopse" data-testid="storyline-input-label">
         Sinopse
         <textarea
-          name="input-sinopse"
+          name="storyline"
           id="input-sinopse"
           cols="30"
           rows="10"
@@ -102,7 +108,7 @@ class AddMovie extends React.Component {
         Avaliação
         <input
           type="number"
-          name="input-rating"
+          name="rating"
           id="input-rating"
           defaultValue={ rating }
           onChange={ this.handleChange }
@@ -118,7 +124,7 @@ class AddMovie extends React.Component {
       <label htmlFor="select-genre" data-testid="genre-input-label">
         Gênero
         <select
-          name="select-genre"
+          name="genre"
           id="select-genre"
           defaultValue={ genre }
           onChange={ this.handleChange }
@@ -133,8 +139,20 @@ class AddMovie extends React.Component {
     return select;
   }
 
+  button() {
+    const button = (
+      <button
+        type="button"
+        onClick={ this.onClickBtn }
+        data-testid="send-button"
+      >
+        Adicionar filme
+      </button>
+    );
+    return button;
+  }
+
   render() {
-    const { onclick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -144,14 +162,14 @@ class AddMovie extends React.Component {
         { this.textArea(storyline) }
         { this.ratingInput(rating) }
         { this.genreSelect(genre) }
-        { onclick }
+        { this.button() }
       </form>
     );
   }
 }
 
 AddMovie.propTypes = {
-  onclick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
