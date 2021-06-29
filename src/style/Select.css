@@ -1,0 +1,11 @@
+.select-div {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 20px;
+}
+
+.select {
+  border: none;
+  padding: 5px 10px;
+  width: 200px;
+}

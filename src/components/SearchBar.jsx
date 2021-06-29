@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
 import Select from './Select';
-import '../style/SearchBar.css';
 
 class SearchBar extends Component {
   render() {
@@ -18,6 +17,7 @@ class SearchBar extends Component {
     return (
       <section>
         <form data-testid="search-bar-form">
+          <h2>Filtros</h2>
           <Input
             inputLabel="Inclui o texto:"
             inputLabelTestId="text-input-label"

@@ -1,17 +1,19 @@
 .input-text-div {
   display: flex;
   flex-direction: column;
+  margin: 5px 20px;
 }
 
 .input-text {
   border: none;
   padding: 5px 10px;
-  width: 90%;
+  width: 100%;
 }
 
 .input-checkbox-div {
   align-items: baseline;
   display: flex;
+  margin: 5px 20px;
 }
 
 .input-checkbox-label {
