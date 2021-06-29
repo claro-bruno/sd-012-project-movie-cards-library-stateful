@@ -41,7 +41,7 @@ MovieList.propTypes = {
       title: PropTypes.string.isRequired,
       subtitle: PropTypes.string.isRequired,
       storyline: PropTypes.string.isRequired,
-      rating: PropTypes.number.isRequired,
+      rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
       imagePath: PropTypes.string.isRequired,
       bookmarked: PropTypes.bool,
       genre: PropTypes.string.isRequired,

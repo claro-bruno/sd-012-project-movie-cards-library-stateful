@@ -52,15 +52,9 @@ class AddMovie extends React.Component {
   handleChange({ target }) {
     const { name, value } = target;
 
-    if (target.type === 'number') {
-      this.setState({
-        [name]: parseFloat(value),
-      });
-    } else {
-      this.setState({
-        [name]: value,
-      });
-    }
+    this.setState({
+      [name]: value,
+    });
   }
 
   onClick(event) {

@@ -24,7 +24,7 @@ class NumberInput extends React.Component {
 
 NumberInput.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   onChange: PropTypes.func.isRequired,
   text: PropTypes.string.isRequired,
   testid: PropTypes.string.isRequired,
