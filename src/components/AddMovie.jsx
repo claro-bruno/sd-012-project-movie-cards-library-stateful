@@ -4,7 +4,15 @@ import React from 'react';
 class AddMovie extends React.Component {
   render() {
     // const {  } = this.props;
-    return (<div>teste</div>);
+    return (
+      <form>
+        <label
+          htmlFor="teste"
+        >
+          <input type="text" name="teste" />
+        </label>
+      </form>
+    );
   }
 }
 

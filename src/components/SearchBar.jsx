@@ -1,31 +1,47 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SearchText from './SearchText';
-import BookMarkedOnly from './BookMarkedOnly';
-import SelectedGenre from './SelectedGenre';
+import Input from './Input';
+import Checkbox from './Checkbox';
+import Select from './Select';
+
+const generes = [
+  { genre: 'Todos', genreValue: '' },
+  { genre: 'Ação', genreValue: 'action' },
+  { genre: 'Comédia', genreValue: 'comedy' },
+  { genre: 'Suspense', genreValue: 'thriller' },
+];
 
 class SearchBar extends React.Component {
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.props;
+    const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <SearchText
-          searchText={ searchText }
-          onSearchTextChange={ onSearchTextChange }
+        <Input
+          dataTestid="text-input"
+          label="Inclui o texto"
+          type="text"
+          name="searchText"
+          value={ searchText }
+          onChange={ onSearchTextChange }
         />
-        <BookMarkedOnly
-          bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ onBookmarkedChange }
+
+        <Checkbox
+          label="Mostrar somente favoritos"
+          type="checkbox"
+          name="bookmarkedOnly"
+          dataTestId="checkbox-input"
+          checked={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
         />
-        <SelectedGenre
-          selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ onSelectedGenreChange }
+
+        <Select
+          label="Filtrar por gênero"
+          name="selectedGenre"
+          dataTestId="select-input"
+          value={ selectedGenre }
+          onChange={ onSelectedGenreChange }
+          options={ generes }
         />
       </form>
     );
