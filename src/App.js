@@ -5,12 +5,11 @@ import './App.css';
 import movies from './data';
 
 class App extends React.Component {
-
   render() {
     return (
       <div className="App">
         <Header />
-        <MovieLibrary movies={ movies }/>
+        <MovieLibrary movies={ movies } />
       </div>
     );
   }

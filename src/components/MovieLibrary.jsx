@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
@@ -11,9 +12,10 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: { ...props.movies },
+      movies: [...props.movies],
     };
     this.handleChanger = this.handleChanger.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   handleChanger({ target }) {
@@ -25,9 +27,16 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  onClick(state) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, state],
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.props;
+    const { movies } = this.state;
     return (
       <section>
         <SearchBar
@@ -38,11 +47,15 @@ class MovieLibrary extends React.Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
         />
-        <MovieList movies={ movies }/>
-        <AddMovie />
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ this.onClick } />
       </section>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;

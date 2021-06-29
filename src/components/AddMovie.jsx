@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TextInput from './AddMovie-Inputs/TextInput';
-import TextArea from './AddMovie-Inputs/TextArea';
 import Select from './AddMovie-Inputs/Select';
 import Button from './AddMovie-Inputs/Button';
+import AddMovieForm from './AddMovieForm';
 
 class addMovie extends React.Component {
   constructor() {
@@ -14,7 +15,7 @@ class addMovie extends React.Component {
       imagePatch: '',
       storyline: '',
       rating: 0,
-      genre: 'action',
+      selectedGenre: 'action',
     };
     this.handleChanger = this.handleChanger.bind(this);
     this.onClick2 = this.onClick2.bind(this);
@@ -29,58 +30,31 @@ class addMovie extends React.Component {
   }
 
   onClick2(onClick) {
-    onClick({...this.state})
+    onClick({ ...this.state });
     this.setState({
       subtitle: '',
       title: '',
       imagePatch: '',
       storyline: '',
       rating: 0,
-      genre: 'action',
-    })
+      selectedGenre: 'action',
+    });
   }
 
   render() {
-    const { onClick } = this.props
+    const { onClick } = this.props;
+    const { title, subtitle, imagePatch, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <TextInput
-          valorInicial={ this.state.title }
-          valorAlterado={ this.handleChanger }
-          dataTestid="title-input"
-          dataTestidLabel="title-input-label"
-          labelTitle="Título"
-          nome="title"
-          tipo="text"
+        <AddMovieForm
+          title={ title }
+          subtitle={ subtitle }
+          imagePatch={ imagePatch }
+          storyline={ storyline }
+          handleChanger={ this.handleChanger }
         />
         <TextInput
-          valorInicial={ this.state.subtitle }
-          valorAlterado={ this.handleChanger }
-          dataTestid="subtitle-input"
-          dataTestidLabel="subtitle-input-label"
-          labelTitle="Subtítulo"
-          nome="subtitle"
-          tipo="text"
-        />
-        <TextInput
-          valorInicial={ this.state.imagePatch }
-          valorAlterado={ this.handleChanger }
-          dataTestid="image-input"
-          dataTestidLabel="image-input-label"
-          labelTitle="Imagem"
-          nome="imagePatch"
-          tipo="text"
-        />
-        <TextArea
-          valorInicial={ this.state.storyline }
-          valorAlterado={ this.handleChanger }
-          dataTestid="storyline-input"
-          dataTestidLabel="storyline-input-label"
-          nome="storyline"
-          labelTitle="Sinopse"
-        />
-        <TextInput
-          valorInicial={ this.state.rating }
+          valorInicial={ rating }
           valorAlterado={ this.handleChanger }
           dataTestid="rating-input"
           dataTestidLabel="rating-input-label"
@@ -89,13 +63,13 @@ class addMovie extends React.Component {
           tipo="number"
         />
         <Select
-          valorInicial={ this.state.genre }
+          valorInicial={ genre }
           valorAlterado={ this.handleChanger }
           dataTestidLabel="genre-input-label"
           dataTestid="genre-input"
           dataTestidOption="genre-option"
           labelTitle="Gênero"
-          nome="genre"
+          nome="selectedGenre"
           optionValue={ ['action', 'comedy', 'thriller'] }
           array={ ['Ação', 'Comédia', 'Suspense'] }
         />
@@ -104,11 +78,13 @@ class addMovie extends React.Component {
           dataTestid="send-button"
           click={ () => this.onClick2(onClick) }
         />
-        
-
       </form>
     );
   }
 }
+
+addMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default addMovie;
