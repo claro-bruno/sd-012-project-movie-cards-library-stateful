@@ -6,7 +6,7 @@
 .add-form {
   backdrop-filter: blur(10px);
   background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 0 0 5px 0;
+  border-radius: 0 5px;
   display: flex;
   flex-direction: column;
   padding: 10px;
@@ -16,11 +16,16 @@
 }
 
 .add-form label {
+  align-items: center;
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
+}
+
+.add-form label textarea {
+  height: 100px;
+  resize: none;
 }
 
 .add-form label input, .add-form label textarea {
@@ -34,15 +39,11 @@
   border-radius: 5px;
 }
 
-.add-form label input:focus, .add-form label textarea:focus, .add-form label select:focus {
+.add-form input:focus, .add-form textarea:focus, .add-form select:focus {
   border: 2px solid rgb(100, 100, 100);
   outline: none;
 }
 
-.add-form textarea {
-  height: 100px;
-  resize: none;
-}
 
 .add-form .add-btn {
   background-color: red;
@@ -52,7 +53,22 @@
   font-weight: 600;
   height: 50px;
   margin: 20px auto;
+  transition: 0.3s;
   width: 50%;
+}
+
+.add-form .add-btn:hover {
+  background-color: rgb(255, 85, 85);
+  transition: 0.3s;
+}
+
+.add-form .add-btn:focus {
+  outline: none;
+}
+
+.add-form .add-btn:active {
+  background-color: white;
+  outline: none;
 }
 
 body {
