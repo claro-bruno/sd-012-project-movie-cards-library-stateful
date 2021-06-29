@@ -14,7 +14,7 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    // this.reset = this.reset.bind(this);
+    this.reset = this.reset.bind(this);
   }
 
   handleChange({ target }) {
