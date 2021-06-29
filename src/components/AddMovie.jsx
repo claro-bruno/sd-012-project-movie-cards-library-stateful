@@ -26,11 +26,12 @@ class AddMovie extends Component {
 
   render() {
     const { onClick } = this.props;
+    const _this = this;
 
     function onclickHandler(e) {
       e.preventDefault();
-      onClick(this.state);
-      this.setState({
+      onClick(_this.state);
+      _this.setState({
         subtitle: "",
         title: "",
         imagePath: "",
