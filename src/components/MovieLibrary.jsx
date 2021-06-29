@@ -22,6 +22,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.addMovieFunction = this.addMovieFunction.bind(this);
   }
 
   onSearchTextChange(e) {
@@ -36,8 +37,8 @@ class MovieLibrary extends Component {
       this.setState({
         movies: movies.filter(
           (movie) => movie.title.includes(textFilter)
-          || movie.subtitle.includes(textFilter)
-          || movie.storyline.includes(textFilter),
+           || movie.subtitle.includes(textFilter)
+           || movie.storyline.includes(textFilter),
         ),
         searchText: textFilter,
       });
@@ -76,6 +77,14 @@ class MovieLibrary extends Component {
     }
   }
 
+  addMovieFunction(movie) {
+    const { movies } = this.props;
+    const moviesArray = [...movies, movie];
+    this.setState({
+      movies: moviesArray,
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -90,7 +99,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovieFunction } />
       </div>
     );
   }
