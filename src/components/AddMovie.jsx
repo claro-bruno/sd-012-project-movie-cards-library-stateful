@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Input from './myComponents/Input';
 
 class AddMovie extends Component {
   constructor() {
@@ -22,45 +23,124 @@ class AddMovie extends Component {
     });
   }
 
+  titleInput(title) {
+    return (
+      <label htmlFor="titleInput" data-testid="title-input-label">
+        Título
+        <input
+          type="text"
+          name="title"
+          id="titleInput"
+          value={ title }
+          onChange={ this.handleChange }
+          data-testid="title-input"
+        />
+      </label>
+    );
+  }
+
+  subtitleInput(subtitle) {
+    return (
+      <label htmlFor="subtitleInput" data-testid="subtitle-input-label">
+        Subtítulo
+        <input
+          type="text"
+          name="subtitle"
+          id="subtitleInput"
+          value={ subtitle }
+          onChange={ this.handleChange }
+          data-testid="subtitle-input"
+        />
+      </label>
+    );
+  }
+
+  imageInput(imagePath) {
+    return (
+      <label htmlFor="imageInput" data-testid="image-input-label">
+        Imagem
+        <input
+          type="text"
+          name="imagePath"
+          id="imageInput"
+          value={ imagePath }
+          onChange={ this.handleChange }
+          data-testid="image-input"
+        />
+      </label>
+    );
+  }
+
+  storylineInput(storyline) {
+    return (
+      <label htmlFor="storylineInput" data-testid="storyline-input-label">
+        Sinopse
+        <textarea
+          type="text"
+          name="storyline"
+          id="storylineInput"
+          value={ storyline }
+          onChange={ this.handleChange }
+          data-testid="storyline-input"
+        />
+      </label>
+    );
+  }
+
+  ratingInput(rating) {
+    return (
+      <label htmlFor="ratingInput" data-testid="rating-input-label">
+        Avaliação
+        <input
+          type="number"
+          name="rating"
+          id="ratingInput"
+          value={ rating }
+          onChange={ this.handleChange }
+          data-testid="rating-input"
+        />
+      </label>
+    );
+  }
+
+  genreSelect(gender) {
+    return (
+      <label htmlFor="gnrerSelect" data-testid="genre-input-label">
+        Gênero
+        <select
+          name="genre"
+          id="genreSelect"
+          value={ gender }
+          onChange={ this.handleChange }
+          data-testid="genre-input"
+        >
+          <option value="action" data-testid="genre-option">Ação</option>
+          <option value="comedy" data-testid="genre-option">Comédia</option>
+          <option value="thriller" data-testid="genre-option">Suspense</option>
+        </select>
+      </label>
+
+    );
+  }
+
   render() {
-    const { title, subtitle, imagePath, handleChange } = this.state;
+    const {
+      title,
+      subtitle,
+      imagePath,
+      storyline,
+      rating,
+      genre,
+    } = this.state;
+
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title-input">
-          Título
-          <input
-            data-testid="title-input"
-            id="title-input"
-            type="text"
-            name="title"
-            value={ title }
-            onChange={ handleChange }
-          />
-        </label>
-
-        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
-          Subtítulo
-          <input
-            id="subtitle-input"
-            data-testid="subtitle-input"
-            type="text"
-            name="subtitle"
-            value={ subtitle }
-            onChange={ handleChange }
-          />
-        </label>
-
-        <label data-testid="image-input-label" htmlFor="image-input">
-          Imagem
-          <input
-            id="image-input"
-            data-testid="image-input"
-            type="text"
-            name="imagePath"
-            value={ imagePath }
-            onChange={ handleChange }
-          />
-        </label>
+        { this.titleInput(title) }
+        { this.subtitleInput(subtitle) }
+        { this.imageInput(imagePath) }
+        { this.storylineInput(storyline) }
+        { this.ratingInput(rating) }
+        { this.genreSelect(genre) }
       </form>
     );
   }
