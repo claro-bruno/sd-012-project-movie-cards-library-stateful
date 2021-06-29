@@ -54,14 +54,14 @@ export default class MovieLibrary extends Component {
 
   bookmarkedToggle(e) {
     const { movies } = this.props;
-    const value = e.target.checked;
-    if (value) {
+    const { checked } = e.target;
+    if (checked) {
       this.setState({
-        bookmarkedOnly: value,
+        bookmarkedOnly: checked,
       });
     } else {
       this.setState({
-        bookmarkedOnly: value,
+        bookmarkedOnly: checked,
         movies,
       });
     }
