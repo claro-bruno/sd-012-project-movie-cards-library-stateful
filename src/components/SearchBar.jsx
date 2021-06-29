@@ -10,6 +10,16 @@ class SearchBar extends React.Component {
       bookmarkedOnly,
       onBookmarkedChange,
     } = this.props;
+
+    const optionsArray = [
+      ['Todos', ''],
+      ['Ação', 'action'],
+      ['Comédia', 'comedy'],
+      ['Suspense', 'thriller'],
+    ];
+
+    console.log(optionsArray);
+
     return (
       <form data-testid="search-bar-form">
         <Input
