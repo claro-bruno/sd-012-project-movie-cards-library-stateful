@@ -1,10 +1,11 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import Input from './components-items/Input';
 import TextArea from './components-items/TextArea';
 import TitleSubImage from './components-items/TitleSubImage';
 import SelectForm from './components-items/SelectForm';
-// import PropTypes from 'prop-types';
+import Button from './components-items/Button';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -20,6 +21,7 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -28,8 +30,20 @@ class AddMovie extends React.Component {
     });
   }
 
-  render() {
+  handleClick() {
     const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -64,9 +78,14 @@ class AddMovie extends React.Component {
           onChangeSelect={ this.handleChange }
           name="genre"
         />
+        <Button onClick={ this.handleClick } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = PropTypes.shape({
+  onClick: PropTypes.func.isRequired,
+}).isRequired;
 
 export default AddMovie;
