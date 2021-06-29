@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import movies from '../data';
@@ -30,17 +29,19 @@ class MovieLibrary extends React.Component {
           onBookmarkedChange={ this.handleChange }
           selectedGenre={ genreOption }
           onSelectedGenreChange={ this.handleChange }
+
         />
         <div>
-          <MovieList movies={ movies } />
+          <MovieList
+            movies={ movies }
+            searchText={ textInput }
+            bookmarkedOnly={ favoritesOnly }
+            selectedGenre={ genreOption }
+          />
         </div>
       </div>
     );
   }
 }
-
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-};
 
 export default MovieLibrary;

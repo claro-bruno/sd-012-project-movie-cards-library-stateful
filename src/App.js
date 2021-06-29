@@ -4,7 +4,6 @@ import AddMovie from './components/AddMovie';
 import MovieLibrary from './components/MovieLibrary';
 import './App.css';
 
-// passar funcao e state para movielibrary
 class App extends React.Component {
   render() {
     return (
