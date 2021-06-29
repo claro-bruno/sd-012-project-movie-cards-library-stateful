@@ -76,6 +76,7 @@ class AddMovie extends Component {
             data-testid="image-input"
           />
         </label>
+        {/* Esta parte foi baseada no repositório de Wendell Costa em: https://github.com/tryber/sd-011-project-movie-cards-library-stateful/pull/174/files */}
         <TextAreaForAddMovie handleChange={ handleChange } storyline={ storyline } />
         <RatingForAddMovie handleChange={ handleChange } rating={ rating } />
         <SelectGenre handleChange={ handleChange } genre={ genre } />
