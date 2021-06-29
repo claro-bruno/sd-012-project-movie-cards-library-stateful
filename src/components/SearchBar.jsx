@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Proptypes from 'prop-types';
-import Select from './Select';
-import Input from './Input';
+import Select from './newComponents/Select';
+import Input from './newComponents/Input';
 
 class SearchBar extends Component {
   render() {
