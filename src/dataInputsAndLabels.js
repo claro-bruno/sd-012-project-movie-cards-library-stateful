@@ -5,7 +5,7 @@ const inputsLabels = [
     idInput: 'title-input',
     inputName: 'title',
     inputType: 'text',
-}, 
+  },
   {
     labelContent: 'Subtítulo',
     idLabel: 'subtitle-input-label',
@@ -18,14 +18,14 @@ const inputsLabels = [
     idLabel: 'image-input-label',
     idInput: 'image-input',
     inputName: 'image',
-    inputType: 'text'
+    inputType: 'text',
   }, {
     labelContent: 'Avaliação',
     idLabel: 'rating-input-label',
     idInput: 'rating-input',
     inputName: 'rating',
-    inputType: 'number'
+    inputType: 'number',
   },
-]
+];
 
 export default inputsLabels;
