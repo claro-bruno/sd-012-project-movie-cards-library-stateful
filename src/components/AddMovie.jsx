@@ -5,6 +5,7 @@ import InputText from './InputText';
 import InputImg from './InputImg';
 import Textarea from './Textarea';
 import InputNumber from './InputNumber';
+import Select from './Select';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -15,7 +16,6 @@ export default class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      //  genre: 'action',
     };
   }
 
@@ -28,6 +28,7 @@ export default class AddMovie extends Component {
         <InputImg imagePath={ imagePath } />
         <Textarea storyline={ storyline } />
         <InputNumber rating={ rating } />
+        <Select />
       </form>
     );
   }
