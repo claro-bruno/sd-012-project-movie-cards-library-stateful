@@ -20,6 +20,23 @@ class AddMovie extends Component {
     });
   }
 
+  clearStates = () => {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  addMovieClick = () => {
+    const { onClick } = this.props;
+    onClick();
+    this.clearStates();
+  }
+
   makeInput = (formItemInfo) => {
     const [name, varName, written, type, variable, callback] = formItemInfo;
     return (
@@ -82,9 +99,24 @@ class AddMovie extends Component {
     );
   }
 
+  makeButton = (formItemInfo) => {
+    const [name, , written, , , callback] = formItemInfo;
+    return (
+      <div key={ `${name}-button` }>
+        <button
+          type="button"
+          onClick={ callback }
+          data-testid={ `${name}-button` }
+        >
+          { written }
+        </button>
+      </div>
+    );
+  }
+
   render() {
     const { title, subtitle, storyline, imagePath, rating, genre } = this.state;
-    const { getInput, makeInput, makeTextarea, makeSelect } = this;
+    const { getInput, addMovieClick, makeInput, makeTextarea, makeSelect, makeButton } = this;
     const formItems = [
       ['title', 'title', 'Título', 'text', title, getInput, makeInput],
       ['subtitle', 'subtitle', 'Subtítulo', 'text', subtitle, getInput, makeInput],
@@ -92,6 +124,7 @@ class AddMovie extends Component {
       ['storyline', 'storyline', 'Sinopse', 'text', storyline, getInput, makeTextarea],
       ['rating', 'rating', 'Avaliação', 'number', rating, getInput, makeInput],
       ['genre', 'genre', 'Gênero', 'genre-option', genre, getInput, makeSelect],
+      ['send', '', 'Adicionar filme', '', '', addMovieClick, makeButton],
     ];
     return (
       <form data-testid="add-movie-form" action="">
