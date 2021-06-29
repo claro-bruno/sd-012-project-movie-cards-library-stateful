@@ -1,7 +1,9 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from './Input';
+import InputsText from './InputsText';
+import InputNumb from './InputNumb';
+// import SelectInput from './SelectInput';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -28,40 +30,14 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <Input
-          testIdLabel="title-input-label"
-          labelText="Título"
-          name="title"
-          value={ title }
-          testid="title-input"
-          onChange={ this.handleChange }
+        <InputsText
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+          storyline={ storyline }
+          handleChange={ this.handleChange }
         />
-        <Input
-          testIdLabel="subtitle-input-label"
-          labelText="Subtítulo"
-          name="subtitle"
-          value={ subtitle }
-          testid="subtitle-input"
-          onChange={ this.handleChange }
-        />
-        <Input
-          testIdLabel="image-input-label"
-          labelText="Imagem"
-          name="imagePath"
-          value={ imagePath }
-          testid="image-input"
-          onChange={ this.handleChange }
-        />
-        <Input
-          testIdLabel="storyline-input-label"
-          labelText="Sinopse"
-          name="storyline"
-          value={ storyline }
-          testid="storyline-input"
-          onChange={ this.handleChange }
-        />
-        <Input
-          type="number"
+        <InputNumb
           testIdLabel="rating-input-label"
           labelText="Avaliação"
           name="rating"
