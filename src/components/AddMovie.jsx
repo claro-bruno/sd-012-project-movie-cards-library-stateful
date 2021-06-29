@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import Input from './Input';
+import TextArea from './TextArea';
 
 class AddMovie extends Component {
   constructor() {
@@ -11,8 +12,8 @@ class AddMovie extends Component {
       title: '',
       imagePath: '',
       storyline: '',
-      rating: 0,
-      genre: 'action',
+      // rating: 0,
+      // genre: 'action',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -28,9 +29,10 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onClick } = this.props;
+    // const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline } = this.state;
-    const { rating, genre } = this.state;
+    // const { rating, genre } = this.state;
+    const { handleChange } = this;
 
     return (
       <form data-testid="add-movie-form">
@@ -40,7 +42,7 @@ class AddMovie extends Component {
           labelTestId="title-input-label"
           value={ title }
           inputTestId="title-input"
-          onChange={ this.handleChange }
+          onChange={ handleChange }
           type="text"
           labelId="titleInput"
         />
@@ -50,7 +52,7 @@ class AddMovie extends Component {
           labelTestId="subtitle-input-label"
           value={ subtitle }
           inputTestId="subtitle-input"
-          onChange={ this.handleChange }
+          onChange={ handleChange }
           type="text"
           labelId="subtitleInput"
         />
@@ -60,9 +62,18 @@ class AddMovie extends Component {
           labelTestId="image-input-label"
           value={ imagePath }
           inputTestId="image-input"
-          onChange={ this.handleChange }
+          onChange={ handleChange }
           type="text"
           labelId="imagePathInput"
+        />
+        <TextArea
+          name="storyline"
+          label="Sinopse"
+          labelTestId="storyline-input-label"
+          value={ storyline }
+          inputTestId="storyline-input"
+          onChange={ handleChange }
+          labelId="textareInput"
         />
       </form>
     );
