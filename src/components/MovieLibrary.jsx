@@ -19,6 +19,7 @@ class MovieLibrary extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   // A ideia de unir todos eventos changes e de uma foi tirada do repositorio do colega da turma 12 Luciano ALmeida
@@ -32,7 +33,9 @@ class MovieLibrary extends Component {
 
   filterMovies() {
     const { searchText, bookmarkedOnly, selectedGenre, fullList } = this.state;
-    let movies = fullList.filter((movie) => movie.title.includes(searchText));
+    let movies = fullList.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText.toLowerCase())
+      || movie.storyline.includes(searchText.toLowerCase()));
     if (bookmarkedOnly === true) {
       movies = movies.filter((movie) => movie.bookmarked === true);
     }
@@ -41,6 +44,13 @@ class MovieLibrary extends Component {
     this.setState({
       filteredList: movies,
     });
+  }
+
+  addMovie(newMovie) {
+    this.setState(({ fullList }) => ({
+      fullList: [...fullList, newMovie],
+      filteredList: [...fullList, newMovie],
+    }));
   }
 
   render() {
@@ -58,7 +68,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ filteredList } />
-        <AddMovie />
+        <AddMovie OnCLick={ this.addMovie } />
       </div>
     );
   }
