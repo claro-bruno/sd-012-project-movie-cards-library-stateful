@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FormAddMovie from './FormAddMovie';
 
-class AddTitle extends React.Component {
+class AddStoryline extends React.Component {
   render() {
     const {
       title,
@@ -23,14 +23,14 @@ class AddTitle extends React.Component {
   }
 }
 
-AddTitle.propTypes = {
+AddStoryline.propTypes = {
   title: PropTypes.string,
   callBack: PropTypes.func,
 };
 
-AddTitle.defaultProps = {
+AddStoryline.defaultProps = {
   title: '',
   callBack: '',
 };
 
-export default AddTitle;
+export default AddStoryline;
