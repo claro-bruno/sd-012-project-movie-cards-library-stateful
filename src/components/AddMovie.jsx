@@ -22,6 +22,17 @@ class AddMovie extends React.Component {
     });
   }
 
+  applyAddMovie() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   // eslint-disable-next-line max-lines-per-function
   render() {
     const { onClick } = this.props;
@@ -96,6 +107,13 @@ class AddMovie extends React.Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
+        <button
+          type="submit"
+          onClick={ this.ApplyAddMovie }
+          data-testid="send-button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
