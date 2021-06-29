@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
@@ -13,37 +14,36 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
-    }
+    };
   }
+
   adicionarFilme = (objMovies) => {
     this.setState(({ movies }) => ({
       movies: [...movies, objMovies],
     }));
-
-    /*this.setState((state) => ({
-      ...state,
-      movies: [...state.movies, objMovies]
-    }))*/
   }
+
   handleChange = ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
+
   getMovies = () => {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     let result = movies.filter(({ title, subtitle, storyline, genre }) => (
-      (title.includes(searchText) || 
-        subtitle.includes(searchText) || 
-        storyline.includes(searchText))
+      (title.includes(searchText)
+        || subtitle.includes(searchText)
+        || storyline.includes(searchText))
         && (selectedGenre === '' || genre === selectedGenre)
     ));
     if (bookmarkedOnly) result = result.filter((movie) => movie.bookmarked);
     return result;
   }
-	render() {
+
+  render() {
     const filtro = this.getMovies();
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -60,8 +60,12 @@ class MovieLibrary extends React.Component {
         <AddMovie onClick={ this.adicionarFilme } />
         <MovieList movies={ filtro } />
       </div>
-    )
+    );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.objectOf).isRequired,
+};
 
 export default MovieLibrary;
