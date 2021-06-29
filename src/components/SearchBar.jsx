@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import Checkbox from './Checkbox';
 import Select from './Select';
-import { genres } from '../data';
+
+const genres = [
+  { genre: 'Ação', genreValue: 'action' },
+  { genre: 'Comédia', genreValue: 'comedy' },
+  { genre: 'Suspense', genreValue: 'thriller' },
+];
 
 class SearchBar extends Component {
   render() {

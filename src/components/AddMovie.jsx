@@ -4,7 +4,12 @@ import Input from './Input';
 import MovieInfos from './MovieInfos';
 import Select from './Select';
 import Button from './Button';
-import { genres } from '../data';
+
+const genres = [
+  { genre: 'Ação', genreValue: 'action' },
+  { genre: 'Comédia', genreValue: 'comedy' },
+  { genre: 'Suspense', genreValue: 'thriller' },
+];
 
 const INITIAL_STATE = {
   subtitle: '',
@@ -34,7 +39,17 @@ class AddMovie extends Component {
 
   handleClick() {
     const { onClick } = this.props;
-    onClick(INITIAL_STATE);
+    const { title, subtitle, storyline, imagePath, rating, genre } = this.state;
+    const newMovie = {
+      title,
+      subtitle,
+      storyline,
+      imagePath,
+      rating,
+      genre,
+      bookmarked: false,
+    };
+    onClick(newMovie);
     this.setState(INITIAL_STATE);
   }
 

@@ -46,13 +46,4 @@ const movies = [
   },
 ];
 
-const genres = [
-  { genre: 'Ação', genreValue: 'action' },
-  { genre: 'Comédia', genreValue: 'comedy' },
-  { genre: 'Suspense', genreValue: 'thriller' },
-];
-
-export {
-  movies,
-  genres
-};
+export default movies;
