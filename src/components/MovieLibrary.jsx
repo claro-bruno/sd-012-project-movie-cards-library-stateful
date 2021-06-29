@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import moviesData from '../data';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -16,7 +17,9 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.filteredsMovies = this.filteredsMovies.bind(this);
+    this.markFilter = this.markFilter.bind(this);
+    this.checkFilter = this.checkFilter.bind(this);
+    this.textFilter = this.textFilter.bind(this);
   }
 
   handleChange(e) {
@@ -27,6 +30,7 @@ class MovieLibrary extends React.Component {
   }
 
   onSearchTextChange(e) {
+    this.textFilter(e);
     return this.handleChange(e);
   }
 
@@ -36,18 +40,56 @@ class MovieLibrary extends React.Component {
       this.setState({
         bookmarkedOnly: true,
       });
+      this.markFilter(true);
     } else {
       this.setState({
         bookmarkedOnly: false,
       });
+      this.markFilter(false);
     }
   }
 
   onSelectedGenreChange(e) {
+    this.checkFilter(e);
     return this.handleChange(e);
   }
 
-  filteredsMovies() {
+  markFilter(bo) {
+    this.setState(({ movies }) => {
+      if (bo === true) {
+        const markeds = movies.filter((movie) => movie.bookmarked === bo);
+        return {
+          movies: markeds,
+        };
+      }
+      return {
+        movies: moviesData,
+      };
+    });
+  }
+
+  checkFilter(e) {
+    const { value } = e.target;
+    this.setState(({ movies }) => {
+      const genres = movies.filter((movie) => movie.genre === value);
+      return {
+        movies: genres,
+      };
+    });
+  }
+
+  textFilter(e) {
+    const { value } = e.target;
+    this.setState(({ movies }) => {
+      const texts = movies.filter((movie) => (
+        movie.title.toLowerCase().includes(value.toLowerCase())
+        || movie.subtitle.toLowerCase().includes(value.toLowerCase())
+        || movie.storyline.toLowerCase().includes(value.toLowerCase())
+      ));
+      return {
+        movies: texts,
+      };
+    });
   }
 
   render() {
