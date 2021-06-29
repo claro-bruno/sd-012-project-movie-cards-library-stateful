@@ -49,11 +49,11 @@ class MovieLibrary extends Component {
 
     this.setState({
       movies: moviesAfterAddition,
+    }, () => {
+      this.filterByBookmark();
+      this.filterByGenre();
+      this.filterBySearch();
     });
-
-    this.filterByBookmark();
-    this.filterByGenre();
-    this.filterBySearch();
   }
 
   filterByBookmark() {
