@@ -3,8 +3,7 @@ import { string, func, bool } from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText,
-      onSearchTextChange,
+    const { searchText, onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
@@ -28,6 +27,7 @@ class SearchBar extends React.Component {
             <input
               id="checkbox-input"
               data-testid="checkbox-input"
+              name="bookmarkedOnly"
               type="checkbox"
               checked={ bookmarkedOnly }
               onChange={ onBookmarkedChange }
@@ -36,7 +36,7 @@ class SearchBar extends React.Component {
           <label htmlFor="selectedGenre" data-testid="select-input-label">
             Filtrar por gênero
             <select
-              name="Genre"
+              name="selectedGenre"
               id="selectedGenre"
               data-testid="select-input"
               value={ selectedGenre }
