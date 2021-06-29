@@ -10,7 +10,7 @@ class AddMovie extends React.Component {
     this.state = {
       subtitle: '',
       title: '',
-      image: '',
+      imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
@@ -33,7 +33,7 @@ class AddMovie extends React.Component {
     this.setState({
       subtitle: '',
       title: '',
-      image: '',
+      imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
