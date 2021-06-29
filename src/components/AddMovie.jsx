@@ -9,9 +9,9 @@ class AddMovie extends React.Component {
     this.textInputChangeHandler = this.textInputChangeHandler.bind(this);
 
     this.state = {
-      subtitle:'',
+      subtitle: '',
       title: '',
-      imagePath:'',
+      imagePath: '',
       storyLine:'',
       rating:0,
       genre: 'action',
@@ -27,7 +27,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputText
@@ -46,6 +46,15 @@ class AddMovie extends React.Component {
           inputType="text"
           inputName="subtitle"
           inputValue={ subtitle }
+          onChangeInput={ this.textInputChangeHandler }
+        />
+        <InputText
+          labelText="Imagem"
+          labelId="image-input-label"
+          inputId="image-input"
+          inputType="text"
+          inputName="imagePath"
+          inputValue={ imagePath }
           onChangeInput={ this.textInputChangeHandler }
         />
       </form>
