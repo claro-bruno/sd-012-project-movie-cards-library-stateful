@@ -75,7 +75,20 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  storyline: PropTypes.string,
+  rating: PropTypes.number,
+  imagePath: PropTypes.string,
+  onClick: PropTypes.func,
+}.isRequired;
+
+AddMovie.defaultProps = {
+  imagePath: 'Image undefined',
+  title: 'Title undefined',
+  subtitle: 'Subtitle undefined',
+  storyline: 'Storyline undefined',
+  rating: null,
 };
 
 export default AddMovie;
