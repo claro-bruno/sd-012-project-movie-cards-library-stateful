@@ -2,7 +2,7 @@ import React from 'react';
 
 class Synopsis extends React.Component {
   render() {
-    const { storyline, name, handleChange } = this.props;
+    const { storyline, handleChange } = this.props;
     return (
       <label
         data-testid="storyline-input-label"
@@ -11,7 +11,7 @@ class Synopsis extends React.Component {
         Sinopse
         <textarea
           value={ storyline }
-          name={ name }
+          name="storyline"
           data-testid="storyline-input"
           onChange={ handleChange }
         />

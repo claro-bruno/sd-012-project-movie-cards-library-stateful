@@ -5,7 +5,7 @@ import Subtitle from './Subtitle';
 import Image from './Image';
 import Synopsis from './Synopsis';
 import Appraisal from './Appraisal';
-// import Genre from './Genre';
+import Genre from './Genre';
 // import ButtonAddMovie from './ButtonAddMovie';
 
 class AddMovie extends React.Component {
@@ -59,8 +59,13 @@ class AddMovie extends React.Component {
         />
         <Appraisal
           name="rating"
-          handleChange={ this.handleChange }
           value={ rating }
+          handleChange={ this.handleChange }
+        />
+        <Genre
+          name="genre"
+          value={ genre }
+          handleChange={ this.handleChange }
         />
       </form>
     );
