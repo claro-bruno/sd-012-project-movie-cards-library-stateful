@@ -24,3 +24,15 @@
   margin: 5px;
   order: 0;
 }
+
+.input-number-div {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 20px;
+}
+
+.input-number {
+  border: none;
+  padding: 5px 10px;
+  width: 70px;
+}

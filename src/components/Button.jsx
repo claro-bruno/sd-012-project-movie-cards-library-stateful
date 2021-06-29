@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../style/Button.css';
 
 class Button extends Component {
   render() {
@@ -10,7 +11,12 @@ class Button extends Component {
     } = this.props;
 
     return (
-      <button type="submit" onClick={ onClickButton } data-testid={ buttonTestId }>
+      <button
+        className="button"
+        type="submit"
+        onClick={ onClickButton }
+        data-testid={ buttonTestId }
+      >
         {buttonText}
       </button>
     );

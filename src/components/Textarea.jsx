@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../style/Textarea.css';
 
 class Textarea extends Component {
   render() {
@@ -15,9 +16,16 @@ class Textarea extends Component {
     } = this.props;
 
     return (
-      <label data-testid={ textareaLabelTestId } htmlFor={ textareaId }>
-        { textareaLabel }
+      <div className="textarea-div">
+        <label
+          data-testid={ textareaLabelTestId }
+          htmlFor={ textareaId }
+          className="textarea-label"
+        >
+          { textareaLabel }
+        </label>
         <textarea
+          className="textarea"
           id={ textareaId }
           data-testid={ textareaTestId }
           name={ textareaName }
@@ -25,7 +33,7 @@ class Textarea extends Component {
           required={ isRequired }
           onChange={ onChangeTextarea }
         />
-      </label>
+      </div>
     );
   }
 }

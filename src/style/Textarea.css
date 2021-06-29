@@ -1,0 +1,12 @@
+.textarea-div {
+  display: flex;
+  flex-direction: column;
+  margin: 5px 20px;
+}
+
+.textarea {
+  border: none;
+  padding: 5px 10px;
+  resize: none;
+  width: 100%;
+}

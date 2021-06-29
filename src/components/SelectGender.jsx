@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Option from './Option';
+import '../style/Select.css';
 
 class SelectGender extends Component {
   render() {
@@ -15,20 +16,23 @@ class SelectGender extends Component {
     } = this.props;
 
     return (
-      <label htmlFor={ selectId } data-testid={ selectLabelTestId }>
-        { selectLabel }
+      <div className="select-div">
+        <label
+          htmlFor={ selectId }
+          data-testid={ selectLabelTestId }
+          className="select-label"
+        >
+          { selectLabel }
+        </label>
         <select
+          className="select"
           name={ selectName }
           onChange={ onChangeSelect }
           id={ selectId }
           value={ selectValue }
           data-testid={ selectTestId }
         >
-          <Option
-            optionValue="action"
-            optionText="Ação"
-            optionTestId="genre-option"
-          />
+          <Option optionValue="action" optionText="Ação" optionTestId="genre-option" />
           <Option
             optionValue="comedy"
             optionText="Comédia"
@@ -40,7 +44,7 @@ class SelectGender extends Component {
             optionTestId="genre-option"
           />
         </select>
-      </label>
+      </div>
     );
   }
 }
