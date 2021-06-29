@@ -34,6 +34,15 @@ class AddMovie extends Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
+        {/* <Input
+          label-data-testid="title-input-label"
+          label-htmlFor="title-input"
+          type="text"
+          value={ title }
+          input-data-testid="title-input"
+          onChange={ this.handleChange }
+          name="title"
+        /> */}
         <label htmlFor="title-input" data-testid="title-input-label">
           Título:
           <input
