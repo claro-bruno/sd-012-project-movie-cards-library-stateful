@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
+import movies from '../data';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -27,8 +29,10 @@ class MovieLibrary extends Component {
       searchText,
       bookmarkedOnly,
       selectedGenre,
+      movies,
     } = this.state;
     return (
+      <div>
       <SearchBar
         searchText={ searchText }
         onSearchTextChange={ this.handleChange }
@@ -37,6 +41,8 @@ class MovieLibrary extends Component {
         selectedGenre={ selectedGenre }
         onSelectedGenreChange={ this.handleChange }
       />
+        <MovieList movies={ movies } />
+      </div>
     );
   }
 }
