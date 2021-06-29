@@ -10,6 +10,7 @@ class Input extends Component {
       classNameLabel,
       onChange,
       type,
+      step,
       value,
       checked,
       dataTestidLabel,
@@ -30,6 +31,7 @@ class Input extends Component {
           name={ name }
           id={ id }
           type={ type }
+          step={ step }
           value={ value }
           onChange={ onChange }
           className={ classNameInput }
@@ -49,6 +51,7 @@ Input.propTypes = {
   classNameLabel: PropTypes.string,
   onChange: PropTypes.func,
   type: PropTypes.string,
+  step: PropTypes.string,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
@@ -65,6 +68,7 @@ Input.defaultProps = {
   classNameLabel: '',
   onChange: () => {},
   type: 'text',
+  step: '',
   value: '' || 0,
   checked: false,
   dataTestidLabel: '',

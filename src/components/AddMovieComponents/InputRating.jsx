@@ -15,6 +15,7 @@ class InputRating extends Component {
         name="rating"
         value={ value }
         type="number"
+        step="0.1"
       />
     );
   }
