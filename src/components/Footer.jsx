@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.css';
+import '../css/footer.css';
 import PropTypes from 'prop-types';
 
 class Footer extends Component {
