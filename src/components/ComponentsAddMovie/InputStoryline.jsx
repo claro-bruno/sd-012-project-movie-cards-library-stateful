@@ -24,4 +24,4 @@ InputStoryline.propTypes = {
   handleChange: PropTypes.func.isRequired,
 };
 
-export default InputTitle;
+export default InputStoryline;

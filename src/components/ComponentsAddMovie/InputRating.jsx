@@ -20,8 +20,8 @@ class InputRating extends React.Component {
 }
 
 InputRating.propTypes = {
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 
-export default InputTitle;
+export default InputRating;
