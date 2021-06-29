@@ -67,8 +67,8 @@
 }
 
 .add-form .add-btn:focus {
-  transform: scale(1.03);
   outline: none;
+  transform: scale(1.03);
 }
 
 .add-form .add-btn:active {
