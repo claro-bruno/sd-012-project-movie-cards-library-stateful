@@ -1,9 +1,9 @@
 // implement SearchBar component here
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from './SearchBarItems/Input';
-import Checkbox from './SearchBarItems/Checkbox';
-import Select from './SearchBarItems/Select';
+import Input from './components-items/Input';
+import Checkbox from './components-items/Checkbox';
+import Select from './components-items/Select';
 
 class SearchBar extends React.Component {
   render() {

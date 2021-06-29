@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
-import Input from './SearchBarItems/Input';
+import Input from './components-items/Input';
+import TextArea from './components-items/TextArea';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
@@ -56,6 +57,14 @@ class AddMovie extends React.Component {
           inputValue={ imagePath }
           onChangeInput={ this.handleChange }
           name="imagePath"
+        />
+        <TextArea
+          inputLabel="Sinopse"
+          inputDataTestId="storyline-input"
+          inputLabelId="storyline-input-label"
+          inputValue={ storyline }
+          onChangeInput={ this.handleChange }
+          name="storyline"
         />
       </form>
     );
