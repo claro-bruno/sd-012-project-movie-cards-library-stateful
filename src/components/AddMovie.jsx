@@ -1,18 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Tentativa de resolver o requisito 14 com base nos repositórios dos colegas Thalles Carneiro e Luciano Almeida, além das dicas da colega Adriana Biberg.
+
+const INITIAL_STATE = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends React.Component {
   constructor() {
     super();
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = INITIAL_STATE;
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -20,6 +25,12 @@ class AddMovie extends React.Component {
     this.setState({
       [name]: target.value,
     });
+  }
+
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(INITIAL_STATE);
   }
 
   // Dividi em funções devido à dica da colega Adriana Biberg.
@@ -113,10 +124,8 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
-        { onClick() }
         { this.createTitleInput() }
         { this.createSubtitleInput() }
         { this.createImageInput() }
@@ -126,21 +135,10 @@ class AddMovie extends React.Component {
         <button
           data-testid="send-button"
           type="button"
-          onClick={ () => {
-            onClick(this.state);
-            this.setState(() => ({
-              subtitle: '',
-              title: '',
-              imagePath: '',
-              storyline: '',
-              rating: 0,
-              genre: 'action',
-            }));
-          } }
+          onClick={ this.handleClick }
         >
           Adicionar filme
         </button>
-        {console.log(this.state)}
       </form>
     );
   }

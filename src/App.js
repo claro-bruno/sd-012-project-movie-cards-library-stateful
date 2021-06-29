@@ -4,14 +4,23 @@ import SearchBar from './components/SearchBar';
 import AddMovie from './components/AddMovie';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <SearchBar />
-      <AddMovie onClick={ (state) => console.log(state) } />
-    </div>
-  );
+class App extends React {
+  constructor() {
+    super();
+    this.onClickCallback = this.onClickCallback.bind(this);
+  }
+
+  onClickCallback() {}
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <SearchBar />
+        <AddMovie onClick={ this.onClickCallback } />
+      </div>
+    );
+  }
 }
 
 export default App;
