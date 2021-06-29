@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Input from '../ComponentsCriados/Input';
 
 class InputRating extends React.Component {
@@ -20,7 +21,7 @@ class InputRating extends React.Component {
 
 InputRating.propTypes = {
   rating: PropTypes.number.isRequired,
-  handleChange: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default InputTitle;
