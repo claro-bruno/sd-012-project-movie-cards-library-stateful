@@ -21,10 +21,9 @@ class AddMovie extends Component {
     });
   };
 
-  submitForm = () => {
-    // e.preventDefault();
-    const { onClick } = this.props;
-    onClick();
+  handleClick = (callback) => {
+
+    callback(this.state);
     this.setState(INITIAL_STATE);
   }
 
@@ -33,9 +32,10 @@ class AddMovie extends Component {
       <label htmlFor="input-titulo" data-testid="title-input-label">
         Título
         <input
+          name="title"
           id="input-titulo"
           type="text"
-          valor={ title }
+          value={ title }
           data-testid="title-input"
           onChange={ this.handleChange }
         />
@@ -43,19 +43,21 @@ class AddMovie extends Component {
       <label htmlFor="input-subtitle" data-testid="subtitle-input-label">
         Subtítulo
         <input
+          name="subtitle"
           id="input-subtitle"
           type="text"
-          valor={ subtitle }
+          value={ subtitle }
           data-testid="subtitle-input"
           onChange={ this.handleChange }
         />
       </label>
-      <label htmlFor="input-imagePatch" data-testid="image-input-label">
+      <label htmlFor="input-imagePath" data-testid="image-input-label">
         Imagem
         <input
-          id="input-imagePatch"
+          name="imagePath"
+          id="input-imagePath"
           type="text"
-          valor={ imagePath }
+          value={ imagePath }
           data-testid="image-input"
           onChange={ this.handleChange }
         />
@@ -105,9 +107,9 @@ class AddMovie extends Component {
           </select>
         </label>
         <button
-          type="submit"
-          onClick={ () => this.submitForm(onClick) }
+          type="button"
           data-testid="send-button"
+          onClick={ () => this.handleClick(onClick) }
         >
           Adicionar filme
         </button>
