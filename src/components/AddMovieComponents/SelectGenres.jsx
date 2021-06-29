@@ -5,7 +5,7 @@ import genres from '../../data/data';
 
 delete genres.Todos;
 
-class SelectGenders extends Component {
+class SelectGenres extends Component {
   render() {
     const { onChange, value } = this.props;
     return (
@@ -24,9 +24,9 @@ class SelectGenders extends Component {
   }
 }
 
-SelectGenders.propTypes = {
+SelectGenres.propTypes = {
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string.isRequired,
 };
 
-export default SelectGenders;
+export default SelectGenres;
