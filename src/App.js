@@ -1,23 +1,21 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Header from './components/Header';
 import './App.css';
-import SearchBar from './components/SearchBar';
-import AddMovie from './components/AddMovie';
+import MovieLibrary from './components/MovieLibrary';
+import movies from './data';
 
 function App() {
-  function onClick() {
-
-  }
-  function onSearchTextChange() {
-
-  }
   return (
     <div className="App">
       <Header />
-      <SearchBar onChange={ onSearchTextChange } />
-      <AddMovie onClick={ onClick } />
+      <MovieLibrary movies={ movies } />
     </div>
   );
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default App;
