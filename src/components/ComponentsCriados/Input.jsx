@@ -3,7 +3,16 @@ import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
-    const { type, datatestid, value, onChange, labelText, datatestidLabel } = this.props;
+    const {
+      type,
+      datatestid,
+      value,
+      name,
+      onChange,
+      labelText,
+      datatestidLabel,
+    } = this.props;
+
     return (
       <section>
         <label htmlFor={ datatestid } data-testid={ datatestidLabel }>
@@ -13,6 +22,7 @@ class Input extends React.Component {
             id={ datatestid }
             data-testid={ datatestid }
             value={ value }
+            name={ name }
             checked={ value }
             onChange={ onChange }
           />
@@ -26,6 +36,7 @@ Input.propTypes = {
   type: PropTypes.string.isRequired,
   datatestid: PropTypes.string.isRequired,
   value: PropTypes.string,
+  name: PropTypes.string,
   onChange: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
   datatestidLabel: PropTypes.string.isRequired,
