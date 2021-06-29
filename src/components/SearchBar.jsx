@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class SearchBar extends Component {
   render() {
     return (
-      <input />
+      <form data-testid="search-bar-form" />
     );
   }
 }
