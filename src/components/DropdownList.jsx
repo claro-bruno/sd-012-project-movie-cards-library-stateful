@@ -5,7 +5,7 @@ class DropdownList extends React.Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label data-testid="genre-input" htmlFor="genre">
+      <label data-testid="genre-input-label" htmlFor="genre">
         Gênero
         <select
           type="select"

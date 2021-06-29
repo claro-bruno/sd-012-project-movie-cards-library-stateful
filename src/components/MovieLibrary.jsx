@@ -21,10 +21,10 @@ class MovieLibrary extends React.Component {
     this.filterMovie = this.filterMovie.bind(this);
   }
 
-  handleAddMovie(movieData) {
+  handleAddMovie(movieInfo) {
     const { movies } = this.state;
     this.setState({
-      movies: [...movies, movieData],
+      movies: [...movies, movieInfo],
     });
   }
 
