@@ -70,6 +70,16 @@ class AddMovie extends Component {
           inputValue={ rating }
           inputOnChange={ this.handleChange }
         />
+        <SelectGenre
+          selectName="genre"
+          dataLabelId="genre-input-label"
+          labelInput="Gênero"
+          selectId="genre-input"
+          optionId="genre-option"
+          htmlForId="select-genre"
+          selectValue={ genre }
+          selectOnChange={ this.handleChange }
+        />
       </form>
     );
   }
