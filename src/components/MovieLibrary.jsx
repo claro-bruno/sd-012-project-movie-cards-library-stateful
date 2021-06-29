@@ -99,6 +99,16 @@ class MovieLibrary extends React.Component {
         />
         <MovieList movies={ state.movies } />
         <AddMovie onClick={ this.onClick } />
+        <footer>
+          Projeto feito por Guilherme Hermenegildo Junior como aluno da
+          <a
+            href="https://www.betrybe.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Trybe
+          </a>
+        </footer>
       </div>
     );
   }
