@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FormBody from './Form';
 
 const state = {
@@ -17,7 +18,7 @@ class AddMovie extends React.Component {
     this.state = state;
 
     this.handleClick = this.handleClick.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   handleClick({ target }) {
@@ -28,18 +29,22 @@ class AddMovie extends React.Component {
     });
   }
 
-  onClick() {
+  resetState() {
     this.setState(state);
   }
 
   render() {
+    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <FormBody onChange={ this.handleClick } state={ this.state } />
         <button
           type="button"
           data-testid="send-button"
-          onClick={ this.onClick }
+          onClick={ () => {
+            onClick(state);
+            this.resetState();
+          } }
         >
           Adicionar filme
         </button>
@@ -48,5 +53,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
