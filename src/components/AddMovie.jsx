@@ -1,10 +1,11 @@
 import React from 'react';
+import SearchBar from './SearchBar';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
 
-    this.nomefun = this.nomefun.bind(this);
+    this.handleCHange = this.handleCHange.bind(this);
 
     this.state = {
       subtitle: '',
@@ -15,18 +16,25 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
   }
+  handleCHange({ target}) {
+    const { name, value } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value; 
+    this.setState({[name]: value });
+  }
 
+  
   render() {
     const { onclick } = this.props;
+
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label">
-          {' '}
+        <label data-testid="title-input-label" htmlFor="firsT">
           Título
           <input
             type="text"
             data-testid="title-input"
             value={ title }
+            onChange= { atualizaroaddmovie }
           />
         </label>
       </form>
