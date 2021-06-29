@@ -1,10 +1,14 @@
 // implement AddMovie component here
-import React from 'react'
+import React from 'react';
 
 class AddMovie extends React.Component {
-    render(){
-
-    }
+  render() {
+    return (
+      <form data-testid="add-movie-form">
+        <input />
+      </form>
+    );
+  }
 }
 
 export default AddMovie;
