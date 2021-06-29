@@ -23,7 +23,8 @@ class Input extends React.Component {
       onChangeInput,
       inputValue,
       inputDataTestId,
-      inputLabelId } = this.props;
+      inputLabelId,
+      name } = this.props;
     // const { searchText } = this.state;
     return (
       <label htmlFor={ inputLabelId } data-testid={ inputLabelId }>
@@ -34,6 +35,7 @@ class Input extends React.Component {
           type={ inputType }
           value={ inputValue }
           onChange={ onChangeInput }
+          name={ name }
         />
       </label>
     );
@@ -47,6 +49,7 @@ Input.propTypes = PropTypes.shape({
   inputLabelId: PropTypes.string.isRequired,
   onChangeInput: PropTypes.func.isRequired,
   inputValue: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 }).isRequired;
 
 export default Input;
