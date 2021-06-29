@@ -17,14 +17,20 @@ class Input extends React.Component {
   // }
 
   render() {
-    const { inputType, inputLabel, onChangeInput, inputValue } = this.props;
+    const {
+      inputType,
+      inputLabel,
+      onChangeInput,
+      inputValue,
+      inputDataTestId,
+      inputLabelId } = this.props;
     // const { searchText } = this.state;
     return (
-      <label htmlFor="text-input-label" data-testid="text-input-label">
+      <label htmlFor={ inputLabelId } data-testid={ inputLabelId }>
         {inputLabel}
         <input
-          data-testid="text-input"
-          id="text-input-label"
+          data-testid={ inputDataTestId }
+          id={ inputLabelId }
           type={ inputType }
           value={ inputValue }
           onChange={ onChangeInput }
@@ -37,6 +43,8 @@ class Input extends React.Component {
 Input.propTypes = PropTypes.shape({
   inputType: PropTypes.string.isRequired,
   inputLabel: PropTypes.string.isRequired,
+  inputDataTestId: PropTypes.string.isRequired,
+  inputLabelId: PropTypes.string.isRequired,
   onChangeInput: PropTypes.func.isRequired,
   inputValue: PropTypes.string.isRequired,
 }).isRequired;
