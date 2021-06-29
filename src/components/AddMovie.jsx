@@ -2,11 +2,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Input from './Input';
 import ImagePath from './ImagePath';
 import Storyline from './Storyline';
 import GenreInput from './GenreInput';
-
+import Input from './Input';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -42,7 +41,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }))
+    }));
   }
 
   render() {
@@ -83,7 +82,11 @@ class AddMovie extends React.Component {
           value={ genre }
           func={ this.handleChange }
         />
-        <button type onClick={ () => this.handleSubmit(onClick) } data-testid="send-button">
+        <button
+          type="submit"
+          onClick={ () => this.handleSubmit(onClick) }
+          data-testid="send-button"
+        >
           Adicionar filme
         </button>
       </form>
