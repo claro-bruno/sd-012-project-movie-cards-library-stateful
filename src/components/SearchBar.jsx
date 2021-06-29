@@ -8,9 +8,10 @@ class SearchBar extends React.Component {
     return (
       <div>
         <form data-testid="search-bar-form" />
-        <label data-testid="text-input-label">
+        <label htmlFor="searchBarID" data-testid="text-input-label">
           Inclui o texto:
           <input
+            id="searchBarID"
             type="text"
             data-testid="text-input"
             onChange={ onSearchTextChange }
@@ -23,10 +24,8 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.propTypes = {
-  searchText: PropType.shape({
-    searchText: PropType.string.isRequired,
-    onSearchTextChange: PropType.func.isRequired,
-  }).isRequired,
+  searchText: PropType.string.isRequired,
+  onSearchTextChange: PropType.func.isRequired,
 };
 
 export default SearchBar;
