@@ -27,7 +27,7 @@ class SearchBar extends React.Component {
           dataTestid="checkbox-input"
           dataTestidLabel="checkbox-input-label"
           tipo="checkbox"
-          nome="onlyFavorites"
+          nome="bookmarkedOnly"
           labelTitle="Mostrar somente favoritos"
           check={ bookmarkedOnly }
           valorAlterado={ onBookmarkedChange }
@@ -40,7 +40,7 @@ class SearchBar extends React.Component {
           dataTestidLabel="select-input-label"
           dataTestid="select-input"
           labelTitle="Filtrar por gênero"
-          nome="genre"
+          nome="selectedGenre"
           optionValue={ ['', 'action', 'comedy', 'thriller'] }
           array={ ['Todos', 'Ação', 'Comédia', 'Suspense'] }
           id="select-input"

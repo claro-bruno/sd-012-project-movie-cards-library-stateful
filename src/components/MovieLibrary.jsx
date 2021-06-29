@@ -1,15 +1,17 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       searchText: '',
-      onlyFavorites: false,
-      genre: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: { ...props.movies },
     };
     this.handleChanger = this.handleChanger.bind(this);
   }
@@ -24,7 +26,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { searchText, onlyFavorites, genre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const { movies } = this.props;
     return (
       <section>
@@ -33,9 +35,10 @@ class MovieLibrary extends React.Component {
           searchText={ searchText }
           onBookmarkedChange={ this.handleChanger }
           onSelectedGenreChange={ this.handleChanger }
-          bookmarkedOnly={ onlyFavorites }
-          selectedGenre={ genre }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
         />
+        <MovieList movies={ movies }/>
         <AddMovie />
       </section>
     );
