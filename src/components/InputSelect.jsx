@@ -33,7 +33,7 @@ InputChecked.propTypes = {
   labelId: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
   selectId: PropTypes.string.isRequired,
-  selectValue: PropTypes.func.isRequired,
+  selectValue: PropTypes.string.isRequired,
   onChangeInput: PropTypes.func.isRequired,
   optionId: PropTypes.string.isRequired,
 };
