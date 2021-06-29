@@ -9,8 +9,7 @@ class TextAreaInput extends Component {
       <label htmlFor="storyline-input" data-testid="storyline-input-label">
         Sinopse
         <textarea
-          type="text"
-          name="storyLine"
+          name="storyline"
           value={ valueTextAreaInput }
           data-testid="storyline-input"
           onChange={ handleChangeTextArea }
