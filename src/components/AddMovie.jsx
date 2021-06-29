@@ -4,12 +4,12 @@ class AddMovie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
+      genre: 'action',
     };
     this.changeHandler = this.changeHandler.bind(this);
   }
@@ -19,9 +19,9 @@ class AddMovie extends Component {
       [e.target.id]: e.target.value,
     });
   }
+
   submitHandler(e) {
     e.preventDefault();
-    return;
   }
 
   render() {
@@ -32,12 +32,12 @@ class AddMovie extends Component {
       e.preventDefault();
       onClick(_this.state);
       _this.setState({
-        subtitle: "",
-        title: "",
-        imagePath: "",
-        storyline: "",
+        subtitle: '',
+        title: '',
+        imagePath: '',
+        storyline: '',
         rating: 0,
-        genre: "action",
+        genre: 'action',
       });
     }
 
@@ -54,7 +54,7 @@ class AddMovie extends Component {
           <input onChange={ this.changeHandler } type="text" data-testid="image-input" value={ this.state.imagePath } id="imagePath" />
 
           <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse</label>
-          <textarea data-testid="storyline-input" id="storyline">{ this.state.storyline }</textarea>
+          <textarea onChange={ this.changeHandler } data-testid="storyline-input" id="storyline" value={ this.state.storyline }></textarea>
 
           <label htmlFor="rating" data-testid="rating-input-label">Avaliação</label>
           <input onChange={ this.changeHandler } type="number" data-testid="rating-input" value={ this.state.rating } id="rating" />
