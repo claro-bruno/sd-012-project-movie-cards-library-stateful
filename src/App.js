@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from './components/Header';
 import './App.css';
-import SearchBar from './components/SearchBar';
+import Header from './components/Header';
+import MovieLibrary from './components/MovieLibrary';
 import AddMovie from './components/AddMovie';
 
 function teste(state) {
@@ -12,14 +12,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar
-        searchText
-        onSearchTextChange
-        bookmarkedOnly
-        onBookmarkedChange
-        selectedGenre
-        onSelectedGenreChange
-      />
+      <MovieLibrary />
       <AddMovie onClick={ teste } />
     </div>
   );
