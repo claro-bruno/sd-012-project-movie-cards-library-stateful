@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovieSubtitle extends React.Component {
   render() {
+    const { subtitle, onSubtitleTextChange } = this.props;
     return (
       <label htmlFor="subtitle" data-testid="subtitle-input-label">
         Subtítulo
@@ -9,6 +11,9 @@ class AddMovieSubtitle extends React.Component {
           type="text"
           data-testid="subtitle-input"
           name="subtitle"
+          value={ subtitle }
+          onChange={ onSubtitleTextChange }
+          maxLength={ 190 }
         />
       </label>
     );
@@ -16,3 +21,8 @@ class AddMovieSubtitle extends React.Component {
 }
 
 export default AddMovieSubtitle;
+
+AddMovieSubtitle.propTypes = {
+  subtitle: PropTypes.string.isRequired,
+  onSubtitleTextChange: PropTypes.func.isRequired,
+};
