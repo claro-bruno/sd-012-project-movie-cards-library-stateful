@@ -30,9 +30,9 @@ class MovieLibrary extends React.Component {
     return this.handleChange(e);
   }
 
-  onBookmarkedChange(e) {
+  onBookmarkedChange() {
     const { bookmarkedOnly } = this.state;
-    if(bookmarkedOnly === false) {
+    if (bookmarkedOnly === false) {
       this.setState({
         bookmarkedOnly: true,
       });
