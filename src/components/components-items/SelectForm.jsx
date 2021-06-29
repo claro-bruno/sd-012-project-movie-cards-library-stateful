@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SelectOption from './SelectOption';
 
-class Select extends React.Component {
+class SelectForm extends React.Component {
   render() {
     const {
       inputLabel,
@@ -22,20 +22,19 @@ class Select extends React.Component {
           onChange={ onChangeSelect }
           name={ name }
         >
-          <SelectOption value="" optionName="Todos" dataId="select-option" />
-          <SelectOption value="action" optionName="Ação" dataId="select-option" />
-          <SelectOption value="comedy" optionName="Comédia" dataId="select-option" />
-          <SelectOption value="thriller" optionName="Suspense" dataId="select-option" />
+          <SelectOption value="action" optionName="Ação" dataId="genre-option" />
+          <SelectOption value="comedy" optionName="Comédia" dataId="genre-option" />
+          <SelectOption value="thriller" optionName="Suspense" dataId="genre-option" />
         </select>
       </label>
     );
   }
 }
 
-Select.propTypes = PropTypes.shape({
+SelectForm.propTypes = PropTypes.shape({
   inputLabel: PropTypes.string.isRequired,
   onChangeSelect: PropTypes.func.isRequired,
   inputValue: PropTypes.string.isRequired,
 }).isRequired;
 
-export default Select;
+export default SelectForm;

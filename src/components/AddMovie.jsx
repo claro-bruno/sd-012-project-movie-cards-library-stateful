@@ -3,6 +3,7 @@ import React from 'react';
 import Input from './components-items/Input';
 import TextArea from './components-items/TextArea';
 import TitleSubImage from './components-items/TitleSubImage';
+import SelectForm from './components-items/SelectForm';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
@@ -54,6 +55,14 @@ class AddMovie extends React.Component {
           inputValue={ rating }
           onChangeInput={ this.handleChange }
           name="rating"
+        />
+        <SelectForm
+          inputLabel="Gênero"
+          inputDataTestId="genre-input"
+          inputLabelId="genre-input-label"
+          inputValue={ genre }
+          onChangeSelect={ this.handleChange }
+          name="genre"
         />
       </form>
     );
