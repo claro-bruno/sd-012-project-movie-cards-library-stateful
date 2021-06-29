@@ -21,26 +21,34 @@ class AddMovie extends React.Component {
       title: estadoAnterior.title,
       subtitle: estadoAnterior.subtitle,
       imagePath: estadoAnterior.imagePath,
+      storyline: estadoAnterior.storyline,
     }));
     console.log(this.state);
   }
 
+  titleInput(title) {
+    const input = (
+      <label htmlFor="input-title" data-testid="title-input-label">
+        Título
+        <input
+          type="text"
+          name="input-title"
+          id="input-title"
+          placeholder={ title }
+          onChange={ this.handleClick }
+          data-testid="title-input"
+        />
+      </label>
+    );
+    return input;
+  }
+
   render() {
     const { onclick } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="input-title" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            name="input-title"
-            id="input-title"
-            placeholder={ title }
-            onChange={ this.handleClick }
-            data-testid="title-input"
-          />
-        </label>
+        { this.titleInput(title) }
         <label htmlFor="input-subtitle" data-testid="subtitle-input-label">
           Subtítulo
           <input
@@ -61,6 +69,18 @@ class AddMovie extends React.Component {
             placeholder={ imagePath }
             onChange={ this.handleClick }
             data-testid="image-input"
+          />
+        </label>
+        <label htmlFor="input-sinopse" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="input-sinopse"
+            id="input-sinopse"
+            cols="30"
+            rows="10"
+            placeholder={ storyline }
+            onChange={ this.handleClick }
+            data-testid="storyline-input"
           />
         </label>
         { onclick }
