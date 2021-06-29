@@ -2,6 +2,7 @@ import React from 'react';
 import Input from './ComponentsCriados/Input';
 import InputTitle from './ComponentsAddMovie/InputTitle';
 import InputSubtitle from './ComponentsAddMovie/InputSubtitle';
+import InputImage from './ComponentsAddMovie/InputImage';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -35,15 +36,7 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <InputTitle title={ title } handleChange={ handleChange } />
         <InputSubtitle subtitle={ subtitle } handleChange={ handleChange } />
-        <Input
-          type="text"
-          datatestid="image-input"
-          name="imagePath"
-          value={ imagePath }
-          onChange={ handleChange }
-          labelText="Imagem"
-          datatestidLabel="image-input-label"
-        />
+        <InputImage imagePath={ imagePath } handleChange={ handleChange } />
         <Input
           type="textarea"
           datatestid="storyline-input"
