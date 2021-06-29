@@ -25,7 +25,10 @@ class MovieLibrary extends Component {
   updateFunction = () => {
     const { searchText } = this.state;
     if (searchText !== '') {
-      const newAr = movies.filter((elm) => elm.title.toUpperCase().includes(searchText.toUpperCase()));
+      const newAr = movies
+        .filter((elm) => elm.title.toUpperCase().includes(searchText.toUpperCase())
+      || elm.subtitle.toUpperCase().includes(searchText.toUpperCase())
+      || elm.storyline.toUpperCase().includes(searchText.toUpperCase()));
       this.setState({
         filtred: newAr,
       });
@@ -48,7 +51,12 @@ class MovieLibrary extends Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar searchText={ searchText } onSearchTextChange={ this.onSearchTextChange } />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.onSearchTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
+        />
         <MovieList movies={ filtred } />
         <AddMovie movies={ movies } onClick={ this.onClick } />
       </div>
