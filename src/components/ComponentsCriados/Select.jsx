@@ -28,6 +28,7 @@ class Select extends React.Component {
             {options.map(
               (option) => (
                 <option
+                  id={ datatestid }
                   key={ option.value }
                   value={ option.value }
                   data-testid={ datatestidOption }

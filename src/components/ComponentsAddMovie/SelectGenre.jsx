@@ -19,7 +19,7 @@ class SelectGenre extends React.Component {
         labelText="Gênero"
         datatestidLabel="genre-input-label"
         options={ optionsArray }
-        datatestidOption="select-option"
+        datatestidOption="genre-option"
       />
     );
   }
