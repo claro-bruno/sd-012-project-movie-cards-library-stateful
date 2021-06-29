@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
 import InputText from './InputText';
+import addMoviesList from '../addMovies';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -27,53 +28,21 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyLine, rating } = this.state;
+    const estado = this.state;
     return (
       <form data-testid="add-movie-form">
-        <InputText
-          labelText="Título"
-          labelId="title-input-label"
-          inputId="title-input"
-          inputType="text"
-          inputName="title"
-          inputValue={ title }
-          onChangeInput={ this.textInputChangeHandler }
-        />
-        <InputText
-          labelText="Subtítulo"
-          labelId="subtitle-input-label"
-          inputId="subtitle-input"
-          inputType="text"
-          inputName="subtitle"
-          inputValue={ subtitle }
-          onChangeInput={ this.textInputChangeHandler }
-        />
-        <InputText
-          labelText="Imagem"
-          labelId="image-input-label"
-          inputId="image-input"
-          inputType="text"
-          inputName="imagePath"
-          inputValue={ imagePath }
-          onChangeInput={ this.textInputChangeHandler }
-        />
-        <InputText labelText="Sinopse" 
-          labelId="storyline-input-label"
-          inputId="storyline-input"
-          inputType="textarea"
-          inputName="storyLine"
-          inputValue={ storyLine }
-          onChangeInput={ this.textInputChangeHandler }
-        />
-        <InputText
-          labelText="Avaliação"
-          labelId="rating-input-label"
-          inputId="rating-input"
-          inputType="number"
-          inputName="rating"
-          inputValue={ rating }
-          onChangeInput={ this.textInputChangeHandler }
-        />
+        { addMoviesList.map((movie) => (
+          <InputText
+            key={ movie.inputName }
+            labelText={ movie.labelText }
+            labelId={ movie.labelId }
+            inputId={ movie.inputId }
+            inputType={ movie.inputType }
+            inputName={ movie.inputName }
+            inputValue={ estado[movie.inputValue] }
+            onChangeInput={ this.textInputChangeHandler }
+          />
+        ))}
       </form>
     );
   }
