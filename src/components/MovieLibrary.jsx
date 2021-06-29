@@ -69,9 +69,8 @@ class MovieLibrary extends React.Component {
   }
 
   removeMovies() {
-    const { movies } = this.props;
-    const moviesForLint = movies;
-    this.setState({ movies: moviesForLint, fullList: moviesForLint });
+    const { props } = this;
+    this.setState({ movies: props.movies, fullList: props.movies });
   }
 
   render() {
