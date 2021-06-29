@@ -16,6 +16,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.clickEvent = this.clickEvent.bind(this);
   }
 
   handleChange(event) {
@@ -69,9 +70,9 @@ class AddMovie extends React.Component {
         </label>
         <MovieGenre name="genre" value={ genre } onChange={ this.handleChange } />
         <button
-          onClick={ () => this.clickEvent }
-          data-testid="send-button"
           type="submit"
+          data-testid="send-button"
+          onClick={ this.clickEvent }
         >
           Adicionar filme
         </button>
