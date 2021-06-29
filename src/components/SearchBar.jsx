@@ -20,7 +20,6 @@ class SearchBar extends Component {
         data-testid="search-bar-form"
         className="form-searchBar"
       >
-
         <Input
           id="include-text"
           dataTestidLabel="text-input-label"
@@ -28,8 +27,8 @@ class SearchBar extends Component {
           value={ searchText }
           onChange={ onSearchTextChange }
           dataTestidInput="text-input"
+          name="searchText"
         />
-
         <Input
           id="show-favorites"
           dataTestidLabel="checkbox-input-label"
@@ -38,8 +37,8 @@ class SearchBar extends Component {
           checked={ bookmarkedOnly }
           onChange={ onBookmarkedChange }
           dataTestidInput="checkbox-input"
+          name="bookmarkedOnly"
         />
-
         <Select
           id="gender-filter"
           dataTestidLabel="select-input-label"
@@ -49,8 +48,8 @@ class SearchBar extends Component {
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
           options={ genres }
+          name="selectedGenre"
         />
-
       </form>
     );
   }
