@@ -4,7 +4,7 @@ import Input from './Input';
 
 class AddMovie1 extends React.Component {
   render() {
-    const { title, subtitle, imagePath, change } = this.props;
+    const { title, subtitle, imagePath, change, storyline } = this.props;
     return (
       <div>
         <Input
@@ -34,6 +34,19 @@ class AddMovie1 extends React.Component {
           change={ change }
           name="imagePath"
         />
+        <label
+          data-testid="storyline-input-label"
+          htmlFor="textarea-addmovie"
+        >
+          Sinopse
+          <textarea
+            id="textarea-addmovie"
+            value={ storyline }
+            data-testid="storyline-input"
+            onChange={ change }
+            name="storyline"
+          />
+        </label>
       </div>
     );
   }
@@ -44,6 +57,7 @@ AddMovie1.propTypes = {
   subtitle: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
   change: PropTypes.func.isRequired,
+  storyline: PropTypes.string.isRequired,
 };
 
 export default AddMovie1;

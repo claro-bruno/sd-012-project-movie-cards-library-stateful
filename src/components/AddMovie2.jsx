@@ -4,22 +4,9 @@ import Input from './Input';
 
 class AddMovie2 extends React.Component {
   render() {
-    const { storyline, change, rating, genre } = this.props;
+    const { change, rating, genre, click } = this.props;
     return (
       <div>
-        <label
-          data-testid="storyline-input-label"
-          htmlFor="textarea-addmovie"
-        >
-          Sinopse
-          <textarea
-            id="textarea-addmovie"
-            value={ storyline }
-            data-testid="storyline-input"
-            onChange={ change }
-            name="storyline"
-          />
-        </label>
         <Input
           type="number"
           labelText="Avaliação"
@@ -46,16 +33,23 @@ class AddMovie2 extends React.Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
+        <button
+          data-testid="send-button"
+          onClick={ click }
+          type="button"
+        >
+          Adicionar filme
+        </button>
       </div>
     );
   }
 }
 
 AddMovie2.propTypes = {
-  storyline: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
   genre: PropTypes.string.isRequired,
   change: PropTypes.func.isRequired,
+  click: PropTypes.func.isRequired,
 };
 
 export default AddMovie2;
