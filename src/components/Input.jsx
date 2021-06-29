@@ -26,8 +26,8 @@ class Input extends Component {
 }
 
 Input.propTypes = {
-  type: PropTypes.string.isRequired,
-  value: PropTypes.string,
+  type: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   onChange: PropTypes.func.isRequired,
   label: PropTypes.string.isRequired,
   labelTestId: PropTypes.string.isRequired,

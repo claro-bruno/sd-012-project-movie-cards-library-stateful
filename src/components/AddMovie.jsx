@@ -12,11 +12,12 @@ class AddMovie extends Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
+      rating: 0,
       // genre: 'action',
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.createInput = this.createInput.bind(this);
   }
 
   handleChange({ target }) {
@@ -28,44 +29,41 @@ class AddMovie extends Component {
     });
   }
 
+  createInput(title, type, callback, arr) {
+    // ['name', 'label', 'labelTestId', 'inputTestId', 'labelId']
+    const display = (<Input
+      name={ arr[0] }
+      label={ arr[1] }
+      labelTestId={ arr[2] }
+      value={ title }
+      inputTestId={ arr[3] }
+      onChange={ callback }
+      type={ type }
+      labelId={ arr[4] }
+    />);
+    return display;
+  }
+
   render() {
     // const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline } = this.state;
-    // const { rating, genre } = this.state;
-    const { handleChange } = this;
+    const { rating, genre } = this.state;
+    const { handleChange, createInput } = this;
+
+    const titleInfos = (['title', 'Título', 'title-input-label',
+      'title-input', 'titleInput']);
+    const subtitleInfos = (['subtitle', 'Subtítulo', 'subtitle-input-label',
+      'subtitle-input', 'subtitleInput']);
+    const imageInfos = (['imagePath', 'Imagem', 'image-input-label',
+      'image-input', 'imagePathInput']);
+    const ratingInfos = (['rating', 'Avaliação', 'rating-input-label',
+      'rating-input', 'ratingInput']);
 
     return (
       <form data-testid="add-movie-form">
-        <Input
-          name="title"
-          label="Título"
-          labelTestId="title-input-label"
-          value={ title }
-          inputTestId="title-input"
-          onChange={ handleChange }
-          type="text"
-          labelId="titleInput"
-        />
-        <Input
-          name="subtitle"
-          label="Subtítulo"
-          labelTestId="subtitle-input-label"
-          value={ subtitle }
-          inputTestId="subtitle-input"
-          onChange={ handleChange }
-          type="text"
-          labelId="subtitleInput"
-        />
-        <Input
-          name="imagePath"
-          label="Imagem"
-          labelTestId="image-input-label"
-          value={ imagePath }
-          inputTestId="image-input"
-          onChange={ handleChange }
-          type="text"
-          labelId="imagePathInput"
-        />
+        { createInput(title, 'text', handleChange, titleInfos) }
+        { createInput(subtitle, 'text', handleChange, subtitleInfos) }
+        { createInput(imagePath, 'text', handleChange, imageInfos) }
         <TextArea
           name="storyline"
           label="Sinopse"
@@ -75,6 +73,7 @@ class AddMovie extends Component {
           onChange={ handleChange }
           labelId="textareInput"
         />
+        { createInput(rating, 'number', handleChange, ratingInfos) }
       </form>
     );
   }
