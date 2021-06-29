@@ -1,16 +1,23 @@
 import React from 'react';
 import Header from './components/Header';
-import SearchBar from './components/SearchBar';
+import MovieLibrary from './components/MovieLibrary';
 import './App.css';
 
 class App extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
     };
   }
 
@@ -22,21 +29,51 @@ class App extends React.Component {
     });
   }
 
+  onClick(e) {
+    e.preventDefault();
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+      subtitle,
+      title,
+      imagePath,
+      storyLine,
+      rating,
+      genre,
+    } = this.state;
     return (
       <div>
         <div className="App">
           <Header />
         </div>
         <div>
-          <SearchBar
+          <MovieLibrary
             searchText={ searchText }
             onSearchTextChange={ this.handleChange }
             bookmarkedOnly={ bookmarkedOnly }
             onBookmarkedChange={ this.handleChange }
             selectedGenre={ selectedGenre }
             onSelectedGenreChange={ this.handleChange }
+            title={ title }
+            subtitle={ subtitle }
+            imagePath={ imagePath }
+            storyLine={ storyLine }
+            rating={ rating }
+            genre={ genre }
+            onClick={ this.onClick }
+            handleChange={ this.handleChange }
           />
         </div>
       </div>
