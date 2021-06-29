@@ -60,15 +60,38 @@ class AddMovie extends Component {
     );
   }
 
+  makeSelect = (formItemInfo) => {
+    const [name, varName, written, type, variable, callback] = formItemInfo;
+    return (
+      <div key={ varName }>
+        <label htmlFor={ varName } data-testid={ `${name}-input-label` }>
+          { written }
+          <select
+            id={ varName }
+            value={ variable }
+            onChange={ callback }
+            data-testid={ `${name}-input` }
+          >
+            <option value="action" data-testid={ type }>Ação</option>
+            <option value="comedy" data-testid={ type }>Comédia</option>
+            <option value="thriller" data-testid={ type }>Suspense</option>
+          </select>
+        </label>
+        <br />
+      </div>
+    );
+  }
+
   render() {
-    const { title, subtitle, storyline, imagePath, rating } = this.state;
-    const { getInput, makeInput, makeTextarea } = this;
+    const { title, subtitle, storyline, imagePath, rating, genre } = this.state;
+    const { getInput, makeInput, makeTextarea, makeSelect } = this;
     const formItems = [
       ['title', 'title', 'Título', 'text', title, getInput, makeInput],
       ['subtitle', 'subtitle', 'Subtítulo', 'text', subtitle, getInput, makeInput],
       ['image', 'imagePath', 'Imagem', 'text', imagePath, getInput, makeInput],
       ['storyline', 'storyline', 'Sinopse', 'text', storyline, getInput, makeTextarea],
       ['rating', 'rating', 'Avaliação', 'number', rating, getInput, makeInput],
+      ['genre', 'genre', 'Gênero', 'genre-option', genre, getInput, makeSelect],
     ];
     return (
       <form data-testid="add-movie-form" action="">
