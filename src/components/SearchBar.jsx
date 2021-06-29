@@ -8,7 +8,7 @@ class SearchBar extends Component {
       onBookmarkedChange, selectedGenre, onSelectedGenreChange,
     } = this.props;
     return (
-      <form data-testid="search-bar-form">
+      <form data-testid="search-bar-form" className="form">
         {/** Resolvi um problema do link com o htmlFor consultado no link: https://stackoverflow.com/questions/54446655/eslint-rule-for-label */}
         <label htmlFor="text-input-label" data-testid="text-input-label">
           Inclui o texto:

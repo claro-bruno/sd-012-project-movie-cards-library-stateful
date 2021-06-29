@@ -82,7 +82,7 @@ class MovieLibrary extends Component {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
-        <h2> My awesome movie library </h2>
+        <h2 className="page-title-h2"> Minha incrível biblioteca de filmes </h2>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleChange }

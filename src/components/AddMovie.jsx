@@ -32,6 +32,7 @@ class AddMovie extends Component {
     const { onClick } = this.props;
     return (
       <button
+        className="button"
         type="button"
         data-testid="send-button"
         onClick={ () => {
@@ -101,6 +102,7 @@ class AddMovie extends Component {
       <label htmlFor="storyline-input-label" data-testid="storyline-input-label">
         Sinopse
         <textarea
+          className="textarea"
           name="storyline"
           value={ storyline }
           onChange={ this.handleChange }
@@ -154,15 +156,19 @@ class AddMovie extends Component {
     return (
       /** Consultei o repositório da Marcela Silva para refatorar e resolver os erros de lint dessa parte.
        * Link do repositório https://github.com/tryber/sd-012-project-movie-cards-library-stateful/pull/16 */
-      <form data-testid="add-movie-form">
-        { this.inputTitle(title) }
-        { this.inputSubtitle(subtitle) }
-        { this.inputImage(imagePath) }
-        { this.inputStoryline(storyline) }
-        { this.inputRating(rating) }
-        { this.inputGenre(genre) }
+      <div className="div-add-movie">
+        <h2 className="page-title-h2"> Adicione um novo filme </h2>
+        <form data-testid="add-movie-form" className="form-add-movie">
+          { this.inputTitle(title) }
+          { this.inputSubtitle(subtitle) }
+          { this.inputImage(imagePath) }
+          <br />
+          { this.inputStoryline(storyline) }
+          { this.inputRating(rating) }
+          { this.inputGenre(genre) }
+        </form>
         { this.handleSubmit() }
-      </form>
+      </div>
     );
   }
 }
