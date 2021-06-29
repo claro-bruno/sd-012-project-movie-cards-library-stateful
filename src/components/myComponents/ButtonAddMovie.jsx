@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 class ButtonAddMovie extends React.Component {
   render() {
     const { buttonText,
-      buttonId,
       onClickButton,
     } = this.props;
     return (
       <button
         type="submit"
         label={ buttonText }
-        data-testid={ buttonId }
+        data-testid="send-button"
         onClick={ onClickButton }
       >
         { buttonText }
@@ -22,13 +21,11 @@ class ButtonAddMovie extends React.Component {
 
 ButtonAddMovie.propTypes = {
   buttonText: PropTypes.string,
-  buttonId: PropTypes.string,
   onClickButton: PropTypes.func,
 };
 
 ButtonAddMovie.defaultProps = {
   buttonText: '',
-  buttonId: '',
   onClickButton: '',
 };
 

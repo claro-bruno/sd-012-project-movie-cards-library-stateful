@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import SelectGenre from './myComponents/SelectGenre';
 import ButtonAddMovie from './myComponents/ButtonAddMovie';
 import AddTitle from './myComponents/AddTitle';
@@ -28,7 +29,10 @@ class AddMovie extends Component {
     });
   }
 
-  onClick = () => {
+  onClickButton = (e) => {
+    e.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -50,26 +54,11 @@ class AddMovie extends Component {
     } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <AddTitle
-          name={ title }
-          callBack={ this.handleChange }
-        />
-        <AddSubtitle
-          name={ subtitle }
-          callBack={ this.handleChange }
-        />
-        <AddImage
-          name={ imagePath }
-          callBack={ this.handleChange }
-        />
-        <AddStoryline
-          name={ storyline }
-          callBack={ this.handleChange }
-        />
-        <AddRating
-          name={ rating }
-          callBack={ this.handleChange }
-        />
+        <AddTitle name={ title } callBack={ this.handleChange } />
+        <AddSubtitle name={ subtitle } callBack={ this.handleChange } />
+        <AddImage name={ imagePath } callBack={ this.handleChange } />
+        <AddStoryline name={ storyline } callBack={ this.handleChange } />
+        <AddRating name={ rating } callBack={ this.handleChange } />
         <SelectGenre
           selectName="genre"
           dataLabelId="genre-input-label"
@@ -82,12 +71,15 @@ class AddMovie extends Component {
         />
         <ButtonAddMovie
           buttonText="Adicionar filme"
-          buttonId="send-button"
-          onClickButton={ this.onClick }
+          onClickButton={ this.onClickButton }
         />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

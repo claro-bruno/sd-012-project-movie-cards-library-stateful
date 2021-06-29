@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class FormAddMovie extends Component {
+class FormAddRating extends Component {
   render() {
     const {
       inputName,
@@ -29,7 +29,7 @@ class FormAddMovie extends Component {
   }
 }
 
-FormAddMovie.propTypes = {
+FormAddRating.propTypes = {
   inputName: PropTypes.string,
   dataLabelId: PropTypes.string,
   labelText: PropTypes.string,
@@ -40,15 +40,15 @@ FormAddMovie.propTypes = {
   htmlForId: PropTypes.string,
 };
 
-FormAddMovie.defaultProps = {
+FormAddRating.defaultProps = {
   inputName: '',
   dataLabelId: '',
   labelText: '',
   dataFormId2: '',
   inputType: '',
-  inputValue: '',
+  inputValue: '0',
   inputOnChange: PropTypes.func,
   htmlForId: '',
 };
 
-export default FormAddMovie;
+export default FormAddRating;

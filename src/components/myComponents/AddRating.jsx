@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FormAddMovie from './FormAddMovie';
+import FormAddRating from './formAddRating';
 
 class AddRating extends React.Component {
   render() {
@@ -9,7 +9,7 @@ class AddRating extends React.Component {
       callBack,
     } = this.props;
     return (
-      <FormAddMovie
+      <FormAddRating
         htmlForId="form-rating"
         inputName="rating"
         dataLabelId="rating-input-label"
@@ -29,8 +29,8 @@ AddRating.propTypes = {
 };
 
 AddRating.defaultProps = {
-  name: '',
-  callBack: '',
+  name: '0',
+  callBack: PropTypes.func,
 };
 
 export default AddRating;
