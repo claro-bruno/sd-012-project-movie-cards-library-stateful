@@ -6,20 +6,23 @@ import InputStoryine from './ComponentsAddMovie/InputStoryline';
 import InputRating from './ComponentsAddMovie/InputRating';
 import SelectGenre from './ComponentsAddMovie/SelectGenre';
 
+const initialState = {
+  title: '',
+  subtitle: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends React.Component {
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
-    this.state = {
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = initialState;
   }
 
   handleChange({ target }) {
@@ -31,9 +34,14 @@ class AddMovie extends React.Component {
     });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    this.setState(initialState);
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { handleChange } = this;
+    const { handleChange, handleSubmit } = this;
     return (
       <form data-testid="add-movie-form">
         <InputTitle title={ title } handleChange={ handleChange } />
@@ -42,6 +50,13 @@ class AddMovie extends React.Component {
         <InputStoryine storyline={ storyline } handleChange={ handleChange } />
         <InputRating rating={ rating } handleChange={ handleChange } />
         <SelectGenre genre={ genre } handleChange={ handleChange } />
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ handleSubmit }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
