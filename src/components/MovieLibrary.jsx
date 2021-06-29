@@ -36,12 +36,12 @@ class MovieLibrary extends Component {
   }
 
   onClickAdd(movie) { // Lógica para adicionar item em array sem usar o .push() implementada a partir de pesquisas do colega Eric kreis
-    const { movies } = this.state;
-    const moviesList = [...movies, movie];
+    const { moviesAfterAddition } = this.state;
+    const moviesList = [...moviesAfterAddition, movie];
     this.setState({
       movies: moviesList,
       moviesAfterAddition: moviesList,
-    });
+    }, () => this.filterMovies());
   }
 
   filterMovies() {
@@ -49,10 +49,10 @@ class MovieLibrary extends Component {
 
     this.setState({
       movies: moviesAfterAddition,
-    }, () => {
-      this.filterByBookmark();
-      this.filterByGenre();
-      this.filterBySearch();
+    }, async () => {
+      await this.filterByBookmark();
+      await this.filterByGenre();
+      await this.filterBySearch();
     });
   }
 
