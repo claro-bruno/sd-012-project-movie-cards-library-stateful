@@ -27,10 +27,8 @@ class SearchBar extends Component {
         <form data-testid="search-bar-form">
           <label htmlFor="texto" data-testid="text-input-label">Inclui o texto</label>
           <input onChange={onSearchTextChange} type="text" data-testid="text-input" value={ searchText } id="texto" />
-
           <label htmlFor="checkbox" data-testid="checkbox-input-label">Mostrar somente favoritos</label>
-          <input onChange={onBookmarkedChange} type="checkbox" data-testid="checkbox-input" checked={ bookmarkedOnly } id="checkbox" />
-
+          <input onChange={onBookmarkedChange} type="Checkbox" data-testid="checkbox-input" checked={ bookmarkedOnly } id="checkbox" />
           <label htmlFor="select" data-testid="select-input-label">Filtrar por gênero"</label>
           <select value={ selectedGenre } onChange={ onSelectedGenreChange } data-testid="select-input" id="select">
             <option data-testid="select-option" value="">Todos</option>
@@ -38,8 +36,6 @@ class SearchBar extends Component {
             <option data-testid="select-option" value="comedy">Comédia</option>
             <option data-testid="select-option" value="thriller">Suspense</option>
           </select>
-
-          <input onChange={onBookmarkedChange} type="select" data-testid="checkbox-input" value={ searchText } checked={ bookmarkedOnly } id="select" />
         </form>
       </div>
     );
