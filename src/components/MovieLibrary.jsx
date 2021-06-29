@@ -16,12 +16,12 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  filerFavorites = () => {
+  filterFavorites = (isChecked) => {
     const { movies } = this.props;
-    const filtered = movies.filter((movie) => {
-      const { bookmarkedOnly } = this.state;
-      return !bookmarkedOnly ? movie.bookmarked === bookmarkedOnly : true;
-    });
+    const filtered = movies
+      .filter((movie) => (
+        isChecked ? movie.bookmarked === isChecked : true
+      ));
     this.setState({ movies: filtered });
   }
 
@@ -41,7 +41,6 @@ class MovieLibrary extends React.Component {
       .filter((movie) => movie.title.toLowerCase().includes(searchValue)
       || movie.subtitle.toLowerCase().includes(searchValue)
       || movie.storyline.toLowerCase().includes(searchValue));
-    console.log(filtered);
     this.setState({ movies: filtered });
   }
 
@@ -58,7 +57,7 @@ class MovieLibrary extends React.Component {
     } else {
       this.setState({ bookmarkedOnly: false });
     }
-    this.filerFavorites();
+    this.filterFavorites(checked);
   }
 
   render() {
