@@ -57,7 +57,7 @@ class MovieLibrary extends React.Component {
 
   filterMovies() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    const filtered = movies.filter((movie) => {
+    const filtered = movies.map((movie) => {
       const { title, subtitle, storyline, bookmarked, genre } = movie;
       if (bookmarkedOnly && (title.includes(searchText)
       || subtitle.includes(searchText)
@@ -71,8 +71,9 @@ class MovieLibrary extends React.Component {
       && genre.includes(selectedGenre)) {
         return movie;
       }
+      return undefined;
     });
-    return filtered;
+    return filtered.filter((element) => element !== undefined);
   }
 
   render() {
