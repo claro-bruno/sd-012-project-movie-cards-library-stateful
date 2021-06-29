@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class InputSubtitle extends React.Component {
   render() {
@@ -17,5 +18,10 @@ class InputSubtitle extends React.Component {
     );
   }
 }
+
+InputSubtitle.propTypes = {
+  initialValue: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default InputSubtitle;

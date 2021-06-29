@@ -2,6 +2,7 @@
 import React from 'react';
 import InputTitle from './AddMovieInputs/InputTitle';
 import InputSubtitle from './AddMovieInputs/InputSubTitle';
+import InputImg from './AddMovieInputs/InputImg';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -15,13 +16,14 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
   }
-  handleChange = (e) => {this.setState({subtitle: e.target.value,})}
+
   render() {
-    const { subtitle } = this.state;
+    const { subtitle, imagePath, title } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <InputTitle />
-        <InputSubtitle initialValue={ subtitle } onChange={ this.handleChange } />
+        <InputTitle value={ title } onChange={ (e) => { this.setState({ title: e.target.value }); } }/>
+        <InputSubtitle initialValue={ subtitle } onChange={ (e) => { this.setState({ subtitle: e.target.value }); } }/>
+        <InputImg value={ imagePath } onChange={ (e) => { this.setState({ imagePath: e.target.value }); } }/>
       </form>
     );
   }
