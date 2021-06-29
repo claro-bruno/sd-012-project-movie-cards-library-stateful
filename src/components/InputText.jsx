@@ -8,6 +8,7 @@ class InputText extends React.Component {
       labelId,
       inputId,
       inputType,
+      inputName,
       inputValue,
       onChangeInput,
     } = this.props;
@@ -17,6 +18,7 @@ class InputText extends React.Component {
         <input
           data-testid={ inputId }
           type={ inputType }
+          name={ inputName }
           value={ inputValue }
           onChange={ onChangeInput }
         />
@@ -32,6 +34,7 @@ InputText.propTypes = {
   inputType: PropTypes.string.isRequired,
   inputValue: PropTypes.string.isRequired,
   onChangeInput: PropTypes.func.isRequired,
+  inputName: PropTypes.string.isRequired,
 };
 
 export default InputText;
