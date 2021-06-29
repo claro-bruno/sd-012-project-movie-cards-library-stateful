@@ -1,47 +1,17 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import InputTitle from './InputTitle';
+import InputSubtitle from './InputSubtitle';
+import InputImage from './InputImage';
 
 export default class AddMovie extends Component {
-  constructor() {
-    super();
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
-
-    this.handleclick = this.handleclick.bind(this);
-  }
-
-  handleclick = () => {
-    console.log(this.state);
-  };
-
   render() {
-    const { onClick } = this.props;
+    const { title, subtitle, imagePath } = this.props;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title-input-label">
-          Título
-          <input data-testid="title-input" type="text" />
-        </label>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle-input-label">
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            type="text"
-          />
-        </label>
-        <label data-testid="image-input-label" htmlFor="image-input-label">
-          Imagem
-          <input
-            type="text"
-            data-testid="image-input"
-          />
-        </label>
+        <InputTitle value={ title } />
+        <InputSubtitle value={ subtitle } />
+        <InputImage value={ imagePath } />
         <label data-testid="storyline-input-label" htmlFor="storyline-input-label">
           Sinopse
           <textarea
@@ -64,7 +34,7 @@ export default class AddMovie extends Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
-        <button data-testid="send-button" type="submit" onClick={ onClick }>
+        <button data-testid="send-button" type="submit" onClick={ this.onClickButton }>
           Adicionar filme
         </button>
       </form>
@@ -73,5 +43,7 @@ export default class AddMovie extends Component {
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
 };
