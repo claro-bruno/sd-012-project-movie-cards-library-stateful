@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import MovieFormTitleSubtitleImage from './MovieFormTitleSubtitleImage';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -27,34 +28,28 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     console.log(onClick);
-    console.log(subtitle, imagePath, storyline, rating, genre);
     return (
-      <div>
+      <section>
         <form data-testid="add-movie-form">
-          <label htmlFor="title__input" data-testid="title-input-label">
-            Título
+          <MovieFormTitleSubtitleImage
+            title={ title }
+            subtitle={ subtitle }
+            imagePath={ imagePath }
+            handleChange={ this.handleChange }
+          />
+          <label htmlFor="sinopse_" data-testid="storyline-input-label">
+            Sinopse
             <input
-              name="title"
-              id="title__input"
-              type="text"
-              value={ title }
+              name="storyline"
+              id="sinopse_"
+              type="textarea"
+              value={ storyline }
               onChange={ this.handleChange }
-              data-testid="title-input"
-            />
-          </label>
-          <label htmlFor="subtitle__input" data-testid="subtitle-input-label">
-            Subtítulo
-            <input
-              name="subtitle"
-              id="title__input"
-              type="text"
-              value={ subtitle }
-              onChange={ this.handleChange }
-              data-testid="subtitle-input"
+              data-testid="storyline-input"
             />
           </label>
         </form>
-      </div>
+      </section>
     );
   }
 }
