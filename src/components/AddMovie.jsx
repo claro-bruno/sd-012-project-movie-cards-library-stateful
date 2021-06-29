@@ -1,4 +1,5 @@
 import React from 'react';
+import InputRender from './InputRender';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -11,7 +12,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
 
     this.handleChange = this.handleChange.bind(this);
   }
@@ -22,52 +23,37 @@ class AddMovie extends React.Component {
   }
 
   render() {
-
     const { onClick } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label
-          data-testid="title-input-label"
-          htmlFor="label-title"
-        >
-          Título
-          <input
-            data-testid="title-input"
-            type="text"
-            name="title"
-            value={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label
-          data-testid="subtitle-input-label"
-          htmlFor="label-subtitle"
-        >
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            type="text"
-            name="subtitle"
-            value={ subtitle }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label
-          data-testid="image-input-label"
-          htmlFor="label-image"
-        >
-          Imagem
-          <input
-            data-testid="image-input"
-            type="text"
-            name="imagePath"
-            value={ imagePath }
-            onChange={ this.handleChange }
-          />
-        </label>
+        <InputRender
+          name="title"
+          nome="Título"
+          initValue={ title }
+          onChange={ this.handleChange }
+        />
+        <InputRender
+          name="subtitle"
+          nome="Subtítulo"
+          initValue={ subtitle }
+          onChange={ this.handleChange }
+        />
+        <InputRender
+          name="image"
+          nome="Imagem"
+          initValue={ imagePath }
+          onChange={ this.handleChange }
+        />
+        <InputRender
+          name="rating"
+          nome="Avaliação"
+          initValue={ rating }
+          onChange={ this.handleChange }
+          type="number"
+        />
       </form>
-    )
+    );
   }
 }
 
