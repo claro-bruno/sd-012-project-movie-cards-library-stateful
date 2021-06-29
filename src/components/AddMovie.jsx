@@ -20,7 +20,7 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
-      <p>oi</p>
+      <form data-testid="add-movie-form" />
     );
   }
 }
