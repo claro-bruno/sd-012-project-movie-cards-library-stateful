@@ -28,7 +28,8 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  submitMovie() {
+  submitMovie(evt) {
+    console.log(evt.target);
     this.setState({
       importTitle: '',
       importSubtitle: '',
