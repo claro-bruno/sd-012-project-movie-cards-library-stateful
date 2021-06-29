@@ -6,6 +6,7 @@ import Subtitle from './Subtitle';
 import Image from './Image';
 import Storyline from './Storyline';
 import NewRating from './NewRating';
+import Genre from './Genre';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -38,7 +39,8 @@ class AddMovie extends React.Component {
       subtitle,
       imagePath,
       storyline,
-      rating } = state;
+      rating,
+      genre } = state;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -47,6 +49,7 @@ class AddMovie extends React.Component {
           <Image image={ imagePath } newCard={ newCard } />
           <Storyline storyline={ storyline } newCard={ newCard } />
           <NewRating rating={ rating } newCard={ newCard } />
+          <Genre genre={ genre } newCard={ newCard } />
         </form>
       </div>
     );
