@@ -31,7 +31,16 @@ class MovieLibrary extends React.Component {
   }
 
   onBookmarkedChange(e) {
-    return this.handleChange(e);
+    const { bookmarkedOnly } = this.state;
+    if(bookmarkedOnly === false) {
+      this.setState({
+        bookmarkedOnly: true,
+      });
+    } else {
+      this.setState({
+        bookmarkedOnly: false,
+      });
+    }
   }
 
   onSelectedGenreChange(e) {
