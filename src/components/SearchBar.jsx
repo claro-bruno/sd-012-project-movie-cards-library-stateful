@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from './myComponents/Select';
+import AddMovie from './AddMovie';
 
 class SearchBar extends React.Component {
   render() {
@@ -48,12 +49,22 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
 };
+
+// SearchBar.defaultProps = {
+//   dataLabelId: '',
+//   htmlForId: '',
+//   labelInput: '',
+//   selectId: '',
+//   selectValue: '',
+//   selectOnChange: '',
+//   optionId: '',
+// };
 
 export default SearchBar;

@@ -40,13 +40,23 @@ class Select extends React.Component {
 }
 
 Select.propTypes = {
-  dataLabelId: PropTypes.string.isRequired,
-  htmlForId: PropTypes.string.isRequired,
-  labelInput: PropTypes.string.isRequired,
-  selectId: PropTypes.string.isRequired,
-  selectValue: PropTypes.string.isRequired,
-  selectOnChange: PropTypes.func.isRequired,
-  optionId: PropTypes.string.isRequired,
+  dataLabelId: PropTypes.string,
+  htmlForId: PropTypes.string,
+  labelInput: PropTypes.string,
+  selectId: PropTypes.string,
+  selectValue: PropTypes.string,
+  selectOnChange: PropTypes.func,
+  optionId: PropTypes.string,
 };
+
+// Select.defaultProps = {
+//   dataLabelId: '',
+//   htmlForId: '',
+//   labelInput: '',
+//   selectId: '',
+//   selectValue: '',
+//   selectOnChange: '',
+//   optionId: '',
+// };
 
 export default Select;
