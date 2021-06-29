@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 
 import React from 'react';
-import Title from '../componentTag/Title';
-import SubTitle from '../componentTag/SubTitle';
-import Image from '../componentTag/Image';
-import TextArea from '../componentTag/TextArea';
-import Rating from '../componentTag/Avaliacao';
-import Genre from '../componentTag/Genre';
+import Title from '../componentsAddMovie/Title';
+import SubTitle from '../componentsAddMovie/SubTitle';
+import Image from '../componentsAddMovie/Image';
+import TextArea from '../componentsAddMovie/TextArea';
+import Rating from '../componentsAddMovie/Avaliacao';
+import Genre from '../componentsAddMovie/Genre';
 
 class AddMovie extends React.Component {
   constructor() {
