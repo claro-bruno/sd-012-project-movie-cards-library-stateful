@@ -24,24 +24,25 @@ class AddMovie extends Component {
     });
   }
 
-  submitButton = () => {
-    const { onClick } = this.props;
-    onClick();
+  addMovie = (e, callback) => {
+    e.preventDefault();
+    callback(this.state); // Ref. Reps. Diogo Sant'Anna
     this.setState(initialState);
-  }
+  };
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
     return (
       <AddMovieForm
-        onClick={ this.submitButton }
-        onChange={ this.handleChange }
         title={ title }
         subtitle={ subtitle }
         imagePath={ imagePath }
         storyline={ storyline }
         rating={ rating }
         genre={ genre }
+        onChange={ this.handleChange }
+        onClick={ (e) => this.addMovie(e, onClick) } // Ref. Reps. Diogo Sant'Anna
       />
     );
   }

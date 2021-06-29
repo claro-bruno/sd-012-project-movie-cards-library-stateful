@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import MovieCard from './MovieCard';
 
 class MovieLibrary extends Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies: props.movies, // Ref. Reps. Diogo Sant'Anna
     };
   }
 
@@ -37,20 +37,26 @@ class MovieLibrary extends Component {
     });
   }
 
-  addMovie = (movie) => <MovieCard movie={ movie } />
+  addMovie = (movie) => {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, movie] });
+  }
 
-  render() {
-    const { movies } = this.props;
+  filteredMovies = (moviesToFilter) => {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const filteredMovies = movies.filter((movie) => {
+    return moviesToFilter.filter((movie) => {
       if (bookmarkedOnly === false) return movie;
       return movie.bookmarked === true;
     }).filter((movie) => {
       if (selectedGenre === '') return movie;
       return movie.genre === selectedGenre;
     }).filter((movie) => movie.title.includes(searchText)
-      || movie.subtitle.includes(searchText)
-      || movie.storyline.includes(searchText));
+    || movie.subtitle.includes(searchText)
+    || movie.storyline.includes(searchText));
+  };
+
+  render() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
@@ -61,8 +67,8 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <AddMovie />
-        <MovieList movies={ filteredMovies } />
+        <AddMovie onClick={ this.addMovie } />
+        <MovieList movies={ this.filteredMovies(movies) } />
       </div>
     );
   }

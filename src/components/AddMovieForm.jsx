@@ -46,9 +46,9 @@ class AddMovieForm extends Component {
         />
         <Select genre={ genre } onChange={ onChange } />
         <button
+          type="submit"
           data-testid="send-button"
           onClick={ onClick }
-          type="submit"
         >
           Adicionar filme
         </button>
