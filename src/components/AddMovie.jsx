@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import ButtonAdd from './ButtonAdd';
 import Title from './Title';
 import Subtitle from './Subtitle';
+import ImagePath from './ImagePath';
 
 /**
  * Consultei o repositório do Wendell Costa para resolver essa parte.
@@ -31,7 +32,6 @@ class AddMovie extends Component {
   }
   render() {
     const {
-      subtitle,
       imagePath,
       storyline,
       rating,
@@ -42,19 +42,7 @@ class AddMovie extends Component {
       <form data-testid="add-movie-form">
         <Title value={ this.state.title } handleChange={ this.handle } />
         < Subtitle value={ this.state.subtitle } handleChange={ this.handle } />
-        <label
-          htmlFor="image-input"
-          data-testid="image-input-label"
-        >
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.handleChange }
-          />
-        </label>
+        < ImagePath value={ this.state.imagePath } handleChange={ this.handle } />
         <label
           htmlFor="storyline-input"
           data-testid="storyline-input-label"
