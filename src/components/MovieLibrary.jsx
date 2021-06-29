@@ -17,7 +17,6 @@ class MovieLibrary extends Component {
       filteredList: props.movies,
       fullList: props.movies,
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
   }
