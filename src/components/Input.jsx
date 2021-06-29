@@ -2,7 +2,17 @@ import React from 'react';
 
 class Input extends React.Component {
   render() {
-    const { id, name, type, placeholder, labelText, value, onChange, testeid, checked } = this.props;
+    const {
+      id,
+      name,
+      type,
+      placeholder,
+      labelText,
+      value,
+      onChange,
+      testeid,
+      checked,
+    } = this.props;
     return (
       <label htmlFor={ id } data-testid={ `${testeid}-label` }>
         {labelText}
