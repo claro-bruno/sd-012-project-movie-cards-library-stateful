@@ -4,6 +4,7 @@ import ImportTitle from './subComponents/importTitle';
 import ImportSubtitle from './subComponents/ImportSubtitle';
 import ImagePath from './subComponents/ImagePath';
 import ImportRating from './subComponents/ImportRating';
+import ImportGenre from './subComponents/ImportGenre';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -64,14 +65,10 @@ class AddMovie extends React.Component {
           importRating={ importRating }
           handleChange={ this.handleChange }
         />
-        <label htmlFor="importGenre" data-testid="genre-input-label">
-          Gênero
-          <select name="" id="importGenre" data-testid="genre-input">
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
+        <ImportGenre
+          handleChange={ this.handleChange }
+          importGenre
+        />
         <button
           type="submit"
           data-testid="send-button"
