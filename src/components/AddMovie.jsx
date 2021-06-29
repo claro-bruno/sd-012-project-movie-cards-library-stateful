@@ -46,6 +46,7 @@ class AddMovie extends Component {
   render() {
     return (
       <form data-testid="add-movie-form">
+        <h2>Adicionar novo Filme</h2>
         <AddMovieForm1 state={ this.state } handleChange={ this.handleChange } />
         <AddMovieForm2
           state={ this.state }
