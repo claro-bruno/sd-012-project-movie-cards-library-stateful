@@ -4,9 +4,21 @@ import SearchBar from './SearchBar';
 import MovieCard from './MovieCard';
 
 class MovieLibrary extends React.Component {
+  constructor() {
+    super();
+
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {};
+  }
+
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value });
+  }
+
   render() {
-    const { movies } = this.props;
-    const { textInput, favoritesOnly, genreOption } = this.props;
+    const { movies, textInput, favoritesOnly, genreOption } = this.props;
 
     return (
       <div>
@@ -18,7 +30,6 @@ class MovieLibrary extends React.Component {
           selectedGenre={ genreOption }
           onSelectedGenreChange={ this.handleChange }
         />
-
         <div className="movie-list">
           {movies.map((movie, index) => (
             <MovieCard movie={ movie } key={ `Movie Title ${index + 1}` } />
@@ -34,6 +45,7 @@ MovieLibrary.propTypes = {
   textInput: PropTypes.string.isRequired,
   favoritesOnly: PropTypes.string.isRequired,
   genreOption: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default MovieLibrary;
