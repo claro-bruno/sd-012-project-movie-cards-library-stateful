@@ -1,0 +1,32 @@
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+export default class TextArea extends Component {
+  render() {
+    const { value, onChange, name, label, id } = this.props;
+    return (
+      <label data-testid={ `${id}-label` } htmlFor={ `${id}` }>
+        { label }
+        <textarea
+          value={ value }
+          data-testid={ `${id}` }
+          onChange={ onChange }
+          name={ name }
+          id={ `${id}` }
+        />
+      </label>
+    );
+  }
+}
+
+TextArea.defaultProps = {
+  value: undefined,
+};
+
+TextArea.propTypes = {
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  onChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+};
