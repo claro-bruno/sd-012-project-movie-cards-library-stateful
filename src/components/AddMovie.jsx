@@ -17,14 +17,21 @@ class AddMovie extends Component {
     this.state = { ...initialState };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClear = this.handleClear.bind(this);
   }
 
   handleChange({ target }) {
-    const { name, value, type } = target;
-    const newValue = type === 'number' ? +value : value;
+    const { name, value } = target;
+    // const newValue = type === 'number' ? +value : value;
     this.setState({
-      [name]: newValue,
+      [name]: value,
     });
+  }
+
+  handleClear() {
+    const { onClick } = this.props;
+    this.setState({ ...initialState });
+    onClick();
   }
 
   inputStoryline() {
@@ -44,7 +51,7 @@ class AddMovie extends Component {
   }
 
   inputRating() {
-    const { rating } = this.setState;
+    const { rating } = this.state;
     return (
       <label htmlFor="rating-input" data-testid="rating-input-label">
         Avaliação
@@ -77,6 +84,18 @@ class AddMovie extends Component {
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
       </label>
+    );
+  }
+
+  inputButton() {
+    return (
+      <button
+        type="button"
+        onClick={ this.handleClear }
+        data-testid="send-button"
+      >
+        Adicionar filme
+      </button>
     );
   }
 
@@ -119,12 +138,13 @@ class AddMovie extends Component {
         { this.inputStoryline() }
         { this.inputRating() }
         { this.inputSelect() }
+        { this.inputButton() }
       </form>
     );
   }
 }
 
-AddMovie.porpTypes = {
+AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
