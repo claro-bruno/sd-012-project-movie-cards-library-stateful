@@ -1,9 +1,9 @@
 import React from 'react';
-import Input from './ComponentsCriados/Input';
 import InputTitle from './ComponentsAddMovie/InputTitle';
 import InputSubtitle from './ComponentsAddMovie/InputSubtitle';
 import InputImage from './ComponentsAddMovie/InputImage';
 import InputStoryine from './ComponentsAddMovie/InputStoryline';
+import InputRating from './ComponentsAddMovie/InputRating';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -39,15 +39,7 @@ class AddMovie extends React.Component {
         <InputSubtitle subtitle={ subtitle } handleChange={ handleChange } />
         <InputImage imagePath={ imagePath } handleChange={ handleChange } />
         <InputStoryine storyline={ storyline } handleChange={ handleChange } />
-        <Input
-          type="number"
-          datatestid="rating-input"
-          name="rating"
-          value={ rating }
-          onChange={ handleChange }
-          labelText="Avaliação"
-          datatestidLabel="rating-input-label"
-        />
+        <InputRating rating={ rating } handleChange={ handleChange } />
       </form>
     );
   }
