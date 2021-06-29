@@ -20,8 +20,7 @@ class MovieLibrary extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
   }
-
-  // A ideia de unir todos eventos changes e de uma foi tirada do repositorio do colega da turma 12 Luciano ALmeida 
+  // A ideia de unir todos eventos changes e de uma foi tirada do repositorio do colega da turma 12 Luciano ALmeida
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -31,17 +30,17 @@ class MovieLibrary extends Component {
   }
 
   filterMovies() {
-    const {searchText, bookmarkedOnly, selectedGenre, fullList} = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, fullList } = this.state;
     let movies = fullList.filter((movie) => movie.title.includes(searchText));
-    if (bookmarkedOnly === true ) {
-      movies = movies.filter((movie) => movie.bookmarked === true)
-    }
+    if (bookmarkedOnly === true) {
+      movies = movies.filter((movie) => movie.bookmarked === true);
+    };
     movies = movies.filter((movie) => movie.genre.includes(selectedGenre));
 
     this.setState({
-      filteredList: movies
-    })
-  };
+      filteredList: movies,
+    });
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, filteredList } = this.state;
