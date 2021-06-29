@@ -7,8 +7,8 @@ class AddMovie extends Component {
   constructor() {
     super();
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -39,6 +39,10 @@ class AddMovie extends Component {
     this.setState({
       genre: e.target.value,
     });
+  }
+
+  this.AddNewMovie() {
+    
   }
 
   render() {
@@ -80,6 +84,7 @@ class AddMovie extends Component {
               <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
           </label>
+          <button data-testid="send-button" onClick={ this.AddNewMovie }>Adicionar filme</button>
         </fieldset>
       </form>
     );
