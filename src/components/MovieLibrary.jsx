@@ -82,9 +82,9 @@ class MovieLibrary extends Component {
     if (searchText !== '') {
       this.setState({
         movies: stateMovies.filter(({ title, subtitle, storyline }) => (
-          title.includes(searchText)
-          || subtitle.includes(searchText)
-          || storyline.includes(searchText)
+          title.toLowerCase().includes(searchText.toLowerCase())
+          || subtitle.toLowerCase().includes(searchText.toLowerCase())
+          || storyline.toLowerCase().includes(searchText.toLowerCase())
         )),
       });
     }
