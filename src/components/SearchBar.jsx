@@ -22,10 +22,12 @@ class SearchBar extends Component {
           <input
             type="text"
             value={ searchText }
-            onChange={ onSearchTextChange }
+            onChange={ (e) => onSearchTextChange(e.target) }
             data-testid="text-input"
+            name="searchText"
           />
         </label>
+
         <label
           htmlFor="checkbox-input-label"
           data-testid="checkbox-input-label"
@@ -34,20 +36,22 @@ class SearchBar extends Component {
           <input
             type="checkbox"
             checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
+            onChange={ (e) => onBookmarkedChange(e.target) }
             data-testid="checkbox-input"
+            name="bookmarkedOnly"
           />
         </label>
+
         <label
           htmlFor="checkbox-input-label"
           data-testid="select-input-label"
         >
           Filtrar por gênero
           <select
-            type="checkbox"
             value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
+            onChange={ (e) => onSelectedGenreChange(e.target) }
             data-testid="select-input"
+            name="selectedGenre"
           >
             <option value="" data-testid="select-option">
               Todos
