@@ -5,6 +5,8 @@ import Title from './Title';
 import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
 import Storyline from './Storyline';
+import Genre from './Genre';
+import AddRating from './AddRating';
 
 /**
  * Consultei o repositório do Wendell Costa para resolver essa parte.
@@ -33,46 +35,22 @@ class AddMovie extends Component {
   }
   render() {
     const {
+      title,
+      subtitle,
+      imagePath,
+      storyline,
       rating,
       genre,
     } = this.state;
     const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
-        <Title value={ this.state.title } handleChange={ this.handle } />
-        < Subtitle value={ this.state.subtitle } handleChange={ this.handle } />
-        < ImagePath value={ this.state.imagePath } handleChange={ this.handle } />
-        < Storyline value={ this.state.storyline } handleChange={ this.handle } />
-        <label
-          data-testid="rating-input-label"
-          htmlFor="rating-input"
-        >
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-            value={ rating }
-            data-testid="rating-input"
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label
-          data-testid="genre-input-label"
-          htmlFor="genre-input"
-        >
-          Gênero
-          <select
-            name="genre"
-            id=""
-            value={ genre }
-            data-testid="genre-input"
-            onChange={ this.handleChange }
-          >
-            <option value="action" data-testid="genre-option" selected>Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
+        <Title value={ title } handleChange={ this.handle } />
+        < Subtitle value={ subtitle } handleChange={ this.handleChange } />
+        < ImagePath value={ imagePath } handleChange={ this.handleChange } />
+        < Storyline value={ storyline } handleChange={ this.handleChange } />
+        < AddRating value={ rating } handleChange={ this.handleChange } />
+        < Genre value={ genre } handleChange={ this.handleChange } />
         <ButtonAdd resetState={ () => this.resetState(onClick)} />
       </form>
     );
