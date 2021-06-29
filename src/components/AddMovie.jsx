@@ -26,9 +26,26 @@ class AddMovie extends Component {
     });
   }
 
+  inputStoryline() {
+    const { storyline } = this.state;
+    return (
+      <label htmlFor="storyline-input" data-testid="storyline-input-label">
+        Sinopse
+        <input
+          type="text"
+          name="storyline"
+          id="storyline-input"
+          data-testid="storyline-input"
+          value={ storyline }
+          onChange={ this.handleChange }
+        />
+      </label>
+    );
+  }
+
   render() {
     const { title,
-      subtitle, imagePath, /* storyline, rating, genre */
+      subtitle, imagePath,
     } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -65,6 +82,7 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
+        { this.inputStoryline() }
       </form>
     );
   }
