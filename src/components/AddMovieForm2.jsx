@@ -54,7 +54,7 @@ AddMovieForm2.propTypes = {
   state: PropTypes.shape({
     storyline: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
+    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   }).isRequired,
   handleChange: PropTypes.func.isRequired,
   onClickButton: PropTypes.func.isRequired,
