@@ -1,5 +1,9 @@
 import React from 'react';
+<<<<<<< HEAD
 import PropTypes from 'prop-types';
+=======
+// import PropTypes from 'prop-types';
+>>>>>>> 2d8fb450947f33786939e4e58f9dc3f7824c7f41
 import TextInput from './TextInput';
 import AreaInput from './AreaInput';
 import NumberInput from './NumberInput';
@@ -51,6 +55,7 @@ class AddMovie extends React.Component {
 
   handleChange({ target }) {
     const { name, value } = target;
+<<<<<<< HEAD
 
     if (target.type === 'number') {
       this.setState({
@@ -69,6 +74,14 @@ class AddMovie extends React.Component {
 
     onClick(this.state);
 
+=======
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  onClick() {
+>>>>>>> 2d8fb450947f33786939e4e58f9dc3f7824c7f41
     this.setState({
       subtitle: '',
       title: '',
@@ -81,6 +94,10 @@ class AddMovie extends React.Component {
 
   render() {
     const { storyline, rating, genre } = this.state;
+<<<<<<< HEAD
+=======
+    // const { onClick } = this.props;
+>>>>>>> 2d8fb450947f33786939e4e58f9dc3f7824c7f41
 
     return (
       <form data-testid="add-movie-form">
@@ -128,8 +145,14 @@ class AddMovie extends React.Component {
   }
 }
 
+<<<<<<< HEAD
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
+=======
+// AddMovie.propTypes = {
+//   onClick: PropTypes.func.isRequired,
+// };
+>>>>>>> 2d8fb450947f33786939e4e58f9dc3f7824c7f41
 
 export default AddMovie;

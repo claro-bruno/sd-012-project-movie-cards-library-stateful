@@ -26,7 +26,11 @@ class SearchBar extends React.Component {
       <form data-testid="search-bar-form">
         <TextInput
           text="Inclui o texto"
+<<<<<<< HEAD
           name="searchText"
+=======
+          name="search-bar"
+>>>>>>> 2d8fb450947f33786939e4e58f9dc3f7824c7f41
           testid="text"
           value={ searchText }
           onChange={ onSearchTextChange }
@@ -39,7 +43,11 @@ class SearchBar extends React.Component {
         />
         <SelectInput
           text="Filtrar por gênero"
+<<<<<<< HEAD
           name="selectedGenre"
+=======
+          name="filter"
+>>>>>>> 2d8fb450947f33786939e4e58f9dc3f7824c7f41
           testid="select"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
