@@ -35,7 +35,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleClick() {
+  handleClick(onClick) {
+    onClick({ ...this.state })
     this.setState(initialState);
   }
 
@@ -75,9 +76,9 @@ class AddMovie extends React.Component {
         />
 
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
-          onClick={ (evt) => { evt.preventDefault(); this.handleClick(); onClick(); } }
+          onClick={ () => this.handleClick(onClick) }
         >
           Adicionar filme
         </button>
