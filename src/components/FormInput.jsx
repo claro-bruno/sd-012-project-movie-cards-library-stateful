@@ -15,8 +15,7 @@ class FormInput extends Component {
       storyline: 'Sinopse:',
       rating: 'Avaliação:',
     };
-    const translation = name.replace(/.*/i, dictionary[name]);
-    return translation;
+    return name.replace(/.*/i, dictionary[name]);
   }
 
   render() {

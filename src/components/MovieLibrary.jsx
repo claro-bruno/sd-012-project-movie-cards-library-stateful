@@ -22,7 +22,6 @@ class MovieLibrary extends Component {
   myOnChange(target) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-
     this.setState({
       [name]: value,
     });
@@ -52,10 +51,12 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ this.myOnChange }
           onSelectedGenreChange={ this.myOnChange }
         />
+        <MovieList
+          movies={ this.filterMovies(movies) }
+        />
         <AddMovie
           onClick={ (state) => this.setState({ movies: movies.concat(state) }) }
         />
-        <MovieList movies={ this.filterMovies(movies) } />
       </section>
     );
   }

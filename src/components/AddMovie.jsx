@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import FormInput from './FormInput';
 import FormSelect from './FormSelect';
+import FormButton from './FormButton';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -32,7 +33,6 @@ class AddMovie extends Component {
     this.setState(this.initialState);
   }
 
-  // eslint-disable-next-line max-lines-per-function
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -72,13 +72,9 @@ class AddMovie extends Component {
           onChange={ this.handleChange }
           name="genre"
         />
-        <button
-          type="button"
-          data-testid="send-button"
+        <FormButton
           onClick={ () => this.onSubmit(this.state) }
-        >
-          Adicionar filme
-        </button>
+        />
       </form>
     );
   }

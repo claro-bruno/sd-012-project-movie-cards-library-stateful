@@ -15,14 +15,16 @@ class FormSelect extends Component {
       storyline: 'Sinopse:',
       rating: 'Avaliação:',
     };
-    const translation = name.replace(/.*/i, dictionary[name]);
-    return translation;
+    return name.replace(/.*/i, dictionary[name]);
   }
 
   render() {
     const { value, onChange, name } = this.props;
     return (
-      <label htmlFor={ `${name}-input` } data-testid={ `${name}-input-label` }>
+      <label
+        htmlFor={ `${name}-input` }
+        data-testid={ `${name}-input-label` }
+      >
         { this.translate(name) }
         <select
           value={ value }
@@ -30,15 +32,9 @@ class FormSelect extends Component {
           name={ name }
           data-testid={ `${name}-input` }
         >
-          <option value="action" data-testid={ `${name}-option` }>
-            Ação
-          </option>
-          <option value="comedy" data-testid={ `${name}-option` }>
-            Comédia
-          </option>
-          <option value="thriller" data-testid={ `${name}-option` }>
-            Suspense
-          </option>
+          <option value="action" data-testid={ `${name}-option` }>Ação</option>
+          <option value="comedy" data-testid={ `${name}-option` }>Comédia</option>
+          <option value="thriller" data-testid={ `${name}-option` }>Suspense</option>
         </select>
       </label>
     );
