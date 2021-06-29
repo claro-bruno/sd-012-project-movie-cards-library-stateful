@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import InputText from './InputText';
 import InputChecked from './InputChecked';
 import InputSelect from './InputSelect';
+import optionsSearchBar from '../searchBarOptions';
 
 class SearchBar extends React.Component {
   render() {
@@ -15,6 +16,7 @@ class SearchBar extends React.Component {
       selectedGenre,
       onSelectedGenreChange,
     } = this.props;
+
     return (
       <form data-testid="search-bar-form">
         <InputText
@@ -40,6 +42,7 @@ class SearchBar extends React.Component {
           selectValue={ selectedGenre }
           onChangeInput={ onSelectedGenreChange }
           optionId="select-option"
+          optionValue={ optionsSearchBar }
         />
       </form>
     );

@@ -1,7 +1,9 @@
 // implement AddMovie component here
 import React from 'react';
 import InputText from './InputText';
+import InputSelect from './InputSelect';
 import addMoviesList from '../addMovies';
+import optionsAddMovies from '../addMoviesOptions';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -43,6 +45,16 @@ class AddMovie extends React.Component {
             onChangeInput={ this.textInputChangeHandler }
           />
         ))}
+        <InputSelect
+          labelText="Gênero"
+          labelId="genre-input-label"
+          selectId="genre-input"
+          selectValue={ estado.genre }
+          selectName="genre"
+          onChangeInput={ this.textInputChangeHandler }
+          optionId="genre-option"
+          optionValue={ optionsAddMovies }
+        />
       </form>
     );
   }

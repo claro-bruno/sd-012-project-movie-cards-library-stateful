@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class InputChecked extends React.Component {
+class InputSelect extends React.Component {
   render() {
     const {
       labelText,
       labelId,
       selectId,
       selectValue,
+      selectName,
       onChangeInput,
       optionId,
+      optionValue,
     } = this.props;
     return (
       <label data-testid={ labelId } htmlFor={ selectId }>
@@ -17,25 +19,33 @@ class InputChecked extends React.Component {
         <select
           data-testid={ selectId }
           value={ selectValue }
+          name={ selectName }
           onChange={ onChangeInput }
         >
-          <option data-testid={ optionId } value="">Todos</option>
-          <option data-testid={ optionId } value="action">Ação</option>
-          <option data-testid={ optionId } value="comedy">Comédia</option>
-          <option data-testid={ optionId } value="thriller">Suspense</option>
+          { optionValue.map((obj) => (
+            <option
+              key={ obj.optText }
+              data-testid={ optionId }
+              value={ obj.optValue }
+            >
+              { obj.optText }
+            </option>
+          )) }
         </select>
       </label>
     );
   }
 }
 
-InputChecked.propTypes = {
+InputSelect.propTypes = {
   labelId: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
   selectId: PropTypes.string.isRequired,
   selectValue: PropTypes.string.isRequired,
+  selectName: PropTypes.string.isRequired,
   onChangeInput: PropTypes.func.isRequired,
   optionId: PropTypes.string.isRequired,
+  optionValue: PropTypes.arrayOf.isRequired,
 };
 
-export default InputChecked;
+export default InputSelect;
