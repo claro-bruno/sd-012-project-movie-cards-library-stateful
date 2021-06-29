@@ -13,44 +13,27 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
 
-    this.ratingChange = this.ratingChange.bind(this);
-    this.titleChange = this.titleChange.bind(this);
-    this.genreChange = this.genreChange.bind(this);
-    this.storylineChange = this.storylineChange.bind(this);
+    this.handlerChange = this.handlerChange.bind(this);
+
   }
 
-  titleChange(e) {
-    this.setState({
-      title: e.target.value,
-    });
-  }
+  handlerChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value
 
-  ratingChange(e) {
-    this.setState({
-      rating: e.target.value,
-    });
-  }
-
-  genreChange(e) {
-    this.setState({
-      genre: e.target.value,
-    });
-  }
-
-  storylineChange(e) {
-    this.setState({
-      storyline: e.target.value,
+    this.state({
+      [name]: value,
     });
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre, onClick } = this.state;
+    const { onClick } = this.state;
       return (
       <form data-testid="add-movie-form">
-        <InputsLabelsMovie />
+        <InputsLabelsMovie state={ this.state } valuesChange={ this.handlerChange }/>
         <label htmlFor="genre-input" data-testid="genre-input-label">
           Gênero
-          <select data-testid="genre-input" onChange={ this.genreChange }>
+          <select data-testid="genre-input" onChange={ this.handlerChange }>
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>

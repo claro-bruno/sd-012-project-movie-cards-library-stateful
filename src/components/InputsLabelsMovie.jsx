@@ -17,6 +17,8 @@ class InputsLabelsMovie extends React.Component {
               key={ inputLabel.idInput }
               name={ inputLabel.inputName }
               type={ inputLabel.inputType }
+              value = { this.props.state[inputLabel.inputName] }
+              onChange = { this.valuesChange }
             />
           </label>),
       ));
