@@ -62,7 +62,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ this.filteredMovies() } />
-        <AddMovie onClick={ this.addNewMovie } />
+        <AddMovie className="Add-movie-style" onClick={ this.addNewMovie } />
       </div>
     );
   }
