@@ -14,12 +14,11 @@ class AddMovie extends React.Component {
     };
 
     this.handlerChange = this.handlerChange.bind(this);
-
   }
 
   handlerChange({ target }) {
     const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value
+    const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.state({
       [name]: value,
@@ -28,12 +27,21 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.state;
-      return (
+    return (
       <form data-testid="add-movie-form">
-        <InputsLabelsMovie state={ this.state } valuesChange={ this.handlerChange }/>
+        <InputsLabelsMovie state={ this.state } valuesChange={ this.handlerChange } />
+        <label htmlFor="storyline-input" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            name="storyline"
+            data-testid="storyline-input"
+            type="text"
+            value={ this.handlerChange }
+          />
+        </label>
         <label htmlFor="genre-input" data-testid="genre-input-label">
           Gênero
-          <select data-testid="genre-input" onChange={ this.handlerChange }>
+          <select name="genre" data-testid="genre-input" onChange={ this.handlerChange }>
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
