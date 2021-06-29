@@ -71,6 +71,7 @@ class MovieLibrary extends Component {
   AddMovie(state) {
     const { movies } = this.state;
 
+    state.rating = Number(state.rating);
     this.setState({
       movies: [...movies, state],
     });
