@@ -26,8 +26,8 @@ class MovieLibrary extends React.Component {
 
   handleChange({ target }) {
     const { name } = target;
-    const { bookmarkedOnly } = this.state;
-    const value = target.name === 'bookmarkedOnly' ? !bookmarkedOnly : target.value;
+    const { state } = this;
+    const value = target.type === 'checkbox' ? !state[name] : target.value;
     this.setState({ [name]: value },
       () => this.filterMovies());
   }
