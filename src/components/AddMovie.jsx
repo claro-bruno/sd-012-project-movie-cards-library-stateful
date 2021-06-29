@@ -3,6 +3,7 @@ import Input from './ComponentsCriados/Input';
 import InputTitle from './ComponentsAddMovie/InputTitle';
 import InputSubtitle from './ComponentsAddMovie/InputSubtitle';
 import InputImage from './ComponentsAddMovie/InputImage';
+import InputStoryine from './ComponentsAddMovie/InputStoryline';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -37,15 +38,7 @@ class AddMovie extends React.Component {
         <InputTitle title={ title } handleChange={ handleChange } />
         <InputSubtitle subtitle={ subtitle } handleChange={ handleChange } />
         <InputImage imagePath={ imagePath } handleChange={ handleChange } />
-        <Input
-          type="textarea"
-          datatestid="storyline-input"
-          name="storyline"
-          value={ storyline }
-          onChange={ handleChange }
-          labelText="Sinopse"
-          datatestidLabel="storyline-input-label"
-        />
+        <InputStoryine storyline={ storyline } handleChange={ handleChange } />
         <Input
           type="number"
           datatestid="rating-input"
