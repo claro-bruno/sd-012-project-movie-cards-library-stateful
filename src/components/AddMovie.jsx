@@ -6,6 +6,7 @@ import InputImage from './AddMovieComponents/InputImage';
 import TextAreaStoryline from './AddMovieComponents/TextAreaStoryline';
 import InputRating from './AddMovieComponents/InputRating';
 import SelectGenres from './AddMovieComponents/SelectGenres';
+import ButtonSend from './AddMovieComponents/ButtonSend';
 
 class AddMovie extends Component {
   constructor() {
@@ -19,11 +20,24 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [target.name]: value });
+  }
+
+  handleClick(callBack) {
+    callBack(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -46,7 +60,7 @@ class AddMovie extends Component {
         <TextAreaStoryline onChange={ this.handleChange } value={ storyline } />
         <InputRating onChange={ this.handleChange } value={ Number(rating) } />
         <SelectGenres onChange={ this.handleChange } value={ genre } />
-        <button type="submit" onClick={ onClick }>Adicionar</button>
+        <ButtonSend onClick={ () => this.handleClick(onClick) } />
       </form>
     );
   }
