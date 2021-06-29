@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <forms data-testid="search-bar-form">
+      <form data-testid="search-bar-form">
         <LabelInput
           id="include-text"
           dataTestidLabel="text-input-label"
@@ -48,7 +48,7 @@ class SearchBar extends React.Component {
             <option data-testid="select-option" value="thriller">Suspense</option>
           </select>
         </label>
-      </forms>
+      </form>
     );
   }
 }
