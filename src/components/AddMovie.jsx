@@ -1,10 +1,23 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Input from './myComponents/Input';
+
+const inicioDoState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
 
 class AddMovie extends Component {
   constructor() {
     super();
+
+    this.state = inicioDoState;
     this.handleChange = this.handleChange.bind(this);
+    this.resetInputs = this.resetInputs.bind(this);
 
     this.state = {
       subtitle: '',
@@ -23,19 +36,40 @@ class AddMovie extends Component {
     });
   }
 
+  // Consulta repositorio da marcela silva
+
+  handleSubmit() {
+    const { onClick } = this.props;
+    return (
+      <button
+        type="button"
+        data-testid="send-button"
+        onClick={ () => {
+          onClick(this.state);
+          this.resetInputs();
+        } }
+      >
+        Adicionar filme
+      </button>
+    );
+  }
+
+  // Ajuda da Le passando o input dentro da função
+
   titleInput(title) {
     return (
-      <label htmlFor="titleInput" data-testid="title-input-label">
-        Título
-        <input
-          type="text"
-          name="title"
-          id="titleInput"
-          value={ title }
-          onChange={ this.handleChange }
-          data-testid="title-input"
-        />
-      </label>
+      // <label htmlFor="titleInput" data-testid="title-input-label">
+      <Input
+        labelText="Título"
+        type="text"
+        name="title"
+        id="titleInput"
+        dataTestIdLabel="title-input-label"
+        value={ title }
+        handleChange={ this.handleChange }
+        dataTestIdImput="title-input"
+      />
+      // </label>
     );
   }
 
@@ -123,6 +157,10 @@ class AddMovie extends Component {
     );
   }
 
+  resetInputs() {
+    this.setState(() => inicioDoState);
+  }
+
   render() {
     const {
       title,
@@ -141,9 +179,14 @@ class AddMovie extends Component {
         { this.storylineInput(storyline) }
         { this.ratingInput(rating) }
         { this.genreSelect(genre) }
+        { this.handleSubmit() }
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

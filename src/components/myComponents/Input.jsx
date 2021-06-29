@@ -15,7 +15,7 @@ class Input extends Component {
     } = this.props;
 
     return (
-      <label htmlFor={ id } data-testid={ dataTestIdLabel }>
+      <label htmlFor={ name } data-testid={ dataTestIdLabel }>
         { labelText }
         <input
           type={ type }
