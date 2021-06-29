@@ -17,7 +17,7 @@ class AddMovie extends Component {
     };
     this.initialState = this.state;
     this.handleChange = this.handleChange.bind(this);
-    this.onClickr = this.onClickr.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
   handleChange({ target }) {
@@ -26,9 +26,9 @@ class AddMovie extends Component {
     });
   }
 
-  onClickr() {
+  onSubmit(newMovie) {
     const { onClick } = this.props;
-    onClick();
+    onClick(newMovie);
     this.setState(this.initialState);
   }
 
@@ -75,7 +75,7 @@ class AddMovie extends Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ this.onClickr }
+          onClick={ () => this.onSubmit(this.state) }
         >
           Adicionar filme
         </button>

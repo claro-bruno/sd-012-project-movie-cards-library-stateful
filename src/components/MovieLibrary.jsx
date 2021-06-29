@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -49,6 +51,9 @@ class MovieLibrary extends Component {
           onSearchTextChange={ this.myOnChange }
           onBookmarkedChange={ this.myOnChange }
           onSelectedGenreChange={ this.myOnChange }
+        />
+        <AddMovie
+          onClick={ (state) => this.setState({ movies: movies.concat(state) }) }
         />
         <MovieList movies={ this.filterMovies(movies) } />
       </section>
