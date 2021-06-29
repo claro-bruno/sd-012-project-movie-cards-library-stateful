@@ -56,10 +56,13 @@ class AddMovie extends React.Component {
           dataTestidInput="subtitle-input"
         />
         <LabelInput
-          id="Imagen"
+          id="add-image"
           dataTestidLabel="image-input-label"
-          type="text"
+          textLabel="Imagem"
+          name="imagePath"
           value={ imagePath }
+          onChange={ this.handleChange }
+          dataTestidInput="image-input"
         />
         { onclick }
       </form>
