@@ -15,10 +15,10 @@ class SearchBar extends React.Component {
     } = this.props;
 
     const optionsArray = [
-      ['Todos', ''],
-      ['Ação', 'action'],
-      ['Comédia', 'comedy'],
-      ['Suspense', 'thriller'],
+      { text: 'Todos', value: '' },
+      { text: 'Ação', value: 'action' },
+      { text: 'Comédia', value: 'comedy' },
+      { text: 'Suspense', value: 'thriller' },
     ];
 
     return (

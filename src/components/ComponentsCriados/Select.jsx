@@ -6,6 +6,7 @@ class Select extends React.Component {
     const {
       datatestid,
       value,
+      name,
       onChange,
       labelText,
       datatestidLabel,
@@ -21,16 +22,17 @@ class Select extends React.Component {
             id={ datatestid }
             data-testid={ datatestid }
             value={ value }
+            name={ name }
             onChange={ onChange }
           >
             {options.map(
               (option) => (
                 <option
-                  key={ option[0] }
-                  value={ option[1] }
+                  key={ option.value }
+                  value={ option.value }
                   data-testid={ datatestidOption }
                 >
-                  { option[0] }
+                  { option.text }
                 </option>),
             )}
           </select>
@@ -44,6 +46,7 @@ Select.propTypes = {
   type: PropTypes.string.isRequired,
   datatestid: PropTypes.string.isRequired,
   value: PropTypes.string,
+  name: PropTypes.string,
   onChange: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
