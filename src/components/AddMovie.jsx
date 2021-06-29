@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import MovieFormTitleSubtitleImage from './MovieFormTitleSubtitleImage';
+import MovieFormStoryRatingGenre from './MovieFormStoryRatingGenre';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -13,7 +14,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: '',
+      genre: 'action',
     };
   }
 
@@ -37,17 +38,12 @@ class AddMovie extends React.Component {
             imagePath={ imagePath }
             handleChange={ this.handleChange }
           />
-          <label htmlFor="sinopse_" data-testid="storyline-input-label">
-            Sinopse
-            <input
-              name="storyline"
-              id="sinopse_"
-              type="textarea"
-              value={ storyline }
-              onChange={ this.handleChange }
-              data-testid="storyline-input"
-            />
-          </label>
+          <MovieFormStoryRatingGenre
+            storyline={ storyline }
+            rating={ rating }
+            genre={ genre }
+            handleChange={ this.handleChange }
+          />
         </form>
       </section>
     );
