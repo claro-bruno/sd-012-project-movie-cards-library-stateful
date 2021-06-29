@@ -32,9 +32,8 @@ class MovieLibrary extends Component {
     });
   }
 
-  filterMovies() {
+  filterMovies(movies) {
     const { bookmarkedOnly, selectedGenre, searchText } = this.state;
-    const { movies } = this.props;
     if (bookmarkedOnly === false && selectedGenre === '' && searchText === '') {
       return <MovieList movies={ movies } />;
     }
@@ -72,7 +71,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    // const { movies } = this.props;
+    const { movies } = this.props;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
@@ -86,7 +85,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <div>
-          {this.filterMovies()}
+          {this.filterMovies(movies)}
         </div>
 
         {/* <AddMovie onClick="xablau" // callback que permite adicionar um novo filme ao final da lista
