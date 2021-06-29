@@ -24,7 +24,7 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <InputTitle value={ title } onChange={ (e) => { this.setState({ title: e.target.value }); } } />
-        <InputSubtitle initialValue={ subtitle } onChange={ (e) => { this.setState({ subtitle: e.target.value }); } } />
+        <InputSubtitle value={ subtitle } onChange={ (e) => { this.setState({ subtitle: e.target.value }); } } />
         <InputImg value={ imagePath } onChange={ (e) => { this.setState({ imagePath: e.target.value }); } } />
         <TextArea value={ storyline } onChange={ (e) => { this.setState({ storyline: e.target.value }); } } />
         <InputNumber value={ rating } onChange={ (e) => { this.setState({ rating: e.target.value }); } } />
