@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const { onClick } = this.props
+    console.log(onClick());
     this.handleChange = this.handleChange.bind(this);
     this.resetState = this.resetState.bind(this);
     this.state = {
