@@ -12,9 +12,6 @@ class AddMovie extends React.Component {
   constructor() {
     super();
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-
     this.state = {
       subtitle: '',
       title: '',
@@ -23,6 +20,9 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -35,6 +35,7 @@ class AddMovie extends React.Component {
 
   handleClick() {
     const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -43,7 +44,6 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-    onClick(this.state);
   }
 
   render() {

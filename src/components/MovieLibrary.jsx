@@ -8,8 +8,6 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleChange = this.handleChange.bind(this);
-
     const { movies } = this.props;
 
     this.state = {
@@ -17,7 +15,10 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
+      newMovies: movies,
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.addMovies = this.addMovies.bind(this);
   }
 
   handleChange({ target }) {
@@ -25,6 +26,14 @@ class MovieLibrary extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
+    });
+  }
+
+  addMovies(obj) {
+    const { newMovies } = this.state;
+    this.setState({
+      movies: [...newMovies, obj],
+      newMovies: [...newMovies, obj],
     });
   }
 
@@ -40,7 +49,9 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <AddMovie onClick={ () => {} } />
+        <br />
+        <br />
+        <AddMovie onClick={ this.addMovies } />
         <MovieList movies={ movies } />
       </div>
     );

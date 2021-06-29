@@ -6,7 +6,7 @@ class ButtonAdd extends React.Component {
     const { handleClick } = this.props;
     return (
       <button
-        type="button"
+        type="submit"
         data-testid="send-button"
         onClick={ handleClick }
       >
