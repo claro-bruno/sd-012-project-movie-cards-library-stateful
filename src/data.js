@@ -60,7 +60,8 @@ const genresAddMovies = {
 };
 
 export {
-  movies,
   genresFilter,
   genresAddMovies,
 };
+
+export default movies;
