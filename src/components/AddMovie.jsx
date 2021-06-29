@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ButtonAdd from './ButtonAdd'
-import Title from './Title'
+import ButtonAdd from './ButtonAdd';
+import Title from './Title';
+import Subtitle from './Subtitle';
 
 /**
  * Consultei o repositório do Wendell Costa para resolver essa parte.
@@ -28,11 +29,9 @@ class AddMovie extends Component {
       [name]: value,
     }));
   }
-
   render() {
     const {
       subtitle,
-
       imagePath,
       storyline,
       rating,
@@ -41,19 +40,8 @@ class AddMovie extends Component {
     const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
-        <Title value={ this.state.title } handleChange={ this.handle } />        <label
-          data-testid="subtitle-input-label"
-          htmlFor="subtitle-input"
-        >
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.handleChange }
-          />
-        </label>
+        <Title value={ this.state.title } handleChange={ this.handle } />
+        < Subtitle value={ this.state.subtitle } handleChange={ this.handle } />
         <label
           htmlFor="image-input"
           data-testid="image-input-label"
