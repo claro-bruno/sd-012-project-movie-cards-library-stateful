@@ -1,6 +1,6 @@
 import React from 'react';
 
-class MovieLibrary extends component {
+class MovieLibrary extends React.Component {
   render() {
     return (
       <div />
