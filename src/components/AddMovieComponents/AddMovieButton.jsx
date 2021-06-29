@@ -10,7 +10,7 @@ class AddMovieButton extends React.Component {
         type="button"
         onClick={ funcOnClick }
       >
-        Acicionar filme
+        Adicionar filme
       </button>
     );
   }
