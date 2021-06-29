@@ -14,47 +14,51 @@ class AddMovie extends Component {
     };
   }
 
-  getTextInput = (event) => {
+  getInput = (event) => {
     this.setState({
       [event.target.id]: event.target.value,
     });
   }
 
+  makeInput = (formItemInfo) => {
+    const [name, varName, written, type, variable, callback] = formItemInfo;
+    return (
+      <div key={ varName }>
+        <label htmlFor={ varName } data-testid={ `${name}-input-label` }>
+          { written }
+          <input
+            id={ varName }
+            type={ type }
+            value={ variable }
+            onChange={ callback }
+            data-testid={ `${name}-input` }
+          />
+        </label>
+        <br />
+      </div>
+    );
+  }
+
   render() {
     const { title, subtitle, storyline, imagePath, rating } = this.state;
-    const { getTextInput } = this;
+    const { getInput, makeInput } = this;
+    const formItems = [
+      ['title', 'title', 'Título', 'text', title, getInput],
+      ['subtitle', 'subtitle', 'Subtítulo', 'text', subtitle, getInput],
+      ['image', 'imagePath', 'Imagem', 'text', imagePath, getInput],
+    ];
     return (
       <form data-testid="add-movie-form" action="">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            id="title"
+        {formItems.map((item) => makeInput(item))}
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
+          <textarea cols="30"
+            rows="10"
+            id="storyline"
             type="text"
-            value={ title }
-            onChange={ getTextInput }
-            data-testid="title-input"
-          />
-        </label>
-        <br />
-        <label htmlFor="subtitle" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            id="subtitle"
-            type="text"
-            value={ subtitle }
-            onChange={ getTextInput }
-            data-testid="subtitle-input"
-          />
-        </label>
-        <br />
-        <label htmlFor="imagePath" data-testid="image-input-label">
-          Imagem
-          <input
-            id="imagePath"
-            type="text"
-            value={ imagePath }
-            onChange={ getTextInput }
-            data-testid="image-input"
+            value={ storyline }
+            onChange={ getInput }
+            data-testid="storyline-input"
           />
         </label>
       </form>
