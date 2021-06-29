@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import TextInput from './TextInput';
 import AreaInput from './AreaInput';
 import NumberInput from './NumberInput';
@@ -51,12 +51,24 @@ class AddMovie extends React.Component {
 
   handleChange({ target }) {
     const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
+
+    if (target.type === 'number') {
+      this.setState({
+        [name]: parseFloat(value),
+      });
+    } else {
+      this.setState({
+        [name]: value,
+      });
+    }
   }
 
-  onClick() {
+  onClick(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+
+    onClick(this.state);
+
     this.setState({
       subtitle: '',
       title: '',
@@ -69,7 +81,6 @@ class AddMovie extends React.Component {
 
   render() {
     const { storyline, rating, genre } = this.state;
-    // const { onClick } = this.props;
 
     return (
       <form data-testid="add-movie-form">
@@ -117,8 +128,8 @@ class AddMovie extends React.Component {
   }
 }
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
