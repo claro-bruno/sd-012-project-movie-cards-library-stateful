@@ -11,12 +11,16 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: [...movies],
       filtred: movies,
     };
   }
 
-  onClick = () => {
+  onClick = (state) => {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, state],
+    });
   }
 
   updateFunction = () => {
@@ -27,21 +31,22 @@ class MovieLibrary extends Component {
       || elm.subtitle.toUpperCase().includes(searchText.toUpperCase())
       || elm.storyline.toUpperCase().includes(searchText.toUpperCase()));
       this.setState({
-        filtred: newAr,
+        movies: newAr,
       });
     } else {
+      const { movies: realMovies } = this.props;
       this.setState({
-        filtred: movies,
+        movies: realMovies,
       });
     }
     if (selectedGenre) {
       this.setState({
-        filtred: movies.filter((e) => e.genre === selectedGenre),
+        movies: movies.filter((e) => e.genre === selectedGenre),
       });
     }
     if (bookmarkedOnly === true) {
       this.setState({
-        filtred: filtred.filter((e) => e.bookmarked),
+        movies: filtred.filter((e) => e.bookmarked),
       });
     }
   }
@@ -68,7 +73,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, filtred } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -80,7 +85,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movies={ filtred } />
+        <MovieList movies={ movies } />
         <AddMovie onClick={ this.onClick } />
       </div>
     );

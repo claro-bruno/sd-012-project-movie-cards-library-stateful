@@ -24,12 +24,13 @@ class AddMovie extends Component {
 handle = ({ target }) => {
   const { name, value } = target;
   this.setState({
-    [name]: value,
+    [name]: name === 'rating' ? Number(value) : value,
   });
 }
 
-onClick = () => {
+Click = () => {
   const { onClick } = this.props;
+  onClick({ ...this.state });
   this.setState({
     subtitle: '',
     title: '',
@@ -38,25 +39,20 @@ onClick = () => {
     rating: 0,
     genre: 'action',
   });
-  onClick();
-}
-
-prevent = () => {
-
 }
 
 render() {
   const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
   return (
     <div>
-      <form data-testid="add-movie-form" onSubmit={ this.prevent }>
+      <form data-testid="add-movie-form">
         <AddMovieTitle handle={ this.handle } title={ title } />
         <AddMovieSubtitle handle={ this.handle } subtitle={ subtitle } />
         <AddMovieImagePath handle={ this.handle } imagePath={ imagePath } />
         <AddMovieSinopse handle={ this.handle } storyline={ storyline } />
         <AddMovieRating handle={ this.handle } rating={ rating } />
         <AddMovieGenre handle={ this.handle } genre={ genre } />
-        <AddMovieButon onClick={ this.onClick } />
+        <AddMovieButon Click={ this.Click } />
       </form>
     </div>
   );
