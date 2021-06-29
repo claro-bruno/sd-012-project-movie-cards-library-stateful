@@ -16,6 +16,7 @@ class SearchBar extends Component {
           <input
             type="text"
             id="search-input"
+            name="searchText"
             value={ searchText }
             onChange={ onSearchTextChange }
             data-testid="text-input"
@@ -27,6 +28,8 @@ class SearchBar extends Component {
           <input
             type="checkbox"
             id="booksmark-checkbox"
+            sname="try"
+            name="bookmarkedOnly"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
@@ -37,6 +40,7 @@ class SearchBar extends Component {
           Filtrar por gênero
           <select
             id="genreOption"
+            name="selectedGenre"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
@@ -52,13 +56,13 @@ class SearchBar extends Component {
   }
 }
 
-// SearchBar.propTypes = {
-//   searchText: string.isRequired,
-//   onSearchTextChange: func.isRequired,
-//   bookmarkedOnly: bool.isRequired,
-//   onBookmarkedChange: func.isRequired,
-//   selectedGenre: string.isRequired,
-//   onSelectedGenreChange: func.isRequired,
-// };
+SearchBar.propTypes = {
+  searchText: string.isRequired,
+  onSearchTextChange: func.isRequired,
+  bookmarkedOnly: bool.isRequired,
+  onBookmarkedChange: func.isRequired,
+  selectedGenre: string.isRequired,
+  onSelectedGenreChange: func.isRequired,
+};
 
 export default SearchBar;
