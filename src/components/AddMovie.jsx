@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Input from './addmovie-components/Input';
 import inputsProps from './addmovie-components/inputsProps';
+import Select from './Select';
+import optionsProps from './addmovie-components/optionsProps';
 
 class AddMovie extends Component {
   constructor() {
@@ -58,20 +60,16 @@ class AddMovie extends Component {
             onChange={ this.handleChange }
           />
         </label>
-        <label htmlFor="genre-input" data-testid="genre-input-label">
-          Gênero
-          <select
-            name="genre"
-            id="genre-input"
-            data-testid="genre-input"
-            value={ genre }
-            onChange={ this.handleChange }
-          >
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
-        </label>
+        <Select
+          labelText="Gênero"
+          dataTestIdLabel="genre-input-label"
+          name="genre"
+          id="genre-input"
+          dataTestIdInput="genre-input"
+          value={ genre }
+          handleChange={ this.handleChange }
+          options={ optionsProps }
+        />
       </form>
     );
   }
