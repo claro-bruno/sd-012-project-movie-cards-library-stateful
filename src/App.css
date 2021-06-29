@@ -24,9 +24,19 @@
 }
 
 .add-form label input, .add-form label textarea {
-  border: none;
+  border: 2px solid rgba(0, 0, 0, 0);
   border-radius: 5px;
   width: 80%;
+}
+
+.add-form label select {
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 5px;
+}
+
+.add-form label input:focus, .add-form label textarea:focus, .add-form label select:focus {
+  border: 2px solid rgb(100, 100, 100);
+  outline: none;
 }
 
 .add-form textarea {
