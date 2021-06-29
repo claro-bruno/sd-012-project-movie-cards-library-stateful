@@ -44,6 +44,16 @@ class AddMovie extends Component {
           type="text"
           labelId="titleInput"
         />
+        <Input
+          name="subtitle"
+          label="Subtítulo"
+          labelTestId="subtitle-input-label"
+          value={ subtitle }
+          inputTestId="subtitle-input"
+          onChange={ this.handleChange }
+          type="text"
+          labelId="subtitleInput"
+        />
       </form>
     );
   }
