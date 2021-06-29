@@ -8,6 +8,15 @@ import RatingInput from './RatingInput';
 import SelectInput from './SelectInput';
 import ButtonForm from './ButtonForm';
 
+const InitialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyLine: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends Component {
   constructor() {
     super();
@@ -15,14 +24,7 @@ class AddMovie extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyLine: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = InitialState;
   }
 
   handleChange(event) {
@@ -34,15 +36,8 @@ class AddMovie extends Component {
   handleSubmit(event) {
     event.preventDefault();
     const { onClick } = this.props;
-    onClick(this.state);
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyLine: '',
-      rating: 0,
-      genre: 'action',
-    });
+    onClick(InitialState);
+    this.setState(InitialState);
   }
 
   render() {
