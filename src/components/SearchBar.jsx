@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
 import Checkbox from './Checkbox';
+import SearchBarSelect from './SearchBarSelect';
 
 class SearchBar extends Component {
-  // eslint-disable-next-line max-lines-per-function
   render() {
     const { searchText,
       onSearchTextChange,
@@ -31,19 +31,13 @@ class SearchBar extends Component {
           callback={ onBookmarkedChange }
         />
 
-        <label htmlFor="select-input" data-testid="select-input-label">
-          Filtrar por gênero
-          <select
-            data-testid="select-input"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-          >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        <SearchBarSelect
+          id="select"
+          label="Filtrar por gênero"
+          value={ selectedGenre }
+          callback={ onSelectedGenreChange }
+        />
+
       </form>
     );
   }

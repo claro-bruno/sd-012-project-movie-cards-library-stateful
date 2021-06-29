@@ -6,7 +6,7 @@ class Checkbox extends Component {
     const { id, label, callback, checked } = this.props;
 
     return (
-      <div className="form-check">
+      <div className="form-check mb-3">
         <input
           className="form-check-input"
           data-testid={ `${id}-input` }

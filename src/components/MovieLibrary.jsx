@@ -70,7 +70,7 @@ class MovieLibrary extends Component {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
     return (
-      <div>
+      <div className="mt-3">
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.onSearchTextChange }
