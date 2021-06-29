@@ -4,6 +4,7 @@ import Input from './Input';
 import MovieInfos from './MovieInfos';
 import Select from './Select';
 import Button from './Button';
+import './AddMovie.css';
 
 const genres = [
   { genre: 'Ação', genreValue: 'action' },
@@ -45,7 +46,7 @@ class AddMovie extends Component {
       subtitle,
       storyline,
       imagePath,
-      rating,
+      rating: +rating,
       genre,
       bookmarked: false,
     };
@@ -57,7 +58,7 @@ class AddMovie extends Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" className="add-movie-container">
         <MovieInfos
           title={ title }
           subtitle={ subtitle }

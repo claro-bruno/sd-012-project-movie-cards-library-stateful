@@ -7,7 +7,6 @@ class Checkbox extends Component {
 
     return (
       <label htmlFor={ name } data-testid={ `${dataTestId}-label` }>
-        { label }
         <input
           type={ type }
           id={ name }
@@ -16,6 +15,7 @@ class Checkbox extends Component {
           onChange={ onChange }
           data-testid={ dataTestId }
         />
+        { label }
       </label>
     );
   }

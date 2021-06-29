@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Input from './Input';
 import Checkbox from './Checkbox';
 import Select from './Select';
+import './SearchBar.css';
 
 const genres = [
   { genre: 'Ação', genreValue: 'action' },
@@ -21,9 +22,9 @@ class SearchBar extends Component {
     ];
 
     return (
-      <form data-testid="search-bar-form">
+      <form data-testid="search-bar-form" className="search-bar-container">
         <Input
-          label="Inclui o texto:"
+          label="Inclui o texto"
           type="text"
           name="searchText"
           value={ searchText }

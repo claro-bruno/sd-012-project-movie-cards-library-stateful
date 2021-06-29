@@ -1,0 +1,27 @@
+.search-bar-container {
+  padding: 20px;
+}
+
+label {
+  color: gray;
+  display: flex;
+  flex-flow: column nowrap;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.search-bar-container > label:nth-of-type( 2 ) {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+input, select {
+  color: black;
+  margin-top: 10px;
+  padding: 5px;
+}
+
+label:nth-of-type( 2 ) > input {
+  margin-right: 10px;
+}
+

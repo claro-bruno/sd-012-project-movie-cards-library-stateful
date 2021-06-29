@@ -1,0 +1,20 @@
+.add-movie-container {
+  padding: 20px;
+}
+
+.add-movie-container > label:nth-of-type( 5 ) {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+textarea {
+  color: black;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #0437f2;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+}
