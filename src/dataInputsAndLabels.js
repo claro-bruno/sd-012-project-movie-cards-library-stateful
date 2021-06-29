@@ -4,7 +4,7 @@ const inputsLabels = [
     idLabel: 'title-input-label',
     idInput: 'title-input',
     inputName: 'title',
-    inputType: 'text',
+    inputType: 'text',  
   },
   {
     labelContent: 'Subtítulo',

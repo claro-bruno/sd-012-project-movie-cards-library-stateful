@@ -3,6 +3,7 @@ import inputsLabels from '../dataInputsAndLabels';
 
 class InputsLabelsMovie extends React.Component {
   render() {
+    const { handlerChange, state } = this.props;
     return (
       inputsLabels.map(
         (inputLabel) => (
@@ -17,8 +18,8 @@ class InputsLabelsMovie extends React.Component {
               key={ inputLabel.idInput }
               name={ inputLabel.inputName }
               type={ inputLabel.inputType }
-              value={ this.props.state[inputLabel.inputName] }
-              onChange={ this.valuesChange }
+              value={ state[inputLabel.inputName] }
+              onChange={ handlerChange }
             />
           </label>),
       ));

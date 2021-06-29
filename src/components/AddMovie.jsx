@@ -26,10 +26,10 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.state;
+    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
-        <InputsLabelsMovie state={ this.state } valuesChange={ this.handlerChange } />
+        <InputsLabelsMovie state={ this.state } handlerChange={ this.handlerChange } />
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <textarea
