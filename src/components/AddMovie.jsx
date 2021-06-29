@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
-    const { onClick } = this.props
-    console.log(onClick());
+  constructor() {
+    super();
     this.handleChange = this.handleChange.bind(this);
     this.resetState = this.resetState.bind(this);
     this.state = {
@@ -96,7 +94,8 @@ class AddMovie extends React.Component {
             id="genre"
             data-testid="genre-input"
             value={ genre }
-            onChange={ this.handleChange }>
+            onChange={ this.handleChange }
+          >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
@@ -107,7 +106,7 @@ class AddMovie extends React.Component {
           data-testid="send-button"
           onClick={ (event) => {
             event.preventDefault();
-            onClick();
+            onClick(this.state);
             this.resetState();
           } }
         >

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
@@ -10,6 +11,7 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
     this.state = {
       searchText: '',
@@ -46,33 +48,31 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  onClick(objMovie) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, objMovie],
+    });
+  }
+
   filterMovies() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     const filtered = movies.filter((movie) => {
       const { title, subtitle, storyline, bookmarked, genre } = movie;
-      if (bookmarkedOnly) {
-        if (title.includes(searchText)
-        || subtitle.includes(searchText)
-        || storyline.includes(searchText)) {
-          if (genre.includes(selectedGenre)) {
-            if (bookmarked) {
-              return movie;
-            }
-          }
-        }
-      } else if (title.includes(searchText)
+      if (bookmarkedOnly && (title.includes(searchText)
       || subtitle.includes(searchText)
-      || storyline.includes(searchText)) {
-        if (genre.includes(selectedGenre)) {
+      || storyline.includes(searchText))) {
+        if (genre.includes(selectedGenre) && bookmarked) {
           return movie;
         }
+      } else if ((title.includes(searchText)
+      || subtitle.includes(searchText)
+      || storyline.includes(searchText))
+      && genre.includes(selectedGenre)) {
+        return movie;
       }
     });
     return filtered;
-  }
-
-  onClick() {
-    console.log(this.state);
   }
 
   render() {
@@ -88,10 +88,14 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ this.filterMovies() } />
-        <AddMovie onClick={this.onClick} />
+        <AddMovie onClick={ this.onClick } />
       </section>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;
