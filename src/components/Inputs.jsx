@@ -5,7 +5,7 @@ class Inputs extends React.Component {
   render() {
     const { title, subtitle, imagePath, storyline, handleChange } = this.props;
     return (
-      <>
+      <div>
         <label data-testid="title-input-label" htmlFor="title-input">
           Título
           <input
@@ -42,7 +42,7 @@ class Inputs extends React.Component {
             onChange={ handleChange }
           />
         </label>
-      </>
+      </div>
     );
   }
 }
