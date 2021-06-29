@@ -1,37 +1,49 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-/* Requirito 06 */
 
 class AddMovie extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
-      subtitle: '',
-      title: '',
-      storyLine: '',
-      rating: 0,
-      genre: 'action',
+    //   subtitle: '',
+    //   title: '',
+    //   imagePath: '',
+    //   storyline: '',
+    //   rating: 0,
+    //   genre: 'action',
     };
 
-    this.stateSet = this.stateSet.bind(this);
+    this.onChangeHandle = this.onChangeHandle.bind(this);
   }
 
-  stateSet() {
-    const { onClick } = this.props;
-    onClick();
+  onChangeHandle({ target }) {
+    const { value } = target;
+
+    this.setState({
+      title: value,
+    });
   }
 
   render() {
-    /* Requisito 7 */
+    const { title } = this.state;
+
     return (
       <div>
-        <form data-testid="add-movie-form" />
+        <form data-testid="add-movie-form">
+          <label htmlFor="title-input" data-testid="title-input-label">
+            Título
+            <input
+              id="title-input"
+              type="text"
+              value={ title }
+              data-testid="title-input"
+              onChange={ this.onChangeHandle }
+            />
+          </label>
+        </form>
       </div>
     );
   }
 }
-AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
 
 export default AddMovie;
