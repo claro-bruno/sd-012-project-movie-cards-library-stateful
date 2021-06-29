@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import Input from './Input';
 import TextArea from './TextArea';
+import SelectGenre from './SelectGenre';
 
 class AddMovie extends Component {
   constructor() {
@@ -13,7 +14,7 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -29,19 +30,19 @@ class AddMovie extends Component {
     });
   }
 
-  createInput(title, type, callback, arr) {
+  createInput(value, type, callback, arr) {
     // ['name', 'label', 'labelTestId', 'inputTestId', 'labelId']
-    const display = (<Input
+    const displayInput = (<Input
       name={ arr[0] }
       label={ arr[1] }
       labelTestId={ arr[2] }
-      value={ title }
+      value={ value }
       inputTestId={ arr[3] }
       onChange={ callback }
       type={ type }
       labelId={ arr[4] }
     />);
-    return display;
+    return displayInput;
   }
 
   render() {
@@ -74,6 +75,16 @@ class AddMovie extends Component {
           labelId="textareInput"
         />
         { createInput(rating, 'number', handleChange, ratingInfos) }
+        <SelectGenre
+          name="genre"
+          label="Gênero"
+          labelTestId="genre-input-label"
+          labelId="genreInput"
+          value={ genre }
+          onChange={ handleChange }
+          selectTestId="genre-input"
+          optionTestId="genre-option"
+        />
       </form>
     );
   }

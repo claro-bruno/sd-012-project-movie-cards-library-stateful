@@ -2,16 +2,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
-import Select from './Select';
+import Filter from './Filter';
 
 class SearchBar extends Component {
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly } = this.props;
-    const { selectedGenre, onSelectedGenreChange, onBookmarkedChange } = this.props;
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      selectedGenre,
+      onSelectedGenreChange,
+      onBookmarkedChange } = this.props;
 
     return (
       <form data-testid="search-bar-form">
         <Input
+          name="includes"
           label="Inclui o texto:"
           labelTestId="text-input-label"
           type="text"
@@ -21,6 +27,7 @@ class SearchBar extends Component {
           labelId="txtInput"
         />
         <Input
+          name="favorites"
           label="Mostrar somente favoritos"
           labelTestId="checkbox-input-label"
           type="checkbox"
@@ -29,7 +36,8 @@ class SearchBar extends Component {
           inputTestId="checkbox-input"
           labelId="checkboxInput"
         />
-        <Select
+        <Filter
+          name="filter"
           label="Filtrar por gênero"
           labelTestId="select-input-label"
           labelId="selectField"

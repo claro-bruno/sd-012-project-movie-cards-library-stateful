@@ -3,8 +3,16 @@ import PropTypes from 'prop-types';
 
 class Input extends Component {
   render() {
-    const { type, value, onChange, label } = this.props;
-    const { labelTestId, labelId, inputTestId, checked, name } = this.props;
+    const {
+      type,
+      value,
+      onChange,
+      label,
+      labelTestId,
+      labelId,
+      inputTestId,
+      checked,
+      name } = this.props;
 
     return (
       <section>

@@ -3,8 +3,13 @@ import PropTypes from 'prop-types';
 
 class TextArea extends Component {
   render() {
-    const { value, onChange, label } = this.props;
-    const { labelTestId, labelId, inputTestId, name } = this.props;
+    const { value,
+      onChange,
+      label,
+      labelTestId,
+      labelId,
+      inputTestId,
+      name } = this.props;
 
     return (
       <section>
