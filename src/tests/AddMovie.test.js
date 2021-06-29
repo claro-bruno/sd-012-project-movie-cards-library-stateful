@@ -35,7 +35,9 @@ const subtitleMagical = 'Magical subtitle';
 const inputStoryline = 'The boy who lived.';
 
 beforeEach(() => {
-  const { queryAllByTestId, queryByTestId } = render(<AddMovie onClick={ onClick } />);
+  const { queryAllByTestId, queryByTestId } = render(
+    <AddMovie onClick={onClick} />
+  );
   form = queryAllByTestId('add-movie-form');
   titleInput = queryByTestId('title-input');
   titleInputLabel = queryByTestId('title-input-label');
@@ -55,7 +57,7 @@ beforeEach(() => {
 
 describe('6 - Crie um componente chamado `<AddMovie />`', () => {
   it('Renderize o componente', () => {
-    render(<AddMovie onClick={ () => jest.fn() } />);
+    render(<AddMovie onClick={() => jest.fn()} />);
   });
 });
 
@@ -123,7 +125,9 @@ describe('10 - Renderize um input do tipo texto dentro do formulário em `<AddMo
 
   it('Altere o valor do input de imagem quando algo é digitado nele', () => {
     event.type(imageInput, 'http://localhost:3000/images/Appleseed_Alpha.jpg');
-    expect(imageInput).toHaveValue('http://localhost:3000/images/Appleseed_Alpha.jpg');
+    expect(imageInput).toHaveValue(
+      'http://localhost:3000/images/Appleseed_Alpha.jpg'
+    );
   });
 });
 
@@ -212,7 +216,9 @@ describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer u
   it('Será validado se o evento onClick é chamado ao se clicar no botão.', () => {
     event.type(titleInput, movieHarryPotter);
     event.type(subtitleInput, subtitleMagical);
-    fireEvent.change(storylineInput, { target: { value: `${inputStoryline}` } });
+    fireEvent.change(storylineInput, {
+      target: { value: `${inputStoryline}` },
+    });
     event.type(storylineInput, inputStoryline);
     event.type(ratingInput, '3.5');
 
@@ -225,7 +231,9 @@ describe('14 - Renderize um botão do formulário em `<AddMovie />` para fazer u
     const expectedRating = 3.5;
     event.type(titleInput, movieHarryPotter);
     event.type(subtitleInput, subtitleMagical);
-    fireEvent.change(storylineInput, { target: { value: `${inputStoryline}` } });
+    fireEvent.change(storylineInput, {
+      target: { value: `${inputStoryline}` },
+    });
     event.type(ratingInput, '3.5');
     event.selectOptions(genreInput, 'comedy');
 

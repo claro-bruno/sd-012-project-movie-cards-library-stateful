@@ -4,24 +4,23 @@ import PropTypes from 'prop-types';
 // prettier-ignore
 class AddMovieSelect extends React.Component {
   render() {
-    const { label, name, value, onChange } = this.props;
+    const label = 'Gênero';
+    const id = 'genre-input';
+    const name = 'genre';
     const labelId = '-label';
     const doubleDot = ':';
-    const input = '-input';
+    const { value, onChange } = this.props;
     return (
-      <label htmlFor={ name + input } data-testid={ name + input + labelId }>
+      <label htmlFor={ id } data-testid={ id + labelId }>
         { label + doubleDot }
-        <select name={ name } value={ value } onChange={ onChange }>
-          <option data-testid={ name + input } value="">
-            Todos
-          </option>
-          <option data-testid={ name + input } value="action">
+        <select data-testid={ id } name={ name } value={ value } onChange={ onChange }>
+          <option data-testid="genre-option" value="action">
             Ação
           </option>
-          <option data-testid={ name + input } value="comedy">
+          <option data-testid="genre-option" value="comedy">
             Comédia
           </option>
-          <option data-testid={ name + input } value="thriller">
+          <option data-testid="genre-option" value="thriller">
             Suspense
           </option>
         </select>
@@ -31,8 +30,6 @@ class AddMovieSelect extends React.Component {
 }
 
 AddMovieSelect.propTypes = {
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
