@@ -18,6 +18,10 @@ h2 {
   text-align: center;
 }
 
+p {
+  margin: 0;
+}
+
 .movie-card-header {
   align-items: center;
   background-color: #343a40;
