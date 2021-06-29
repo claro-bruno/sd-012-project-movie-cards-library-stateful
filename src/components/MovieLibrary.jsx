@@ -1,14 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
-import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    this.state = {};
+    this.state = {
+      textInput: '',
+      genreOption: '',
+    };
   }
 
   handleChange({ target }) {
@@ -18,6 +21,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
+    const { movies } = this.props;
     const { textInput, favoritesOnly, genreOption } = this.state;
 
     return (
@@ -43,5 +47,15 @@ class MovieLibrary extends React.Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    imagePath: PropTypes.string,
+  }).isRequired,
+};
 
 export default MovieLibrary;

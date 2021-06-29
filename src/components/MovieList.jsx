@@ -4,10 +4,15 @@ import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
   render() {
-    const { movies } = this.props;
+    const { movies, searchText } = this.props;
+
     return (
       <div data-testid="movie-list" className="movie-list">
-        {movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />)}
+        {movies
+          .filter((chosenMovie) => chosenMovie.title.includes(searchText))
+          .map((movie) => (
+            <MovieCard key={ movie.title } movie={ movie } />
+          ))}
       </div>
     );
   }
@@ -15,6 +20,7 @@ class MovieList extends React.Component {
 
 MovieList.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+  searchText: PropTypes.string.isRequired,
 };
 
 export default MovieList;
