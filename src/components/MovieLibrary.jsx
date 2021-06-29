@@ -69,9 +69,11 @@ class MovieLibrary extends Component {
     const { searchText } = this.state;
     return (
       <MovieList
-        movies={ movies.filter((movie) => movie.title.toLowerCase().includes(searchText.toLowerCase())
+        movies={ movies.filter((movie) => (
+          movie.title.toLowerCase().includes(searchText.toLowerCase())
           || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
-          || movie.storyline.toLowerCase().includes(searchText.toLowerCase())) }
+          || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
+        )) }
       />
     );
   }
