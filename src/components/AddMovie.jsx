@@ -20,7 +20,7 @@ class AddMovie extends React.Component {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.state({
+    this.setState({
       [name]: value,
     });
   }
@@ -36,7 +36,8 @@ class AddMovie extends React.Component {
             name="storyline"
             data-testid="storyline-input"
             type="text"
-            value={ this.handlerChange }
+            value={ this.storyline }
+            onChange={ this.handlerChange }
           />
         </label>
         <label htmlFor="genre-input" data-testid="genre-input-label">
