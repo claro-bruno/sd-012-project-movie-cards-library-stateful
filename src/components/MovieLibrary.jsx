@@ -51,7 +51,9 @@ class MovieLibrary extends Component {
   }
 
   filterByBookmarkedOnly(movies) {
-    return <MovieList movies={ movies } />;
+    return (
+      <MovieList movies={ movies.filter((movie) => movie.bookmarked === true) } />
+    );
   }
 
   filterBySelectedGenre(movies) {
