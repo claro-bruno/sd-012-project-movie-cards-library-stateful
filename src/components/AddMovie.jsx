@@ -1,4 +1,3 @@
-/* eslint-disable max-lines-per-function */
 import React from 'react';
 import ImportTitle from './subComponents/importTitle';
 import ImportSubtitle from './subComponents/ImportSubtitle';
@@ -18,6 +17,7 @@ class AddMovie extends React.Component {
       importSubtitle: '',
       importStoryline: '',
       imagePath: '',
+      importGenre: '',
       importRating: 0,
     };
   }
@@ -28,14 +28,21 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  submitMovie(evt) {
-    evt.preventDefault();
+  submitMovie() {
+    this.setState({
+      importTitle: '',
+      importSubtitle: '',
+      importStoryline: '',
+      imagePath: '',
+      importGenre: '',
+      importRating: 0,
+    });
   }
 
   render() {
     const { importTitle, importSubtitle } = this.state;
     const { imagePath, importRating } = this.state;
-    const { importStoryline } = this.state;
+    const { importStoryline, importGenre } = this.state;
     return (
       <form data-testid="add-movie-form" onSubmit={ (e) => e.preventDefault() }>
         <ImportTitle
@@ -66,8 +73,8 @@ class AddMovie extends React.Component {
           handleChange={ this.handleChange }
         />
         <ImportGenre
+          importGenre={ importGenre }
           handleChange={ this.handleChange }
-          importGenre
         />
         <button
           type="submit"
