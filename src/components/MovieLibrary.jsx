@@ -93,7 +93,7 @@ class MovieLibrary extends Component {
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies: stateMovies } = this.state;
     return (
-      <section>
+      <section className="movie-library">
         <SearchBar
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }

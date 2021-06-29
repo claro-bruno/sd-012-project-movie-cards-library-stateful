@@ -15,40 +15,38 @@ class SearchBar extends Component {
     } = this.props;
 
     return (
-      <section>
-        <form data-testid="search-bar-form">
-          <h2>Filtros</h2>
-          <Input
-            inputLabel="Inclui o texto:"
-            inputLabelTestId="text-input-label"
-            inputValue={ searchText }
-            onChangeInput={ onSearchTextChange }
-            inputTestId="text-input"
-            inputId="input-includes"
-            inputName="searchText"
-          />
-          <Input
-            inputType="checkbox"
-            inputLabel="Mostrar somente favoritos"
-            inputLabelTestId="checkbox-input-label"
-            inputValue="favorites"
-            inputChecked={ bookmarkedOnly }
-            onChangeInput={ onBookmarkedChange }
-            inputId="input-favorite"
-            inputTestId="checkbox-input"
-            inputName="bookmarkedOnly"
-          />
-          <Select
-            selectName="selectedGenre"
-            onChangeSelect={ onSelectedGenreChange }
-            selectId="select-genre"
-            selectTestId="select-input"
-            selectLabel="Filtrar por gênero"
-            selectLabelTestId="select-input-label"
-            selectValue={ selectedGenre }
-          />
-        </form>
-      </section>
+      <form data-testid="search-bar-form">
+        <h2>Filtros</h2>
+        <Input
+          inputLabel="Inclui o texto:"
+          inputLabelTestId="text-input-label"
+          inputValue={ searchText }
+          onChangeInput={ onSearchTextChange }
+          inputTestId="text-input"
+          inputId="input-includes"
+          inputName="searchText"
+        />
+        <Input
+          inputType="checkbox"
+          inputLabel="Mostrar somente favoritos"
+          inputLabelTestId="checkbox-input-label"
+          inputValue="favorites"
+          inputChecked={ bookmarkedOnly }
+          onChangeInput={ onBookmarkedChange }
+          inputId="input-favorite"
+          inputTestId="checkbox-input"
+          inputName="bookmarkedOnly"
+        />
+        <Select
+          selectName="selectedGenre"
+          onChangeSelect={ onSelectedGenreChange }
+          selectId="select-genre"
+          selectTestId="select-input"
+          selectLabel="Filtrar por gênero"
+          selectLabelTestId="select-input-label"
+          selectValue={ selectedGenre }
+        />
+      </form>
     );
   }
 }

@@ -45,16 +45,14 @@ class AddMovie extends Component {
 
   render() {
     return (
-      <section>
-        <form data-testid="add-movie-form">
-          <AddMovieForm1 state={ this.state } handleChange={ this.handleChange } />
-          <AddMovieForm2
-            state={ this.state }
-            handleChange={ this.handleChange }
-            onClickButton={ this.onClickButton }
-          />
-        </form>
-      </section>
+      <form data-testid="add-movie-form">
+        <AddMovieForm1 state={ this.state } handleChange={ this.handleChange } />
+        <AddMovieForm2
+          state={ this.state }
+          handleChange={ this.handleChange }
+          onClickButton={ this.onClickButton }
+        />
+      </form>
     );
   }
 }
