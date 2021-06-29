@@ -11,23 +11,44 @@ class MovieLibrary extends React.Component {
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: 'action',
+      selectedGenre: '',
       movies,
     };
   }
 
-    filerFavorites = () => {
-      const { movies } = this.props;
-      const filtered = movies.filter((movie) => {
-        const { bookmarkedOnly } = this.state;
-        return !bookmarkedOnly ? movie.bookmarked === bookmarkedOnly : true;
-      });
-      this.setState({ movies: filtered });
-    }
+  filerFavorites = () => {
+    const { movies } = this.props;
+    const filtered = movies.filter((movie) => {
+      const { bookmarkedOnly } = this.state;
+      return !bookmarkedOnly ? movie.bookmarked === bookmarkedOnly : true;
+    });
+    this.setState({ movies: filtered });
+  }
+
+  filterGenre = (genre) => {
+    const { movies } = this.props;
+    const filtered = movies.filter((movie) => {
+      const filteredMovies = genre === '' ? true : movie.genre === genre;
+      return filteredMovies;
+    });
+    this.setState(() => ({ movies: filtered }));
+  }
+
+  filterByName = (search) => {
+    const { movies } = this.props;
+    const searchValue = search.toLowerCase();
+    const filtered = movies
+      .filter((movie) => movie.title.toLowerCase().includes(searchValue)
+      || movie.subtitle.toLowerCase().includes(searchValue)
+      || movie.storyline.toLowerCase().includes(searchValue));
+    console.log(filtered);
+    this.setState({ movies: filtered });
+  }
 
   handleChange = ({ target }) => {
     const { id, value } = target;
     this.setState({ [id]: value });
+    return (id === 'selectedGenre' ? this.filterGenre(value) : this.filterByName(value));
   }
 
   handleCheckboxChange = ({ target }) => {
@@ -50,6 +71,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSearchTextChange={ this.handleChange }
           onBookmarkedChange={ this.handleCheckboxChange }
+          onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies } />
         <AddMovie onClick={ () => 'test' } />
