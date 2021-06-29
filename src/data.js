@@ -46,4 +46,21 @@ const movies = [
   },
 ];
 
-export default movies;
+const genresFilter = {
+  Todos: '',
+  Ação: 'action',
+  Comédia: 'comedy',
+  Suspense: 'thriller',
+};
+
+const genresAddMovies = {
+  Ação: 'action',
+  Comédia: 'comedy',
+  Suspense: 'thriller',
+};
+
+export {
+  movies,
+  genresFilter,
+  genresAddMovies,
+};
