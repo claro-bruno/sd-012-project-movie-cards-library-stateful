@@ -19,6 +19,11 @@ class MovieLibrary extends React.Component {
     this.setState(({ movies }) => ({
       movies: [...movies, objMovies],
     }));
+
+    /*this.setState((state) => ({
+      ...state,
+      movies: [...state.movies, objMovies]
+    }))*/
   }
   handleChange = ({ target }) => {
     const { name } = target;
@@ -40,7 +45,6 @@ class MovieLibrary extends React.Component {
   }
 	render() {
     const filtro = this.getMovies();
-    console.log(filtro)
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
