@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Synopsis extends React.Component {
   render() {
@@ -19,4 +20,8 @@ class Synopsis extends React.Component {
     );
   }
 }
+Synopsis.propTypes = {
+  storyline: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 export default Synopsis;

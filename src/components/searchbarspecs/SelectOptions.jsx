@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SelectOptions extends React.Component {
   render() {
@@ -20,4 +21,8 @@ class SelectOptions extends React.Component {
     );
   }
 }
+SelectOptions.propTypes = {
+  selectedGenre: PropTypes.func.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
 export default SelectOptions;

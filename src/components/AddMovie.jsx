@@ -20,6 +20,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -27,6 +28,18 @@ class AddMovie extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
+    });
+  }
+
+  handleClick() {
+    onClick();
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -70,7 +83,7 @@ class AddMovie extends React.Component {
         <Button
           name="button"
           labelButton="Adicionar filme"
-          // onClick={  }
+          onClick={ () => { this.handleClick(); } }
         />
       </form>
     );

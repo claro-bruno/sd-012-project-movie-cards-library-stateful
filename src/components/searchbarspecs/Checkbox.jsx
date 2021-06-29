@@ -17,9 +17,10 @@ class Checkbox extends React.Component {
     );
   }
 }
-export default Checkbox;
 
 Checkbox.propTypes = {
   bookmarkedOnly: PropTypes.func.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
 };
+
+export default Checkbox;

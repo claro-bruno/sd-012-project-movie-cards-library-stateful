@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class TextInput extends React.Component {
   render() {
@@ -16,5 +17,9 @@ class TextInput extends React.Component {
     );
   }
 }
+TextInput.propTypes = {
+  searchText: PropTypes.func.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+};
 
 export default TextInput;
