@@ -123,6 +123,23 @@ class AddMovie extends React.Component {
         { this.createStorylineInput() }
         { this.createRatingInput() }
         { this.createGenreInput() }
+        <button
+          data-testid="send-button"
+          type="button"
+          onClick={ () => {
+            onClick(this.state);
+            this.setState(() => ({
+              subtitle: '',
+              title: '',
+              imagePath: '',
+              storyline: '',
+              rating: 0,
+              genre: 'action',
+            }));
+          } }
+        >
+          Adicionar filme
+        </button>
         {console.log(this.state)}
       </form>
     );

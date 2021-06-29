@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar />
-      <AddMovie onClick={ () => 'Escolha seu filme' } />
+      <AddMovie onClick={ (state) => console.log(state) } />
     </div>
   );
 }
