@@ -5,7 +5,7 @@ class AddMovie extends React.Component {
   render() {
     // const {  } = this.props;
     return (
-      <form>
+      <form data-testid="add-movie-form">
         <label
           htmlFor="teste"
         >

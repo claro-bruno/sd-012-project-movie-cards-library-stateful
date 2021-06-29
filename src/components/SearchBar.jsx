@@ -13,16 +13,23 @@ const generes = [
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.props;
-    const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this.props;
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+      onSearchTextChange,
+      onBookmarkedChange,
+      onSelectedGenreChange,
+    } = this.props;
     return (
       <form data-testid="search-bar-form">
         <Input
-          dataTestid="text-input"
           label="Inclui o texto"
           type="text"
           name="searchText"
           value={ searchText }
+          dataTestid="text-input-label"
+          dataTestInput="text-input"
           onChange={ onSearchTextChange }
         />
 
