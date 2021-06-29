@@ -5,6 +5,7 @@ import InputSubtitle from './AddMovieInputs/InputSubTitle';
 import InputImg from './AddMovieInputs/InputImg';
 import TextArea from './AddMovieInputs/TextArea';
 import InputNumber from './AddMovieInputs/InputNumber';
+import InputSelect from './AddMovieInputs/inputSelect';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -20,7 +21,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, imagePath, title, storyline, rating } = this.state;
+    const { subtitle, imagePath, title, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputTitle value={ title } onChange={ (e) => { this.setState({ title: e.target.value }); } } />
@@ -28,6 +29,7 @@ class AddMovie extends React.Component {
         <InputImg value={ imagePath } onChange={ (e) => { this.setState({ imagePath: e.target.value }); } } />
         <TextArea value={ storyline } onChange={ (e) => { this.setState({ storyline: e.target.value }); } } />
         <InputNumber value={ rating } onChange={ (e) => { this.setState({ rating: e.target.value }); } } />
+        <InputSelect value={ genre } onChange={ (e) => { this.setState({ genre: e.target.value }); } } />
       </form>
     );
   }
