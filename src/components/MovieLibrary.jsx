@@ -6,13 +6,6 @@ import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
-// const initialState = {
-//   searchText: '',
-//   bookmarkedOnly: false,
-//   selectedGenre: '',
-//   movies: moviesData,
-// };
-
 export default class MovieLibrary extends Component {
   constructor(props) {
     super(props);
@@ -28,19 +21,28 @@ export default class MovieLibrary extends Component {
     this.bookmarkedToggle = this.bookmarkedToggle.bind(this);
     this.changeGenre = this.changeGenre.bind(this);
     this.changeParentThis = this.changeState.bind(this);
+    this.filters = this.handleFilters.bind(this);
+  }
+
+  handleFilters(movies) {
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const text = searchText.toLowerCase();
+    return movies
+      .filter(({ genre }) => genre.includes(selectedGenre))
+      .filter(({ bookmarked }) => !bookmarkedOnly || bookmarked)
+      .filter(({ title, subtitle, storyline }) => (
+        title.toLowerCase().includes(text)
+        || subtitle.toLowerCase().includes(text)
+        || storyline.toLowerCase().includes(text)
+      ));
   }
 
   changeText(e) {
     const { movies } = this.props;
-    const value = e.target.value.toLowerCase();
+    const { value } = e.target;
     if (value !== '') {
-      const filtered = movies
-        .filter((movie) => movie.title.toLowerCase().includes(value)
-        || movie.subtitle.toLowerCase().includes(value)
-        || movie.storyline.toLowerCase().includes(value));
       this.setState({
         searchText: e.target.value,
-        movies: filtered,
       });
     } else {
       this.setState({
@@ -53,11 +55,9 @@ export default class MovieLibrary extends Component {
   bookmarkedToggle(e) {
     const { movies } = this.props;
     const value = e.target.checked;
-    const filtered = movies.filter((movie) => movie.bookmarked);
     if (value) {
       this.setState({
         bookmarkedOnly: value,
-        movies: filtered,
       });
     } else {
       this.setState({
@@ -71,10 +71,8 @@ export default class MovieLibrary extends Component {
     const { movies } = this.props;
     const { value } = e.target;
     if (value !== '') {
-      const filtered = movies.filter((movie) => movie.genre === value);
       this.setState({
         selectedGenre: value,
-        movies: filtered,
       });
     } else {
       this.setState({
@@ -116,7 +114,7 @@ export default class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.changeGenre }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.handleFilters(movies) } />
         <AddMovie onClick={ this.movieAdd } />
       </div>
     );
