@@ -5,27 +5,28 @@ class AddMovie extends Component {
     super(props);
 
     this.state = {
-    //   subtitle: '',
-    //   title: '',
-    //   imagePath: '',
-    //   storyline: '',
-    //   rating: 0,
-    //   genre: 'action',
+      subtitle: '',
+      title: '',
+      // imagePath: '',
+      // storyline: '',
+      // rating: 0,
+      // genre: 'action',
     };
 
     this.onChangeHandle = this.onChangeHandle.bind(this);
   }
 
   onChangeHandle({ target }) {
-    const { value } = target;
+    const { name, value } = target;
 
     this.setState({
       title: value,
+      [name]: value,
     });
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
 
     return (
       <div>
@@ -37,6 +38,17 @@ class AddMovie extends Component {
               type="text"
               value={ title }
               data-testid="title-input"
+              onChange={ this.onChangeHandle }
+            />
+          </label>
+          <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+            Subtítulo
+            <input
+              id="subtitle-input"
+              name="subtitle"
+              type="text"
+              value={ subtitle }
+              data-testid="subtitle-input"
               onChange={ this.onChangeHandle }
             />
           </label>
