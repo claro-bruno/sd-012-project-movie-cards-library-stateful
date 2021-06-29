@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-// import SeachBar from './SearchBar';
+import SeachBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   // constructor() {
@@ -15,19 +16,17 @@ class MovieLibrary extends Component {
   // }
 
   render() {
-    // const { movies } = this.props;
-    // const { searchText } = this.state;
-
     return (
       <div>
-        <h1>MovieLibrary</h1>
+        <SeachBar />
+        <AddMovie />
       </div>
     );
   }
 }
 
 // MovieLibrary.propTypes = {
-//   movies: PropTypes.arrayOf(PropTypes.string).isRequired,
+//   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 // };
 
 export default MovieLibrary;
