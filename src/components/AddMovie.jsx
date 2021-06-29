@@ -1,20 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
 
     this.handleChange = this.handleChange.bind(this);
-    this.reset = this.reset.bind(this);
+    this.handleButton = this.handleButton.bind(this);
+    this.state = initialState;
   }
 
   handleChange({ target }) {
@@ -24,19 +26,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  reset(event) {
-    const { onClick } = this.props;
-    onClick(event);
-
-    const initialValues = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
-    return initialValues;
+  handleButton() {
+    this.setState(initialState);
   }
 
   renderTitle() {
@@ -141,9 +132,17 @@ class AddMovie extends React.Component {
   }
 
   renderButton() {
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
     return (
-      <button data-testid="send-button" type="submit" onClick={ this.reset }>
+      <button
+        data-testid="send-button"
+        type="submit"
+        onClick={ (event) => {
+          event.preventDefault();
+          onClick(this.state);
+          this.handleButton();
+        } }
+      >
         Adicionar filme
       </button>
 
