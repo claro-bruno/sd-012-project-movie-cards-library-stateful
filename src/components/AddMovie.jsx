@@ -51,24 +51,24 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         <AddTitle
-          inputValue={ title }
-          inputOnChange={ this.handleChange }
+          name={ title }
+          callBack={ this.handleChange }
         />
         <AddSubtitle
-          inputValue={ subtitle }
-          inputOnChange={ this.handleChange }
+          name={ subtitle }
+          callBack={ this.handleChange }
         />
         <AddImage
-          inputValue={ imagePath }
-          inputOnChange={ this.handleChange }
+          name={ imagePath }
+          callBack={ this.handleChange }
         />
         <AddStoryline
-          inputValue={ storyline }
-          inputOnChange={ this.handleChange }
+          name={ storyline }
+          callBack={ this.handleChange }
         />
         <AddRating
-          inputValue={ rating }
-          inputOnChange={ this.handleChange }
+          name={ rating }
+          callBack={ this.handleChange }
         />
         <SelectGenre
           selectName="genre"

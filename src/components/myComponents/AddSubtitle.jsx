@@ -5,18 +5,18 @@ import FormAddMovie from './FormAddMovie';
 class AddSubtitle extends React.Component {
   render() {
     const {
-      title,
+      name,
       callBack,
     } = this.props;
     return (
       <FormAddMovie
-        htmlForId="form-title"
-        inputName="title"
-        dataLabelId="title-input-label"
-        labelText="Título"
-        dataFormId2="title-input"
+        htmlForId="form-subtitle"
+        inputName="subtitle"
+        dataLabelId="subtitle-input-label"
+        labelText="Subtítulo"
+        dataFormId2="subtitle-input"
         inputType="text"
-        inputValue={ title }
+        inputValue={ name }
         inputOnChange={ callBack }
       />
     );
@@ -24,12 +24,12 @@ class AddSubtitle extends React.Component {
 }
 
 AddSubtitle.propTypes = {
-  title: PropTypes.string,
+  name: PropTypes.string,
   callBack: PropTypes.func,
 };
 
 AddSubtitle.defaultProps = {
-  title: '',
+  name: '',
   callBack: '',
 };
 

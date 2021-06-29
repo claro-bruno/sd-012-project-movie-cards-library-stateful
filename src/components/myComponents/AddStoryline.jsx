@@ -5,18 +5,18 @@ import FormAddMovie from './FormAddMovie';
 class AddStoryline extends React.Component {
   render() {
     const {
-      title,
+      name,
       callBack,
     } = this.props;
     return (
       <FormAddMovie
-        htmlForId="form-title"
-        inputName="title"
-        dataLabelId="title-input-label"
-        labelText="Título"
-        dataFormId2="title-input"
+        htmlForId="form-storyline"
+        inputName="storyline"
+        dataLabelId="storyline-input-label"
+        labelText="Sinopse"
+        dataFormId2="storyline-input"
         inputType="text"
-        inputValue={ title }
+        inputValue={ name }
         inputOnChange={ callBack }
       />
     );
@@ -24,12 +24,12 @@ class AddStoryline extends React.Component {
 }
 
 AddStoryline.propTypes = {
-  title: PropTypes.string,
+  name: PropTypes.string,
   callBack: PropTypes.func,
 };
 
 AddStoryline.defaultProps = {
-  title: '',
+  name: '',
   callBack: '',
 };
 

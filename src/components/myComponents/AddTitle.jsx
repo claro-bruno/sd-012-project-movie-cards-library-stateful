@@ -5,7 +5,7 @@ import FormAddMovie from './FormAddMovie';
 class AddTitle extends React.Component {
   render() {
     const {
-      title,
+      name,
       callBack,
     } = this.props;
     return (
@@ -16,7 +16,7 @@ class AddTitle extends React.Component {
         labelText="Título"
         dataFormId2="title-input"
         inputType="text"
-        inputValue={ title }
+        inputValue={ name }
         inputOnChange={ callBack }
       />
     );
@@ -24,12 +24,12 @@ class AddTitle extends React.Component {
 }
 
 AddTitle.propTypes = {
-  title: PropTypes.string,
+  name: PropTypes.string,
   callBack: PropTypes.func,
 };
 
 AddTitle.defaultProps = {
-  title: '',
+  name: '',
   callBack: '',
 };
 

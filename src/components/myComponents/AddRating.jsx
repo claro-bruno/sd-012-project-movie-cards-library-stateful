@@ -5,18 +5,18 @@ import FormAddMovie from './FormAddMovie';
 class AddRating extends React.Component {
   render() {
     const {
-      title,
+      name,
       callBack,
     } = this.props;
     return (
       <FormAddMovie
-        htmlForId="form-title"
-        inputName="title"
-        dataLabelId="title-input-label"
-        labelText="Título"
-        dataFormId2="title-input"
-        inputType="text"
-        inputValue={ title }
+        htmlForId="form-rating"
+        inputName="rating"
+        dataLabelId="rating-input-label"
+        labelText="Avaliação"
+        dataFormId2="rating-input"
+        inputType="number"
+        inputValue={ name }
         inputOnChange={ callBack }
       />
     );
@@ -24,12 +24,12 @@ class AddRating extends React.Component {
 }
 
 AddRating.propTypes = {
-  title: PropTypes.string,
+  name: PropTypes.string,
   callBack: PropTypes.func,
 };
 
 AddRating.defaultProps = {
-  title: '',
+  name: '',
   callBack: '',
 };
 
