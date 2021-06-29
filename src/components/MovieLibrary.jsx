@@ -36,7 +36,7 @@ class MovieLibrary extends Component {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return movies
       .filter((movie) => (bookmarkedOnly ? movie.bookmarked : movie))
-      .filter((movie) => (selectedGenre ? movie.genre : movie))
+      .filter((movie) => (selectedGenre ? movie.genre === selectedGenre : movie))
       .filter((movie) => (searchText ? this.searchText(movie, searchText) : movie));
   }
 
