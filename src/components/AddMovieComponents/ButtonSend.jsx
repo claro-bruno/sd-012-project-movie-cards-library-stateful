@@ -6,7 +6,7 @@ class ButtonSend extends Component {
     const { onClick } = this.props;
     return (
       <button
-        type="button"
+        type="submit"
         onClick={ onClick }
         data-testid="send-button"
       >

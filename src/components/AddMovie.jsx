@@ -28,8 +28,27 @@ class AddMovie extends Component {
     this.setState({ [target.name]: value });
   }
 
-  handleClick(callBack) {
-    callBack(this.state);
+  handleClick(e, callBack) {
+    e.preventDefault();
+    const {
+      title,
+      subtitle,
+      imagePath,
+      storyline,
+      rating,
+      genre } = this.state;
+
+    const newMovie = {
+      title,
+      subtitle,
+      imagePath,
+      storyline,
+      rating: Number(rating),
+      genre,
+    };
+
+    callBack(newMovie);
+
     this.setState({
       title: '',
       subtitle: '',
@@ -60,7 +79,7 @@ class AddMovie extends Component {
         <TextAreaStoryline onChange={ this.handleChange } value={ storyline } />
         <InputRating onChange={ this.handleChange } value={ Number(rating) } />
         <SelectGenres onChange={ this.handleChange } value={ genre } />
-        <ButtonSend onClick={ () => this.handleClick(onClick) } />
+        <ButtonSend onClick={ (e) => this.handleClick(e, onClick) } />
       </form>
     );
   }

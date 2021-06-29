@@ -1,8 +1,17 @@
-const genres = {
+const genresFilter = {
   Todos: '',
   Ação: 'action',
   Comédia: 'comedy',
   Suspense: 'thriller',
 };
 
-export default genres;
+const genresAddMovies = {
+  Ação: 'action',
+  Comédia: 'comedy',
+  Suspense: 'thriller',
+};
+
+export {
+  genresFilter,
+  genresAddMovies,
+};
