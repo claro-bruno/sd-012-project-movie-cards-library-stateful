@@ -26,29 +26,54 @@ class MovieLibrary extends Component {
 
   onSearchTextChange(e) {
     const textFilter = e.target.value;
-    const { movies } = this.state;
-    this.setState({
-      movies: movies.filter((movie) => movie.title.includes(textFilter)),
-      searchText: textFilter,
-    });
+    const { movies } = this.props;
+    if (textFilter === '') {
+      this.setState({
+        movies,
+        searchText: textFilter,
+      });
+    } else {
+      this.setState({
+        movies: movies.filter(
+          (movie) => movie.title.includes(textFilter)
+          || movie.subtitle.includes(textFilter)
+          || movie.storyline.includes(textFilter),
+        ),
+        searchText: textFilter,
+      });
+    }
   }
 
   onBookmarkedChange(e) {
     const bookmarkedFilter = e.target.checked;
-    const { movies } = this.state;
-    this.setState({
-      movies: movies.filter((movie) => movie.bookmarked === bookmarkedFilter),
-      bookmarkedOnly: bookmarkedFilter,
-    });
+    const { movies } = this.props;
+    if (bookmarkedFilter) {
+      this.setState({
+        movies: movies.filter((movie) => movie.bookmarked === bookmarkedFilter),
+        bookmarkedOnly: bookmarkedFilter,
+      });
+    } else {
+      this.setState({
+        movies,
+        bookmarkedOnly: bookmarkedFilter,
+      });
+    }
   }
 
   onSelectedGenreChange(e) {
     const genreFilter = e.target.value;
-    const { movies } = this.state;
-    this.setState({
-      movies: movies.filter((movie) => movie.genre === genreFilter),
-      selectedGenre: genreFilter,
-    });
+    const { movies } = this.props;
+    if (genreFilter === '') {
+      this.setState({
+        movies,
+        selectedGenre: genreFilter,
+      });
+    } else {
+      this.setState({
+        movies: movies.filter((movie) => movie.genre === genreFilter),
+        selectedGenre: genreFilter,
+      });
+    }
   }
 
   render() {
