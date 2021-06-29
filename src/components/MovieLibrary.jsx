@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
@@ -15,12 +15,27 @@ class MovieLibrary extends Component {
       selectedGenre: "",
       movies: props.movies,
     };
+    this.searchTexChangeHandler = this.searchTexChangeHandler.bind(this);
+    this.bookmarkedChangeHandler = this.bookmarkedChangeHandler.bind(this);
+    this.genreChangeHandler = this.genreChangeHandler.bind(this);
+    this.filteredMovies = this.filteredMovies.bind(this);
   }
 
-  searchTexChangetHandler(e) {
+  searchTexChangeHandler(e) {
     this.setState({
       searchText: e.target.value,
     });
+  }
+  bookmarkedChangeHandler(e) {
+    this.setState((prev) => ({ bookmarkedOnly: !prev.bookmarkedOnly }));
+  }
+  genreChangeHandler(e) {
+    this.setState({
+      selectedGenre: e.target.value,
+    });
+  }
+  filteredMovies() {
+    return this.props.movies;
   }
 
   render() {
@@ -29,17 +44,15 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar 
-          parentThis={ this } 
-
           searchText={ this.state.searchText }
-          onSearchTextChange={ this.searchTexChangetHandler }
+          onSearchTextChange={ this.searchTexChangeHandler }
           bookmarkedOnly={ this.state.bookmarkedOnly }
-          onBookmarkedChange={ false }
-          selectedGenre={ 'action' }
-          onSelectedGenreChange={ false }
+          onBookmarkedChange={ this.bookmarkedChangeHandler }
+          selectedGenre={ this.state.selectedGenre }
+          onSelectedGenreChange={ this.genreChangeHandler }
         />
-        <MovieList movies={ movies } inputValue={ this.state.inputValue } />
-        {/* <AddMovie /> */}
+        <MovieList movies={ this.filteredMovies() } inputValue={ this.state.inputValue } />
+        <AddMovie />
       </div>
     );
   }
