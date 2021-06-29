@@ -9,6 +9,7 @@ class LabelInput extends React.Component {
       classNameLabel,
       onChange,
       type,
+      name,
       value,
       checked,
       dataTestidLabel,
@@ -26,6 +27,7 @@ class LabelInput extends React.Component {
         <input
           id={ id }
           type={ type }
+          name={ name }
           value={ value }
           onChange={ onChange }
           className={ classNameInput }
@@ -43,6 +45,7 @@ LabelInput.propTypes = {
   classNameLabel: PropTypes.string,
   onChange: PropTypes.func,
   type: PropTypes.string,
+  name: PropTypes.string,
   value: PropTypes.string,
   checked: PropTypes.bool,
   dataTestidLabel: PropTypes.string,
@@ -56,6 +59,7 @@ LabelInput.defaultProps = {
   classNameLabel: '',
   onChange: () => {},
   type: 'text',
+  name: '',
   value: '',
   checked: false,
   dataTestidLabel: '',
