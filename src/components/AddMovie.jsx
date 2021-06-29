@@ -7,12 +7,14 @@ import Image from './Image';
 import Storyline from './Storyline';
 import NewRating from './NewRating';
 import Genre from './Genre';
+import BttnForm from './BttnForm';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.newCard = this.newCard.bind(this);
+    this.buttonForm = this.buttonForm.bind(this);
 
     this.state = {
       subtitle: '',
@@ -32,9 +34,21 @@ class AddMovie extends React.Component {
     });
   }
 
+  buttonForm() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
-    const { props, state, newCard } = this;
-    const { onClick } = props;
+    const { state, newCard, buttonForm } = this;
     const { title,
       subtitle,
       imagePath,
@@ -50,6 +64,7 @@ class AddMovie extends React.Component {
           <Storyline storyline={ storyline } newCard={ newCard } />
           <NewRating rating={ rating } newCard={ newCard } />
           <Genre genre={ genre } newCard={ newCard } />
+          <BttnForm button={ buttonForm } />
         </form>
       </div>
     );
