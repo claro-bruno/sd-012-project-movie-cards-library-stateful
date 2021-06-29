@@ -51,4 +51,4 @@ Select.propTypes = {
   datatestidOption: PropTypes.string.isRequired,
 }.isRequired;
 
-export default InputSelect;
+export default Select;
