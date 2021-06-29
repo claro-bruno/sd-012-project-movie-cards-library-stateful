@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Input from './addmovie-components/Input';
 import inputsProps from './addmovie-components/inputsProps';
 import Select from './Select';
@@ -18,6 +19,7 @@ class AddMovie extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.btnHandle = this.btnHandle.bind(this);
   }
 
   handleChange({ target }) {
@@ -27,12 +29,21 @@ class AddMovie extends Component {
     });
   }
 
-  render() {
-    const {
-      storyline,
-      genre,
-    } = this.state;
+  btnHandle() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
 
+  render() {
+    const { storyline, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         { inputsProps.map((input) => {
@@ -70,9 +81,20 @@ class AddMovie extends Component {
           handleChange={ this.handleChange }
           options={ optionsProps }
         />
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.btnHandle }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
