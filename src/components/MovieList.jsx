@@ -9,7 +9,11 @@ class MovieList extends React.Component {
     return (
       <div data-testid="movie-list" className="movie-list">
         {movies
-          .filter((chosenMovie) => chosenMovie.title.includes(searchText))
+          .filter(
+            ({ title, subtitle, storyline }) => title.includes(searchText)
+              || subtitle.includes(searchText)
+              || storyline.includes(searchText),
+          )
           .map((movie) => (
             <MovieCard key={ movie.title } movie={ movie } />
           ))}
