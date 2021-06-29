@@ -80,6 +80,11 @@ class AddMovie extends Component {
           selectValue={ genre }
           selectOnChange={ this.handleChange }
         />
+        <ButtonAddMovie
+          buttonText="Adicionar filme"
+          buttonId="send-button"
+          onClickButton={ this.onClick }
+        />
       </form>
     );
   }
