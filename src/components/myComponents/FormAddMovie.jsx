@@ -36,8 +36,8 @@ FormAddMovie.propTypes = {
   dataFormId2: PropTypes.string,
   inputType: PropTypes.string,
   inputValue: PropTypes.string,
-  inputOnChange: PropTypes.string,
-  htmlForId: PropTypes.func,
+  inputOnChange: PropTypes.func,
+  htmlForId: PropTypes.string,
 };
 
 FormAddMovie.defaultProps = {
