@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import FormInput from './FormInput';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -7,51 +8,60 @@ class AddMovie extends Component {
     this.state = {
       subtitle: '',
       title: '',
-      // imagePath: '',
-      // storyline: '',
-      // rating: 0,
+      imagePath: '',
+      storyline: '',
+      rating: 0,
       // genre: 'action',
     };
 
     this.onChangeHandle = this.onChangeHandle.bind(this);
+    this.renderFormInput = this.renderFormInput.bind(this);
   }
 
   onChangeHandle({ target }) {
-    const { name, value } = target;
+    const { id, value } = target;
 
     this.setState({
       title: value,
-      [name]: value,
+      [id]: value,
     });
   }
 
+  renderFormInput(labelText, id, type, value) {
+    return (
+      <FormInput
+        labelTestId={ `${id}-input-label` }
+        labelText={ labelText }
+        id={ id !== 'image' ? id : 'imagePath' }
+        type={ type }
+        value={ value }
+        onChangeCallback={ this.onChangeHandle }
+        inputTestId={ `${id}-input` }
+      />
+    );
+  }
+
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
 
     return (
       <div>
         <form data-testid="add-movie-form">
-          <label htmlFor="title-input" data-testid="title-input-label">
-            Título
-            <input
-              id="title-input"
-              type="text"
-              value={ title }
-              data-testid="title-input"
+          { this.renderFormInput('Título', 'title', 'text', title)}
+          { this.renderFormInput('Subtítulo', 'subtitle', 'text', subtitle) }
+          { this.renderFormInput('Imagem', 'image', 'text', imagePath) }
+
+          <label htmlFor="storyline" data-testid="storyline-input-label">
+            Sinopse
+            <textarea
+              id="storyline"
+              value={ storyline }
+              data-testid="storyline-input"
               onChange={ this.onChangeHandle }
             />
           </label>
-          <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-            Subtítulo
-            <input
-              id="subtitle-input"
-              name="subtitle"
-              type="text"
-              value={ subtitle }
-              data-testid="subtitle-input"
-              onChange={ this.onChangeHandle }
-            />
-          </label>
+          {/* Requisito 12 */}
+          { this.renderFormInput('Avaliação', 'rating', 'number', rating) }
         </form>
       </div>
     );
