@@ -1,5 +1,6 @@
 import React from 'react';
 import MovieInfo from './MovieInfo';
+import Input from './Input';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -35,7 +36,16 @@ class AddMovie extends React.Component {
           storyline={ storyline }
           onChange={ this.handleChange }
         />
-
+        <Input
+          inputId="rating"
+          inputName="rating"
+          testIdInput="rating-input"
+          testIdLabel="rating-input-label"
+          typeInput="number"
+          value={ rating }
+          onChange={ this.handleChange }
+          labelText="Avaliação"
+        />
       </form>
     );
   }
