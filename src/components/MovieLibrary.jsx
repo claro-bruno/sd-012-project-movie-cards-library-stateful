@@ -2,7 +2,6 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor() {
@@ -11,7 +10,6 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: '',
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -39,6 +37,14 @@ class MovieLibrary extends React.Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let { movies } = this.props;
+    if (searchText) {
+      movies = movies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
+    }
+    if (bookmarkedOnly) movies = movies.filter((movie) => movie.bookmarked);
+    if (selectedGenre) movies = movies.filter((movie) => movie.genre === selectedGenre);
     return (
       <form>
         <SearchBar
