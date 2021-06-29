@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import '../style/Input.css';
 
 class Input extends Component {
   render() {
@@ -24,6 +25,7 @@ class Input extends Component {
           id={ inputId }
           data-testid={ inputTestId }
           type={ inputType }
+          className={ `input-${inputType}` }
           name={ inputName }
           value={ inputValue }
           checked={ inputChecked }
