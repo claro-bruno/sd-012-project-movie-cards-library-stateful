@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from './ComponentsCriados/Input';
+import InputTitle from './ComponentsAddMovie/InputTitle';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -28,23 +29,16 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { handleChange } = this;
     return (
       <form data-testid="add-movie-form">
-        <Input
-          type="text"
-          datatestid="title-input"
-          name="title"
-          value={ title }
-          onChange={ this.handleChange }
-          labelText="Título"
-          datatestidLabel="title-input-label"
-        />
+        <InputTitle title={ title } handleChange={ handleChange } />
         <Input
           type="text"
           datatestid="subtitle-input"
           name="subtitle"
           value={ subtitle }
-          onChange={ this.handleChange }
+          onChange={ handleChange }
           labelText="Subtítulo"
           datatestidLabel="subtitle-input-label"
         />
@@ -53,7 +47,7 @@ class AddMovie extends React.Component {
           datatestid="image-input"
           name="imagePath"
           value={ imagePath }
-          onChange={ this.handleChange }
+          onChange={ handleChange }
           labelText="Imagem"
           datatestidLabel="image-input-label"
         />
@@ -62,7 +56,7 @@ class AddMovie extends React.Component {
           datatestid="storyline-input"
           name="storyline"
           value={ storyline }
-          onChange={ this.handleChange }
+          onChange={ handleChange }
           labelText="Sinopse"
           datatestidLabel="storyline-input-label"
         />
@@ -71,7 +65,7 @@ class AddMovie extends React.Component {
           datatestid="rating-input"
           name="rating"
           value={ rating }
-          onChange={ this.handleChange }
+          onChange={ handleChange }
           labelText="Avaliação"
           datatestidLabel="rating-input-label"
         />
