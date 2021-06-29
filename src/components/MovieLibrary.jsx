@@ -25,27 +25,31 @@ class MovieLibrary extends React.Component {
   }
 
   onBookmarkedChange({ target }) {
-    console.log('onbookmarchange');
-    this.setState({ bookmarkedOnly: target.checked });
+    const { movies } = this.state;
+    this.setState({ bookmarkedOnly: target.checked }, () => {
+      this.setState({ movies: movies.filter(({ bookmarked }) => bookmarked) });
+    });
   }
 
   onSelectedGenreChange({ target }) {
-    console.log('onselectedgenre');
-    this.setState({ selectedGenre: target.value });
+    const { movies } = this.state;
+    this.setState({ selectedGenre: target.value }, () => {
+      const { selectedGenre } = this.state;
+      this.setState({ movies: movies.filter((elem) => elem.genre === selectedGenre) });
+    });
   }
 
   movieFilter() {
-    console.log('moviefilter');
+    let filteredMovies = '';
     const { searchText, movies } = this.state;
     if (searchText.length < 1) {
       const { movies: propMovies } = this.props;
       this.setState({ movies: propMovies });
       return;
     }
-    const filteredMovies = movies.filter(({ title, subtitle, storyline }) => {
-      const concatString = `${title}${subtitle}${storyline}`;
-      return concatString.includes(searchText);
-    });
+    filteredMovies = movies.filter(({ title, subtitle, storyline }) => (
+      `${title}${subtitle}${storyline}`.includes(searchText)
+    ));
     this.setState({ movies: filteredMovies });
   }
 
