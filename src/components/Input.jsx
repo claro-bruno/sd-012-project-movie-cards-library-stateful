@@ -11,6 +11,7 @@ class Input extends Component {
       id,
       dataTestIdInput,
       value,
+      checked,
       handleChange,
     } = this.props;
 
@@ -24,11 +25,17 @@ class Input extends Component {
           data-testid={ dataTestIdInput }
           value={ value }
           onChange={ handleChange }
+          checked={ checked }
         />
       </label>
     );
   }
 }
+
+Input.defaultProps = {
+  value: '',
+  checked: false,
+};
 
 Input.propTypes = {
   labelText: PropTypes.string.isRequired,
@@ -37,7 +44,8 @@ Input.propTypes = {
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   dataTestIdInput: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  checked: PropTypes.bool,
   handleChange: PropTypes.func.isRequired,
 };
 
