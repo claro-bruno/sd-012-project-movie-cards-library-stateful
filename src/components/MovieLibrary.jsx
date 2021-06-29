@@ -6,45 +6,61 @@ import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
+  constructor() {
+    super();
+
+    this.handleChange = this.handleChange.bind(this);
+    // this.onClick = this.onClick.bind(this);
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+    };
+  }
+
+  handleChange({ target }) {
+    const { name } = target;
+    const value = (target.type === 'checkbox') ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  // onClick(e) {
+  //   e.preventDefault();
+  //   this.setState({
+  //     subtitle: '',
+  //     title: '',
+  //     imagePath: '',
+  //     storyLine: '',
+  //     rating: 0,
+  //     genre: 'action',
+  //   });
+  // }
+
   render() {
     const {
       searchText,
       bookmarkedOnly,
-      onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange,
-      title,
-      subtitle,
-      imagePath,
-      storyLine,
-      rating,
-      genre,
-      onClick,
-      onSearchTextChange,
-      handleChange,
-    } = this.props;
+    } = this.state;
     return (
       <>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ onSearchTextChange }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ onBookmarkedChange }
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ onSelectedGenreChange }
+          onSelectedGenreChange={ this.handleChange }
         />
         <MovieList
           movies={ movies }
         />
         <AddMovie
-          subtitle={ subtitle }
-          title={ title }
-          imagePath={ imagePath }
-          storyLine={ storyLine }
-          rating={ rating }
-          genre={ genre }
-          onClick={ onClick }
-          handleChange={ handleChange }
+          onClick={ this.onClick }
+          genericHandleChange={ this.handleChange }
         />
       </>
     );

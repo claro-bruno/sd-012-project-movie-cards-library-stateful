@@ -9,6 +9,42 @@ import Genre from './AddMovieComponents/Genre';
 import Button from './AddMovieComponents/Button';
 
 class AddMovie extends React.Component {
+  constructor() {
+    super();
+
+    this.handleChange = this.handleChange.bind(this);
+    this.onClick = this.onClick.bind(this);
+
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
+
+  handleChange({ target }) {
+    const { name } = target;
+    const value = (target.type === 'checkbox') ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  onClick(e) {
+    e.preventDefault();
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const {
       subtitle,
@@ -17,18 +53,17 @@ class AddMovie extends React.Component {
       storyLine,
       rating,
       genre,
-      handleChange,
-      onClick,
-    } = this.props;
+    } = this.state;
+
     return (
       <form data-testid="add-movie-form">
-        <Title title={ title } handleChange={ handleChange } />
-        <Subtitle subtitle={ subtitle } handleChange={ handleChange } />
-        <ImagePath imagePath={ imagePath } handleChange={ handleChange } />
-        <StoryLine storyLine={ storyLine } handleChange={ handleChange } />
-        <RatingComponent rating={ rating } handleChange={ handleChange } />
-        <Genre genre={ genre } handleChange={ handleChange } />
-        <Button onClick={ onClick } />
+        <Title title={ title } handleChange={ this.handleChange } />
+        <Subtitle subtitle={ subtitle } handleChange={ this.handleChange } />
+        <ImagePath imagePath={ imagePath } handleChange={ this.handleChange } />
+        <StoryLine storyLine={ storyLine } handleChange={ this.handleChange } />
+        <RatingComponent rating={ rating } handleChange={ this.handleChange } />
+        <Genre genre={ genre } handleChange={ this.handleChange } />
+        <Button onClick={ this.onClick } />
       </form>
     );
   }
