@@ -1,5 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
+import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor() {
@@ -16,6 +18,7 @@ class MovieLibrary extends React.Component {
     return (
       <form>
         <SearchBar />
+        <MovieList movies={ movies } />
       </form>
     );
   }
