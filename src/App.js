@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar searchTest={ searchTest } />
+      <SearchBar searchTest={ searchTest } onSearchTextChange={ onSearchTextChange } />
     </div>
   );
 }

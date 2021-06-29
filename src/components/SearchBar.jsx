@@ -1,32 +1,37 @@
 // implement SearchBar component here
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    // const { searchText } = this.props;
+    const { searchText, onSearchTextChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <div>
-          {/* <label data-testid="text-input-label">
+          <label htmlFor="link" data-testid="text-input-label">
             Inclui o texto:
-
+            <input
+              id="link"
+              data-testid="text-input"
+              value={ searchText }
+              onChange={ onSearchTextChange }
+            />
           </label>
-          <input
-            data-testid="text-input"
-            type={ searchText }
-            onChange="onSearchTextChange"
-          /> */}
         </div>
       </form>
     );
   }
 }
 
-// SearchBar.propTypes = {
-//   searchText: PropTypes.shape({
-//     searchText: PropTypes.string,
-//   }).isRequired,
-// };
+SearchBar.propTypes = {
+  searchText: PropTypes.shape({
+    searchText: PropTypes.string,
+  }).isRequired,
+};
+SearchBar.propTypes = {
+  onSearchTextChange: PropTypes.shape({
+    onSearchTextChange: PropTypes.func,
+  }).isRequired,
+};
 
 export default SearchBar;
