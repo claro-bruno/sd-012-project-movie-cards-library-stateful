@@ -7,6 +7,7 @@ import TextAreaStoryline from './AddMovieComponents/TextAreaStoryline';
 import InputRating from './AddMovieComponents/InputRating';
 import SelectGenres from './AddMovieComponents/SelectGenres';
 import ButtonSend from './AddMovieComponents/ButtonSend';
+import '../css/addMovie.css';
 
 class AddMovie extends Component {
   constructor() {

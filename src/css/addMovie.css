@@ -1,0 +1,35 @@
+.form-addMovie {
+  align-items: center;
+  background-color: azure;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 10px auto;
+  padding: 30px;
+  width: 75%;
+}
+
+.form-addMovie label {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 300;
+}
+
+.form-addMovie input {
+  border-radius: 5px;
+  margin: 10px;
+  outline: none;
+  padding: 5px;
+  width: 240px;
+}
+
+.form-addMovie textarea {
+  border-radius: 5px;
+  margin: 10px;
+  outline: none;
+  padding: 5px;
+  resize: none;
+  width: 255px;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Select from '../generics/Select';
-import { genresAddMovies } from '../../data';
+import { genresAddMovies } from '../../genres';
 
 class SelectGenres extends Component {
   render() {
