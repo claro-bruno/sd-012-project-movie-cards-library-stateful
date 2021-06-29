@@ -14,7 +14,7 @@ class Input extends Component {
           value={ value }
           id="labelInput"
           type={ type }
-          data-testId={ ` ${dataId}-input` }
+          data-testId={ `${dataId}-input` }
         />
       </label>
     );

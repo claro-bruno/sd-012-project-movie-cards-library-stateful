@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Proptypes from 'prop-types';
-import Input from './newComponents/Input';
+import Form1 from './newComponents/Form1';
 
 class AddMovie extends Component {
   constructor() {
@@ -16,29 +16,26 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
-
   }
 
   handleChange({ target }) {
-    const { name, type } = target;
-    const value = (type === 'checkbox' ? target.checked : target.value);
+    const { name, value } = target;
     this.setState({ [name]: value });
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     const { onClick } = this.props;
 
     return (
       <div>
         <form data-testid="add-movie-form">
-          <Input
-            name="title"
-            dataId="title"
-            message="Título"
-            value={ title }
-            type="text"
-            onChange={ this.handleChange }
+          <Form1
+            title={ title }
+            subtitle={ subtitle }
+            imagePath={ imagePath }
+            storyline={ storyline }
+            handleChange={ this.handleChange }
           />
         </form>
       </div>
@@ -51,6 +48,8 @@ AddMovie.propTypes = {
   subtitle: Proptypes.string.isRequired,
   handleChange: Proptypes.func.isRequired,
   onClick: Proptypes.func.isRequired,
+  rating: Proptypes.number.isRequired,
+
 };
 
 export default AddMovie;
