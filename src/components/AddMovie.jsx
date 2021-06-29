@@ -22,7 +22,6 @@ class AddMovie extends Component {
   };
 
   handleClick = (callback) => {
-
     callback(this.state);
     this.setState(INITIAL_STATE);
   }
