@@ -45,7 +45,6 @@ MovieLibrary.propTypes = {
   textInput: PropTypes.string.isRequired,
   favoritesOnly: PropTypes.string.isRequired,
   genreOption: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
 };
 
 export default MovieLibrary;
