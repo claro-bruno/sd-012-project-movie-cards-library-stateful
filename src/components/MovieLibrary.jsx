@@ -8,13 +8,16 @@ import MovieList from './MovieList';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
+    const { movies } = props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies,
     };
     this.handleChange = this.handleChange.bind(this);
     this.filteOfMovies = this.filteOfMovies.bind(this);
+    this.newMovie = this.newMovie.bind(this);
   }
 
   handleChange({ target }) {
@@ -25,8 +28,15 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  newMovie(newCard) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, newCard],
+    });
+  }
+
   filteOfMovies() {
-    const { movies } = this.props;
+    const { movies } = this.state;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     let movieList = movies;
     if (searchText !== '') {
@@ -42,7 +52,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { handleChange, state, filteOfMovies } = this;
+    const { handleChange, state, filteOfMovies, newMovie } = this;
     const movies = filteOfMovies();
     const { searchText, bookmarkedOnly, selectedGenre } = state;
     return (
@@ -56,7 +66,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ handleChange }
           onBookmarkedChange={ handleChange }
         />
-        <AddMovie />
+        <AddMovie onClick={ newMovie } />
       </div>
     );
   }

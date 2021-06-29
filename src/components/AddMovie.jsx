@@ -49,6 +49,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { state, newCard, buttonForm } = this;
+    const { onClick } = this.props;
     const { title,
       subtitle,
       imagePath,
@@ -64,7 +65,7 @@ class AddMovie extends React.Component {
           <Storyline storyline={ storyline } newCard={ newCard } />
           <NewRating rating={ rating } newCard={ newCard } />
           <Genre genre={ genre } newCard={ newCard } />
-          <BttnForm button={ buttonForm } />
+          <BttnForm button={ buttonForm } outro={ onClick } />
         </form>
       </div>
     );

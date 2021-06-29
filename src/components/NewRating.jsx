@@ -21,7 +21,7 @@ class NewRating extends Component {
   }
 }
 NewRating.propTypes = {
-  rating: PropTypes.number.isRequired,
+  rating: PropTypes.string.isRequired,
   newCard: PropTypes.func.isRequired,
 };
 export default NewRating;
