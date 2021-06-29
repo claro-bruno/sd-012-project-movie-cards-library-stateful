@@ -81,3 +81,8 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
