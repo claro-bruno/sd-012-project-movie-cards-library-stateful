@@ -34,9 +34,6 @@ class MovieLibrary extends Component {
 
   filterMovies(movies) {
     const { bookmarkedOnly, selectedGenre, searchText } = this.state;
-    if (bookmarkedOnly === false && selectedGenre === '' && searchText === '') {
-      return <MovieList movies={ movies } />;
-    }
     if (bookmarkedOnly === true) {
       return this.filterByBookmarkedOnly(movies);
     }
@@ -85,7 +82,11 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <div>
-          {this.filterMovies(movies)}
+          {
+            bookmarkedOnly === false && selectedGenre === '' && searchText === ''
+              ? <MovieList movies={ movies } />
+              : this.filterMovies(movies)
+          }
         </div>
 
         <AddMovie onClick="xablau" />
