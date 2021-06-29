@@ -15,7 +15,7 @@ class MovieLibrary extends Component {
       movies,
     };
     this.onTextChangeSearch = this.onTextChangeSearch.bind(this);
-    this.onBookmarkedOnly = this.onBookmarkedOnly.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
@@ -31,7 +31,7 @@ class MovieLibrary extends Component {
     });
   }
 
-  onBookmarkedOnly() {
+  onBookmarkedChange() {
     const { bookmarkedOnly } = this.state;
     if (bookmarkedOnly === false) {
       this.setState({
@@ -45,7 +45,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { onTextChangeSearch, onBookmarkedOnly, onSelectedGenreChange } = this;
+    const { onTextChangeSearch, onBookmarkedChange, onSelectedGenreChange } = this;
     const { bookmarkedOnly, selectedGenre, searchText, movies } = this.state;
     return (
       <div>
@@ -53,7 +53,7 @@ class MovieLibrary extends Component {
           searchText={ searchText }
           onSearchTextChange={ onTextChangeSearch }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedOnly={ onBookmarkedOnly }
+          onBookmarkedChange={ onBookmarkedChange }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
         />
