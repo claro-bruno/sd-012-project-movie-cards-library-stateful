@@ -22,11 +22,24 @@ class AddMovie extends React.Component {
     });
   }
 
+  // eslint-disable-next-line max-lines-per-function
   render() {
     const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form"> </form>
+      <form data-testid="add-movie-form">
+        <label htmlFor="title-input" data-testid="title-input-label">
+          Título
+          <input
+            type="text"
+            id="title-input"
+            value={ title }
+            name="title"
+            onChange={ this.handleChange }
+            data-testid="title-input"
+          />
+        </label>
+      </form>
     );
   }
 }
