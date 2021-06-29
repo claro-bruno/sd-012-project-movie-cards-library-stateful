@@ -32,6 +32,11 @@ class MovieLibrary extends Component {
     });
   }
 
+  /* handleSubmit(event) {
+    event.preventDefault();
+    return console.log(event);
+  } */
+
   filterMovies(movies) {
     const { bookmarkedOnly, selectedGenre, searchText } = this.state;
     if (bookmarkedOnly === true) {
@@ -89,7 +94,7 @@ class MovieLibrary extends Component {
           }
         </div>
 
-        <AddMovie onClick="xablau" />
+        <AddMovie onClick={ () => console.log('xablau') } />
       </div>
     );
   }
