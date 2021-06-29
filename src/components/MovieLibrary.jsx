@@ -35,7 +35,25 @@ class MovieLibrary extends Component {
     });
   }
   filteredMovies() {
-    return this.props.movies;
+    let movies = this.props.movies;
+    const query = this.state.searchText.toLowerCase();
+    const genre = this.state.selectedGenre;
+    console.log(genre);
+
+    if (this.state.bookmarkedOnly) {
+      movies = movies.filter((movie) => movie.bookmarked);
+    }
+    if (query !== '') {
+      movies = movies.filter((movie) => (
+        movie.title.toLowerCase().includes(query) 
+        || movie.subtitle.toLowerCase().includes(query) 
+        || movie.storyline.toLowerCase().includes(query)
+        ));
+      }
+    if (genre !== '') {
+      movies = movies.filter((movie) => movie.genre === genre);
+    }
+    return movies;
   }
 
   render() {
