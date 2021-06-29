@@ -5,7 +5,7 @@ import InputSubtitle from './AddMovieComponents/InputSubtitle';
 import InputImage from './AddMovieComponents/InputImage';
 import TextAreaStoryline from './AddMovieComponents/TextAreaStoryline';
 import InputRating from './AddMovieComponents/InputRating';
-// import Select from './generics/Select';
+import SelectGenders from './AddMovieComponents/SelectGenders';
 
 class AddMovie extends Component {
   constructor() {
@@ -16,7 +16,7 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-    //   genre: 'action',
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -35,7 +35,7 @@ class AddMovie extends Component {
       imagePath,
       storyline,
       rating,
-    //   genre,
+      genre,
     } = this.state;
     return (
       <form className="form-addMovie" data-testid="add-movie-form">
@@ -45,6 +45,7 @@ class AddMovie extends Component {
         <InputImage onChange={ this.handleChange } value={ imagePath } />
         <TextAreaStoryline onChange={ this.handleChange } value={ storyline } />
         <InputRating onChange={ this.handleChange } value={ Number(rating) } />
+        <SelectGenders onChange={ this.handleChange } value={ genre } />
         <button type="submit" onClick={ onClick }>Adicionar</button>
       </form>
     );

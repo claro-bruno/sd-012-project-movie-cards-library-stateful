@@ -1,8 +1,8 @@
-const genders = {
+const genres = {
   Todos: '',
   Ação: 'action',
   Comédia: 'comedy',
   Suspense: 'thriller',
 };
 
-export default genders;
+export default genres;
