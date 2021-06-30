@@ -9,8 +9,6 @@ class Titulo extends React.Component {
           className="form-control"
           type="text"
           placeholder="Insira um título"
-          value={ searchText }
-          onChange={ onSearchTextChange }
           data-testid="title-input"
         />
       </label>
