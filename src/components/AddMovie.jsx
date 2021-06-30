@@ -36,7 +36,7 @@ export default class AddMovie extends Component {
     });
   }
 
-  handleClick = (e) => {
+  handleClick(e) {
     e.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);

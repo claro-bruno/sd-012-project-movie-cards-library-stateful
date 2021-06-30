@@ -10,9 +10,16 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
-  /* position: fixed; */
+  position: fixed;
   top: 0;
+  left: 97vw;
+  transition: 0.3s;
   width: 30%;
+}
+
+.add-form:hover {
+  transform: translateX(-27vw);
+  transition: 0.3s;
 }
 
 .add-form label {
