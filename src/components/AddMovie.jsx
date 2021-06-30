@@ -25,7 +25,7 @@ class AddMovie extends Component {
     });
   }
 
-  renderTitles() {
+  renderTitle() {
     const { title } = this.state;
     return (
       <label htmlFor="title-input" data-testid="title-input-label">
@@ -43,13 +43,31 @@ class AddMovie extends Component {
     );
   }
 
+  renderSubtitle() {
+    const { subtitle } = this.state;
+    return (
+      <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+        Subtítulo
+        <input id="subtitle-input" data-testid="subtitle-input" />
+        <input
+          name="subtitle"
+          type="text"
+          id="subtitle-input"
+          value={ subtitle }
+          onChange={ this.handleChange }
+        />
+      </label>
+    );
+  }
+
   render() {
     const { onClick } = this.props;
     return (
       <div>
         <h2>Adiciona Filme</h2>
         <form data-testid="add-movie-form">
-          { this.renderTitles() }
+          { this.renderTitle() }
+          { this.renderSubtitle() }
         </form>
       </div>
     );
