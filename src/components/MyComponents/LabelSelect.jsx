@@ -29,6 +29,7 @@ class LabelSelect extends React.Component {
   }
 }
 LabelSelect.propTypes = {
-    
-}
+  handleChange: PropTypes.func.isRequired,
+  genre: PropTypes.string.isRequired,
+};
 export default LabelSelect;

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import LabelInput from './MyComponents/LabelInput';
 import AddMovieF1 from './MyComponents/AddMovieF1';
+import LabelSelect from './MyComponents/LabelSelect';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -57,15 +58,9 @@ class AddMovie extends React.Component {
           onChange={ this.handleChange }
           dataTestidInput="rating-input"
         />
-        <LabelInput
-          id="input-select"
-          dataTestidLabel="genre-input-label"
-          textLabel="Avaliação"
-          type="number"
-          name="genre"
+        <LabelSelect
           value={ genre }
           onChange={ this.handleChange }
-          dataTestidInput="genre-input"
         />
         { onclick }
       </form>
