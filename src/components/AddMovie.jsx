@@ -12,15 +12,16 @@ import Button from './moviespecs/Button';
 class AddMovie extends React.Component {
   constructor() {
     super();
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
     };
-    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange({ target }) {
@@ -31,12 +32,12 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleClick = () => {
+  handleClick() {
     const { onClick } = this.props;
-    onClick(this.state);
+    onClick({ ...this.state });
     this.setState({
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
