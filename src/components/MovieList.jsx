@@ -5,31 +5,11 @@ import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
   render() {
-    const { movies, searchText = '', bookmarkedOnly, selectedGenre = '' } = this.props;
+    const { movies } = this.props;
 
     return (
       <div data-testid="movie-list" className="movie-list">
-        { movies
-          .reduce((acc, cur) => {
-            const { title, subtitle, storyline } = cur;
-
-            if (title.toLowerCase().includes(searchText.toLowerCase())
-              || subtitle.toLowerCase().includes(searchText.toLowerCase())
-              || storyline.toLowerCase().includes(searchText.toLowerCase())) {
-              acc.push(cur);
-            }
-
-            if (bookmarkedOnly) {
-              acc = acc.filter(({ bookmarked }) => bookmarked);
-            }
-
-            if (selectedGenre !== '') {
-              acc = acc.filter(({ genre }) => genre === selectedGenre);
-            }
-
-            return acc;
-          }, [])
-          .map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
+        { movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
       </div>
     );
   }
@@ -47,9 +27,6 @@ MovieList.propTypes = {
       genre: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-  searchText: PropTypes.string.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
 };
 
 export default MovieList;

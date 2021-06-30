@@ -40,6 +40,25 @@ class MovieLibrary extends React.Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const moviesFiltered = movies.reduce((acc, cur) => {
+      const { title, subtitle, storyline } = cur;
+
+      if (title.toLowerCase().includes(searchText.toLowerCase())
+        || subtitle.toLowerCase().includes(searchText.toLowerCase())
+        || storyline.toLowerCase().includes(searchText.toLowerCase())) {
+        acc.push(cur);
+      }
+
+      if (bookmarkedOnly) {
+        acc = acc.filter(({ bookmarked }) => bookmarked);
+      }
+
+      if (selectedGenre !== '') {
+        acc = acc.filter(({ genre }) => genre === selectedGenre);
+      }
+
+      return acc;
+    }, []);
 
     return (
       <main>
@@ -52,7 +71,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList
-          movies={ movies }
+          movies={ moviesFiltered }
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
