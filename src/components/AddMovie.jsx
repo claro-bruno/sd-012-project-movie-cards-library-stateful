@@ -2,8 +2,6 @@
 import React from 'react';
 import Titulo from './subcomponents/Titulo';
 import Subtitulo from './subcomponents/Subtitulo';
-import ImagePath from './subcomponents/ImagePath';
-import Sinpse from './subcomponents/Sinopse';
 
 class AddMovie extends React.Component {
   render() {
