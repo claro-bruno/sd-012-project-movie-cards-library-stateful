@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
-class MovieLibrary extends Component {
+export default class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,31 +12,27 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       // movies: props.movies,
     };
-    this.searchTexChangeHandler = this.searchTexChangeHandler.bind(this);
-    this.bookmarkedChangeHandler = this.bookmarkedChangeHandler.bind(this);
-    this.genreChangeHandler = this.genreChangeHandler.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.filteredMovies = this.filteredMovies.bind(this);
   }
 
-  searchTexChangeHandler(e) {
+  onSearchTextChange(e) {
     this.setState({
       searchText: e.target.value,
     });
   }
 
-  bookmarkedChangeHandler() {
+  onBookmarkedChange() {
     this.setState((prev) => ({ bookmarkedOnly: !prev.bookmarkedOnly }));
   }
 
-  genreChangeHandler(e) {
+  onSelectedGenreChange(e) {
     this.setState({
       selectedGenre: e.target.value,
     });
   }
-
-  // addNewMovie() {
-
-  // }
 
   filteredMovies() {
     let { movies } = this.props;
@@ -67,11 +62,11 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.searchTexChangeHandler }
+          onSearchTextChange={ this.onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.bookmarkedChangeHandler }
+          onBookmarkedChange={ this.onBookmarkedChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.genreChangeHandler }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList
           movies={ this.filteredMovies() }
@@ -81,5 +76,3 @@ class MovieLibrary extends Component {
     );
   }
 }
-
-export default MovieLibrary;
