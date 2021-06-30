@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SelectComponent from './SelectComponent';
+import SelectComponent from './inputs/SelectComponent';
+import InputComponent from './inputs/InputComponent';
+import selectOptions from '../searchSelectOptions';
 
 class SearchBar extends React.Component {
   render() {
@@ -12,32 +14,33 @@ class SearchBar extends React.Component {
       onSelectedGenreChange,
       selectedGenre,
     } = this.props;
+
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="text-input" data-testid="text-input-label">
-          Inclui o texto:
-          <input
-            type="text"
-            id="text-input"
-            data-testid="text-input"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-          />
-        </label>
-        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            type="checkbox"
-            id="checkbox-input"
-            data-testid="checkbox-input"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-          />
-        </label>
+        <InputComponent
+          label="Inclui o texto:"
+          stateName="searchText"
+          inputType="text"
+          identifier="text-input"
+          onChangeInput={ onSearchTextChange }
+          inputValue={ searchText }
+        />
+        <InputComponent
+          label="Mostrar somente favoritos"
+          stateName="bookmarkedOnly"
+          inputType="checkbox"
+          identifier="checkbox-input"
+          onChangeInput={ onBookmarkedChange }
+          checked={ bookmarkedOnly }
+          inputValue={ bookmarkedOnly }
+        />
         <SelectComponent
-          idComponent="select-input"
-          valueComponent={ selectedGenre }
+          label="Filtrar por gênero"
+          identifier="select"
+          getValue={ selectedGenre }
           onChangeComponent={ onSelectedGenreChange }
+          options={ selectOptions }
+          name="selectedGenre"
         />
       </form>
     );

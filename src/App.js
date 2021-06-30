@@ -1,22 +1,18 @@
 import React from 'react';
 import Header from './components/Header';
-import SearchBar from './components/SearchBar';
-import AddMovie from './components/AddMovie';
+import MovieLibrary from './components/MovieLibrary';
+import data from './data';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <SearchBar
-        onSearchTextChange
-        searchText
-        selectedGenre
-        onSelectedGenreChange
-      />
-      <AddMovie />
-    </div>
-  );
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <MovieLibrary data={ data } />
+      </div>
+    );
+  }
 }
 
 export default App;
