@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
@@ -18,15 +17,25 @@ class MovieLibrary extends React.Component {
     super(props);
     this.handleLibrary = this.handleLibrary.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.filterBySearch = this.filterBySearch.bind(this);
+    this.filterByBookmark = this.filterByBookmark.bind(this);
+    this.filterByGenre = this.filterByGenre.bind(this);
     this.state = defaultState(props);
+  }
+
+  handleFilters() {
+    this.filterByBookmark();
+    this.filterBySearch();
+    this.filterByGenre();
   }
 
   handleLibrary({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
+
     this.setState({
       [name]: value,
-    });
+    }, () => this.handleFilters());
   }
 
   onClick(movie) {
@@ -35,9 +44,42 @@ class MovieLibrary extends React.Component {
     this.setState({ movies: movieList });
   }
 
+  filterBySearch() {
+    const { searchText, movies } = this.state;
+
+    if (searchText !== '') {
+      this.setState({
+        movies: movies.filter(({ title, subtitle, storyline }) => (
+          title.includes(searchText)
+          || subtitle.includes(searchText)
+          || storyline.includes(searchText)
+        )),
+      });
+    }
+  }
+
+  filterByBookmark() {
+    const { bookmarkedOnly, movies } = this.state;
+
+    if (bookmarkedOnly) {
+      this.setState({
+        movies: movies.filter((movie) => movie.bookmarked === true),
+      });
+    }
+  }
+
+  filterByGenre() {
+    const { selectedGenre, movies } = this.state;
+
+    if (selectedGenre !== '') {
+      this.setState({
+        movies: movies.filter((movie) => movie.genre.includes(selectedGenre)),
+      });
+    }
+  }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
@@ -54,11 +96,5 @@ class MovieLibrary extends React.Component {
     );
   }
 }
-
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(
-    PropTypes.object,
-  ).isRequired,
-};
 
 export default MovieLibrary;
