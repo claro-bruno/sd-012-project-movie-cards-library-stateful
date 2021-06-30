@@ -105,7 +105,7 @@ export default class MovieLibrary extends Component {
     } = this.state;
 
     return (
-      <div>
+      <>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.changeText }
@@ -116,7 +116,7 @@ export default class MovieLibrary extends Component {
         />
         <MovieList movies={ this.handleFilters(movies) } />
         <AddMovie onClick={ this.movieAdd } />
-      </div>
+      </>
     );
   }
 }
