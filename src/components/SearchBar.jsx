@@ -19,7 +19,7 @@ class SearchBar extends React.Component {
           <input
             name="searchText"
             id="input-text"
-            value={ searchText } //selectedGenre
+            value={ searchText }
             onChange={ onSearchTextChange }
             data-testid="text-input"
           />

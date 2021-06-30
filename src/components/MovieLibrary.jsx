@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovies from './AddMovie';
-import movies from '../data';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -14,7 +13,7 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
-    };    
+    };
   }
 
   handleChange = ({ target }) => {
@@ -26,15 +25,12 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    
     const { searchText,
       bookmarkedOnly,
       selectedGenre,
-      movies
+      movies,
     } = this.state;
-    // console.log(searchText)
 
-    // const { movies } = this.props;
     return (
       <section>
         <SearchBar
@@ -62,9 +58,8 @@ MovieLibrary.propTypes = {
       imagePath: PropTypes.string.isRequired,
       bookmarked: PropTypes.bool.isRequired,
       genre: PropTypes.string.isRequired,
-    },
-    )
+    }),
   ).isRequired,
-}
+};
 
 export default MovieLibrary;
