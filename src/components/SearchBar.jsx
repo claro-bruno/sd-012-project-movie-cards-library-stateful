@@ -13,7 +13,7 @@ class searchBar extends React.Component {
           <input
             type="text"
             id="input-includes"
-            value={ searchText }
+            defaulValue={ searchText }
             onChange={ onSearchTextChange }
             data-testid="text-input"
           />
@@ -28,7 +28,7 @@ class searchBar extends React.Component {
             name="only-favorites"
             id="only-favorites"
             data-testid="checkbox-input"
-            checked={ bookmarkedOnly }
+            defaultChecked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
           />
         </label>
@@ -37,7 +37,7 @@ class searchBar extends React.Component {
           <select
             name="filter-genre"
             id="filter-genre"
-            value={ selectedGenre }
+            defaulValue={ selectedGenre }
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
           >
