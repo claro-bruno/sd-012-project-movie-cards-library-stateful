@@ -20,7 +20,7 @@ class MovieLibrary extends React.Component {
   }
 
   // Consegui esse requisito com a ajuda do David Gonzada, eu estava mexendo com o props, ao invés
-  //do state.
+  // do state.
   onAddNewMovie(newMovie) {
     this.setState((oldState) => {
       const objMovies = oldState.movies;
