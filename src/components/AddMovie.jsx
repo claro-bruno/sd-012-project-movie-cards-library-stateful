@@ -3,20 +3,22 @@ import PropTypes from 'prop-types';
 import MovieFormTitleSubtitleImage from './MovieFormTitleSubtitleImage';
 import MovieFormStoryRatingGenre from './MovieFormStoryRatingGenre';
 
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends React.Component {
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = initialState;
   }
 
   handleChange(event) {
@@ -29,15 +31,8 @@ class AddMovie extends React.Component {
   handleClick() {
     const { movieAdd } = this.state;
     const { onClick } = this.props;
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
     onClick(movieAdd);
+    this.setState(initialState);
   }
 
   render() {
