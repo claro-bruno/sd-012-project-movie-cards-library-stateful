@@ -5,16 +5,20 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  constructor() {
+  // Utilização de props e movie: stateMovie feita com base no código do colega Roberval Filho: https://github.com/tryber/sd-012-project-movie-cards-library-stateful/pull/99/commits/3931e75aad2db656b0d36698f552588b09c884c7
+  constructor(props) {
     super();
+    const { movies } = props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies,
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    // this.wantedMovies = this.wantedMovies.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -35,9 +39,13 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  // bookmarkedMovies(allMovies) {
+  //   const { bookmarkedOnly } = this.state;
+  //   const bookmarkedFilter = allMovies.filter();
+  // }
+
   render() {
-    const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies: stateMovies } = this.state;
     return (
       <div>
         <SearchBar
@@ -48,7 +56,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ stateMovies } />
         <AddMovie onClick={ (state) => console.log(state) } />
       </div>
     );
