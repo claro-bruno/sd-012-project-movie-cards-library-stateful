@@ -27,10 +27,12 @@
 
 .form-addMovie input:hover {
   border: #f48024 solid 2px;
+  box-shadow: 1px 1px 2px 2px #f48024;
 }
 
 .form-addMovie input:focus {
   border: #f48024 solid 2px;
+  box-shadow: 1px 1px 2px 2px #f48024;
 }
 
 .form-addMovie label:nth-child( 4 ) input {
@@ -53,10 +55,12 @@
 
 .form-addMovie select:hover {
   border: #f48024 solid 2px;
+  box-shadow: 1px 1px 2px 2px #f48024;
 }
 
 .form-addMovie select:focus {
   border: #f48024 solid 2px;
+  box-shadow: 1px 1px 2px 2px #f48024;
 }
 
 .form-addMovie textarea {
@@ -71,10 +75,12 @@
 
 .form-addMovie textarea:hover {
   border: #f48024 solid 2px;
+  box-shadow: 1px 1px 2px 2px #f48024;
 }
 
 .form-addMovie textarea:focus {
   border: #f48024 solid 2px;
+  box-shadow: 1px 1px 2px 2px #f48024;
 }
 
 .form-addMovie button {
