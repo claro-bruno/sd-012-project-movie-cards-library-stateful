@@ -10,31 +10,39 @@ class FormSelect extends Component {
   translate(name) {
     const dictionary = {
       genre: 'Gênero:',
-      subtitle: 'Subtítulo:',
-      image: 'Imagem',
-      storyline: 'Sinopse:',
-      rating: 'Avaliação:',
+      selectedGenre: 'Filtrar por gênero',
+      action: 'Ação',
+      comedy: 'Comédia',
+      thriller: 'Suspense',
+      '': 'Todos',
     };
     return name.replace(/.*/i, dictionary[name]);
   }
 
   render() {
-    const { value, onChange, name } = this.props;
+    const { value, onChange, name, options } = this.props;
+    const newName = (name === 'selectedGenre') ? 'select' : name;
     return (
       <label
-        htmlFor={ `${name}-input` }
-        data-testid={ `${name}-input-label` }
+        htmlFor={ `${newName}-input` }
+        data-testid={ `${newName}-input-label` }
       >
         { this.translate(name) }
         <select
           value={ value }
           onChange={ onChange }
           name={ name }
-          data-testid={ `${name}-input` }
+          data-testid={ `${newName}-input` }
         >
-          <option value="action" data-testid={ `${name}-option` }>Ação</option>
-          <option value="comedy" data-testid={ `${name}-option` }>Comédia</option>
-          <option value="thriller" data-testid={ `${name}-option` }>Suspense</option>
+          {options.map((option) => (
+            <option
+              value={ option }
+              data-testid={ `${newName}-option` }
+              key={ option }
+            >
+              { this.translate(option) }
+            </option>
+          ))}
         </select>
       </label>
     );

@@ -35,6 +35,7 @@ class AddMovie extends Component {
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const optionsArray = ['action', 'comedy', 'thriller'];
     return (
       <form data-testid="add-movie-form">
         <FormInput
@@ -68,6 +69,7 @@ class AddMovie extends Component {
           name="rating"
         />
         <FormSelect
+          options={ optionsArray }
           value={ genre }
           onChange={ this.handleChange }
           name="genre"

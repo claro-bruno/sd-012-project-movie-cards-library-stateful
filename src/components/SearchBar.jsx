@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import SearchBarFormInput from './SearchBarFormInput';
+import FormSelect from './FormSelect';
 
 class SearchBar extends Component {
   render() {
@@ -13,6 +14,7 @@ class SearchBar extends Component {
       selectedGenre,
       onSelectedGenreChange,
     } = this.props;
+    const optionsArray = ['', 'action', 'comedy', 'thriller'];
     return (
       <form data-testid="search-bar-form">
         <SearchBarFormInput
@@ -27,28 +29,12 @@ class SearchBar extends Component {
           onChange={ (e) => onBookmarkedChange(e.target) }
           name="bookmarkedOnly"
         />
-        <label htmlFor="select-input" data-testid="select-input-label">
-          Filtrar por gênero
-          <select
-            value={ selectedGenre }
-            onChange={ (e) => onSelectedGenreChange(e.target) }
-            data-testid="select-input"
-            name="selectedGenre"
-          >
-            <option value="" data-testid="select-option">
-              Todos
-            </option>
-            <option value="action" data-testid="select-option">
-              Ação
-            </option>
-            <option value="comedy" data-testid="select-option">
-              Comédia
-            </option>
-            <option value="thriller" data-testid="select-option">
-              Suspense
-            </option>
-          </select>
-        </label>
+        <FormSelect
+          options={ optionsArray }
+          value={ selectedGenre }
+          onChange={ (e) => onSelectedGenreChange(e.target) }
+          name="selectedGenre"
+        />
       </form>
     );
   }
