@@ -10,7 +10,6 @@ export default class InputImage extends Component {
         <input
           type="text"
           name="imagePath"
-          id="imagePath"
           value={ value }
           onChange={ onChange }
           data-testid="image-input"

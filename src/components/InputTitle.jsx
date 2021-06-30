@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export default class InputTitle extends Component {
   render() {
     const { value, onChange } = this.props;
+
     return (
       <label
         htmlFor="title"
@@ -13,7 +14,6 @@ export default class InputTitle extends Component {
         <input
           type="text"
           name="title"
-          id="title"
           value={ value }
           onChange={ onChange }
           data-testid="title-input"
