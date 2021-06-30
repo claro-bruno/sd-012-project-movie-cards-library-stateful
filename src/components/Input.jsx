@@ -53,7 +53,6 @@ Input.propTypes = {
 Input.defaultProps = {
   inputType: 'text',
   inputTestId: '',
-  inputChecked: false,
   inputLabelTestId: '',
   inputIsRequired: true,
   inputMaxlength: 250,
