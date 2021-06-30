@@ -34,7 +34,7 @@ class AddMovie extends React.Component {
   }
 
   handleSubmit() {
-    const { OnCLick } = this.props;
+    const { onClick } = this.props;
     const { title, subtitle, storyline, imagePath, rating, genre } = this.state;
     const newMovie = {
       title,
@@ -45,7 +45,7 @@ class AddMovie extends React.Component {
       genre,
       bookmarked: false,
     };
-    OnCLick(newMovie);
+    onClick(newMovie);
     this.handleReset();
   }
 
@@ -98,7 +98,7 @@ class AddMovie extends React.Component {
           type="button"
           name="sendButton"
           data-testid="send-button"
-          onClick={ this.handleSubmit }
+          onClick={ () => this.handleSubmit() }
         >
           Adicionar filme
         </button>
@@ -108,7 +108,7 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  OnCLick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
