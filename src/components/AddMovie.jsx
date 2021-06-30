@@ -1,5 +1,8 @@
 import React from 'react';
-import Input from './Input';
+import InputTitle from './InputTitle';
+import InputSubtitle from './InputSubtitle';
+import InputImagePath from './InputImagePath';
+import TextAreaStoryLine from './TextAreaStoryline';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -23,31 +26,30 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <section>
         <form data-testid="add-movie-form">
-          <Input
-            htmlFor="title-input"
-            dataTestIdLabel="title-input-label"
-            label="Título"
-            dataTestIdInput="title-input"
-            name="title"
-            type="text"
-            value={ title }
+          <InputTitle
+            title={ title }
             handleChange={ this.handleChange }
           />
 
-          <Input
-            htmlFor="subtitle-input"
-            dataTestIdLabel="subtitle-input-label"
-            label="Subtítulo"
-            dataTestIdInput="subtitle-input"
-            name="subtitle"
-            type="text"
-            value={ subtitle }
+          <InputSubtitle
+            subtitle={ subtitle }
             handleChange={ this.handleChange }
           />
+
+          <InputImagePath
+            imagePath={ imagePath }
+            handleChange={ this.handleChange }
+          />
+
+          <TextAreaStoryLine
+            storyline={ storyline }
+            handleChange={ this.handleChange }
+          />
+
         </form>
       </section>
     );
