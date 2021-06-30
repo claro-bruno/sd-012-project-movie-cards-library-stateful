@@ -13,7 +13,7 @@ class searchBar extends React.Component {
           <input
             type="text"
             id="input-includes"
-            defaulValue={ searchText }
+            value={ searchText }
             onChange={ onSearchTextChange }
             data-testid="text-input"
           />
@@ -37,7 +37,7 @@ class searchBar extends React.Component {
           <select
             name="filter-genre"
             id="filter-genre"
-            defaulValue={ selectedGenre }
+            value={ selectedGenre }
             onChange={ onSelectedGenreChange }
             data-testid="select-input"
           >
