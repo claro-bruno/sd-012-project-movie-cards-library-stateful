@@ -1,6 +1,5 @@
 // implement AddMovie component here
 import React from 'react';
-// import Input from './Input';
 // import PropType from 'prop-types';
 
 class AddMovie extends React.Component {
@@ -11,7 +10,7 @@ class AddMovie extends React.Component {
       subtitle: '',
     };
     this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleTitleChange = this.handleSubtitleChange.bind(this);
+    this.handleSubtitleChange = this.handleSubtitleChange.bind(this);
   }
 
   handleTitleChange(event) {
