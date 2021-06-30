@@ -15,6 +15,7 @@ class SearchBar extends Component {
           Inclui o texto:
           <input
             id="text-input"
+            name="searchText"
             data-testid="text-input"
             value={ searchText }
             onChange={ onSearchTextChange }
@@ -25,6 +26,7 @@ class SearchBar extends Component {
           Mostrar somente favoritos
           <input
             id="checkbox-input"
+            name="bookmarkedOnly"
             type="checkbox"
             data-testid="checkbox-input"
             checked={ bookmarkedOnly }
@@ -36,6 +38,7 @@ class SearchBar extends Component {
           Filtrar por gênero
           <select
             id="select-input"
+            name="selectedGenre"
             data-testid="select-input"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
