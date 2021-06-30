@@ -2,20 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Input extends React.Component {
-  // constructor() {
-  //   super();
-
-  //   this.state = {
-  //     searchText: '',
-  //   };
-
-  //   this.onSearchTextChange = this.onSearchTextChange.bind(this);
-  // }
-
-  // onSearchTextChange({ target }) {
-  //   this.setState({ searchText: target.value });
-  // }
-
   render() {
     const {
       inputType,
@@ -25,7 +11,6 @@ class Input extends React.Component {
       inputDataTestId,
       inputLabelId,
       name } = this.props;
-    // const { searchText } = this.state;
     return (
       <label htmlFor={ inputLabelId } data-testid={ inputLabelId }>
         {inputLabel}

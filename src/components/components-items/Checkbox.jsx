@@ -2,35 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Checkbox extends React.Component {
-  // constructor() {
-  //   super();
-
-  //   this.state = {
-  //     bookmarkedOnly: false,
-  //   };
-
-  //   this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-  // }
-
-  // onBookmarkedChange({ target }) {
-  //   console.log(target.value);
-  //   this.setState({
-  //     bookmarkedOnly: target === false,
-  //   });
-  // }
-
   render() {
-    // const { bookmarkedOnly } = this.state;
-    const { inputType, inputLabel, onChangeCheckbox, checked } = this.props;
+    const {
+      inputType,
+      inputLabel,
+      onChangeCheckbox,
+      checked,
+      inputDataTestId,
+      inputLabelId,
+    } = this.props;
     return (
-      <label htmlFor="checkbox-input-label" data-testid="checkbox-input-label">
+      <label htmlFor={ inputLabelId } data-testid={ inputLabelId }>
         {inputLabel}
         <input
-          data-testid="checkbox-input"
-          id="checkbox-input-label"
+          data-testid={ inputDataTestId }
+          id="inputLabelId"
           type={ inputType }
           checked={ checked }
           onChange={ onChangeCheckbox }
+          name="bookmarkedOnly"
         />
       </label>
     );
@@ -42,6 +32,9 @@ Checkbox.propTypes = PropTypes.shape({
   inputLabel: PropTypes.string.isRequired,
   onChangeCheckbox: PropTypes.func.isRequired,
   checked: PropTypes.bool.isRequired,
+  inputDataTestId: PropTypes.string.isRequired,
+  inputLabelId: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
 }).isRequired;
 
 export default Checkbox;
