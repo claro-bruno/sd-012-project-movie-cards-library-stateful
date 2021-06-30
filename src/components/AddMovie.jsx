@@ -96,6 +96,24 @@ class AddMovie extends Component {
     );
   }
 
+  renderAvaliador() {
+    const { rating } = this.state;
+    return (
+      <label htmlFor="rating-input" data-testid="rating-input-label">
+        Avaliação
+        <input id="rating-input" data-testid="rating-input" />
+        <input
+          name="rating"
+          type="number"
+          id="rating-input"
+          data-testid="rating-input"
+          value={ rating }
+          onChange={ this.handleChange }
+        />
+      </label>
+    );
+  }
+
   render() {
     const { onClick } = this.props;
     return (
@@ -106,6 +124,7 @@ class AddMovie extends Component {
           { this.renderSubtitle() }
           { this.renderImage() }
           { this.renderSinopse() }
+          { this.renderAvaliador() }
         </form>
       </div>
     );
