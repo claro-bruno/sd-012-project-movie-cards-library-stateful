@@ -8,23 +8,25 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
-    const { movies } = this.props;
-
     this.handleChange = this.handleChange.bind(this);
     this.handleAddMovie = this.handleAddMovie.bind(this);
 
-    this.state = {
+    const { movies } = this.props;
+
+    const stateDefault = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
     };
+
+    this.state = stateDefault;
   }
 
-  handleAddMovie(newMovie) {
+  handleAddMovie(stateAddMovie) {
     const { movies } = this.state;
     this.setState({
-      movies: [...movies, newMovie],
+      movies: [...movies, stateAddMovie],
     });
   }
 

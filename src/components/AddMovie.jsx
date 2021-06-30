@@ -7,7 +7,7 @@ import TextAreaStoryline from './ComponentsAddMovie/TextAreaStoryline';
 import InputRating from './ComponentsAddMovie/InputRating';
 import SelectGenre from './ComponentsAddMovie/SelectGenre';
 
-const initialState = {
+const stateDefault = {
   title: '',
   subtitle: '',
   imagePath: '',
@@ -23,7 +23,7 @@ class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClear = this.handleClear.bind(this);
 
-    this.state = initialState;
+    this.state = stateDefault;
   }
 
   handleChange({ target }) {
@@ -39,7 +39,7 @@ class AddMovie extends React.Component {
     event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState(initialState);
+    this.setState(stateDefault);
   }
 
   render() {
