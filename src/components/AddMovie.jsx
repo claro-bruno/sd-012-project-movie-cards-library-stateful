@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import InputText from './InputText';
+import InputSelect from './InputSelect';
+import InputImagem from './InputImagem';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -11,7 +13,7 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
   }
 
@@ -21,7 +23,7 @@ class AddMovie extends Component {
 
   handleOnClick = () => {
     const { onClick } = this.props;
-    onClick(this.state);
+    const { movieAdd } = this.state;
     this.setState(
       {
         title: '',
@@ -29,13 +31,14 @@ class AddMovie extends Component {
         imagePath: '',
         storyline: '',
         rating: 0,
-        // genre: 'action',
+        genre: 'action',
       },
     );
+    onClick(movieAdd);
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputText
@@ -52,12 +55,9 @@ class AddMovie extends Component {
           value={ subtitle }
           onChange={ this.onChange }
         />
-        <InputText
-          text="Imagem"
-          type="text"
-          name="imagePath"
-          value={ imagePath }
-          onChange={ this.onChange }
+        <InputImagem
+          imagePath={ imagePath }
+          handleChange={ this.onChange }
         />
         <InputText
           text="Sinopse"
@@ -72,6 +72,10 @@ class AddMovie extends Component {
           name="rating"
           value={ rating }
           onChange={ this.onChange }
+        />
+        <InputSelect
+          genre={ genre }
+          handleChange={ this.onChange }
         />
         <button type="button" data-testid="send-button" onClick={ this.handleOnClick }>
           Adicionar filme
