@@ -17,7 +17,6 @@ class AddMovie extends React.Component {
     super();
     this.state = INITIAL_STATE;
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -25,12 +24,6 @@ class AddMovie extends React.Component {
     this.setState({
       [name]: target.value,
     });
-  }
-
-  handleClick() {
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState(INITIAL_STATE);
   }
 
   // Dividi em funções devido à dica da colega Adriana Biberg.
@@ -135,7 +128,10 @@ class AddMovie extends React.Component {
         <button
           data-testid="send-button"
           type="button"
-          onClick={ this.handleClick }
+          onClick={ () => {
+            const { onClick } = this.props;
+            this.setState(INITIAL_STATE, () => onClick(this.state));
+          } }
         >
           Adicionar filme
         </button>
