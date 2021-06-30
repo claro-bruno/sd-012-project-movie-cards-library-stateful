@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -15,6 +15,7 @@ class MovieLibrary extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   handleChange({ target }) {
@@ -22,10 +23,10 @@ class MovieLibrary extends Component {
     this.setState({ [target.name]: value });
   }
 
-  filterMovies(movieList) {
+  filterMovies(movies) {
     const { bookmarkedOnly: marked, selectedGenre: genre, searchText } = this.state;
 
-    const search = movieList.filter((movie) => {
+    const search = movies.filter((movie) => {
       const check = (movie.title.toLowerCase()
         .includes(searchText.toLowerCase())
       || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
@@ -40,12 +41,17 @@ class MovieLibrary extends Component {
     return result;
   }
 
+  addMovie(movie) {
+    const { movies } = this.props;
+    this.setState({ movies: [...movies, movie] });
+  }
+
   render() {
     const {
       searchText,
       bookmarkedOnly,
       selectedGenre,
-      movies: stateMovies,
+      movies,
     } = this.state;
     return (
       <div>
@@ -58,7 +64,9 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
 
-        <MovieList movies={ this.filterMovies(stateMovies) } />
+        <MovieList movies={ this.filterMovies(movies) } />
+
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
