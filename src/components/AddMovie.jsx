@@ -33,11 +33,28 @@ class AddMovie extends Component {
     this.setState(this.initialState);
   }
 
+  // eslint-disable-next-line max-lines-per-function
   render() {
-    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     const optionsArray = ['action', 'comedy', 'thriller'];
+    // const inputsArray = [title, subtitle, imagePath, storyline, rating];
+    // console.log(inputsArray[0]);
     return (
       <form data-testid="add-movie-form">
+        {/* { inputsArray.map((input) => {
+          console.log(input);
+          console.log(this.varToString(input));
+          const type = (input === rating) ? 'number' : 'text';
+          return (
+            <FormInput
+              key={ this.varToString(input) }
+              type={ type }
+              value={ input }
+              onChange={ this.handleChange }
+              name={ this.varToString(input) }
+            />
+          );
+        }) } */}
         <FormInput
           type="text"
           value={ title }

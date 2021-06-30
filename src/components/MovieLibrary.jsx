@@ -44,7 +44,7 @@ class MovieLibrary extends Component {
   render() {
     const { searchText, movies } = this.state;
     return (
-      <section>
+      <main>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.myOnChange }
@@ -57,7 +57,7 @@ class MovieLibrary extends Component {
         <AddMovie
           onClick={ (state) => this.setState({ movies: movies.concat(state) }) }
         />
-      </section>
+      </main>
     );
   }
 }
