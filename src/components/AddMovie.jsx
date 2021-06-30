@@ -11,8 +11,6 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <Titulo />
         <Subtitulo />
-        <ImagePath />
-        <Sinpse />
       </form>
     );
   }
