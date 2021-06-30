@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 export default class AddMovieInputImagePath extends React.Component {
   render() {
-    const { searchText, onSearchTextChange } = this.props;
+    // const { searchText, onSearchTextChange } = this.props;
     return (
       <label
         htmlFor="imagePath"
@@ -11,9 +11,10 @@ export default class AddMovieInputImagePath extends React.Component {
       >
         Imagem
         <input
-          onChange={ this.changeHandler }
-          type="text" data-testid="image-input"
-          value={ this.state.imagePath }
+          // onChange={ this.changeHandler }
+          type="text"
+          data-testid="image-input"
+          // value={ this.state.imagePath }
           id="imagePath"
         />
       </label>
@@ -21,7 +22,7 @@ export default class AddMovieInputImagePath extends React.Component {
   }
 }
 
-AddMovieInputImagePath.propTypes = {
-  onSearchTextChange: PropTypes.func.isRequired,
-  searchText: PropTypes.string.isRequired,
-};
+// AddMovieInputImagePath.propTypes = {
+//   onSearchTextChange: PropTypes.func.isRequired,
+//   searchText: PropTypes.string.isRequired,
+// };

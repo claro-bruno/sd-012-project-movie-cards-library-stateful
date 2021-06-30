@@ -1,9 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 export default class AddMovieInputRating extends React.Component {
   render() {
-    const { searchText, onSearchTextChange } = this.props;
+    // const { searchText, onSearchTextChange } = this.props;
     return (
       <label
         htmlFor="rating"
@@ -11,9 +11,10 @@ export default class AddMovieInputRating extends React.Component {
       >
         Avaliação
         <input
-          onChange={ this.changeHandler }
-          type="number" data-testid="rating-input"
-          value={ this.state.rating }
+          // onChange={ this.changeHandler }
+          type="number"
+          data-testid="rating-input"
+          // value={ this.state.rating }
           id="rating"
         />
       </label>
@@ -21,7 +22,7 @@ export default class AddMovieInputRating extends React.Component {
   }
 }
 
-AddMovieInputRating.propTypes = {
-  onSearchTextChange: PropTypes.func.isRequired,
-  searchText: PropTypes.string.isRequired,
-};
+// AddMovieInputRating.propTypes = {
+//   onSearchTextChange: PropTypes.func.isRequired,
+//   searchText: PropTypes.string.isRequired,
+// };

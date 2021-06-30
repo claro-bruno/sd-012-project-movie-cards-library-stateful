@@ -9,14 +9,14 @@ import AddMovieSelect from './formComponents/AddMovieSelect';
 export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    // this.state = {
+    //   subtitle: '',
+    //   title: '',
+    //   imagePath: '',
+    //   storyline: '',
+    //   rating: 0,
+    //   genre: 'action',
+    // };
     this.changeHandler = this.changeHandler.bind(this);
   }
 
@@ -31,8 +31,8 @@ export default class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
-    const _this = this;
+    // const { onClick } = this.props;
+    // const _this = this;
 
     function onclickHandler(e) {
       e.preventDefault();
@@ -57,7 +57,13 @@ export default class AddMovie extends React.Component {
         <AddMovieInputRating />
         <AddMovieSelect />
 
-        <button onClick={ onclickHandler } data-testid="send-button">Adicionar filme</button>
+        <button
+          onClick={ onclickHandler }
+          data-testid="send-button"
+          type="submit"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
