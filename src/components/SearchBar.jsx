@@ -24,6 +24,7 @@ class SearchBar extends React.Component {
           labelId="text-input-label"
           inputId="text-input"
           inputType="text"
+          inputName="searchText"
           inputValue={ searchText }
           onChangeInput={ onSearchTextChange }
         />
@@ -31,6 +32,7 @@ class SearchBar extends React.Component {
           labelText="Mostrar somente favoritos"
           labelId="checkbox-input-label"
           inputId="checkbox-input"
+          inputName="bookmarkedOnly"
           inputType="checkbox"
           checkedInput={ bookmarkedOnly }
           onChangeInput={ onBookmarkedChange }
@@ -39,6 +41,7 @@ class SearchBar extends React.Component {
           labelText="Filtrar por gênero"
           labelId="select-input-label"
           selectId="select-input"
+          selectName="selectedGenre"
           selectValue={ selectedGenre }
           onChangeInput={ onSelectedGenreChange }
           optionId="select-option"

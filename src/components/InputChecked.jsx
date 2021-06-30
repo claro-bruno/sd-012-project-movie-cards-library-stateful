@@ -7,6 +7,7 @@ class InputChecked extends React.Component {
       labelText,
       labelId,
       inputId,
+      inputName,
       inputType,
       checkedInput,
       onChangeInput,
@@ -17,6 +18,7 @@ class InputChecked extends React.Component {
         <input
           data-testid={ inputId }
           type={ inputType }
+          name={ inputName }
           checked={ checkedInput }
           onChange={ onChangeInput }
         />
@@ -29,6 +31,7 @@ InputChecked.propTypes = {
   labelId: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
   inputId: PropTypes.string.isRequired,
+  inputName: PropTypes.string.isRequired,
   inputType: PropTypes.string.isRequired,
   checkedInput: PropTypes.string.isRequired,
   onChangeInput: PropTypes.func.isRequired,
