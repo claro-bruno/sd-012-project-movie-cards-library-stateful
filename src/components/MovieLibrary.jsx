@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
@@ -76,3 +77,17 @@ export default class MovieLibrary extends React.Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.exact({
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      storyline: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      imagePath: PropTypes.string.isRequired,
+      bookmarked: PropTypes.bool.isRequired,
+      genre: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+};

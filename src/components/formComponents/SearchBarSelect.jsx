@@ -1,13 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class SearchBarSelect extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   render() {
-    const { selectedGenre, onSelectedGenreChange, } = this.props;
-    return (      
+    const { selectedGenre, onSelectedGenreChange } = this.props;
+    return (
       <label
         htmlFor="select"
         data-testid="select-input-label"
@@ -28,3 +25,8 @@ export default class SearchBarSelect extends React.Component {
     );
   }
 }
+
+SearchBarSelect.propTypes = {
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};

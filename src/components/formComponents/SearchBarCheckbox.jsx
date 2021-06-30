@@ -1,12 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class SearchBarCheckbox extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   render() {
-    const { onBookmarkedChange, bookmarkedOnly, } = this.props;
+    const { onBookmarkedChange, bookmarkedOnly } = this.props;
     return (
       <label
         htmlFor="checkbox"
@@ -20,7 +17,12 @@ export default class SearchBarCheckbox extends React.Component {
           checked={ bookmarkedOnly }
           id="checkbox"
         />
-    </label>
+      </label>
     );
   }
 }
+
+SearchBarCheckbox.propTypes = {
+  onBookmarkedChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+};
