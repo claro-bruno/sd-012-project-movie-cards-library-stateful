@@ -19,7 +19,6 @@ class AddMovie extends Component {
     this.initialState = this.state;
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-    this.varToString = this.varToString.bind(this);
   }
 
   handleChange({ target }) {

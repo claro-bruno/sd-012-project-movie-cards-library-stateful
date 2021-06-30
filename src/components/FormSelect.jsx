@@ -1,24 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import translate from '../translate';
+
 class FormSelect extends Component {
-  constructor(props) {
-    super(props);
-    this.translate = this.translate.bind(this);
-  }
-
-  translate(name) {
-    const dictionary = {
-      genre: 'Gênero:',
-      selectedGenre: 'Filtrar por gênero',
-      action: 'Ação',
-      comedy: 'Comédia',
-      thriller: 'Suspense',
-      '': 'Todos',
-    };
-    return name.replace(/.*/i, dictionary[name]);
-  }
-
   render() {
     const { value, onChange, name, options } = this.props;
     const newName = (name === 'selectedGenre') ? 'select' : name;
@@ -27,7 +12,7 @@ class FormSelect extends Component {
         htmlFor={ `${newName}-input` }
         data-testid={ `${newName}-input-label` }
       >
-        { this.translate(name) }
+        { translate(name, 'FormSelect') }
         <select
           value={ value }
           onChange={ onChange }
@@ -40,7 +25,7 @@ class FormSelect extends Component {
               data-testid={ `${newName}-option` }
               key={ option }
             >
-              { this.translate(option) }
+              { translate(option, 'FormSelect') }
             </option>
           ))}
         </select>

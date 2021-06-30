@@ -1,23 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
+import translate from '../translate';
+
 class FormInput extends Component {
-  constructor(props) {
-    super(props);
-    this.translate = this.translate.bind(this);
-  }
-
-  translate(name) {
-    const dictionary = {
-      title: 'Título:',
-      subtitle: 'Subtítulo:',
-      image: 'Imagem',
-      storyline: 'Sinopse:',
-      rating: 'Avaliação:',
-    };
-    return name.replace(/.*/i, dictionary[name]);
-  }
-
   render() {
     const { type, value, onChange, name } = this.props;
     const newName = (name === 'imagePath') ? 'image' : name;
@@ -26,7 +12,7 @@ class FormInput extends Component {
         htmlFor={ `${newName}-input` }
         data-testid={ `${newName}-input-label` }
       >
-        { this.translate(newName) }
+        { translate(newName, 'FormInput') }
         <input
           type={ type }
           value={ value }

@@ -16,13 +16,12 @@ class MovieLibrary extends Component {
       movies,
     };
     this.myOnChange = this.myOnChange.bind(this);
-    this.searchText = this.searchText.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
   }
 
   myOnChange(target) {
     const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = (target.type === 'checkbox') ? target.checked : target.value;
     this.setState({
       [name]: value,
     });

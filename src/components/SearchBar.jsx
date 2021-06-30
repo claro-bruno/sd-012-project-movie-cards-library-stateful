@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import SearchBarFormInput from './SearchBarFormInput';
+import SearchBarInput from './SearchBarInput';
 import FormSelect from './FormSelect';
 
 class SearchBar extends Component {
@@ -17,13 +17,13 @@ class SearchBar extends Component {
     const optionsArray = ['', 'action', 'comedy', 'thriller'];
     return (
       <form data-testid="search-bar-form">
-        <SearchBarFormInput
+        <SearchBarInput
           type="text"
           value={ searchText }
           onChange={ (e) => onSearchTextChange(e.target) }
           name="searchText"
         />
-        <SearchBarFormInput
+        <SearchBarInput
           type="checkbox"
           checked={ bookmarkedOnly }
           onChange={ (e) => onBookmarkedChange(e.target) }
