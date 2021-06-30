@@ -1,4 +1,10 @@
 import React from 'react';
+import AddMovieTitle from './AddMovieTitle ';
+import AddMovieSubTitle from './AddMovieSubtitle';
+import AddMovieGenre from './AddMovieGenre';
+import AddMovieRating from './AddMovieRating';
+import AddMovieStoryline from './AddMovieStoryline';
+import AddMovieImagePath from './AddMovieImagePath';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -23,43 +29,12 @@ class AddMovie extends React.Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-
-        <label htmlFor="input-text" data-testid="title-input-label">
-          Título
-          <input
-            name="title"
-            data-testid="title-input"
-            id="input-text"
-            type="text"
-            value={ title }
-            onChange={ this.changeValue }
-          />
-
-        </label>
-        <label htmlFor="input-text2" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            name="subtitle"
-            data-testid="subtitle-input"
-            id="input-text2"
-            type="text"
-            value={ subtitle }
-            onChange={ this.changeValue }
-          />
-
-        </label>
-        <label htmlFor="input-image" data-testid="image-input-label">
-          Imagem
-          <input
-            name="imagePath"
-            data-testid="subtitle-input"
-            id="input-image"
-            type="text"
-            value={ imagePath }
-            onChange={ this.changeValue }
-          />
-
-        </label>
+        <AddMovieTitle onChange={ this.changeValue } value={ title } />
+        <AddMovieSubTitle onChange={ this.changeValue } value={ subtitle } />
+        <AddMovieImagePath onChange={ this.changeValue } value={ imagePath } />
+        <AddMovieStoryline onChange={ this.changeValue } value={ storyline } />
+        <AddMovieRating onChange={ this.changeValue } value={ rating } />
+        <AddMovieGenre onChange={ this.changeValue } value={ genre } />
       </form>
     );
   }

@@ -10,7 +10,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <AddMovie />
       <SearchBar
         searchText=""
         onSearchTextChange=""
@@ -20,6 +19,7 @@ function App() {
         onSelectedGenreChange=""
       />
       <MovieList movies={ movie } />
+      <AddMovie />
     </div>
   );
 }
