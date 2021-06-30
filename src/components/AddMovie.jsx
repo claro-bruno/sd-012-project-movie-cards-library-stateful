@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Input from './Input';
 import TextArea from './TextArea';
 import SelectGenre from './SelectGenre';
+import Button from './Button';
 
 class AddMovie extends Component {
   constructor() {
@@ -19,6 +20,7 @@ class AddMovie extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.createInput = this.createInput.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -28,6 +30,21 @@ class AddMovie extends Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  handleClick(event) {
+    event.preventDefault();
+    // const { onClick } = this.props;
+    const initialState = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+
+    this.setState(initialState);
   }
 
   createInput(value, type, callback, arr) {
@@ -49,7 +66,7 @@ class AddMovie extends Component {
     // const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline } = this.state;
     const { rating, genre } = this.state;
-    const { handleChange, createInput } = this;
+    const { handleChange, createInput, handleClick } = this;
 
     const titleInfos = (['title', 'Título', 'title-input-label',
       'title-input', 'titleInput']);
@@ -84,6 +101,11 @@ class AddMovie extends Component {
           onChange={ handleChange }
           selectTestId="genre-input"
           optionTestId="genre-option"
+        />
+        <Button
+          buttonTestId="send-button"
+          onClick={ handleClick }
+          text="Adicionar filme"
         />
       </form>
     );

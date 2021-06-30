@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from './components/Header';
-import SearchBar from './components/SearchBar';
 import './App.css';
-import AddMovie from './components/AddMovie';
+import MovieLibrary from './components/MovieLibrary';
+import movies from './data';
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <SearchBar
-        searchText=""
-        onSearchTextChange=""
-        bookmarkedOnly=""
-        onBookmarkedChange=""
-        selectedGenre=""
-        onSelectedGenreChange=""
-      />
-      <AddMovie onClick="callback" />
-    </div>
-  );
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      movie: movies,
+    };
+  }
+
+  render() {
+    const { movie } = this.state;
+    return (
+      <div className="App">
+        <Header />
+        <MovieLibrary movies={ movie } />
+      </div>
+    );
+  }
 }
 
 export default App;
