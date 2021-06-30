@@ -34,6 +34,7 @@ class AddMovie extends Component {
     this.setState(this.initialState);
   }
 
+  // https://stackoverflow.com/questions/47468361/get-variable-name-into-string-in-javascript/47468674
   varToString(varObj) {
     return Object.keys(varObj)[0];
   }

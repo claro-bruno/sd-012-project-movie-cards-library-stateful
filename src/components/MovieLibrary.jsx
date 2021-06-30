@@ -16,6 +16,7 @@ class MovieLibrary extends Component {
       movies,
     };
     this.myOnChange = this.myOnChange.bind(this);
+    this.searchText = this.searchText.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
   }
 
@@ -55,7 +56,7 @@ class MovieLibrary extends Component {
           movies={ this.filterMovies(movies) }
         />
         <AddMovie
-          onClick={ (state) => this.setState({ movies: movies.concat(state) }) }
+          onClick={ (newMovie) => this.setState({ movies: movies.concat(newMovie) }) }
         />
       </main>
     );
