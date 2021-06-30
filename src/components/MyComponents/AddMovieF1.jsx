@@ -32,6 +32,7 @@ class AddMovieF1 extends React.Component {
           id="input-image"
           dataTestidLabel="image-input-label"
           textLabel="Imagem"
+          type="text"
           name="imagePath"
           value={ imagePath }
           onChange={ handleChange }

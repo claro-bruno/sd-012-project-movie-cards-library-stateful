@@ -33,7 +33,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { onClick } = this.props;
-    const { storyline } = this.state;
+    const { storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <AddMovieF1 state={ this.state } handleChange={ this.handleChange } />
@@ -41,10 +41,31 @@ class AddMovie extends React.Component {
           id="input-textarea"
           dataTestidLabel="storyline-input-label"
           textLabel="Sinopse"
+          type="text"
           name="storyline"
           value={ storyline }
           onChange={ this.handleChange }
           dataTestidInput="storyline-input"
+        />
+        <LabelInput
+          id="input-number"
+          dataTestidLabel="rating-input-label"
+          textLabel="Avaliação"
+          type="number"
+          name="rating"
+          value={ rating }
+          onChange={ this.handleChange }
+          dataTestidInput="rating-input"
+        />
+        <LabelInput
+          id="input-select"
+          dataTestidLabel="genre-input-label"
+          textLabel="Avaliação"
+          type="number"
+          name="genre"
+          value={ genre }
+          onChange={ this.handleChange }
+          dataTestidInput="genre-input"
         />
         { onclick }
       </form>
