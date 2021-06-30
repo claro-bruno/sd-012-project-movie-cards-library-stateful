@@ -2,23 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FormBody from './Form';
 
-const state = {
-  subtitle: '',
-  title: '',
-  imagePath: '',
-  storyline: '',
-  rating: 0,
-  genre: 'action',
-};
-
 class AddMovie extends React.Component {
   constructor() {
     super();
 
-    this.state = state;
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
 
     this.handleClick = this.handleClick.bind(this);
-    this.resetState = this.resetState.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   handleClick({ target }) {
@@ -29,22 +27,28 @@ class AddMovie extends React.Component {
     });
   }
 
-  resetState() {
-    this.setState(state);
+  handleOnClick(e) {
+    const { onClick } = this.props;
+    e.preventDefault();
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
-    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <FormBody onChange={ this.handleClick } state={ this.state } />
         <button
-          type="button"
+          type="submit"
           data-testid="send-button"
-          onClick={ () => {
-            onClick(state);
-            this.resetState();
-          } }
+          onClick={ this.handleOnClick }
         >
           Adicionar filme
         </button>
