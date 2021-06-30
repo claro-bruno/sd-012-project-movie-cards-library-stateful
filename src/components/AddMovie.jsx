@@ -81,7 +81,7 @@ class AddMovie extends Component {
           genre={ genre }
           handleChange={ this.handleChange }
         />
-        <button type="button" data-testid="send-button" onClick={ this.handleOnClick }>
+        <button type="button" data-testid="send-button" onClick={ this.handleClick }>
           Adicionar filme
         </button>
       </form>
