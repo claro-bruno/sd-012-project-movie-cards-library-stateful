@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovieRating extends React.Component {
   render() {
@@ -21,3 +22,8 @@ class AddMovieRating extends React.Component {
   }
 }
 export default AddMovieRating;
+
+AddMovieRating.propTypes = {
+  value: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+};

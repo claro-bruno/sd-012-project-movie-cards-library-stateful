@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SeachBar extends React.Component {
   onSearchTextChange() {
@@ -6,7 +7,8 @@ class SeachBar extends React.Component {
   }
 
   render() {
-    const { searchText,
+    const {
+      searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
@@ -54,3 +56,12 @@ class SeachBar extends React.Component {
   }
 }
 export default SeachBar;
+
+SeachBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onSearchTextChange: PropTypes.string.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  onSelectedGenreChange: propTypes.func.isRequired,
+};

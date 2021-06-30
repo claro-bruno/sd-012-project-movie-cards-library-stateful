@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovieImagePath extends React.Component {
   render() {
@@ -21,3 +22,8 @@ class AddMovieImagePath extends React.Component {
   }
 }
 export default AddMovieImagePath;
+
+AddMovieImagePath.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
