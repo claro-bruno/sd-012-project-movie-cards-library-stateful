@@ -33,6 +33,7 @@ class AddMovie extends React.Component {
     });
   }
 
+  // Com base no código de Thalles Carneiro, Turam 12
   handleSubmit() {
     const { onClick } = this.props;
     const { title, subtitle, storyline, imagePath, rating, genre } = this.state;
