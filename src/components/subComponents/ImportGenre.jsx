@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 class ImportGenre extends React.Component {
   render() {
-    const { handleChange } = this.props;
+    const { handleChange, importGenre } = this.props;
     return (
       <label htmlFor="importGenre" data-testid="genre-input-label">
         Gênero
         <select
           data-testid="genre-input"
           name="importGenre"
+          value={ importGenre }
           id="importGenre"
           onChange={ handleChange }
         >
@@ -30,6 +31,7 @@ class ImportGenre extends React.Component {
 
 ImportGenre.propTypes = {
   handleChange: PropTypes.func.isRequired,
+  importGenre: PropTypes.string.isRequired,
 };
 
 export default ImportGenre;

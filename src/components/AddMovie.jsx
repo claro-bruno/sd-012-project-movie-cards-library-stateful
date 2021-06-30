@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ImportTitle from './subComponents/importTitle';
 import ImportSubtitle from './subComponents/ImportSubtitle';
 import ImagePath from './subComponents/ImagePath';
@@ -17,7 +18,7 @@ class AddMovie extends React.Component {
       importSubtitle: '',
       importStoryline: '',
       imagePath: '',
-      importGenre: '',
+      importGenre: 'action',
       importRating: 0,
     };
   }
@@ -28,14 +29,15 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  submitMovie(evt) {
-    console.log(evt.target);
+  submitMovie() {
+    const { onClick } = this.props;
+    onClick();
     this.setState({
       importTitle: '',
       importSubtitle: '',
       importStoryline: '',
       imagePath: '',
-      importGenre: '',
+      importGenre: 'action',
       importRating: 0,
     });
   }
@@ -88,5 +90,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
