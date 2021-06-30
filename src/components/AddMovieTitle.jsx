@@ -6,7 +6,7 @@ class AddMovieTitle extends Component {
     const { title, onChangeTitle } = this.props;
     return (
       <label
-        htmlFor="addMovieTitle"
+        htmlFor="title-input"
         data-testid="title-input-label"
       >
         Título
@@ -15,6 +15,7 @@ class AddMovieTitle extends Component {
           data-testid="title-input"
           value={ title }
           onChange={ onChangeTitle }
+          name="title"
         />
       </label>
     );

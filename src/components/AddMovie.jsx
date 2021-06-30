@@ -1,24 +1,28 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 import AddMovieTitle from './AddMovieTitle';
+import AddMovieSubtitle from './AddMovieSubtitle';
 
 class AddMovie extends Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
+    // this.handleChangeSubtitle = this.handleChangeSubtitle.bind(this);
     this.state = {
       title: '',
+      subtitle: '',
     };
   }
 
   handleChange(event) {
+    const { value, name } = event.target;
     this.setState({
-      title: event.target.value,
+      [name]: value,
     });
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
     return (
       <form
         data-testid="add-movie-form"
@@ -27,9 +31,10 @@ class AddMovie extends Component {
           title={ title }
           onChangeTitle={ this.handleChange }
         />
-        <label htmlFor="addMovieSubtitle">
-
-        </label>
+        <AddMovieSubtitle
+          subtitle={ subtitle }
+          onChangeSubtitle={ this.handleChange }
+        />
       </form>
     );
   }
