@@ -19,6 +19,7 @@ class AddMovie extends Component {
     this.initialState = this.state;
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.varToString = this.varToString.bind(this);
   }
 
   handleChange({ target }) {
@@ -33,58 +34,30 @@ class AddMovie extends Component {
     this.setState(this.initialState);
   }
 
-  // eslint-disable-next-line max-lines-per-function
+  varToString(varObj) {
+    return Object.keys(varObj)[0];
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     const optionsArray = ['action', 'comedy', 'thriller'];
-    // const inputsArray = [title, subtitle, imagePath, storyline, rating];
-    // console.log(inputsArray[0]);
+    const inputsArray = [
+      { title }, { subtitle }, { imagePath }, { storyline }, { rating },
+    ];
     return (
       <form data-testid="add-movie-form">
-        {/* { inputsArray.map((input) => {
-          console.log(input);
-          console.log(this.varToString(input));
-          const type = (input === rating) ? 'number' : 'text';
+        { inputsArray.map((input) => {
+          const type = (this.varToString(input) === 'rating') ? 'number' : 'text';
           return (
             <FormInput
               key={ this.varToString(input) }
               type={ type }
-              value={ input }
+              value={ input[this.varToString(input)] }
               onChange={ this.handleChange }
               name={ this.varToString(input) }
             />
           );
-        }) } */}
-        <FormInput
-          type="text"
-          value={ title }
-          onChange={ this.handleChange }
-          name="title"
-        />
-        <FormInput
-          type="text"
-          value={ subtitle }
-          onChange={ this.handleChange }
-          name="subtitle"
-        />
-        <FormInput
-          type="text"
-          value={ imagePath }
-          onChange={ this.handleChange }
-          name="imagePath"
-        />
-        <FormInput
-          type="text"
-          value={ storyline }
-          onChange={ this.handleChange }
-          name="storyline"
-        />
-        <FormInput
-          type="number"
-          value={ rating }
-          onChange={ this.handleChange }
-          name="rating"
-        />
+        }) }
         <FormSelect
           options={ optionsArray }
           value={ genre }
