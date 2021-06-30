@@ -1,17 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [this.props.movies],
+      movies: [...props.movies],
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -19,11 +19,16 @@ class MovieLibrary extends React.Component {
     this.onAddNewMovie = this.onAddNewMovie.bind(this);
   }
 
+  // Consegui esse requisito com a ajuda do David Gonzada, eu estava mexendo com o props, ao invés
+  //do state.
   onAddNewMovie(newMovie) {
-    this.setState({
-      movies: newMovie,
+    this.setState((oldState) => {
+      const objMovies = oldState.movies;
+      objMovies.push(newMovie);
+      return {
+        movies: objMovies,
+      };
     });
-    movies.push(newMovie);
   }
 
   onSearchTextChange(e) {
@@ -46,7 +51,9 @@ class MovieLibrary extends React.Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    let { movies } = this.props;
+    let { movies } = this.state;
+    // O David Gonzada tinha sugerido realizar o filter nesse ponto antes de enviar os movies
+    // Para o MovieList.
     if (searchText) {
       movies = movies.filter((movie) => movie.title.includes(searchText)
       || movie.subtitle.includes(searchText)
@@ -70,5 +77,11 @@ class MovieLibrary extends React.Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
 
 export default MovieLibrary;

@@ -29,7 +29,14 @@ class InputsLabelsMovie extends React.Component {
 
 InputsLabelsMovie.propTypes = {
   handlerChange: PropTypes.func.isRequired,
-  state: PropTypes.string.isRequired,
+  state: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    genre: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default InputsLabelsMovie;
