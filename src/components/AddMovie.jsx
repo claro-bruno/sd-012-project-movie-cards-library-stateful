@@ -78,6 +78,24 @@ class AddMovie extends Component {
     );
   }
 
+  renderSinopse() {
+    const { storyline } = this.state;
+    return (
+      <label htmlFor="storyline-input" data-testid="storyline-input-label">
+        Sinopse
+        <input id="storyline-input" data-testid="storyline-input" />
+        <input
+          name="storyline"
+          type="text"
+          id="storyline-input"
+          data-testid="storyline-input"
+          value={ storyline }
+          onChange={ this.handleChange }
+        />
+      </label>
+    );
+  }
+
   render() {
     const { onClick } = this.props;
     return (
@@ -87,6 +105,7 @@ class AddMovie extends Component {
           { this.renderTitle() }
           { this.renderSubtitle() }
           { this.renderImage() }
+          { this.renderSinopse() }
         </form>
       </div>
     );
