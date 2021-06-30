@@ -30,4 +30,4 @@ TextAreaStoryline.propTypes = {
   value: PropTypes.string.isRequired,
 };
 
-export default TextAreaStoryLine;
+export default TextAreaStoryline;

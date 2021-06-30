@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import InputTitle from './InputTitle';
 import InputSubtitle from './InputSubtitle';
 import InputImage from './InputImage';
-import TextAreaStoryLine from './TextAreaStoryLine';
+import TextAreaStoryline from './TextAreaStoryline';
 import InputRating from './InputRating';
 import SelectedGenres from './SelectedGenres';
 import ButtonSend from './ButtonSend';
@@ -78,7 +78,7 @@ class AddMovie extends Component {
         <InputImage onChange={ this.handleChange } value={ imagePath } />
         <InputRating onChange={ this.handleChange } value={ Number(rating) } />
         <SelectedGenres onChange={ this.handleChange } value={ genre } />
-        <TextAreaStoryLine onChange={ this.handleChange } value={ storyline } />
+        <TextAreaStoryline onChange={ this.handleChange } value={ storyline } />
 
         <ButtonSend onClick={ (e) => this.handleClick(e, onClick) } />
       </form>
