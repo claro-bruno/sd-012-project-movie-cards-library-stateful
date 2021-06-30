@@ -60,6 +60,24 @@ class AddMovie extends Component {
     );
   }
 
+  renderImage() {
+    const { imagePath } = this.state;
+    return (
+      <label htmlFor="image-input" data-testid="image-input-label">
+        Imagem
+        <input id="image-input" data-testid="image-input" />
+        <input
+          name="imagePath"
+          type="text"
+          id="image-input"
+          data-testid="image-input"
+          value={ imagePath }
+          onChange={ this.handleChange }
+        />
+      </label>
+    );
+  }
+
   render() {
     const { onClick } = this.props;
     return (
@@ -68,6 +86,7 @@ class AddMovie extends Component {
         <form data-testid="add-movie-form">
           { this.renderTitle() }
           { this.renderSubtitle() }
+          { this.renderImage() }
         </form>
       </div>
     );
