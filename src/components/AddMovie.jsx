@@ -16,6 +16,7 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+    // https://medium.com/@justintulk/best-practices-for-resetting-an-es6-react-components-state-81c0c86df98d
     this.initialState = this.state;
     this.handleChange = this.handleChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
