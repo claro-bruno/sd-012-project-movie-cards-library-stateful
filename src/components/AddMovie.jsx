@@ -5,6 +5,7 @@ import InputImagePath from './InputImagePath';
 import TextAreaStoryLine from './TextAreaStoryline';
 import InputRating from './InputRating';
 import SelectGenre from './SelectGenre';
+import Button from './Button';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -61,6 +62,8 @@ class AddMovie extends React.Component {
             genre={ genre }
             handleChange={ this.handleChange }
           />
+
+          <Button />
         </form>
       </section>
     );
