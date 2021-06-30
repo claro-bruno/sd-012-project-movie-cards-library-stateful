@@ -20,8 +20,7 @@ const dictionaries = {
   },
 };
 
-function translate(name, dictionary) {
-  return name.replace(/.*/i, dictionaries[dictionary][name]);
-}
+const translate = (name, dictionary) => name
+  .replace(/.*/i, dictionaries[dictionary][name]);
 
 export default translate;

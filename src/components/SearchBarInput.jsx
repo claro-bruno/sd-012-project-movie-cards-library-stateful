@@ -7,7 +7,10 @@ class SearchBarInput extends Component {
   render() {
     const { type, value, onChange, name, checked } = this.props;
     return (
-      <label htmlFor={ `${type}-input ` } data-testid={ `${type}-input-label` }>
+      <label
+        htmlFor={ `${type}-input ` }
+        data-testid={ `${type}-input-label` }
+      >
         {translate(name, 'SearchBarInput')}
         <input
           type={ type }
