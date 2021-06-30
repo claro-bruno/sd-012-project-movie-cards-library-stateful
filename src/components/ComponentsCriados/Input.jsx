@@ -37,7 +37,7 @@ Input.propTypes = {
   datatestid: PropTypes.string.isRequired,
   value: PropTypes.string,
   name: PropTypes.string,
-  onChange: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
   labelText: PropTypes.string.isRequired,
   datatestidLabel: PropTypes.string.isRequired,
 }.isRequired;
