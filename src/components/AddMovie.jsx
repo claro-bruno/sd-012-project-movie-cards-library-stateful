@@ -5,11 +5,14 @@ import InputSelect from './InputSelect';
 import InputImagem from './InputImagem';
 
 class AddMovie extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
-      title: '',
       subtitle: '',
+      title: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -17,23 +20,24 @@ class AddMovie extends Component {
     };
   }
 
-  onChange = ({ target: { name, value } }) => {
-    this.setState({ [name]: value });
+  handleChange(event) {
+    const { name, value } = event.target;
+    return this.setState({
+      [name]: value,
+    });
   }
 
-  handleOnClick = () => {
+  handleClick() {
     const { onClick } = this.props;
     const { movieAdd } = this.state;
-    this.setState(
-      {
-        title: '',
-        subtitle: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: 'action',
-      },
-    );
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
     onClick(movieAdd);
   }
 
@@ -46,36 +50,36 @@ class AddMovie extends Component {
           type="text"
           name="title"
           value={ title }
-          onChange={ this.onChange }
+          onChange={ this.handleChange }
         />
         <InputText
           text="Subtítulo"
           type="text"
           name="subtitle"
           value={ subtitle }
-          onChange={ this.onChange }
+          onChange={ this.handleChange }
         />
         <InputImagem
           imagePath={ imagePath }
-          handleChange={ this.onChange }
+          handleChange={ this.handleChange }
         />
         <InputText
           text="Sinopse"
           type="textarea"
           name="storyline"
           value={ storyline }
-          onChange={ this.onChange }
+          onChange={ this.handleChange }
         />
         <InputText
           type="number"
           text="Avaliação"
           name="rating"
           value={ rating }
-          onChange={ this.onChange }
+          onChange={ this.handleChange }
         />
         <InputSelect
           genre={ genre }
-          handleChange={ this.onChange }
+          handleChange={ this.handleChange }
         />
         <button type="button" data-testid="send-button" onClick={ this.handleOnClick }>
           Adicionar filme
