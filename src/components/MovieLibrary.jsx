@@ -20,7 +20,7 @@ export default class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.filtered = this.filtered.bind(this);
+    this.filter = this.filter.bind(this);
   }
 
   // handleChange({ target }) {
@@ -28,6 +28,7 @@ export default class MovieLibrary extends Component {
   //     [target.name]: target.type === 'checkbox' ? target.checked : target.value,
   //   });
   // }
+  // Requisito 17
   onSearchTextChange({ target }) {
     this.setState(() => ({ searchText: target.value }));
   }
@@ -40,7 +41,7 @@ export default class MovieLibrary extends Component {
     this.setState(() => ({ selectedGenre: target.value }));
   }
 
-  // Requisito 18 - Ajuda monitor Isaac
+  // Requisito 18 - Ajuda monitor Isaac (antigo)
   // filtered(movies) {
   //   const { bookmarkedOnly, selectedGenre, searchText } = this.state;
   //   return movies
@@ -49,11 +50,39 @@ export default class MovieLibrary extends Component {
   //     .filter(() => ));
   // }
 
-  filtereBookmarked(movie, bookmarkedOnly) {
-    if (bookmarkedOnly && movie.bookmarked) return true;
-    if (bookmarkedOnly) return false;
-    return true;
+  // filtereBookmarked(movies, bookmarkedOnly) {
+  //   if (bookmarkedOnly && movies.bookmarked) return true;
+  //   if (bookmarkedOnly) return false;
+  //   return true;
+  // }
+
+  // Requisito 18 - Ajuda monitor Daniel
+  filteredBookmarked(movies) {
+    const newMovies = movies.filter((movie) => movie.bookmarked);
+    return newMovies;
   }
+
+  filteredSearchtext(movies, searchText) {
+    const newMovies = movies.filter((movie) => movie.title
+      .toLowerCase().includes(searchText.toLowerCase())
+      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+      || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
+    return newMovies;
+  }
+
+  filteredGenre(movies, selectedGenre) {
+    const newMovies = movies.filter((movie) => movie.genre === selectedGenre);
+    return newMovies;
+  }
+
+  filter(searchText = false, movies, bookmarkedOnly = false, selectedGenre = false) {
+    let filterMovie = [...movies];
+    if (bookmarkedOnly) filterMovie = this.filteredBookmarked(filterMovie);
+    if (searchText) filterMovie = this.filteredSearchtext(filterMovie, searchText);
+    if (selectedGenre) filterMovie = this.filteredGenre(filterMovie, selectedGenre);
+    return filterMovie;
+  }
+
   // tem q trabalhar a lógica dessas duas proximas funcoes, por hora eu só copiei e colei da func ai de cima
   // filteredGenre(movie, selectedGenre) {
   //   if (selectedGenre && movie.genre) return true;
@@ -67,9 +96,11 @@ export default class MovieLibrary extends Component {
   //   return true;
   // }
 
-  // Requisito 18 - Ajuda Monitora Lêticia com as funções callbacks.
+  // Requisito 18 - Ajuda Monitora Lêticia com as funções callbacks
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const newMovies = this.filter(searchText, movies, bookmarkedOnly, selectedGenre);
 
     return (
       <div>
@@ -82,7 +113,7 @@ export default class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
 
-        <MovieList movies={ this.filtered(movies) } />
+        <MovieList movies={ newMovies } />
         <AddMovie onClick={ movies } />
       </div>
     );
