@@ -63,5 +63,5 @@ SeachBar.propTypes = {
   onSearchTextChange: PropTypes.string.isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
-  onSelectedGenreChange: propTypes.func.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
