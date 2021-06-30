@@ -14,9 +14,10 @@ const initialState = {
 class AddMovie extends React.Component {
   constructor() {
     super();
-    this.state = initialState;
 
+    this.state = initialState;
     this.handleChange = this.handleChange.bind(this);
+    this.buttonReset = this.buttonReset.bind(this);
   }
 
   handleChange(event) {
@@ -25,8 +26,12 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  buttonReset() {
+    this.setState(() => initialState);
+  }
+
   render() {
-    const { onclick } = this.props;
+    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -51,14 +56,23 @@ class AddMovie extends React.Component {
           genre={ genre }
           handleChange={ this.handleChange }
         />
-        { onclick }
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ () => {
+            onClick(this.state);
+            this.buttonReset();
+          } }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
 AddMovie.propTypes = {
-  onclick: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
