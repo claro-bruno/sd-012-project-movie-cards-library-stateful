@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
+import AddMovieTitle from './AddMovieTitle';
 
 class AddMovie extends Component {
   constructor() {
@@ -22,17 +23,12 @@ class AddMovie extends Component {
       <form
         data-testid="add-movie-form"
       >
-        <label
-          htmlFor="formText"
-          data-testid="title-input-label"
-        >
-          Título
-          <input
-            type="text"
-            data-testid="title-input"
-            value={ title }
-            onChange={ this.handleChange }
-          />
+        <AddMovieTitle
+          title={ title }
+          onChangeTitle={ this.handleChange }
+        />
+        <label htmlFor="addMovieSubtitle">
+
         </label>
       </form>
     );
