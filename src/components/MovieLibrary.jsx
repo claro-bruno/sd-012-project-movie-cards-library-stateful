@@ -10,17 +10,9 @@ class MovieLibrary extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleAddMovie = this.handleAddMovie.bind(this);
+    this.stateDefault = this.stateDefault.bind(this);
 
-    const { movies } = this.props;
-
-    const stateDefault = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-      movies,
-    };
-
-    this.state = stateDefault;
+    this.state = this.stateDefault();
   }
 
   handleAddMovie(stateAddMovie) {
@@ -37,6 +29,16 @@ class MovieLibrary extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  stateDefault() {
+    const { movies } = this.props;
+    return {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies,
+    };
   }
 
   render() {

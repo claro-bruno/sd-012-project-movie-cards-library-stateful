@@ -7,23 +7,15 @@ import TextAreaStoryline from './ComponentsAddMovie/TextAreaStoryline';
 import InputRating from './ComponentsAddMovie/InputRating';
 import SelectGenre from './ComponentsAddMovie/SelectGenre';
 
-const stateDefault = {
-  title: '',
-  subtitle: '',
-  imagePath: '',
-  storyline: '',
-  rating: 0,
-  genre: 'action',
-};
-
 class AddMovie extends React.Component {
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClear = this.handleClear.bind(this);
+    this.stateDefault = this.stateDefault.bind(this);
 
-    this.state = stateDefault;
+    this.state = this.stateDefault();
   }
 
   handleChange({ target }) {
@@ -39,7 +31,18 @@ class AddMovie extends React.Component {
     event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState(stateDefault);
+    this.setState(this.stateDefault());
+  }
+
+  stateDefault() {
+    return {
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
   }
 
   render() {
