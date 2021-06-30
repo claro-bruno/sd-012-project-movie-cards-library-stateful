@@ -22,8 +22,8 @@ class SearchBar extends Component {
   renderCheckBox() {
     const { bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
-      <label htmlFor="checkbox-input" ddata-testid="checkbox-input-label">
-        Inclui o texto
+      <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
+        Mostrar somente favoritos
         <input
           id="checkbox-input"
           type="checkbox"
@@ -35,10 +35,26 @@ class SearchBar extends Component {
     );
   }
 
-  /*  const {
-      selectedGenre,
-      onSelectedGenreChange,
-    } = this.props; */
+  renderSelect() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
+    return (
+      <label htmlFor="select-input" data-testid="select-input-label">
+        Filtrar por gênero
+        <select
+          id="select-input"
+          data-testid="select-input"
+          value={ selectedGenre }
+          onChange={ onSelectedGenreChange }
+        >
+          <option value="" data-testid="select-option">Todos</option>
+          <option value="action" data-testid="select-option">Ação</option>
+          <option value="comedy" data-testid="select-option">Comédia</option>
+          <option value="thriller" data-testid="select-option">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
   render() {
     return (
       <div>
@@ -46,6 +62,7 @@ class SearchBar extends Component {
         <form data-testid="search-bar-form">
           { this.renderText() }
           { this.renderCheckBox() }
+          { this.renderSelect() }
         </form>
       </div>
     );
@@ -57,8 +74,8 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
-  //  selectedGenre: PropTypes.string.isRequired,
-  //  onSelectedGenreChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
