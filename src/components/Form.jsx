@@ -32,15 +32,15 @@ class Form extends React.Component {
           valueInput={ state.imagePath }
           onChangeInput={ onChange }
         />
-        <Input
-          labelId="storyline-input-label"
-          innerText="Sinopse"
-          inputId="storyline-input"
-          nameInput="storyline"
-          typeInput="textarea"
-          valueInput={ state.storyline }
-          onChangeInput={ onChange }
-        />
+        <label data-testid="storyline-input-label" htmlFor="textarea">
+          Sinopse
+          <textarea
+            data-testid="storyline-input"
+            name="storyline"
+            value={ state.storyline }
+            onChange={ onChange }
+          />
+        </label>
         <Input
           labelId="rating-input-label"
           innerText="Avaliação"

@@ -33,7 +33,7 @@ Input.propTypes = {
   inputId: PropTypes.string.isRequired,
   nameInput: PropTypes.string.isRequired,
   typeInput: PropTypes.string.isRequired,
-  valueInput: PropTypes.string.isRequired,
+  valueInput: PropTypes.number.isRequired,
   onChangeInput: PropTypes.func.isRequired,
 };
 
