@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import InputsAddMovie from './InputsAddMovie';
+import SelectAddMovie from './SelectAddMovie';
 
 const initialState = {
   subtitle: '',
@@ -26,7 +27,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { onclick } = this.props;
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputsAddMovie
@@ -46,6 +47,10 @@ class AddMovie extends React.Component {
             data-testid="storyline-input"
           />
         </label>
+        <SelectAddMovie
+          genre={ genre }
+          handleChange={ this.handleChange }
+        />
         { onclick }
       </form>
     );
