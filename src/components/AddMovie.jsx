@@ -15,12 +15,15 @@ class AddMovie extends Component {
       genre: 'action',
     };
   }
+
   render() {
     const { onClick } = this.props;
 
     return (
       <div>
-        Adiciona Filme
+        <form data-testid="add-movie-form">
+          Adicionar Filme
+        </form>
       </div>
     );
   }
