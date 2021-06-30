@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import InputTitle from './InputTitle';
-import InputSubtitle from './InputSubtitle';
-import InputStoryline from './InputStoryline';
-import InputImg from './InputImg';
-import InputRating from './InputRating';
-import SelectGenre from './SelectGenre';
+import InputTitle from './AddMovie/InputTitle';
+import InputSubtitle from './AddMovie/InputSubtitle';
+import InputStoryline from './AddMovie/InputStoryline';
+import InputImg from './AddMovie/InputImg';
+import InputRating from './AddMovie/InputRating';
+import SelectGenre from './AddMovie/SelectGenre';
 
 class AddMovie extends React.Component {
   constructor() {
