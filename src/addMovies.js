@@ -24,14 +24,6 @@ const addMoviesList = [
     inputValue: 'imagePath',
   },
   {
-    labelText: 'Sinopse',
-    labelId: 'storyline-input-label',
-    inputId: 'storyline-input',
-    inputType: 'textarea',
-    inputName: 'storyLine',
-    inputValue: 'storyLine',
-  },
-  {
     labelText: 'Avaliação',
     labelId: 'rating-input-label',
     inputId: 'rating-input',
