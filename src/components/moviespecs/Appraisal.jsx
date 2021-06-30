@@ -23,6 +23,6 @@ class Appraisal extends React.Component {
 }
 Appraisal.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
 };
 export default Appraisal;

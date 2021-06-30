@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import Title from './moviespecs/Title';
 import Subtitle from './moviespecs/Subtitle';
 import Image from './moviespecs/Image';
@@ -20,19 +21,19 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
-      [name]: value,
+      [name]: name === 'rating' ? Number(value) : value,
     });
   }
 
-  handleClick() {
-    onClick();
+  handleClick = () => {
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -83,11 +84,13 @@ class AddMovie extends React.Component {
         <Button
           name="button"
           labelButton="Adicionar filme"
-          onClick={ () => { this.handleClick(); } }
+          handleClick={ this.handleClick }
         />
       </form>
     );
   }
 }
-
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 export default AddMovie;

@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 class SelectOptions extends React.Component {
   render() {
-    const { selectedGenre, onSelectedGenreChange } = this.props;
+    const { selectedGenre, onSelectedGenreChange, name } = this.props;
     return (
       <label data-testid="select-input-label" htmlFor="select-input">
         Filtrar por gênero
         <select
           data-testid="select-input"
           value={ selectedGenre }
+          name={ name }
           onChange={ onSelectedGenreChange }
         >
           <option value="" data-testid="select-option">Todos</option>
@@ -22,7 +23,9 @@ class SelectOptions extends React.Component {
   }
 }
 SelectOptions.propTypes = {
-  selectedGenre: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+
 };
 export default SelectOptions;

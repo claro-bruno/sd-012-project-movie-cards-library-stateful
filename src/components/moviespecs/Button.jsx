@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 
 class Button extends React.Component {
   render() {
-    const { onClick, labelButton } = this.props;
+    const { handleClick, labelButton } = this.props;
     return (
       <button
         data-testid="send-button"
         type="button"
-        onClick={ onClick }
+        onClick={ handleClick }
       >
         {labelButton}
       </button>
@@ -16,7 +16,7 @@ class Button extends React.Component {
   }
 }
 Button.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
   labelButton: PropTypes.string.isRequired,
 };
 

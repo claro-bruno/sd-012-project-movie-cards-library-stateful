@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class TextInput extends React.Component {
   render() {
-    const { searchText, onSearchTextChange } = this.props;
+    const { searchText, onSearchTextChange, name } = this.props;
     return (
       <label data-testid="text-input-label" htmlFor="text-input">
         Inclui o texto
@@ -11,6 +11,7 @@ class TextInput extends React.Component {
           type="text"
           data-testid="text-input"
           value={ searchText }
+          name={ name }
           onChange={ onSearchTextChange }
         />
       </label>
@@ -18,8 +19,10 @@ class TextInput extends React.Component {
   }
 }
 TextInput.propTypes = {
-  searchText: PropTypes.func.isRequired,
+  searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
+  name: PropTypes.string.isRequired,
+
 };
 
 export default TextInput;
