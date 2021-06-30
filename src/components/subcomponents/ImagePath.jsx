@@ -8,7 +8,7 @@ class ImagePath extends React.Component {
         <input
           className="form-control"
           type="text"
-          placeholder="Insira um subtítulo"
+          placeholder="Insira uma imagem"
           data-testid="image-input"
         />
       </label>
