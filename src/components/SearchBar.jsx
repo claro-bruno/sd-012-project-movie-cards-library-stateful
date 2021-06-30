@@ -1,54 +1,52 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import Checkbox from './CheckBox';
 import Select from './Select';
-import { genresFilter } from '../genres';
+
+const genres = [
+  { genre: 'Ação', genreValue: 'action' },
+  { genre: 'Comédia', genreValue: 'comedy' },
+  { genre: 'Suspense', genreValue: 'thriller' },
+];
 
 class SearchBar extends Component {
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-    } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.props;
+    const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this.props;
+
+    const genresOptions = [
+      { genre: 'Todos', genreValue: '' },
+      ...genres,
+    ];
 
     return (
-      <form
-        data-testid="search-bar-form"
-        className="form-searchBar"
-      >
+      <form data-testid="search-bar-form" className="search-bar-container">
         <Input
-          id="include-text"
-          dataTestidLabel="text-input-label"
-          textLabel="Inclui o texto:"
-          value={ searchText }
-          onChange={ onSearchTextChange }
-          dataTestidInput="text-input"
+          label="Inclui o texto"
+          type="text"
           name="searchText"
+          value={ searchText }
+          dataTestId="text-input"
+          onChange={ onSearchTextChange }
         />
-        <Input
-          id="show-favorites"
-          dataTestidLabel="checkbox-input-label"
-          textLabel="Mostrar somente favoritos"
+
+        <Checkbox
+          label="Mostrar somente favoritos"
           type="checkbox"
+          name="bookmarkedOnly"
+          dataTestId="checkbox-input"
           checked={ bookmarkedOnly }
           onChange={ onBookmarkedChange }
-          dataTestidInput="checkbox-input"
-          name="bookmarkedOnly"
         />
+
         <Select
-          id="gender-filter"
-          dataTestidLabel="select-input-label"
-          dataTestidOption="select-option"
-          dataTestidSelect="select-input"
-          textLabel="Filtrar por gênero"
+          label="Filtrar por gênero"
+          name="selectedGenre"
+          dataTestId="select-input"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
-          options={ genresFilter }
-          name="selectedGenre"
+          options={ genresOptions }
         />
       </form>
     );
