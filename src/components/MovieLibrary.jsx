@@ -8,16 +8,16 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
-    const { data } = this.props;
+    const { movies } = this.props;
 
     this.handleChange = this.handleChange.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      data,
-      // newMovieList: data,
+      movieList: movies,
     };
   }
 
@@ -28,19 +28,19 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  onClickButtonAdd(newMovie) {
+  onClick(newMovie) {
     console.log(newMovie);
 
-    // const { newMovieList, data } = this.state;
-    // const moviesList = [...newMovieList, data];
-    // this.setState({
-    //   data: moviesList,
-    //   newMovieList: moviesList,
-    // }, () => this.filterMovies());
+    const { movieList } = this.state;
+    const moviesList = [...movieList, newMovie];
+
+    this.setState({
+      movieList: moviesList,
+    });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, data } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movieList } = this.state;
     return (
       <div>
         <SearchBar
@@ -52,14 +52,14 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <AddMovie onClick={ this.onClick } />
-        <MovieList movies={ data } />
+        <MovieList movies={ movieList } />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.shape({
+  movies: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     storyline: PropTypes.string.isRequired,
