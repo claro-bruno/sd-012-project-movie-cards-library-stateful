@@ -11,12 +11,14 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
+      initalMovies: props.movies,
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.textFilter = this.textFilter.bind(this);
     this.bookmarkedFilter = this.bookmarkedFilter.bind(this);
     this.genreFilter = this.genreFilter.bind(this);
+    this.runFilters = this.runFilters.bind(this);
   }
 
   handleChange({ target }) {
@@ -25,16 +27,12 @@ class MovieLibrary extends Component {
     this.setState({
       [name]: value,
     }, () => {
-      this.setState({
-        movies: (this.whatIsIt(name)),
-      });
+      this.runFilters();
     });
   }
 
-  textFilter(stateKey) {
-    const { state } = this;
-    const { movies } = this.props;
-    return movies.filter((movie) => this.anybodyHas(movie, state[stateKey]));
+  textFilter(initalMovies, searchText) {
+    return initalMovies.filter((movie) => this.anybodyHas(movie, searchText));
   }
 
   anybodyHas({ title, subtitle, storyline }, value) {
@@ -44,33 +42,30 @@ class MovieLibrary extends Component {
     return have;
   }
 
-  bookmarkedFilter() {
-    const { state } = this;
-    const { movies } = this.props;
-    if (state.bookmarkedOnly) {
+  bookmarkedFilter({ movies, bookmarkedOnly }) {
+    if (bookmarkedOnly) {
       return movies.filter((movie) => movie.bookmarked);
     }
     return movies;
   }
 
-  genreFilter() {
-    const { state } = this;
-    const { movies } = this.props;
-    if (state.selectedGenre !== '') {
-      return movies.filter((movie) => movie.genre === state.selectedGenre);
+  genreFilter({ movies, selectedGenre }) {
+    if (selectedGenre !== '') {
+      return movies.filter((movie) => movie.genre === selectedGenre);
     }
     return movies;
   }
 
-  whatIsIt(elementName) {
-    switch (elementName) {
-    case 'searchText':
-      return this.textFilter(elementName);
-    case 'bookmarkedOnly':
-      return this.bookmarkedFilter();
-    default:
-      return this.genreFilter();
-    }
+  runFilters() {
+    this.setState(({ initalMovies, searchText }) => ({
+      movies: (this.textFilter(initalMovies, searchText)),
+    }),
+    () => this.setState((prevState) => ({
+      movies: (this.bookmarkedFilter(prevState)),
+    }),
+    () => this.setState((prevState) => ({
+      movies: (this.genreFilter(prevState)),
+    }))));
   }
 
   render() {
