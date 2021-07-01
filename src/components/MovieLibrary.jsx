@@ -5,8 +5,8 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 /**
- * Consultei o repositório do Luan Alexandre para resolver essa parte.
- * Link: https://github.com/tryber/sd-011-project-movie-cards-library-stateful/pull/169/commits/021d503099d85dde2fe169df26937d2c81a53331
+ * Consultei o repositório do Renato Bispo para resolver essa parte.
+ * Link: https://github.com/tryber/sd-011-project-movie-cards-library-stateful/pull/162/files
  */
 
 class MovieLibrary extends Component {
