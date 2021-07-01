@@ -20,66 +20,71 @@ class MovieLibrary extends Component {
       movies,
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookMarkedOnlyChange = this.onBookMarkedOnlyChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.filtersMovies = this.filtersMovies.bind(this);
   }
 
   onSearchTextChange({ target }) {
-    const { name, value } = target;
-    const { movies } = this.props;
-    this.setState(() => ({
-      [name]: value,
-      movies: movies.filter((movie) => movie.title.includes(value)
-      || movie.subtitle.includes(value) || movie.storyline.includes(value)),
-    }));
+    this.setState({
+      searchText: target.value,
+    });
   }
 
-  onBookMarkedOnlyChange({ target }) {
-    const { name, checked } = target;
-    const { movies } = this.props;
-    if (checked) {
-      this.setState(() => ({
-        [name]: checked,
-        movies: movies.filter((movie) => movie.bookmarked),
-      }));
+  onBookmarkedChange() {
+    const { bookmarkedOnly } = this.state;
+    if (bookmarkedOnly === false) {
+      this.setState({
+        bookmarkedOnly: true,
+      });
     } else {
-      this.setState(() => ({
-        [name]: checked,
-        movies,
-      }));
+      this.setState({
+        bookmarkedOnly: false,
+      });
     }
   }
 
   onSelectedGenreChange({ target }) {
-    const { name, value } = target;
-    const { movies } = this.props;
-    if (value !== '') {
-      this.setState(() => ({
-        [name]: value,
-        movies: movies.filter((movie) => movie.genre === value),
-      }));
-    } else {
-      this.setState(() => ({
-        [name]: value,
-        movies,
-      }));
+    this.setState({
+      selectedGenre: target.value,
+    });
+  }
+
+  filtersMovies() {
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let result = movies.filter(({ title, subtitle, storyline }) => (
+      title.includes(searchText)
+          || subtitle.includes(searchText)
+          || storyline.includes(searchText)
+    ));
+    if (bookmarkedOnly) {
+      result = result.filter(({ bookmarked }) => bookmarked);
     }
+    if (selectedGenre !== '') {
+      result = result.filter(({ genre }) => genre === selectedGenre);
+    }
+    return result;
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const {
+      onSearchTextChange,
+      onBookmarkedChange,
+      onSelectedGenreChange,
+      filtersMovies } = this;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.onSearchTextChange }
+          onSearchTextChange={ onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookMarkedOnlyChange={ this.onBookMarkedOnlyChange }
+          onBookmarkedChange={ onBookmarkedChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.onSelectedGenreChange }
+          onSelectedGenreChange={ onSelectedGenreChange }
         />
-        <MovieList movies={ movies } />
-        <AddMovie movies={ movies } />
+        <MovieList movies={ filtersMovies() } />
+        <AddMovie onClick={ () => {} } />
       </div>
     );
   }

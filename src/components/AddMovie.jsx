@@ -25,7 +25,7 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.resetState = this.resetState.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -36,17 +36,19 @@ class AddMovie extends Component {
     }));
   }
 
-  resetState() {
+  handleClick() {
     const { onClick } = this.props;
-    onClick(this.state);
-    this.setState(() => ({
+    const { movie } = this.state;
+    console.log('teste');
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
-      storyline: '',
       rating: 0,
       genre: 'action',
-    }));
+      storyline: '',
+    });
+    onClick(movie);
   }
 
   render() {
@@ -58,8 +60,7 @@ class AddMovie extends Component {
       rating,
       genre,
     } = this.state;
-
-    const { handleChange } = this;
+    const { handleChange, handleClick } = this;
     return (
       <form data-testid="add-movie-form">
         <Title value={ title } handleChange={ handleChange } />
@@ -68,7 +69,7 @@ class AddMovie extends Component {
         <Storyline value={ storyline } handleChange={ handleChange } />
         <AddRating rating={ rating } handleChange={ handleChange } />
         <Genre value={ genre } handleChange={ handleChange } />
-        <ButtonAdd setState={ this.setState } />
+        <ButtonAdd handleClick={ handleClick } />
       </form>
     );
   }
