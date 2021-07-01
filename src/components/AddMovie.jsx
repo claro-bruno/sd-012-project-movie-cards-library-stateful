@@ -6,11 +6,13 @@ import AddMovieImg from './AddMovieImg';
 import AddMovieStoryLine from './AddMovieStoryLine';
 import AddMovieRating from './AddMovieRating';
 import AddMovieGenre from './AddMovieGenre';
+import AddMovieButton from './AddMovieButton';
 
 class AddMovie extends Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.clickFunction = this.clickFunction.bind(this);
     this.state = {
       title: '',
       subtitle: '',
@@ -25,6 +27,18 @@ class AddMovie extends Component {
     const { value, name } = event.target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  clickFunction() {
+    // onClick();
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -58,6 +72,9 @@ class AddMovie extends Component {
         <AddMovieGenre
           genre={ genre }
           onChangeGenre={ handleChange }
+        />
+        <AddMovieButton
+          clickFunction={ () => this.clickFunction() }
         />
       </form>
     );
