@@ -13,6 +13,7 @@ class MovieLibrary extends React.Component {
     this.filterByBookmarker = this.filterByBookmarker.bind(this);
     this.filterByGenre = this.filterByGenre.bind(this);
     this.filterByText = this.filterByText.bind(this);
+    this.addOnClick = this.addOnClick.bind(this);
 
     this.state = {
       searchText: '',
@@ -46,6 +47,10 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  addOnClick(movie) {
+    this.setState((previousMovies) => ({ movies: [...previousMovies.movies, movie] }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     let newMovies = [...movies];
@@ -70,7 +75,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.changeHandler }
         />
         <AddMovie
-          onClick={ () => {} }
+          onClick={ this.addOnClick }
         />
         <MovieList
           movies={ newMovies }
@@ -84,7 +89,6 @@ MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.object,
   ).isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
 };
 
 export default MovieLibrary;
