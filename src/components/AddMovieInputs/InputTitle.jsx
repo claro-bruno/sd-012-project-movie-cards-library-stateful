@@ -11,6 +11,7 @@ class InputTitle extends React.Component {
           type="text"
           id="inputTitle"
           data-testid="title-input"
+          name="title"
           value={ value }
           onChange={ onChange }
         />
@@ -18,8 +19,10 @@ class InputTitle extends React.Component {
     );
   }
 }
+
 InputTitle.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
+
 export default InputTitle;

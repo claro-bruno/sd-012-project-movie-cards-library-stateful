@@ -10,6 +10,7 @@ class InputSelect extends Component {
         <select
           id="inputSelect"
           data-testid="genre-input"
+          name="genre"
           value={ value }
           onChange={ onChange }
         >

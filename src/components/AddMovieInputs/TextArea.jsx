@@ -10,8 +10,9 @@ class TextArea extends Component {
         <textarea
           id="textArea"
           cols="30"
-          rows="15"
+          rows="3"
           data-testid="storyline-input"
+          name="storyline"
           value={ value }
           onChange={ onChange }
         />

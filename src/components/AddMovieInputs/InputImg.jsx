@@ -10,6 +10,7 @@ class InputImg extends React.Component {
         <input
           id="inputImg"
           type="text"
+          name="imagePath"
           value={ value }
           data-testid="image-input"
           onChange={ onChange }
