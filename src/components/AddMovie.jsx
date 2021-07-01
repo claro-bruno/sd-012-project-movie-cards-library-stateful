@@ -31,7 +31,20 @@ class AddMovie extends React.Component {
 
   submitMovie() {
     const { onClick } = this.props;
-    onClick();
+    const { importTitle, importSubtitle, importStoryline,
+      imagePath, importGenre, importRating } = this.state;
+
+    const newMovie = {
+      title: importTitle,
+      subtitle: importSubtitle,
+      storyline: importStoryline,
+      imagePath,
+      genre: importGenre,
+      rating: importRating,
+    };
+
+    onClick(newMovie);
+
     this.setState({
       importTitle: '',
       importSubtitle: '',

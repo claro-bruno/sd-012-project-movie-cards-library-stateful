@@ -10,10 +10,13 @@ class MovieLibrary extends React.Component {
     const { movies } = this.props;
 
     this.handleChange = this.handleChange.bind(this);
+    this.changeMovieList = this.changeMovieList.bind(this);
+
     this.state = {
       movies,
       textInput: '',
       genreOption: '',
+      favoritesOnly: '',
     };
   }
 
@@ -23,8 +26,11 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
-  changeMovieList(movie) {
-    this.setState()
+  changeMovieList(newMovie) {
+    // fundão brabo fizemo junto
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, newMovie],
+    }));
   }
 
   render() {
@@ -58,13 +64,7 @@ class MovieLibrary extends React.Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.shape({
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    storyline: PropTypes.string,
-    rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    imagePath: PropTypes.string,
-  }).isRequired,
+  movies: PropTypes.arrayOf(Object).isRequired,
 };
 
 export default MovieLibrary;

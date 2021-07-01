@@ -22,7 +22,7 @@ class ImportRating extends React.Component {
 
 ImportRating.propTypes = {
   handleChange: PropTypes.func.isRequired,
-  importRating: PropTypes.string,
+  importRating: PropTypes.number,
 };
 
 ImportRating.defaultProps = {
