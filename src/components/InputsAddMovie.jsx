@@ -10,6 +10,7 @@ class InputsAddMovie extends React.Component {
           Título
           <input
             name="title"
+            type="text"
             value={ title }
             onChange={ handleChange }
             data-testid="title-input"
@@ -19,6 +20,7 @@ class InputsAddMovie extends React.Component {
           Subtítulo
           <input
             name="subtitle"
+            type="text"
             value={ subtitle }
             onChange={ handleChange }
             data-testid="subtitle-input"
@@ -28,6 +30,7 @@ class InputsAddMovie extends React.Component {
           Imagem
           <input
             name="imagePath"
+            type="text"
             value={ imagePath }
             onChange={ handleChange }
             data-testid="image-input"
@@ -52,7 +55,7 @@ InputsAddMovie.propTypes = {
   subtitle: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
-  rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  rating: PropTypes.number.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 
