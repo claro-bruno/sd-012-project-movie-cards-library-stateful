@@ -4,6 +4,7 @@ import AddMovieTitle from './childsComponents/addMovieTitle';
 import AddMovieSubtitle from './childsComponents/addMovieSubtitle';
 import AddMovieImagePath from './childsComponents/addMovieImagePath';
 import AddMovieStoryline from './childsComponents/addMovieStoryline';
+import AddMovieRating from './childsComponents/addMovieRating';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       imagePath: '',
       storyline: '',
+      rating: 0,
     };
   }
 
@@ -25,7 +27,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       // Para entender como reduzir as linhas neste render peguei a dica do problema resolvido no slack na thread abaixo
       // https://trybecourse.slack.com/archives/C01T2C18DSM/p1624915284086600?thread_ts=1624914367.084500&cid=C01T2C18DSM
@@ -37,6 +39,7 @@ class AddMovie extends React.Component {
         <AddMovieSubtitle handleChange={ this.handleChange } subtitle={ subtitle } />
         <AddMovieImagePath handleChange={ this.handleChange } imagePath={ imagePath } />
         <AddMovieStoryline handleChange={ this.handleChange } storyline={ storyline } />
+        <AddMovieRating handleChange={ this.handleChange } rating={ rating } />
       </form>
     );
   }
