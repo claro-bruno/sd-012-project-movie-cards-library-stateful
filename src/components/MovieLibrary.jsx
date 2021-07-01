@@ -11,7 +11,6 @@ class MovieLibrary extends Component {
   }
 
   render() {
-
     const { movies } = this.props;
 
     return (
