@@ -13,58 +13,30 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
 
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-
-    this.handleSubtitleChange = this.handleSubtitleChange.bind(this);
-
-    this.handleImageChange = this.handleImageChange.bind(this);
-
-    this.handleStorylineChange = this.handleStorylineChange.bind(this);
-
-    this.handleRatingChange = this.handleRatingChange.bind(this);
-
-    this.handleGenreChange = this.handleGenreChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
     this.resetState = this.resetState.bind(this);
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleChange(name, value) {
+  handleChange({ target: { name, value } }) {
     this.setState({ [name]: value });
   }
 
-  handleTitleChange(event) {
-    this.setState({ title: event.target.value });
-  }
-
-  handleSubtitleChange(event) {
-    this.setState({ subtitle: event.target.value });
-  }
-
-  handleImageChange(event) {
-    this.setState({ imagePath: event.target.value });
-  }
-
-  handleStorylineChange(event) {
-    this.setState({ storyline: event.target.value });
-  }
-
-  handleRatingChange(event) {
-    this.setState({ rating: event.target.value });
-  }
-
-  handleGenreChange(event) {
-    this.setState({ genre: event.target.value });
+  handleClick() {
+    this.resetState();
   }
 
   resetState() {
-    this.setState = ({
-      subtitle: '',
+    this.setState(() => ({
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
-    });
+    }));
     console.log(this.state);
   }
 
@@ -80,15 +52,14 @@ class AddMovie extends React.Component {
           type="text"
           name="title"
           value={ title }
-          onChange={ this.handleTitleChange }
-          // onChange={ ({ target }) => this.handleTitleChange({ name, value }) }
+          onChange={ this.handleChange }
           data-testid="title-input"
         />
       </label>
     );
   }
 
-  renderSubtitle(subTitle) {
+  renderSubtitle(subtitle) {
     return (
       <label
         htmlFor="subtitle"
@@ -99,8 +70,8 @@ class AddMovie extends React.Component {
         <input
           type="text"
           name="subtitle"
-          value={ subTitle }
-          onChange={ this.handleSubtitleChange }
+          value={ subtitle }
+          onChange={ this.handleChange }
           data-testid="subtitle-input"
         />
       </label>
@@ -119,7 +90,7 @@ class AddMovie extends React.Component {
           type="text"
           name="imagePath"
           value={ imagePath }
-          onChange={ this.handleImageChange }
+          onChange={ this.handleChange }
           data-testid="image-input"
         />
       </label>
@@ -139,7 +110,7 @@ class AddMovie extends React.Component {
           value={ storyline }
           cols="30"
           rows="10"
-          onChange={ this.handleStorylineChange }
+          onChange={ this.handleChange }
           data-testid="storyline-input"
         />
       </label>
@@ -158,7 +129,7 @@ class AddMovie extends React.Component {
           type="number"
           name="rating"
           value={ rating }
-          onChange={ this.handleRatingChange }
+          onChange={ this.handleChange }
           data-testid="rating-input"
         />
       </label>
@@ -175,7 +146,7 @@ class AddMovie extends React.Component {
         <select
           name="genre"
           value={ genre }
-          onChange={ this.handleGenreChange }
+          onChange={ this.handleChange }
           data-testid="genre-input"
         >
           <option value="action" data-testid="genre-option">Ação</option>
@@ -188,26 +159,30 @@ class AddMovie extends React.Component {
 
   render() {
     const {
-      title, subTitle, imagePath, storyline, rating, genre,
+      title, subtitle, imagePath, storyline, rating, genre,
     } = this.state;
-    const { onClick: clickProps } = this.props;
+    // const { onClick: clickProps } = this.props;
+    const { onClick } = this.props;
+
     return (
       <form
         onSubmit={ this.resetState }
         data-testid="add-movie-form"
       >
         { this.renderTitle(title) }
-        { this.renderSubtitle(subTitle) }
+        { this.renderSubtitle(subtitle) }
         { this.renderImagePath(imagePath) }
         { this.renderStoryline(storyline) }
         { this.renderRating(rating) }
         { this.renderGenre(genre) }
 
+        {/* Requisito 14 feito na monitoria individual com a
+        ajuda do monitor M. Daniel! */}
         <button
           type="button"
           onClick={ () => {
-            clickProps(this.state);
-            this.resetState();
+            onClick(this.state);
+            this.handleClick();
           } }
           data-testid="send-button"
         >
