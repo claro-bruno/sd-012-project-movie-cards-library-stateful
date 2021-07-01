@@ -7,13 +7,13 @@ import MovieList from './MovieList';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: props.movies,
     };
+    this.teste = this.teste.bind(this);
     this.onTextChangeSearch = this.onTextChangeSearch.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -44,11 +44,40 @@ class MovieLibrary extends Component {
     }
   }
 
+  // Feito com ajuda de Márcio Daniel - Turma 8
+  teste() {
+    console.log('função teste: contém os filtros');
+    const { movies, bookmarkedOnly, selectedGenre, searchText } = this.state;
+    if (bookmarkedOnly) {
+      const filter = movies.filter((movie) => movie.bookmarked);
+      this.setState({
+        movies: filter,
+      });
+    }
+    if (selectedGenre) {
+      const filterGenre = movies.filter((movie) => movie.genre === selectedGenre);
+      this.setState({
+        movies: filterGenre,
+      });
+    }
+    if (searchText) {
+      const filterText = movies.filter((movie) => (
+        movie.title.toLowerCase().includes(searchText.toLowerCase())
+        || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+        || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
+      ));
+      this.setState({
+        movies: filterText,
+      });
+    }
+  }
+
   render() {
     const { onTextChangeSearch, onBookmarkedChange, onSelectedGenreChange } = this;
     const { bookmarkedOnly, selectedGenre, searchText, movies } = this.state;
     return (
       <div>
+        <button type="button" onClick={ this.teste }>Botão</button>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ onTextChangeSearch }
@@ -57,7 +86,10 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList
+          movies={ movies }
+          teste={ this.teste }
+        />
         <AddMovie />
       </div>
     );
