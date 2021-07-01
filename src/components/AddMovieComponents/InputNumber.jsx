@@ -1,6 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-class Number extends React.Component {
+class InputNumber extends React.Component {
   render() {
     const { name, value, onChange } = this.props;
 
@@ -20,4 +21,10 @@ class Number extends React.Component {
   }
 }
 
-export default Number;
+InputNumber.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
+
+export default InputNumber;

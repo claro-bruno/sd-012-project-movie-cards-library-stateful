@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor({ movies }) {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: [...props.movies],
     };
   }
 
@@ -23,12 +24,24 @@ class MovieLibrary extends Component {
   }
 
   handleOnClick = (state) => {
-    console.log(state);
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, state],
+    });
+  }
+
+  filterMovies = () => {
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
+    return (movies.filter((movie) => (
+      (movie.title.toLowerCase().includes(searchText.toLowerCase())
+      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+      || movie.storyline.toLowerCase().includes(searchText.toLowerCase()))
+      && (bookmarkedOnly ? movie.bookmarked : true)
+      && movie.genre.includes(selectedGenre))));
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -40,7 +53,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.filterMovies() } />
         <AddMovie
           onClick={ this.handleOnClick }
         />
@@ -48,5 +61,11 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.object,
+  ).isRequired,
+};
 
 export default MovieLibrary;

@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Subtitulo from './AddMovieComponents/Subtitulo';
 import Titulo from './AddMovieComponents/Titulo';
 import Imagem from './AddMovieComponents/Imagem';
 import TextArea from './AddMovieComponents/TextArea';
-import Number from './AddMovieComponents/Number';
+import InputNumber from './AddMovieComponents/InputNumber';
 import Select from './AddMovieComponents/Select';
 import Button from './AddMovieComponents/Button';
 
@@ -14,6 +15,7 @@ const INITIAL_STATE = {
   storyline: '',
   rating: 0,
   genre: 'action',
+  bookmarked: false,
 };
 class AddMovie extends React.Component {
   constructor() {
@@ -25,7 +27,7 @@ class AddMovie extends React.Component {
   onChange = (event) => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value,
+      [name]: name === 'rating' ? Number(value) : value,
     });
   }
 
@@ -51,12 +53,16 @@ class AddMovie extends React.Component {
         <Subtitulo name="subtitle" value={ subtitle } onChange={ this.onChange } />
         <Imagem name="imagePath" value={ imagePath } onChange={ this.onChange } />
         <TextArea name="storyline" value={ storyline } onChange={ this.onChange } />
-        <Number name="rating" value={ rating } onChange={ this.onChange } />
+        <InputNumber name="rating" value={ rating } onChange={ this.onChange } />
         <Select name="genre" value={ genre } onChange={ this.onChange } />
         <Button addMovie={ this.getState } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

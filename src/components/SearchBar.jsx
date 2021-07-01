@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Input from './Input';
 
 class SearchBar extends React.Component {
@@ -18,7 +19,6 @@ class SearchBar extends React.Component {
           id="movie-name-filter"
           name="searchText"
           type="text"
-          placeholder='"Trybe Wars"'
           labelText="Inclui o texto"
           value={ searchText }
           onChange={ onSearchTextChange }
@@ -52,5 +52,14 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
 
 export default SearchBar;

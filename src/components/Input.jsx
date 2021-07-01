@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
@@ -6,7 +7,6 @@ class Input extends React.Component {
       id,
       name,
       type,
-      placeholder,
       labelText,
       value,
       onChange,
@@ -21,7 +21,6 @@ class Input extends React.Component {
           data-testid={ testeid }
           name={ name }
           type={ type }
-          placeholder={ placeholder }
           onChange={ onChange }
           value={ value }
           checked={ checked }
@@ -30,5 +29,21 @@ class Input extends React.Component {
     );
   }
 }
+
+Input.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  labelText: PropTypes.string.isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  testeid: PropTypes.string.isRequired,
+  checked: PropTypes.bool,
+};
+
+Input.defaultProps = {
+  checked: false,
+  value: '',
+};
 
 export default Input;
