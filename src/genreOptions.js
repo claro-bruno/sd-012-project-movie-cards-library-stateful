@@ -1,15 +1,15 @@
 const genreOptions = [
   {
     value: 'action',
-    text: Ação,
+    text: 'Ação',
   },
   {
     value: 'comedy',
-    text: Comédia,
+    text: 'Comédia',
   },
   {
     value: 'thriller',
-    text: Suspense,
+    text: 'Suspense',
   },
 ];
 

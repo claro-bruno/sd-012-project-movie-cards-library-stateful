@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Input from './Input';
 import inputs from '../inputs';
-import Option from './Option';
-import genreOptions from '../genreOptions';
+import Select from './Select';
 
 class AddMovie extends Component {
   constructor() {
@@ -18,6 +18,7 @@ class AddMovie extends Component {
     };
 
     this.handleInputs = this.handleInputs.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleInputs({ target }) {
@@ -27,8 +28,20 @@ class AddMovie extends Component {
     });
   }
 
+  handleClick(onClick) {
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
     const { storyline, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -55,24 +68,22 @@ class AddMovie extends Component {
               onChange={ this.handleInputs }
             />
           </label>
-          <label htmlFor="genre-input" data-testid="genre-input-label">
-            Gênero
-            <select
-              data-testid="genre-input"
-              id="genre-input"
-              name="genre"
-              value={ genre }
-              onChange={ this.handleInputs }
-            >
-              { genreOptions.map(({ value, text }) => (
-                <Option value={ value } text={ text } key={ value } />
-              )) }
-            </select>
-          </label>
+          <Select onChange={ this.handleInputs } genreState={ genre } />
+          <button
+            data-testid="send-button"
+            type="button"
+            onClick={ this.handleClick(onClick) }
+          >
+            Adicionar filme
+          </button>
         </fieldset>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
