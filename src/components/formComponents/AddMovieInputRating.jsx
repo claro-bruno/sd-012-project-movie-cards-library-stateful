@@ -3,7 +3,7 @@ import React from 'react';
 
 export default class AddMovieInputRating extends React.Component {
   render() {
-    // const { searchText, onSearchTextChange } = this.props;
+    const { changeHandler, rating } = this.props;
     return (
       <label
         htmlFor="rating"
@@ -11,10 +11,10 @@ export default class AddMovieInputRating extends React.Component {
       >
         Avaliação
         <input
-          // onChange={ this.changeHandler }
+          onChange={ changeHandler }
           type="number"
           data-testid="rating-input"
-          // value={ this.state.rating }
+          value={ rating }
           id="rating"
         />
       </label>
