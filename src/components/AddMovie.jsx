@@ -66,7 +66,7 @@ class AddMovie extends Component {
         <Subtitle value={ subtitle } handleChange={ handleChange } />
         <ImagePath value={ imagePath } handleChange={ handleChange } />
         <Storyline value={ storyline } handleChange={ handleChange } />
-        <AddRating value={ rating } handleChange={ handleChange } />
+        <AddRating rating={ rating } handleChange={ handleChange } />
         <Genre value={ genre } handleChange={ handleChange } />
         <ButtonAdd setState={ this.setState } />
       </form>
