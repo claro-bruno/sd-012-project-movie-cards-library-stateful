@@ -2,6 +2,7 @@ import React from 'react';
 
 class Formlabelsubtitle extends React.Component {
   render() {
+    const { value, onChange } = this.props;
     return (
       <label
         htmlFor="subtitle"
@@ -13,7 +14,8 @@ class Formlabelsubtitle extends React.Component {
           type="text"
           name="subtitle"
           id="subtitle"
-          onChange={ this.handlechenge }
+          value={ value }
+          onChange={ onChange }
         />
       </label>
     );

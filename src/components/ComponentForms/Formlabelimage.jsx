@@ -2,6 +2,7 @@ import React from 'react';
 
 class Formlabelimage extends React.Component {
   render() {
+    const { value, onChange } = this.props;
     return (
       <label
         htmlFor="image"
@@ -13,7 +14,8 @@ class Formlabelimage extends React.Component {
           data-testid="image-input"
           type="text"
           name="imagePath"
-          onChange={ this.handlechenge }
+          value={ value }
+          onChange={ onChange }
         />
       </label>
     );

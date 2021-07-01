@@ -2,6 +2,7 @@ import React from 'react';
 
 class FormlabelStoryline extends React.Component {
   render() {
+    const { value, onChange } = this.props;
     return (
       <label
         htmlFor="storyline"
@@ -14,7 +15,8 @@ class FormlabelStoryline extends React.Component {
           name="storyline"
           cols="30"
           rows="10"
-          onChange={ this.handlechenge }
+          value={ value }
+          onChange={ onChange }
         />
       </label>
     );
