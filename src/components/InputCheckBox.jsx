@@ -11,6 +11,7 @@ class InputCheckBox extends Component {
       <label htmlFor="checkbox" data-testid="checkbox-input-label">
         Mostrar somente favoritos
         <input
+          name="bookmarkedOnly"
           type="checkbox"
           checked={ bookmarkedOnly }
           onChange={ onBookmarkedChange }

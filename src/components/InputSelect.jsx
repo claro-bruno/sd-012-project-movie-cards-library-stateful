@@ -8,6 +8,7 @@ class InputSelect extends Component {
       <label htmlFor="inputSelect" data-testid="select-input-label">
         Filtrar por gênero
         <select
+          name="selectedGenre"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
           data-testid="select-input"

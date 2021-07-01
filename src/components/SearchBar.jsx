@@ -18,16 +18,16 @@ class SearchBar extends Component {
     return (
       <form data-testid="search-bar-form">
         <InputText
-          text={ searchText }
-          onChangeText={ onSearchTextChange }
+          searchText={ searchText }
+          onSearchTextChange={ onSearchTextChange }
         />
         <InputCheckBox
-          input={ bookmarkedOnly }
-          onChangeInput={ onBookmarkedChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ onBookmarkedChange }
         />
         <InputSelect
-          gender={ selectedGenre }
-          onChangeGender={ onSelectedGenreChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
         />
       </form>
     );
