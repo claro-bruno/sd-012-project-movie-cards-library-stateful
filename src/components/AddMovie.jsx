@@ -1,4 +1,10 @@
 import React from 'react';
+import InputAddMovieTitle from './MyComponents/InputAddMovieTitle';
+import InputAddMoviesSub from './MyComponents/InputAddMoviesSub';
+import InputAddMovieImg from './MyComponents/InputAddMovieImg';
+import InputAddMovieSinopse from './MyComponents/InputAddMovieSinopse';
+import InputAddMovieRating from './MyComponents/InputAddMovieRating';
+import InputAddMovieGenre from './MyComponents/InputAddMovieGenre';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -8,10 +14,10 @@ class AddMovie extends React.Component {
     this.state = {
       subtitle: '',
       title: '',
-      // imagePath: "",
-      // storyline: "",
-      // rating: 0,
-      // genre: "action",
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     };
   }
 
@@ -23,29 +29,25 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input-label" data-testid="title-input-label">
-          Título
-          <input
-            id="title-input-label"
-            data-testid="title-input"
-            name="title"
-            value={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
-        <label htmlFor="subtitle-input-label" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            id="subtitle-input-label"
-            name="subtitle"
-            value={ subtitle }
-            onChange={ this.handleChange }
-          />
-        </label>
+        <InputAddMovieTitle handleChange={ this.handleChange } title={ title } />
+        <InputAddMoviesSub
+          handleChange={ this.handleChange }
+          subtitle={ subtitle }
+        />
+        <InputAddMovieImg
+          handleChange={ this.handleChange }
+          imagePath={ imagePath }
+        />
+        <InputAddMovieSinopse
+          handleChange={ this.handleChange }
+          storyline={ storyline }
+        />
+        <InputAddMovieRating handleChange={ this.handleChange } rating={ rating } />
+        <InputAddMovieGenre handleChange={ this.handleChange } genre={ genre } />
+        {/* <button data-testid="send-button">Adicionar filme</button> */}
       </form>
     );
   }
