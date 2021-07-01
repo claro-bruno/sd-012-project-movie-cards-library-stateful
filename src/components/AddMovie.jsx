@@ -75,7 +75,6 @@ class AddMovie extends React.Component {
         <button
           type="submit"
           data-testid="send-button"
-          labelButton="Adicionar filme"
         >
           Adicionar filme
         </button>
