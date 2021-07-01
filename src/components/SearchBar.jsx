@@ -12,6 +12,7 @@ class SearchBar extends React.Component {
 
         <Input
           inputId="textInclude"
+          inputName="searchText"
           testIdInput="text-input"
           testIdLabel="text-input-label"
           typeInput="text"
@@ -22,6 +23,7 @@ class SearchBar extends React.Component {
 
         <Input
           inputId="checkboxFavorites"
+          inputName="bookmarkedOnly"
           testIdInput="checkbox-input"
           testIdLabel="checkbox-input-label"
           typeInput="checkbox"

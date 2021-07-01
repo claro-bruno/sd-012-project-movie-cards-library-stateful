@@ -11,6 +11,7 @@ class Select extends React.Component {
       >
         Filtrar por gênero
         <select
+          name="selectedGenre"
           value={ selectedGenre }
           id="selectGenre"
           onChange={ onSelectedGenreChange }
