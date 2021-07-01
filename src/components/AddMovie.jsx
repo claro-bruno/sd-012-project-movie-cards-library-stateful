@@ -1,29 +1,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import ButtonAdd from './ButtonAdd';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import ImagePath from './ImagePath';
 import Storyline from './Storyline';
 import Genre from './Genre';
 import AddRating from './AddRating';
+import ButtonAdd from './ButtonAdd';
 
 /**
  * Consultei o repositório do Wendell Costa para resolver essa parte.
  * Link: https://github.com/tryber/sd-011-project-movie-cards-library-stateful/pull/174/commits/44b731c7cb8c4d936475d54de1125e003e202a80
  */
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
 
 class AddMovie extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = { ...initialState };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
@@ -38,17 +39,8 @@ class AddMovie extends Component {
 
   handleClick() {
     const { onClick } = this.props;
-    const { movie } = this.state;
-    console.log('teste');
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      rating: 0,
-      genre: 'action',
-      storyline: '',
-    });
-    onClick(movie);
+    onClick(this.state);
+    this.setState({ ...initialState });
   }
 
   render() {
@@ -69,7 +61,7 @@ class AddMovie extends Component {
         <Storyline value={ storyline } handleChange={ handleChange } />
         <AddRating rating={ rating } handleChange={ handleChange } />
         <Genre value={ genre } handleChange={ handleChange } />
-        <ButtonAdd handleClick={ handleClick } />
+        <ButtonAdd handleClick={ handleClick }/>
       </form>
     );
   }

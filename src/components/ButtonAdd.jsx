@@ -13,7 +13,7 @@ class ButtonAdd extends Component {
       <button
         data-testid="send-button"
         type="button"
-        onClick={ handleClick }
+        onClick={ () => handleClick(this.state) }
         value="Adicionar filme"
       >
         Adicionar filme
