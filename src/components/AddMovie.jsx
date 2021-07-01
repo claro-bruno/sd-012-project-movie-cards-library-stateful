@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputAddMovieTitle from './MyComponents/InputAddMovieTitle';
 import InputAddMoviesSub from './MyComponents/InputAddMoviesSub';
 import InputAddMovieImg from './MyComponents/InputAddMovieImg';
@@ -10,6 +11,7 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.submitBtn = this.submitBtn.bind(this);
 
     this.state = {
       subtitle: '',
@@ -25,6 +27,19 @@ class AddMovie extends React.Component {
     const { name, value } = target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  submitBtn() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -47,10 +62,20 @@ class AddMovie extends React.Component {
         />
         <InputAddMovieRating handleChange={ this.handleChange } rating={ rating } />
         <InputAddMovieGenre handleChange={ this.handleChange } genre={ genre } />
-        {/* <button data-testid="send-button">Adicionar filme</button> */}
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.submitBtn }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

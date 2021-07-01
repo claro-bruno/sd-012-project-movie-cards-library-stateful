@@ -14,10 +14,9 @@ class InputAddMovieGenre extends React.Component {
           value={ genre }
           onChange={ handleChange }
         >
-          <option value="" data-testid="genre-option">Todos</option>
-          <option value="action" data-test="genre-option">Ação</option>
-          <option value="comedy" data-test="genre-option">Comédia</option>
-          <option value="thriller" data-test="genre-option">Suspense</option>
+          <option value="action" data-testid="genre-option">Ação</option>
+          <option value="comedy" data-testid="genre-option">Comédia</option>
+          <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
       </label>
     );
