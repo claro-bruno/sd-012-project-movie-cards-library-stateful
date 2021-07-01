@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 class InputSelect extends Component {
   render() {
-    const { gender, onChangeGender } = this.props;
+    const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <label htmlFor="inputSelect" data-testid="select-input-label">
         Filtrar por gênero
         <select
-          value={ gender }
-          onChange={ onChangeGender }
+          value={ selectedGenre }
+          onChange={ onSelectedGenreChange }
           data-testid="select-input"
         >
           <option value="" data-testid="select-option">

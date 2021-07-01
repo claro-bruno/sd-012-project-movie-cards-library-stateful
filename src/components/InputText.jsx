@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 class InputText extends Component {
   render() {
     const {
-      text,
-      onChangeText,
+      searchText,
+      onSearchTextChange,
     } = this.props;
     return (
       <label htmlFor="inputText" data-testid="text-input-label">
         Inclui o texto
         <input
           data-testid="text-input"
-          value={ text }
-          onChange={ onChangeText }
+          value={ searchText }
+          onChange={ onSearchTextChange }
         />
       </label>
     );

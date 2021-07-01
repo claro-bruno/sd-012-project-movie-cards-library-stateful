@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 class InputCheckBox extends Component {
   render() {
     const {
-      input,
-      onChangeInput,
+      bookmarkedOnly,
+      onBookmarkedChange,
     } = this.props;
     return (
       <label htmlFor="checkbox" data-testid="checkbox-input-label">
         Mostrar somente favoritos
         <input
           type="checkbox"
-          checked={ input }
-          onChange={ onChangeInput }
+          checked={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
           data-testid="checkbox-input"
         />
       </label>
