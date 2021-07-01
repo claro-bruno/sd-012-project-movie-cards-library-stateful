@@ -7,10 +7,11 @@ import ImagePath from './ImagePath';
 import Storyline from './Storyline';
 import RatingAdd from './RatingAdd';
 import Genre from './Genre';
+import AddMovieButton from './AddMovieButton';
 
-class AddMovie extends React.Component {
-  constructor() {
-    super();
+export default class AddMovie extends React.Component {
+  constructor(props) {
+    super(props);
 
     this.handleChange = this.handleChange.bind(this);
     this.initialState = this.initialState.bind(this);
@@ -26,13 +27,22 @@ class AddMovie extends React.Component {
   }
 
   handleChange({ target }) {
-    const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
+    if (target.type === 'number') {
+      this.setState({
+        [name]: parseFloat(value),
+      });
+    } else {
+      this.setState({
+        [name]: value,
+      });
+    }
   }
 
-  initialState() {
+  initialState(event) {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -55,24 +65,16 @@ class AddMovie extends React.Component {
         <Storyline value={ storyline } handleChange={ this.handleChange } />
         <RatingAdd value={ rating } handleChange={ this.handleChange } />
         <Genre value={ genre } handleChange={ this.handleChange } />
-        <button
-          type="button"
-          data-testid="send-button"
-          onClick={ this.initialState }
-        >
-          Adicionar filme
-        </button>
+        <AddMovieButton initialState={ this.initialState } />
       </form>
     );
   }
 }
 
 AddMovie.propTypes = {
-  onClick: propTypes.func,
+  onClick: propTypes.func.isRequired,
 };
 
-AddMovie.defaultProps = {
-  onClick: () => {},
-};
-
-export default AddMovie;
+// AddMovie.defaultProps = {
+//   onClick: () => {},
+// };
