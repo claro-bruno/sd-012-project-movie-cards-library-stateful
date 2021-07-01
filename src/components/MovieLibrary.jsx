@@ -10,10 +10,16 @@ class MovieLibrary extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleAddMovie = this.handleAddMovie.bind(this);
-    this.stateDefault = this.stateDefault.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
 
-    this.state = this.stateDefault();
+    const { movies } = this.props;
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies,
+    };
   }
 
   handleAddMovie(stateAddMovie) {
@@ -56,19 +62,9 @@ class MovieLibrary extends React.Component {
     return filterSelectedGenre;
   }
 
-  stateDefault() {
-    const { movies } = this.props;
-    return {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-      movies,
-    };
-  }
-
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { handleChange, handleAddMovie } = this;
+    const { handleChange, handleAddMovie, filterMovies } = this;
     return (
       <section>
         <SearchBar
@@ -79,7 +75,7 @@ class MovieLibrary extends React.Component {
           onBookmarkedChange={ handleChange }
           onSelectedGenreChange={ handleChange }
         />
-        <MovieList movies={ this.filterMovies } />
+        <MovieList movies={ filterMovies() } />
         <AddMovie onClick={ handleAddMovie } />
       </section>
 
