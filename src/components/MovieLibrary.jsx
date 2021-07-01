@@ -29,6 +29,7 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  // exercício feito com total de ajuda dos meus amigos Nuwanda, Lucas Nahas e Marcos Suqueira.
   addMovieState(newMovie) {
     this.setState((prevState) => ({
       movies: [...prevState.movies, newMovie],
