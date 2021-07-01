@@ -1,4 +1,5 @@
 import React from 'react';
+import Input from './Input';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -32,16 +33,24 @@ class AddMovie extends React.Component {
     } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title" data-testid="title-input-label">
-          Título
-          <input
-            data-testid="title-input"
-            name="title"
-            type="text"
-            value={ title }
-            onChange={ this.handleChange }
-          />
-        </label>
+        <Input
+        label="Título"
+        dataLabel="title-input-label"
+        dataInput="title-input"
+        name="title"
+        type="text"
+        value={ title }
+        onChange={ this.handleChange }
+        />
+        <Input
+        label="Subtítulo"
+        dataLabel="subtitle-input-label"
+        dataInput="subtitle-input"
+        name="subtitle"
+        type="text"
+        value={ subtitle }
+        onChange={ this.handleChange }
+        /> 
       </form>
     );
   }
