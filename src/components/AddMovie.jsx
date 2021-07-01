@@ -3,7 +3,6 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import InputsText from './InputsText';
 import InputNumb from './InputNumb';
-// import SelectInput from './SelectInput';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -15,7 +14,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
   }
 
@@ -27,7 +26,8 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { handleChange } = this;
     return (
       <form data-testid="add-movie-form">
         <InputsText
@@ -35,7 +35,7 @@ class AddMovie extends React.Component {
           subtitle={ subtitle }
           imagePath={ imagePath }
           storyline={ storyline }
-          handleChange={ this.handleChange }
+          handleChange={ handleChange }
         />
         <InputNumb
           testIdLabel="rating-input-label"
@@ -43,8 +43,21 @@ class AddMovie extends React.Component {
           name="rating"
           value={ rating }
           testid="rating-input"
-          onChange={ this.handleChange }
+          onChange={ handleChange }
         />
+        <label data-testid="genre-input-label" htmlFor="genre-input">
+          Gênero
+          <select
+            data-testid="genre-input"
+            value={ genre }
+            onChange={ handleChange }
+            name="genre"
+          >
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
+        </label>
       </form>
     );
   }
