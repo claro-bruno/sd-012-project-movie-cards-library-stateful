@@ -4,28 +4,28 @@ const inputs = [
     textLabel: 'Título',
     dataTestid: 'title-input',
     type: 'text',
-    key: 'title',
+    keyState: 'title',
   },
   {
     dataTestidLabel: 'subtitle-input-label',
     textLabel: 'Subtítulo',
     dataTestid: 'subtitle-input',
     type: 'text',
-    key: 'subtitle',
+    keyState: 'subtitle',
   },
   {
     dataTestidLabel: 'image-input-label',
     textLabel: 'Imagem',
     dataTestid: 'image-input',
     type: 'text',
-    key: 'imagePath',
+    keyState: 'imagePath',
   },
   {
     dataTestidLabel: 'rating-input-label',
     textLabel: 'Avaliação',
     dataTestid: 'rating-input',
     type: 'number',
-    key: 'rating',
+    keyState: 'rating',
   },
 ];
 

@@ -8,6 +8,7 @@ class Input extends Component {
       textLabel,
       dataTestid,
       type,
+      name,
       value,
       onChange,
       isRequired = true,
@@ -19,6 +20,7 @@ class Input extends Component {
           data-testid={ dataTestid }
           id={ dataTestid }
           type={ type }
+          name={ name }
           value={ value }
           onChange={ onChange }
           isRequired={ isRequired }
@@ -33,6 +35,7 @@ Input.propTypes = {
   textLabel: PropTypes.string.isRequired,
   dataTestid: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   isRequired: PropTypes.bool.isRequired,

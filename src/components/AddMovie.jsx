@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import Input from './Input';
 import inputs from '../inputs';
+import Option from './Option';
+import genreOptions from '../genreOptions';
 
 class AddMovie extends Component {
   constructor() {
@@ -15,51 +17,32 @@ class AddMovie extends Component {
       genre: 'action',
     };
 
-    this.onChangeInput = this.onChangeInput.bind(this);
-    this.onChangeInputTitle = this.onChangeTitle.bind(this);
-    this.onChangeSubtitle = this.onChangeSubtitle.bind(this);
-    this.onChangeImage = this.onChangeImage.bind(this);
-    this.onChangeStoryline = this.onChangeStoryline.bind(this);
-    this.onChangeRating = this.onChangeRating.bind(this);
+    this.handleInputs = this.handleInputs.bind(this);
   }
 
-  onChangeInput(e) {
+  handleInputs({ target }) {
+    const { name, value } = target;
     this.setState({
-      [e.target.key]: e.target.value,
+      [name]: value,
     });
-  }
-
-  onChangeStoryline(e) {
-    this.setState({
-      storyline: e.target.value,
-    });
-  }
-
-  onChangeGenre(e) {
-    this.setState({
-      genre: e.target.value,
-    });
-  }
-
-  this.AddNewMovie() {
-    
   }
 
   render() {
-    const { onClick } = this.props;
+    // const { onClick } = this.props;
     const { storyline, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <fieldset>
-          { inputs.map(({ dataTestidLabel, textLabel, dataTestid, type, key }) => (
+          { inputs.map(({ dataTestidLabel, textLabel, dataTestid, type, keyState }) => (
             <Input
               dataTestidLabel={ dataTestidLabel }
               textLabel={ textLabel }
               dataTestid={ dataTestid }
               type={ type }
-              value={ this.state[key] }
-              onChange={ this.onChangeInput }
-              key={ key }
+              name={ keyState }
+              value={ this.state[keyState] }
+              onChange={ this.handleInputs }
+              key={ keyState }
             />
           ))}
           <label htmlFor="storyline-input" data-testid="storyline-input-label">
@@ -67,8 +50,9 @@ class AddMovie extends Component {
             <textarea
               data-testid="storyline-input"
               id="storyline-input"
+              name="storyline"
               value={ storyline }
-              onChange={ this.onChangeStoryline }
+              onChange={ this.handleInputs }
             />
           </label>
           <label htmlFor="genre-input" data-testid="genre-input-label">
@@ -76,15 +60,15 @@ class AddMovie extends Component {
             <select
               data-testid="genre-input"
               id="genre-input"
+              name="genre"
               value={ genre }
-              onChange={ this.onChangeGenre }
+              onChange={ this.handleInputs }
             >
-              <option data-testid="genre-option" value="action">Ação</option>
-              <option data-testid="genre-option" value="comedy">Comédia</option>
-              <option data-testid="genre-option" value="thriller">Suspense</option>
+              { genreOptions.map(({ value, text }) => (
+                <Option value={ value } text={ text } key={ value } />
+              )) }
             </select>
           </label>
-          <button data-testid="send-button" onClick={ this.AddNewMovie }>Adicionar filme</button>
         </fieldset>
       </form>
     );
