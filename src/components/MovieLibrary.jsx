@@ -13,10 +13,11 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      movies: [...props.movies],
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.funcFilter = this.funcFilter.bind(this);
   }
 
   handleChange({ target }) {
@@ -25,8 +26,19 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
+  funcFilter() {
+    const { bookmarkedOnly, searchText, selectedGenre, movies } = this.state;
+    return (movies.filter((movie) => (
+      (movie.title.toLowerCase().includes(searchText.toLowerCase())
+      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+      || movie.storyline.toLowerCase().includes(searchText.toLowerCase()))
+      && (bookmarkedOnly ? movie.bookmarked : true)
+      && movie.genre.includes(selectedGenre)
+    )));
+  }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -38,7 +50,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.funcFilter() } />
         <AddMovie />
       </div>
     );
