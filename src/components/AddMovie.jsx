@@ -12,10 +12,11 @@ class addMovie extends React.Component {
     this.state = {
       subtitle: '',
       title: '',
-      imagePatch: '',
+      imagePath: '',
+      bookmarked: false,
       storyline: '',
       rating: 0,
-      selectedGenre: 'action',
+      genre: 'action',
     };
     this.handleChanger = this.handleChanger.bind(this);
     this.onClick2 = this.onClick2.bind(this);
@@ -34,22 +35,23 @@ class addMovie extends React.Component {
     this.setState({
       subtitle: '',
       title: '',
-      imagePatch: '',
+      imagePath: '',
+      bookmarked: false,
       storyline: '',
       rating: 0,
-      selectedGenre: 'action',
+      genre: 'action',
     });
   }
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePatch, storyline, rating, selectedGenre } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <AddMovieForm
           title={ title }
           subtitle={ subtitle }
-          imagePatch={ imagePatch }
+          imagePath={ imagePath }
           storyline={ storyline }
           handleChanger={ this.handleChanger }
         />
@@ -63,13 +65,13 @@ class addMovie extends React.Component {
           tipo="number"
         />
         <Select
-          valorInicial={ selectedGenre }
+          valorInicial={ genre }
           valorAlterado={ this.handleChanger }
           dataTestidLabel="genre-input-label"
           dataTestid="genre-input"
           dataTestidOption="genre-option"
           labelTitle="Gênero"
-          nome="selectedGenre"
+          nome="genre"
           optionValue={ ['action', 'comedy', 'thriller'] }
           array={ ['Ação', 'Comédia', 'Suspense'] }
         />

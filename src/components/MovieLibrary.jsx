@@ -16,6 +16,7 @@ class MovieLibrary extends React.Component {
     };
     this.handleChanger = this.handleChanger.bind(this);
     this.onClick = this.onClick.bind(this);
+    this.funcFilter = this.funcFilter.bind(this);
   }
 
   handleChanger({ target }) {
@@ -34,9 +35,18 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  funcFilter() {
+    const { bookmarkedOnly, searchText, selectedGenre, movies } = this.state;
+    return (movies.filter((movie) => (
+      (movie.title.toLowerCase().includes(searchText.toLowerCase())
+      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+      || movie.storyline.toLowerCase().includes(searchText.toLowerCase()))
+      && (bookmarkedOnly ? movie.bookmarked : true)
+      && movie.genre.includes(selectedGenre))));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.state;
     return (
       <section>
         <SearchBar
@@ -47,7 +57,7 @@ class MovieLibrary extends React.Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.funcFilter() } />
         <AddMovie onClick={ this.onClick } />
       </section>
     );

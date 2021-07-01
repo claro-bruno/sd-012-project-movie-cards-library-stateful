@@ -83,12 +83,12 @@ body {
 }
 
 .search-bar {
-  display: flex;
-  flex-direction: column;
   align-items: center;
-  background-color: #007bff ;
+  background-color: #007bff;
   box-shadow: 2px 3px 4px black;
   color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 .search-bar label {

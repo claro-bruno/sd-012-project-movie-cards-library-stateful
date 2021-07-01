@@ -5,7 +5,7 @@ import TextArea from './AddMovie-Inputs/TextArea';
 
 class AddMovieForm extends React.Component {
   render() {
-    const { title, subtitle, imagePatch, storyline, handleChanger } = this.props;
+    const { title, subtitle, imagePath, storyline, handleChanger } = this.props;
     return (
       <>
         <TextInput
@@ -27,12 +27,12 @@ class AddMovieForm extends React.Component {
           tipo="text"
         />
         <TextInput
-          valorInicial={ imagePatch }
+          valorInicial={ imagePath }
           valorAlterado={ handleChanger }
           dataTestid="image-input"
           dataTestidLabel="image-input-label"
           labelTitle="Imagem"
-          nome="imagePatch"
+          nome="imagePath"
           tipo="text"
         />
         <TextArea
@@ -52,7 +52,7 @@ class AddMovieForm extends React.Component {
 AddMovieForm.propTypes = {
   storyline: PropTypes.string.isRequired,
   handleChanger: PropTypes.func.isRequired,
-  imagePatch: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };
