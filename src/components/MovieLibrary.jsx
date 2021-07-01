@@ -1,21 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import movies from '../data';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.handleChange = this.handleChange.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
+
+    const { movies } = this.props;
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies: { movies },
+      movies,
     };
   }
 
@@ -27,11 +29,20 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  filterMovies(movies) {
+    movies.filter((movie) => console.log(movie));
+  }
+
+  Cliquei() {
+    console.log('deu boa');
+  }
+
   render() {
     const {
       searchText,
       bookmarkedOnly,
       selectedGenre,
+      movies,
     } = this.state;
     return (
       <>
@@ -46,7 +57,7 @@ class MovieLibrary extends React.Component {
         <MovieList
           movies={ movies }
         />
-        <AddMovie />
+        <AddMovie onClick={ this.Cliquei } />
       </>
     );
   }

@@ -6,7 +6,7 @@ class Button extends React.Component {
     const { buttonClick } = this.props;
     return (
       <button
-        type="button"
+        type="submit"
         onClick={ buttonClick }
         data-testid="send-button"
       >

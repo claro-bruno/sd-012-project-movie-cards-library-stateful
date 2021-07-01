@@ -33,9 +33,9 @@ class AddMovie extends React.Component {
     });
   }
 
-  buttonClick({ target }) {
-    target.preventDefault();
-    this.State({});
+  buttonClick() {
+    const { onClick } = this.props;
+    onClick();
     this.setState({
       subtitle: '',
       title: '',
@@ -57,7 +57,7 @@ class AddMovie extends React.Component {
     } = this.state;
 
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" onSubmit={ (e) => e.preventDefault() }>
         <Title title={ title } handleChange={ this.handleChange } />
         <Subtitle subtitle={ subtitle } handleChange={ this.handleChange } />
         <ImagePath imagePath={ imagePath } handleChange={ this.handleChange } />
