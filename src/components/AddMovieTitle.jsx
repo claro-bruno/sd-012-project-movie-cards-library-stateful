@@ -6,7 +6,7 @@ class AddMovieTitle extends Component {
     const { title, onChangeTitle } = this.props;
     return (
       <label
-        htmlFor="title-input"
+        htmlFor="title-input-label"
         data-testid="title-input-label"
       >
         Título
