@@ -22,6 +22,17 @@ class AddMovie extends Component {
     });
   }
 
+  resetState () {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    })
+  }
+
   render() {
     const { onClick } = this.props;
     const {
@@ -92,7 +103,7 @@ class AddMovie extends Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
-        <button data-testid="send-button" onClick={ onClick }>Adicionar filme</button>
+        <button data-testid="send-button" onClick={ this.resetState }>Adicionar filme</button>
       </form>
     );
   }
