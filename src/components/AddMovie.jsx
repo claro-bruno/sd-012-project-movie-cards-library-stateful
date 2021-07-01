@@ -5,6 +5,7 @@ import AddMovieSubtitle from './AddMovieSubtitle';
 import AddMovieImg from './AddMovieImg';
 import AddMovieStoryLine from './AddMovieStoryLine';
 import AddMovieRating from './AddMovieRating';
+import AddMovieGenre from './AddMovieGenre';
 
 class AddMovie extends Component {
   constructor() {
@@ -16,6 +17,7 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
+      genre: 'action',
     };
   }
 
@@ -27,7 +29,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     const { handleChange } = this;
     return (
       <form
@@ -52,6 +54,10 @@ class AddMovie extends Component {
         <AddMovieRating
           rating={ rating }
           onChangeRating={ handleChange }
+        />
+        <AddMovieGenre
+          genre={ genre }
+          onChangeGenre={ handleChange }
         />
       </form>
     );
