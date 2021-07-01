@@ -2,11 +2,14 @@ import React from 'react';
 
 class Input extends React.Component {
   render() {
+    const { searchText, onSearchTextChange } = this.props;
     return(
-      <label data-testid="text-input-label">
+      <fieldset>
+        <label data-testid="text-input-label">
         Inclui o texto:
-        <input type="text" onChange={ onSearchTextChange }></input>
-      </label>
+        <input type="text" value={ searchText } onChange={ onSearchTextChange }></input>
+        </label>
+      </fieldset>
     );
   }
 }

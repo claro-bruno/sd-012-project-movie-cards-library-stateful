@@ -1,6 +1,6 @@
 import React from 'react';
-// import Input from './Input';
-// import Checkbox from './Checkbox';
+import Input from './Input';
+import Checkbox from './Checkbox';
 // import Select from './Select';
 
 class SearchBar extends React.Component {
@@ -8,11 +8,12 @@ class SearchBar extends React.Component {
     super();
     this.state = {
       searchText: '',
-      // selectedGenre: '',
+      bookmarkedOnly: false,
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
   }
 
   handleSubmit(e) {
@@ -25,20 +26,18 @@ class SearchBar extends React.Component {
     })
   }
 
+  onBookmarkedChange(e) {
+    console.log(e.target);
+  }
+
   render() {
-    const { searchText } = this.state;
+    const { searchText, bookmarkedOnly } = this.state;
 
     return (
       <form onSubmit={ this.handleSubmit } data-testid="search-bar-form">
-        <fieldset>
-          <label data-testid="text-input-label">
-          Inclui o texto:
-          <input type="text" value={ searchText } onChange={ this.onSearchTextChange }></input>
-          </label>
-          {/* <Input onChange={ this.onSearchTextChange }/> */}
-          {/* <Checkbox />
-          <Select /> */}
-        </fieldset>
+        <Input value={ searchText } onChange={ this.onSearchTextChange } />
+        <Checkbox checked={ bookmarkedOnly } onChange={ this.onBookmarkedChange } />
+        {/* <Select /> */}
       </form>
     );
   }
