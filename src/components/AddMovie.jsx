@@ -6,6 +6,8 @@ import InputImg from './AddMovieInputs/InputImg';
 import TextArea from './AddMovieInputs/TextArea';
 import InputNumber from './AddMovieInputs/InputNumber';
 import InputSelect from './AddMovieInputs/inputSelect';
+import InputButton from './AddMovieInputs/InputButton';
+
 
 class AddMovie extends React.Component {
   constructor() {
@@ -30,6 +32,7 @@ class AddMovie extends React.Component {
         <TextArea value={ storyline } onChange={ (e) => { this.setState({ storyline: e.target.value }); } } />
         <InputNumber value={ rating } onChange={ (e) => { this.setState({ rating: e.target.value }); } } />
         <InputSelect value={ genre } onChange={ (e) => { this.setState({ genre: e.target.value }); } } />
+        <InputButton onClick={() => console.log(' ')}/>
       </form>
     );
   }
