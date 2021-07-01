@@ -28,25 +28,25 @@ class MovieLibrary extends Component {
   onSearchTextChange({ target }) {
     this.setState({
       searchText: target.value,
-    })
+    });
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     let { movies } = this.state;
 
-    if(searchText) {
+    if (searchText) {
       movies = movies.filter((movie) => movie
         .title.toLowerCase().includes(searchText.toLowerCase())
         || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
         || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
     }
 
-    if(bookmarkedOnly) {
+    if (bookmarkedOnly) {
       movies = movies.filter((movie) => movie.bookmarked === true);
     }
 
-    if(selectedGenre) {
+    if (selectedGenre) {
       movies = movies.filter((movie) => movie.genre === selectedGenre);
     }
 
