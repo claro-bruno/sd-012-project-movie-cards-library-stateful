@@ -35,7 +35,10 @@ class Input extends React.Component {
 }
 
 Input.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   inputName: PropTypes.string,
   onChange: PropTypes.func,
   typeInput: PropTypes.string,
