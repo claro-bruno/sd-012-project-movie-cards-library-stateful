@@ -13,7 +13,7 @@ class AddMovie extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    this.onClick = this.onClick.bind(this);
+    this.buttonClick = this.buttonClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -33,8 +33,9 @@ class AddMovie extends React.Component {
     });
   }
 
-  onClick(e) {
-    e.preventDefault();
+  buttonClick({ target }) {
+    target.preventDefault();
+    this.State({});
     this.setState({
       subtitle: '',
       title: '',
@@ -63,7 +64,7 @@ class AddMovie extends React.Component {
         <StoryLine storyLine={ storyLine } handleChange={ this.handleChange } />
         <RatingComponent rating={ rating } handleChange={ this.handleChange } />
         <Genre genre={ genre } handleChange={ this.handleChange } />
-        <Button onClick={ this.onClick } />
+        <Button buttonClick={ this.buttonClick } />
       </form>
     );
   }

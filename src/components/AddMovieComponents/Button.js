@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 class Button extends React.Component {
   render() {
-    const { onClick } = this.props;
+    const { buttonClick } = this.props;
     return (
       <button
-        type="submit"
-        onClick={ onClick }
+        type="button"
+        onClick={ buttonClick }
         data-testid="send-button"
       >
         Adicionar filme

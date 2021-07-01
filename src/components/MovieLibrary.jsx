@@ -10,12 +10,12 @@ class MovieLibrary extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    // this.onClick = this.onClick.bind(this);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      // movies: { movies },
     };
   }
 
@@ -26,18 +26,6 @@ class MovieLibrary extends React.Component {
       [name]: value,
     });
   }
-
-  // onClick(e) {
-  //   e.preventDefault();
-  //   this.setState({
-  //     subtitle: '',
-  //     title: '',
-  //     imagePath: '',
-  //     storyLine: '',
-  //     rating: 0,
-  //     genre: 'action',
-  //   });
-  // }
 
   render() {
     const {
@@ -58,10 +46,7 @@ class MovieLibrary extends React.Component {
         <MovieList
           movies={ movies }
         />
-        <AddMovie
-          onClick={ this.onClick }
-          genericHandleChange={ this.handleChange }
-        />
+        <AddMovie />
       </>
     );
   }
