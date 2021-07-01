@@ -24,6 +24,12 @@ class MovieLibrary extends React.Component {
     }), this.filterMovies);
   }
 
+  handleClick = (movieToAdd) => {
+    let { movies } = this.state;
+    movies = [...movies, movieToAdd];
+    this.setState({ movies });
+  }
+
   filterGenre = (movies, selectedGenre) => {
     const genreMovies = movies.filter((movie) => movie.genre === selectedGenre);
     return genreMovies;
@@ -65,7 +71,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ console.log } />
+        <AddMovie onClick={ this.handleClick } />
       </div>
     );
   }
