@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+// import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class MovieLibrary extends React.Component {
   }
 
   callBack = (e) => {
+    e.preventDefault();
     const { name, value } = e.target;
     this.setState({ [name]: value });
   }
@@ -38,6 +40,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.callBack }
         />
         <MovieList movies={ movies } />
+        {/* <AddMovie /> */}
       </main>
     );
   }
