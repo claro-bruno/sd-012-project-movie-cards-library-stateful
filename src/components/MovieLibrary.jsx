@@ -10,7 +10,7 @@ class MovieLibrary extends Component {
 
     this.state = {
       searchText: '',
-      bookmarkedOnly: false,
+      bookmarkedOnly: false, // essa é a checkbox quando não está selecionada
       selectedGenre: '',
       movies: props.movies,
     };
@@ -31,14 +31,13 @@ class MovieLibrary extends Component {
     const search = movieList.filter((movie) => {
       const check = (movie.title.toLowerCase().includes(searchText.toLowerCase())
       || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
-      || movie.storyline.toLowerCase().includes(searchText.toLocaleLowerCase()));
+      || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
       return check;
     });
-    const favorites = bookmarkedOnly ? search
-      .filter((movie) => movie.bookmarked) : search;
+    const favorite = bookmarkedOnly ? search.filter((movie) => movie.bookmarked) : search;
     // se bookmarkedOnly for verdadeiro entra no filtro e filtra os verdadeiros dentro de data.bookmarked senão ele só usa o search que recebe a função de filtro
-    const result = selectedGenre ? favorites
-      .filter((movie) => movie.selectedGenre === selectedGenre) : favorites;
+    const result = selectedGenre ? favorite
+      .filter((movie) => movie.genre === selectedGenre) : favorite;
     return result;
   }
 
