@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+// import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class MovieLibrary extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.funcFilter = this.funcFilter.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -26,7 +28,14 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
-  funcFilter() {
+  onClick(newMovie) { // feito em conjunto com Lucas, Gui e Gabriel
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
+  }
+
+  funcFilter() { // feito em conjunto com Lucas, Gui e Gabriel
     const { bookmarkedOnly, searchText, selectedGenre, movies } = this.state;
     return (movies.filter((movie) => (
       (movie.title.toLowerCase().includes(searchText.toLowerCase())
@@ -51,7 +60,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ this.funcFilter() } />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
