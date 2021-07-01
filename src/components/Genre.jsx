@@ -12,7 +12,7 @@ class Genre extends Component {
         Gênero
         <select
           name="genre"
-          id=""
+          id="genre"
           value={ genre }
           data-testid="genre-input"
           onChange={ handleChange }
@@ -27,7 +27,7 @@ class Genre extends Component {
 }
 
 Genre.propTypes = {
-  genre: PropTypes.string,
+  genre: PropTypes.array,
   handleChange: PropTypes.func,
 }.isRequired;
 
