@@ -22,4 +22,9 @@ class ImagePath extends Component {
   }
 }
 
+ImagePath.propTypes = {
+  imagePath: PropTypes.shape,
+  handleChange: PropTypes.func,
+}.isRequired;
+
 export default ImagePath;

@@ -22,4 +22,9 @@ class Title extends Component {
   }
 }
 
+Title.propTypes = {
+  title: PropTypes.string,
+  handleChange: PropTypes.func,
+}.isRequired;
+
 export default Title;

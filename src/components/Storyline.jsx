@@ -16,10 +16,16 @@ class Storyline extends Component {
           data-testid="storyline-input"
           onChange={ handleChange }
         >
+          { storyline }
         </textarea>
       </label>
     );
   }
 }
+
+Storyline.propTypes = {
+  storyline: PropTypes.string,
+  handleChange: PropTypes.func,
+}.isRequired;
 
 export default Storyline;

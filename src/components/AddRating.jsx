@@ -22,4 +22,9 @@ class AddRating extends Component {
   }
 }
 
+AddRating.propTypes = {
+  rating: PropTypes.number,
+  handleChange: PropTypes.func,
+}.isRequired;
+
 export default AddRating;

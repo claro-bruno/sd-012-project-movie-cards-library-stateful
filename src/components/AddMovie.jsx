@@ -25,7 +25,9 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
+
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -33,6 +35,20 @@ class AddMovie extends Component {
       [name]: value,
     }));
   }
+
+  resetState() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(() => ({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    }));
+  }
+
   render() {
     const {
       title,
@@ -42,19 +58,24 @@ class AddMovie extends Component {
       rating,
       genre,
     } = this.state;
-    const { onClick } = this.props;
+
+    const { handleChange } = this;
     return (
       <form data-testid="add-movie-form">
-        <Title value={ title } handleChange={ this.handle } />
-        < Subtitle value={ subtitle } handleChange={ this.handleChange } />
-        < ImagePath value={ imagePath } handleChange={ this.handleChange } />
-        < Storyline value={ storyline } handleChange={ this.handleChange } />
-        < AddRating value={ rating } handleChange={ this.handleChange } />
-        < Genre value={ genre } handleChange={ this.handleChange } />
-        <ButtonAdd resetState={ () => this.resetState(onClick)} />
+        <Title value={ title } handleChange={ handleChange } />
+        <Subtitle value={ subtitle } handleChange={ handleChange } />
+        <ImagePath value={ imagePath } handleChange={ handleChange } />
+        <Storyline value={ storyline } handleChange={ handleChange } />
+        <AddRating value={ rating } handleChange={ handleChange } />
+        <Genre value={ genre } handleChange={ handleChange } />
+        <ButtonAdd setState={ this.setState } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func,
+}.isRequired;
 
 export default AddMovie;

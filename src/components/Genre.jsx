@@ -17,7 +17,7 @@ class Genre extends Component {
           data-testid="genre-input"
           onChange={ handleChange }
         >
-          <option value="action" data-testid="genre-option" selected>Ação</option>
+          <option value="action" data-testid="genre-option" defaultValue>Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
@@ -25,5 +25,10 @@ class Genre extends Component {
     );
   }
 }
+
+Genre.propTypes = {
+  genre: PropTypes.string,
+  handleChange: PropTypes.func,
+}.isRequired;
 
 export default Genre;

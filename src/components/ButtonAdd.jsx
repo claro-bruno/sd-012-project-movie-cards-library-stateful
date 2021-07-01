@@ -13,7 +13,6 @@ class ButtonAdd extends Component {
       <button
         data-testid="send-button"
         type="button"
-        name="resetState"
         onClick={ resetState }
       >
         Adicionar filme
@@ -22,8 +21,8 @@ class ButtonAdd extends Component {
   }
 }
 
-ButtonAdd.protoTypes = {
-  resetState: PropTypes.func.isRequired,
+ButtonAdd.propTypes = {
+  resetState: PropTypes.func,
 }.isRequired;
 
 export default ButtonAdd;

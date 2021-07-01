@@ -22,4 +22,9 @@ class Subtitle extends Component {
   }
 }
 
+Subtitle.propTypes = {
+  subtitle: PropTypes.string,
+  handleChange: PropTypes.func,
+}.isRequired;
+
 export default Subtitle;
