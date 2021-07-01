@@ -12,7 +12,6 @@ import MovieList from './MovieList';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -81,7 +80,7 @@ class MovieLibrary extends Component {
       onBookmarkedChange,
       onSelectedGenreChange,
       filtersMovies,
-      addMovie
+      addMovie,
     } = this;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (

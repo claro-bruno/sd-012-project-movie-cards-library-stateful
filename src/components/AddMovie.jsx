@@ -12,6 +12,7 @@ import ButtonAdd from './ButtonAdd';
  * Consultei o repositório do Wendell Costa para resolver essa parte.
  * Link: https://github.com/tryber/sd-011-project-movie-cards-library-stateful/pull/174/commits/44b731c7cb8c4d936475d54de1125e003e202a80
  */
+
 const initialState = {
   subtitle: '',
   title: '',
@@ -61,7 +62,7 @@ class AddMovie extends Component {
         <Storyline value={ storyline } handleChange={ handleChange } />
         <AddRating rating={ rating } handleChange={ handleChange } />
         <Genre value={ genre } handleChange={ handleChange } />
-        <ButtonAdd handleClick={ handleClick }/>
+        <ButtonAdd handleClick={ handleClick } />
       </form>
     );
   }
