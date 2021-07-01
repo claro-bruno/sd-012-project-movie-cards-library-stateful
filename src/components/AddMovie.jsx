@@ -12,14 +12,31 @@ class AddMovie extends Component {
       genre: 'action',
     };
   }
+
+  handleTitle(event) {
+    const { target } = event;
+    this.setState({
+      title: target.value,
+    });
+  }
+
   render() {
     const { onClick } = this.props;
+    const { title } = this.state;
 
     return (
-      <form action="" data-testid="add-movie-form">
-
+      <form data-testid="add-movie-form">
+        <label htmlFor="title-input" data-testid="title-input-label">
+          Título
+          <input
+            type="text"
+            value={ title }
+            data-testid="title-input"
+            onChange={ this.handleTitle }
+          />
+        </label>
       </form>
-    )
+    );
   }
 }
 
