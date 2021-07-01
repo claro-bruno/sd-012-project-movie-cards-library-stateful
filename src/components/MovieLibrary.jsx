@@ -14,6 +14,8 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
+
+    this.filterMovies = this.filterMovies.bind(this);
   }
 
   handleChange = ({ target }) => {
@@ -22,6 +24,22 @@ class MovieLibrary extends Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  filterMovies(movieList) {
+    const { bookmarkedOnly, selectedGenre, searchText } = this.state;
+    const search = movieList.filter((movie) => {
+      const check = (movie.title.toLowerCase().includes(searchText.toLowerCase())
+      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+      || movie.storyline.toLowerCase().includes(searchText.toLocaleLowerCase()));
+      return check;
+    });
+    const favorites = bookmarkedOnly ? search
+      .filter((movie) => movie.bookmarked) : search;
+    // se bookmarkedOnly for verdadeiro entra no filtro e filtra os verdadeiros dentro de data.bookmarked senão ele só usa o search que recebe a função de filtro
+    const result = selectedGenre ? favorites
+      .filter((movie) => movie.selectedGenre === selectedGenre) : favorites;
+    return result;
   }
 
   render() {
@@ -41,8 +59,8 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies } />
-        <AddMovies />
+        <MovieList movies={ this.filterMovies(movies) } />
+        <AddMovies movies={ this.filterMovies(movies) } />
       </section>
     );
   }
