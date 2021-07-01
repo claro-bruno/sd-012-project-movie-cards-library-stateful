@@ -9,7 +9,7 @@ class MovieLibrary extends React.Component {
     super(props);
 
     this.handleChange = this.handleChange.bind(this);
-    this.filterMovies = this.filterMovies.bind(this);
+    this.addMovieState = this.addMovieState.bind(this);
 
     const { movies } = this.props;
 
@@ -29,12 +29,10 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  filterMovies(movies) {
-    movies.filter((movie) => console.log(movie));
-  }
-
-  Cliquei() {
-    console.log('deu boa');
+  addMovieState(newMovie) {
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, newMovie],
+    }));
   }
 
   render() {
@@ -60,7 +58,7 @@ class MovieLibrary extends React.Component {
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
         />
-        <AddMovie onClick={ this.Cliquei } />
+        <AddMovie onClick={ this.addMovieState } />
       </>
     );
   }
