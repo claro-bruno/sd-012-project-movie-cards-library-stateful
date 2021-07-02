@@ -18,7 +18,7 @@ class AddMovie extends React.Component {
   handleChange(e) {
     const { value, name } = e.target;
     this.setState({
-      [name]: value,
+      ...this.state, [name]: value,
     });
   }
 
@@ -34,23 +34,43 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <Input
-        label="Título"
-        dataLabel="title-input-label"
-        dataInput="title-input"
-        name="title"
-        type="text"
-        value={ title }
-        onChange={ this.handleChange }
+          label="Título"
+          dataLabel="title-input-label"
+          dataInput="title-input"
+          name="title"
+          type="text"
+          value={ title }
+          onChange={ this.handleChange }
         />
         <Input
-        label="Subtítulo"
-        dataLabel="subtitle-input-label"
-        dataInput="subtitle-input"
-        name="subtitle"
-        type="text"
-        value={ subtitle }
-        onChange={ this.handleChange }
-        /> 
+          label="Subtítulo"
+          dataLabel="subtitle-input-label"
+          dataInput="subtitle-input"
+          name="subtitle"
+          type="text"
+          value={ subtitle }
+          onChange={ this.handleChange }
+        />
+        <Input
+          label="Imagem"
+          dataLabel="image-input-label"
+          dataInput="image-input"
+          name="image"
+          type="text"
+          value={ imagePath }
+          // value={ imagePath }
+          onChange={ this.handleChange }
+        />
+
+        <Input
+          label="Avaliação"
+          dataLabel="rating-input-label"
+          dataInput="rating-input"
+          name="rating"
+          type="number"
+          value={ rating }
+          onChange={ this.handleChange }
+        />
       </form>
     );
   }
