@@ -72,7 +72,13 @@ class AddMovie extends React.Component {
           value={ genre }
           onChange={ this.handlechenge }
         />
-        <button type="button" data-testid="send-button" onClick={ () => this.addMovie(onClick) }>Adicionar filme</button>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ () => this.addMovie(onClick) }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }

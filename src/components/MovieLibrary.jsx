@@ -1,10 +1,11 @@
 // implement MovieLibrary component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovies from './AddMovie';
 
-class MovieLibray extends React.Component {
+class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,6 +34,10 @@ class MovieLibray extends React.Component {
     this.setState({ selectedGenre: value });
   }
 
+  addCard() {
+
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -47,13 +52,20 @@ class MovieLibray extends React.Component {
         />
         <MovieList
           movies={ movies }
+          searchText={ searchText }
+          selectedGenre={ selectedGenre }
+          bookmarkedOnly={ bookmarkedOnly }
         />
         <AddMovies
-          movies={ movies }
+          onClick={ this.addCard }
         />
       </section>
     );
   }
 }
 
-export default MovieLibray;
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayof(PropTypes.object).isRequired,
+};
+
+export default MovieLibrary;

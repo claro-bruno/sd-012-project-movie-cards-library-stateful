@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Formlabelimage extends React.Component {
   render() {
@@ -21,5 +22,10 @@ class Formlabelimage extends React.Component {
     );
   }
 }
+
+Formlabelimage.propType = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default Formlabelimage;

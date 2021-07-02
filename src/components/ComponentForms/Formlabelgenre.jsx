@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Formlabelgenre extends React.Component {
   render() {
@@ -39,5 +40,10 @@ class Formlabelgenre extends React.Component {
     );
   }
 }
+
+Formlabelgenre.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};
 
 export default Formlabelgenre;

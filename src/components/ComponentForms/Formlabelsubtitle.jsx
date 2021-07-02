@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Formlabelsubtitle extends React.Component {
   render() {
@@ -21,5 +22,10 @@ class Formlabelsubtitle extends React.Component {
     );
   }
 }
+
+Formlabelsubtitle.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default Formlabelsubtitle;

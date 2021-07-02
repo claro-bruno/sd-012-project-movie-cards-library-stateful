@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Formlabelrating extends React.Component {
   render() {
@@ -21,5 +22,10 @@ class Formlabelrating extends React.Component {
     );
   }
 }
+
+Formlabelrating.propTypes = {
+  value: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default Formlabelrating;

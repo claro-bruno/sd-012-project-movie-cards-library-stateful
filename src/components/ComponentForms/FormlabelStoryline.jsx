@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class FormlabelStoryline extends React.Component {
   render() {
@@ -22,5 +23,10 @@ class FormlabelStoryline extends React.Component {
     );
   }
 }
+
+FormlabelStoryline.propTypes = {
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 
 export default FormlabelStoryline;
