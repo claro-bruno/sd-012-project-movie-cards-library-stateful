@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
-import TextArea from './TextArea';
 
 class MovieInfos extends Component {
   render() {
-    const { title, subtitle, imagePath, storyline, onChange } = this.props;
+    const { title, subtitle, imagePath, storyline, handleChange } = this.props;
 
     return (
       <>
@@ -14,37 +13,36 @@ class MovieInfos extends Component {
           type="text"
           name="title"
           value={ title }
-          dataTestId="title-input-label"
-          dataTestInput="title-input"
-          onChange={ onChange }
+          onChange={ handleChange }
+          labelId="title-input-label"
+          inputId="title-input"
         />
-
         <Input
           label="Subtítulo"
           type="text"
           name="subtitle"
           value={ subtitle }
-          dataTestId="subtitle-input-label"
-          dataTestInput="subtitle-input"
-          onChange={ onChange }
+          onChange={ handleChange }
+          labelId="subtitle-input-label"
+          inputId="subtitle-input"
         />
-
         <Input
           label="Imagem"
           type="text"
           name="imagePath"
           value={ imagePath }
-          dataTestId="image-input-label"
-          dataTestInput="image-input"
-          onChange={ onChange }
+          onChange={ handleChange }
+          labelId="image-input-label"
+          inputId="image-input"
         />
-
-        <TextArea
+        <Input
           label="Sinopse"
+          type="textarea"
           name="storyline"
           value={ storyline }
-          dataTestId="storyline-input"
-          onChange={ onChange }
+          onChange={ handleChange }
+          labelId="storyline-input-label"
+          inputId="storyline-input"
         />
       </>
     );
@@ -52,11 +50,11 @@ class MovieInfos extends Component {
 }
 
 MovieInfos.propTypes = PropTypes.exact({
+  handleChange: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
   storyline: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
 }).isRequired;
 
 export default MovieInfos;
