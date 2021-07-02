@@ -163,7 +163,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
     expect(movieCard).toHaveLength(expectedLength);
   });
 
-  it.('Filtre os filmes por favoritos quando a `checkbox` relacionada for selecionada', () => {
+  it('Filtre os filmes por favoritos quando a `checkbox` relacionada for selecionada', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const bookmarkedOnly = getByTestId(checkboxTestId);
 
@@ -188,7 +188,7 @@ describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
   });
 });
 
-describe.skip('19 - Renderize `<AddMovie />` dentro de `<MovieLibrary />`', () => {
+describe('19 - Renderize `<AddMovie />` dentro de `<MovieLibrary />`', () => {
   it('Renderize o componente `<AddMovie />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const addMovieForm = getAllByTestId('add-movie-form');
