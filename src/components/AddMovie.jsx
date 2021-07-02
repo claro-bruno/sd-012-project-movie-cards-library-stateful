@@ -11,22 +11,17 @@ const genres = [
   { genre: 'Suspense', genreValue: 'thriller' },
 ];
 
-const INITIAL_STATE = {
-  subtitle: '',
-  title: '',
-  imagePath: '',
-  storyline: '',
-  rating: 0,
-  genre: 'action',
-};
-
 class AddMovie extends Component {
   constructor() {
     super();
 
-    // this.state = INITIAL_STATE;
     this.state = {
+      subtitle: '',
       title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -58,51 +53,11 @@ class AddMovie extends Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
 
     return (
       <form data-testid="add-movie-form">
-        {/* <MovieInfos
-          title={ title }
-          subtitle={ subtitle }
-          imagePath={ imagePath }
-          storyline={ storyline }
-          onChange={ this.handleChange }
-        /> */}
-
-        <Input
-          label="Título"
-          type="text"
-          name="title"
-          value={ title }
-          dataTestId="title-input-label"
-          dataTestInput="title-input"
-          onChange={ (e) => this.setState({ title: e.target.value }) }
-        />
-
-        <Input
-          label="Avaliação"
-          type="number"
-          name="rating"
-          value={ rating }
-          dataTestId="rating-input"
-          onChange={ this.handleChange }
-        />
-
-        <Select
-          label="Gênero"
-          name="genre"
-          dataTestId="genre-input"
-          value={ genre }
-          onChange={ this.handleChange }
-          options={ genres }
-        />
-
-        <Button
-          btnText="Adicionar filme"
-          name="sendButton"
-          dataTestId="send-button"
-          onClick={ this.handleClick }
-        />
+        
       </form>
     );
   }

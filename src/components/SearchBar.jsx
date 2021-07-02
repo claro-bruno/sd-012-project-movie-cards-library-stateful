@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import InputText from './InputText';
 import Checkbox from './Checkbox';
 import Select from './Select';
-// import Input from './Input';
-// import Checkbox from './Checkbox';
-// import Select from './Select';
 
 class SearchBar extends React.Component {
   render() {
