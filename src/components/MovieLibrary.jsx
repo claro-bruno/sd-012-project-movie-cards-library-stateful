@@ -13,7 +13,7 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
-    this.teste = this.teste.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
     this.onTextChangeSearch = this.onTextChangeSearch.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -45,39 +45,30 @@ class MovieLibrary extends Component {
   }
 
   // Feito com ajuda de Márcio Daniel - Turma 8
-  teste() {
-    console.log('função teste: contém os filtros');
+  filterMovies() {
     const { movies, bookmarkedOnly, selectedGenre, searchText } = this.state;
+    let result = movies;
     if (bookmarkedOnly) {
-      const filter = movies.filter((movie) => movie.bookmarked);
-      this.setState({
-        movies: filter,
-      });
+      result = movies.filter((movie) => movie.bookmarked);
     }
     if (selectedGenre) {
-      const filterGenre = movies.filter((movie) => movie.genre === selectedGenre);
-      this.setState({
-        movies: filterGenre,
-      });
+      result = result.filter((movie) => movie.genre === selectedGenre);
     }
     if (searchText) {
-      const filterText = movies.filter((movie) => (
+      result = result.filter((movie) => (
         movie.title.toLowerCase().includes(searchText.toLowerCase())
         || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
         || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
       ));
-      this.setState({
-        movies: filterText,
-      });
     }
+    return result;
   }
 
   render() {
     const { onTextChangeSearch, onBookmarkedChange, onSelectedGenreChange } = this;
-    const { bookmarkedOnly, selectedGenre, searchText, movies } = this.state;
+    const { bookmarkedOnly, selectedGenre, searchText } = this.state;
     return (
       <div>
-        <button type="button" onClick={ this.teste }>Botão</button>
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ onTextChangeSearch }
@@ -87,8 +78,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ onSelectedGenreChange }
         />
         <MovieList
-          movies={ movies }
-          teste={ this.teste }
+          movies={ this.filterMovies() }
         />
         <AddMovie />
       </div>
