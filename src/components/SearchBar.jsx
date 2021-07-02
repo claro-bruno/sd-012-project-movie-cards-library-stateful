@@ -2,16 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import InputText from './InputText';
 import Checkbox from './Checkbox';
+import Select from './Select';
 // import Input from './Input';
 // import Checkbox from './Checkbox';
 // import Select from './Select';
-
-// const generes = [
-//   { genre: 'Todos', genreValue: '' },
-//   { genre: 'Ação', genreValue: 'action' },
-//   { genre: 'Comédia', genreValue: 'comedy' },
-//   { genre: 'Suspense', genreValue: 'thriller' },
-// ];
 
 class SearchBar extends React.Component {
   render() {
@@ -35,14 +29,10 @@ class SearchBar extends React.Component {
           onBookmarkedChange={ onBookmarkedChange }
         />
 
-        {/* <Select
-          label="Filtrar por gênero"
-          name="selectedGenre"
-          dataTestId="select-input"
-          value={ selectedGenre }
-          onChange={ onSelectedGenreChange }
-          options={ generes }
-        /> */}
+        <Select
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }

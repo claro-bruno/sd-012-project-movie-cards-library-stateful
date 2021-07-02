@@ -3,24 +3,28 @@ import PropTypes from 'prop-types';
 
 class Select extends Component {
   render() {
-    const { label, name, value, dataTestId, onChange, options } = this.props;
+    const generes = [
+      { genre: 'Todos', genreValue: '' },
+      { genre: 'Ação', genreValue: 'action' },
+      { genre: 'Comédia', genreValue: 'comedy' },
+      { genre: 'Suspense', genreValue: 'thriller' },
+    ];
+    const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <label htmlFor={ name } data-testid={ `${dataTestId}-label` }>
-        {label}
+      <label htmlFor="inputSelect" data-testid="select-input-label">
+        <p>Filtrar por gênero</p>
         <select
-          id={ name }
-          name={ name }
-          value={ value }
-          onChange={ onChange }
-          data-testid={ dataTestId }
+          name="inputSelect"
+          value={ selectedGenre }
+          onChange={ onSelectedGenreChange }
+          data-testid="select-input"
         >
-
-          {options.map(({ genre, genreValue }) => {
+          {generes.map(({ genre, genreValue }) => {
             const optionTag = (
               <option
                 key={ genreValue }
                 value={ genreValue }
-                data-testid={ `${(name === 'genre' ? name : 'select')}-option` }
+                data-testid="select-option"
               >
                 {genre}
               </option>
@@ -35,16 +39,8 @@ class Select extends Component {
 }
 
 Select.propTypes = PropTypes.exact({
-  label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
-  dataTestId: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  options: PropTypes.arrayOf(PropTypes.exact({
-    genre: PropTypes.string.isRequired,
-    genreValue: PropTypes.string.isRequired,
-  })).isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 }).isRequired;
 
 export default Select;
