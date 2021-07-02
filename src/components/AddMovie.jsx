@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddMovieInputTitle from './formComponents/AddMovieInputTitle';
 import AddMovieInputSubtitle from './formComponents/AddMovieInputSubtitle';
 import AddMovieInputImagePath from './formComponents/AddMovieInputImagePath';
@@ -26,34 +27,34 @@ export default class AddMovie extends React.Component {
       [e.target.id]: e.target.value,
     });
   }
-  
-  submitHandler(e) {
-    e.preventDefault();
-    const { addMovieToArr } = this.props;
+
+  submitHandler() {
+    // e.preventDefault();
+    const { onClick } = this.props;
     const newMovie = this.state;
-    addMovieToArr(newMovie);
+    onClick(newMovie);
     this.setState({
       title: '',
       subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
+      genre: 'action',
     });
   }
 
   render() {
-    const { 
+    const {
       rating,
       title,
       subtitle,
       imagePath,
       storyline,
       genre,
-    } = this.state
+    } = this.state;
 
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" onSubmit={ (e) => { e.preventDefault(); } }>
         <AddMovieInputTitle value={ title } cHandler={ this.cHandler } />
         <AddMovieInputSubtitle value={ subtitle } cHandler={ this.cHandler } />
         <AddMovieInputImagePath value={ imagePath } cHandler={ this.cHandler } />
@@ -71,3 +72,7 @@ export default class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};

@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default class AddMovieTextarea extends React.Component {
   render() {
@@ -21,7 +21,7 @@ export default class AddMovieTextarea extends React.Component {
   }
 }
 
-// AddMovieTextarea.propTypes = {
-//   onSearchTextChange: PropTypes.func.isRequired,
-//   searchText: PropTypes.string.isRequired,
-// };
+AddMovieTextarea.propTypes = {
+  cHandler: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};

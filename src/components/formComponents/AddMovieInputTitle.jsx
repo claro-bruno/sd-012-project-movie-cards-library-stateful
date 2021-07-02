@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default class AddMovieInput extends React.Component {
   render() {
@@ -22,7 +22,7 @@ export default class AddMovieInput extends React.Component {
   }
 }
 
-// AddMovieInput.propTypes = {
-//   onSearchTextChange: PropTypes.func.isRequired,
-//   searchText: PropTypes.string.isRequired,
-// };
+AddMovieInput.propTypes = {
+  cHandler: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};

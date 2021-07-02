@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default class AddMovieInputImagePath extends React.Component {
   render() {
@@ -22,7 +22,7 @@ export default class AddMovieInputImagePath extends React.Component {
   }
 }
 
-// AddMovieInputImagePath.propTypes = {
-//   onSearchTextChange: PropTypes.func.isRequired,
-//   searchText: PropTypes.string.isRequired,
-// };
+AddMovieInputImagePath.propTypes = {
+  cHandler: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};

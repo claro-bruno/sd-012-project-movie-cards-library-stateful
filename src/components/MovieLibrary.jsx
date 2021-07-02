@@ -17,7 +17,7 @@ export default class MovieLibrary extends React.Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.filteredMovies = this.filteredMovies.bind(this);
-    this.addMovieToArr = this.addMovieToArr.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   onSearchTextChange(e) {
@@ -34,6 +34,12 @@ export default class MovieLibrary extends React.Component {
     this.setState({
       selectedGenre: e.target.value,
     });
+  }
+
+  onClick(newMovie) {
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, newMovie],
+    }));
   }
 
   filteredMovies() {
@@ -56,12 +62,6 @@ export default class MovieLibrary extends React.Component {
     return movies;
   }
 
-  addMovieToArr(newMovie) {
-    this.setState((prevState) => ({
-      movies: [...prevState.movies, newMovie],
-    }));
-  }
-
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -78,7 +78,7 @@ export default class MovieLibrary extends React.Component {
         <MovieList
           movies={ this.filteredMovies() }
         />
-        <AddMovie addMovieToArr={ this.addMovieToArr } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }

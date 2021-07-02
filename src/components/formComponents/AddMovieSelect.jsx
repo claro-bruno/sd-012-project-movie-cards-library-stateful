@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default class AddMovieSelect extends React.Component {
   render() {
@@ -25,7 +25,7 @@ export default class AddMovieSelect extends React.Component {
   }
 }
 
-// AddMovieSelect.propTypes = {
-//   onSearchTextChange: PropTypes.func.isRequired,
-//   searchText: PropTypes.string.isRequired,
-// };
+AddMovieSelect.propTypes = {
+  cHandler: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
+};
