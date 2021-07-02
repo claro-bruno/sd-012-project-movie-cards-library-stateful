@@ -6,6 +6,7 @@ import InputImage from './ComponentsAddMovie/InputImage';
 import TextAreaStoryline from './ComponentsAddMovie/TextAreaStoryline';
 import InputRating from './ComponentsAddMovie/InputRating';
 import SelectGenre from './ComponentsAddMovie/SelectGenre';
+import ButtonAddMovie from './ComponentsAddMovie/ButtonAddMovie';
 
 const INITIAL_STATE = {
   title: '',
@@ -61,13 +62,7 @@ class AddMovie extends React.Component {
         <TextAreaStoryline storyline={ storyline } handleChange={ handleChange } />
         <InputRating rating={ rating } handleChange={ handleChange } />
         <SelectGenre genre={ genre } handleChange={ handleChange } />
-        <button
-          type="submit"
-          data-testid="send-button"
-          onClick={ handleClick }
-        >
-          Adicionar filme
-        </button>
+        <ButtonAddMovie handleClick={ handleClick } />
       </form>
     );
   }
