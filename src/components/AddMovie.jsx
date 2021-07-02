@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
 // import PropType from 'prop-types';
+import Input from './Input';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -8,51 +9,53 @@ class AddMovie extends React.Component {
     this.state = {
       title: '',
       subtitle: '',
+      imagePath: '',
     };
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleSubtitleChange = this.handleSubtitleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleTitleChange(event) {
-    this.setState({ title: event.target.value });
-  }
-
-  handleSubtitleChange(event) {
-    this.setState({ subtitle: event.target.value });
+  // transformando handleChange em uma generica para
+  // atribuir valores, conforte aula de revisão 12.3 dada
+  // pelo Henrique Jensen
+  handleChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
-    // const { onClick } = this.props;
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath } = this.state;
     return (
       <div>
-        <form data-testid="add-movie-form" />
-        <label
-          htmlFor="tituloID"
-          data-testid="title-input-label"
-        >
-          Título
-          <input
-            id="tituloID"
+        <form data-testid="add-movie-form">
+          <Input
+            labelDataTestId="title-input-label"
+            inputDataTestId="title-input-label"
+            label="Título"
+            name="title"
             type="text"
-            data-testid="title-input"
             value={ title }
-            onChange={ this.handleTitleChange }
+            handleChange={ this.handleChange }
           />
-        </label>
-        <label
-          htmlFor="subtituloID"
-          data-testid="subtitle-input-label"
-        >
-          Subtítulo
-          <input
-            id="subtituloID"
+          <Input
+            labelDataTestId="subtitle-input-label"
+            inputDataTestId="subtitle-input-label"
+            label="Subtítulo"
+            name="subtitle"
             type="text"
-            data-testid="subtitle-input"
             value={ subtitle }
-            onChange={ this.handleSubtitleChange }
+            handleChange={ this.handleChange }
           />
-        </label>
+          <Input
+            labelDataTestId="image-input-label"
+            inputDataTestId="image-input-label"
+            type="text"
+            label="Imagem"
+            name="imagePath"
+            value={ imagePath }
+            handleChange={ this.handleChange }
+          />
+        </form>
+
       </div>
     );
   }
