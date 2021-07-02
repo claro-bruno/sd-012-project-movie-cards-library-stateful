@@ -68,7 +68,7 @@ class AddMovie extends React.Component {
     event.preventDefault();
     const { onClick } = this.props;
     onClick();
-    this.setState = ({
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
@@ -85,7 +85,7 @@ class AddMovie extends React.Component {
         <Titulo title={ title } changeTextHandle={ this.titleHandle } />
         <Subtitulo subtitle={ subtitle } changeTextHandle={ this.subtitleHandle } />
         <ImagePath imagePath={ imagePath } changeTextHandle={ this.imagePathHandle } />
-        <Sinopse storeyline={ storyline } changeTextHandle={ this.storylineHandle } />
+        <Sinopse storyline={ storyline } changeTextHandle={ this.storylineHandle } />
         <Avaliacao rating={ rating } changeNumberHandle={ this.ratingHandle } />
         <Genre genre={ genre } changeGenreHandle={ this.genreHandle } />
         <button
