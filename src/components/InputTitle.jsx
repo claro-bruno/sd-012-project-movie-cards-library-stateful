@@ -14,6 +14,7 @@ export default class InputTitle extends Component {
         <input
           type="text"
           name="title"
+          id="title"
           data-testid="title-input"
           value={ value }
           onChange={ onChange }

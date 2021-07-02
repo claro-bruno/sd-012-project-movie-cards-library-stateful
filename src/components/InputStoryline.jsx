@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class InputSinopse extends Component {
+export default class InputStoryline extends Component {
   render() {
     const { value, onChange } = this.props;
     return (
@@ -19,7 +19,7 @@ export default class InputSinopse extends Component {
   }
 }
 
-InputSinopse.propTypes = {
+InputStoryline.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };

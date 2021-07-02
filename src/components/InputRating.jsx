@@ -15,7 +15,6 @@ export default class InputRating extends Component {
           name="rating"
           type="number"
           data-testid="rating-input"
-          defaultValue="0"
           value={ value }
           onChange={ onChange }
         />

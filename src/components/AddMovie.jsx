@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import InputTitle from './InputTitle';
 import InputSubtitle from './InputSubtitle';
 import InputImage from './InputImage';
-import InputSinopse from './InputSinopse';
+import InputStoryline from './InputStoryline';
 import InputRating from './InputRating';
 import InputGenre from './InputGenre';
 
 const stateInitial = {
-  subtitle: '',
   title: '',
+  subtitle: '',
   imagePath: '',
   storyline: '',
   rating: 0,
@@ -17,23 +17,22 @@ const stateInitial = {
 };
 
 export default class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state = stateInitial;
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleChange({ target }) {
+  handleChange = ({ target }) => {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
     });
-  }
+  };
 
-  handleClick(e) {
-    e.preventDefault();
+  handleClick = (event) => {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState(stateInitial);
@@ -46,7 +45,7 @@ export default class AddMovie extends Component {
         <InputTitle value={ title } onChange={ this.handleChange } />
         <InputSubtitle value={ subtitle } onChange={ this.handleChange } />
         <InputImage value={ imagePath } onChange={ this.handleChange } />
-        <InputSinopse value={ storyline } onChange={ this.handleChange } />
+        <InputStoryline value={ storyline } onChange={ this.handleChange } />
         <InputRating value={ rating } onChange={ this.handleChange } />
         <InputGenre value={ genre } onChange={ this.handleChange } />
         <button
