@@ -67,7 +67,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ this.searchFilter() } />
-        <AddMovie onClick={ onClick } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
