@@ -22,7 +22,7 @@ export default class AddMovieSelect extends React.Component {
   }
 }
 
-AddMovieSelect.propType = ({
+AddMovieSelect.propTypes = ({
   genre: PropTypes.string,
   handleChange: PropTypes.func,
 }).isRequired;
