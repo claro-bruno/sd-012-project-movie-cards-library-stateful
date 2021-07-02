@@ -29,13 +29,15 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
-    this.setState({
-      [name]: value,
-    });
+  handleChange({ target: { name, type, value, checked } }) {
+    function newValue() {
+      switch (type) {
+      case 'checkbox': return checked;
+      case 'number': return +value;
+      default: return value;
+      }
+    }
+    this.setState((state) => ({ ...state, [name]: newValue() }));
   }
 
   filterMovies() {

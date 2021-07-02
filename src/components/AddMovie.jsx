@@ -7,42 +7,46 @@ import TextAreaStoryline from './ComponentsAddMovie/TextAreaStoryline';
 import InputRating from './ComponentsAddMovie/InputRating';
 import SelectGenre from './ComponentsAddMovie/SelectGenre';
 
+const INITIAL_STATE = {
+  title: '',
+  subtitle: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class AddMovie extends React.Component {
   constructor() {
     super();
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    this.stateDefault = this.stateDefault.bind(this);
+    this.resetInitialState = this.resetInitialState.bind(this);
 
-    this.state = this.stateDefault();
+    this.state = INITIAL_STATE;
   }
 
-  handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
-    this.setState({
-      [name]: value,
-    });
+  handleChange({ target: { name, type, value, checked } }) {
+    function newValue() {
+      switch (type) {
+      case 'checkbox': return checked;
+      case 'number': return +value;
+      default: return value;
+      }
+    }
+    this.setState((state) => ({ ...state, [name]: newValue() }));
   }
 
   handleClick(event) {
     event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState(this.stateDefault());
+    this.resetInitialState();
   }
 
-  stateDefault() {
-    return {
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+  resetInitialState() {
+    return this.setState((state) => ({ ...state, INITIAL_STATE }));
   }
 
   render() {
