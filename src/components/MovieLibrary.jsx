@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-// import movies from '../data';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -19,8 +18,6 @@ class MovieLibrary extends Component {
 
     this.handleChanges = this.handleChanges.bind(this);
     this.filter = this.filter.bind(this);
-    /* this.filterCheckbox = this.filterCheckbox.bind(this);
-    this.filterSelect = this.filterSelect.bind(this); */
     this.addNewMovie = this.addNewMovie.bind(this);
   }
 
@@ -33,6 +30,7 @@ class MovieLibrary extends Component {
     });
   }
 
+  // filter feito com ajuda do Wander Diniz - turma 12
   filter() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
 
@@ -50,8 +48,11 @@ class MovieLibrary extends Component {
     return displaySelected;
   }
 
+  // addNewMovie feita com ajuda do Wander Diniz - turma 12 e consultando este artigo
+  // https://medium.com/@jasminegump/passing-data-between-a-parent-and-child-in-react-deea2ec8e654
   addNewMovie(newMovie) {
-    this.setState((prevState) => prevState.movies.push(newMovie));
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovie] });
   }
 
   render() {
