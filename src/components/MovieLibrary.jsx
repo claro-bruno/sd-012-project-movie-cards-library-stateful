@@ -7,6 +7,11 @@ class MovieLibrary extends Component {
   constructor(props) {
     super();
 
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.AddFilm = this.AddFilm.bind(this);
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -15,8 +20,53 @@ class MovieLibrary extends Component {
     };
   }
 
+  onSearchTextChange(event) {
+    this.setState({
+      searchText: event.target.value,
+    });
+  }
+
+  onBookmarkedChange(event) {
+    this.setState({
+      bookmarkedOnly: event.target.checked,
+    });
+  }
+
+  onSelectedGenreChange(event) {
+    this.setState({
+      selectedGenre: event.target.value,
+    });
+  }
+
+  AddFilm(onClickAddMovie) {
+    this.setState((estadoAntigo) => {
+      const afterLibrary = estadoAntigo.movies;
+
+      afterLibrary.push(onClickAddMovie);
+      return {
+        movies: afterLibrary,
+      };
+    });
+  }
+
   render() {
-    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let { movies } = this.state;
+    if (searchText) {
+      movies = movies.filter((movie) => movie.title
+        .toLowerCase().includes(searchText.toLowerCase())
+      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+      || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
+    }
+
+    if (bookmarkedOnly) {
+      movies = movies.filter((movie) => movie.bookmarked);
+    }
+
+    if (selectedGenre) {
+      movies = movies.filter((movie) => movie.genre === selectedGenre);
+    }
+
     return (
       <section>
         <SearchBar
@@ -28,7 +78,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.AddFilm } />
       </section>
     );
   }

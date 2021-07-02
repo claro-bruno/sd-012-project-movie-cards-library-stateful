@@ -28,7 +28,7 @@ class AddMovie extends Component {
   }
 
   hendleClickButton(onClick) {
-    // onClick({ ...this.state });
+    onClick({ ...this.state });
     this.setState({
       subtitle: '',
       title: '',
@@ -40,10 +40,11 @@ class AddMovie extends Component {
   }
 
   render() {
+    const { onClick } = this.props;
     const { genre, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <InputsAddMovie onChange={ this.hendleChange } state={ this.state } />
+        <InputsAddMovie hendleChange={ this.hendleChange } state={ this.state } />
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
           <textarea
@@ -60,6 +61,7 @@ class AddMovie extends Component {
             data-testid="genre-input"
             value={ genre }
             onChange={ this.hendleChange }
+            name="genre"
           >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -67,9 +69,9 @@ class AddMovie extends Component {
           </select>
         </label>
         <button
-          type="submit"
+          type="button"
           data-testid="send-button"
-          // onClick={ () => this.hendleClickButton(onClick) }
+          onClick={ () => this.hendleClickButton(onClick) }
         >
           Adicionar filme
         </button>
