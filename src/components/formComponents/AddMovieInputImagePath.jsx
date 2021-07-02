@@ -3,7 +3,7 @@ import React from 'react';
 
 export default class AddMovieInputImagePath extends React.Component {
   render() {
-    // const { searchText, onSearchTextChange } = this.props;
+    const { cHandler, value } = this.props;
     return (
       <label
         htmlFor="imagePath"
@@ -11,10 +11,10 @@ export default class AddMovieInputImagePath extends React.Component {
       >
         Imagem
         <input
-          // onChange={ this.changeHandler }
+          onChange={ cHandler }
           type="text"
           data-testid="image-input"
-          // value={ this.state.imagePath }
+          value={ value }
           id="imagePath"
         />
       </label>

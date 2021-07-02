@@ -3,7 +3,7 @@ import React from 'react';
 
 export default class AddMovieInput extends React.Component {
   render() {
-    // const { searchText, onSearchTextChange } = this.props;
+    const { cHandler, value } = this.props;
     return (
       <label
         htmlFor="title"
@@ -11,10 +11,10 @@ export default class AddMovieInput extends React.Component {
       >
         Título
         <input
-          // onChange={  }
+          onChange={ cHandler }
           type="text"
           data-testid="title-input"
-          // value={ this.state.title }
+          value={ value }
           id="title"
         />
       </label>

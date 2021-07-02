@@ -3,7 +3,7 @@ import React from 'react';
 
 export default class AddMovieSelect extends React.Component {
   render() {
-    // const { searchText, onSearchTextChange } = this.props;
+    const { cHandler, value } = this.props;
     return (
       <label
         htmlFor="genre"
@@ -11,8 +11,8 @@ export default class AddMovieSelect extends React.Component {
       >
         Gênero
         <select
-          onChange={ this.changeHandler }
-          // value={ this.state.genre }
+          onChange={ cHandler }
+          value={ value }
           data-testid="genre-input"
           id="genre"
         >

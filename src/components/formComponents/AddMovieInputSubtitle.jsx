@@ -3,7 +3,7 @@ import React from 'react';
 
 export default class AddMovieSubtitle extends React.Component {
   render() {
-    // const { searchText, onSearchTextChange } = this.props;
+    const { cHandler, value } = this.props;
     return (
       <label
         htmlFor="subtitle"
@@ -11,10 +11,10 @@ export default class AddMovieSubtitle extends React.Component {
       >
         Subtítulo
         <input
-          // onChange={ this.changeHandler }
+          onChange={ cHandler }
           type="text"
           data-testid="subtitle-input"
-          // value={ this.state.subtitle }
+          value={ value }
           id="subtitle"
         />
       </label>

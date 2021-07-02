@@ -10,42 +10,58 @@ export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
     };
-    this.changeHandler = this.changeHandler.bind(this);
+    this.cHandler = this.cHandler.bind(this);
+    this.submitHandler = this.submitHandler.bind(this);
   }
 
-  changeHandler(e) {
+  cHandler(e) {
     this.setState({
       [e.target.id]: e.target.value,
     });
   }
-
+  
   submitHandler(e) {
     e.preventDefault();
+    const { addMovieToArr } = this.props;
+    const newMovie = this.state;
+    addMovieToArr(newMovie);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action'
+    });
   }
 
   render() {
-    // const { onClick } = this.props;
-    const { rating } = this.state
+    const { 
+      rating,
+      title,
+      subtitle,
+      imagePath,
+      storyline,
+      genre,
+    } = this.state
 
     return (
       <form data-testid="add-movie-form">
-
-        <AddMovieInputTitle />
-        <AddMovieInputSubtitle />
-        <AddMovieInputImagePath />
-        <AddMovieTextarea />
-        <AddMovieInputRating rating={ rating } changeHandler={ this.changeHandler } />
-        <AddMovieSelect />
-
+        <AddMovieInputTitle value={ title } cHandler={ this.cHandler } />
+        <AddMovieInputSubtitle value={ subtitle } cHandler={ this.cHandler } />
+        <AddMovieInputImagePath value={ imagePath } cHandler={ this.cHandler } />
+        <AddMovieTextarea value={ storyline } cHandler={ this.cHandler } />
+        <AddMovieInputRating value={ rating } cHandler={ this.cHandler } />
+        <AddMovieSelect value={ genre } cHandler={ this.cHandler } />
         <button
-          // onClick={ onclickHandler }
+          onClick={ this.submitHandler }
           data-testid="send-button"
           type="button"
         >

@@ -3,7 +3,7 @@ import React from 'react';
 
 export default class AddMovieTextarea extends React.Component {
   render() {
-    // const { searchText, onSearchTextChange } = this.props;
+    const { cHandler, value } = this.props;
     return (
       <label
         htmlFor="storyline"
@@ -11,10 +11,10 @@ export default class AddMovieTextarea extends React.Component {
       >
         Sinopse
         <textarea
-          onChange={ this.changeHandler }
+          onChange={ cHandler }
           data-testid="storyline-input"
           id="storyline"
-          // value={ this.state.storyline }
+          value={ value }
         />
       </label>
     );

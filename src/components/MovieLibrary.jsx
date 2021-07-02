@@ -11,12 +11,13 @@ export default class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies: props.movies,
+      movies: props.movies,
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.filteredMovies = this.filteredMovies.bind(this);
+    this.addMovieToArr = this.addMovieToArr.bind(this);
   }
 
   onSearchTextChange(e) {
@@ -36,8 +37,7 @@ export default class MovieLibrary extends React.Component {
   }
 
   filteredMovies() {
-    let { movies } = this.props;
-    let { searchText } = this.state;
+    let { movies, searchText } = this.state;
     const { selectedGenre, bookmarkedOnly } = this.state;
     searchText = searchText.toLowerCase();
     if (bookmarkedOnly) {
@@ -56,6 +56,12 @@ export default class MovieLibrary extends React.Component {
     return movies;
   }
 
+  addMovieToArr(newMovie) {
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, newMovie],
+    }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -72,7 +78,7 @@ export default class MovieLibrary extends React.Component {
         <MovieList
           movies={ this.filteredMovies() }
         />
-        <AddMovie addNewMovie={ this.addNewMovie } />
+        <AddMovie addMovieToArr={ this.addMovieToArr } />
       </div>
     );
   }
