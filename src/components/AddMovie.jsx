@@ -75,7 +75,7 @@ class AddMovie extends Component {
             textLabel="Gênero"
             dataTestid="genre-input"
             onChange={ this.handleInputs }
-            name="inputGenre"
+            name="genre"
             genre={ genre }
             dataTestidOption="genre-option"
             options={ genreInputOptions }
@@ -83,7 +83,7 @@ class AddMovie extends Component {
           <button
             data-testid="send-button"
             type="button"
-            onClick={ this.handleClick(onClick) }
+            onClick={ () => this.handleClick(onClick) }
           >
             Adicionar filme
           </button>

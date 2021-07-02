@@ -10,9 +10,8 @@ class Input extends Component {
       type,
       name,
       value = '',
-      checked = false,
+      checked,
       onChange,
-      isRequired = true,
     } = this.props;
     return (
       <label htmlFor={ dataTestid } data-testid={ dataTestidLabel }>
@@ -25,7 +24,6 @@ class Input extends Component {
           value={ value }
           checked={ checked }
           onChange={ onChange }
-          isRequired={ isRequired }
         />
       </label>
     );
@@ -41,7 +39,6 @@ Input.propTypes = {
   value: PropTypes.string.isRequired,
   checked: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  isRequired: PropTypes.bool.isRequired,
 };
 
 export default Input;

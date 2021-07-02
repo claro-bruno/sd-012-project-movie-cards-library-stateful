@@ -30,17 +30,17 @@ class MovieLibrary extends Component {
     });
   }
 
-  handleClick({ title, subtitle, imagePath, storyline, rating, genre }) {
+  handleClick(newMovie) {
     const { movies } = this.state;
-    const newMovie = {
-      title,
-      subtitle,
-      storyline,
-      rating,
-      imagePath,
-      bookmarked: false,
-      genre,
-    };
+    // const newMovie = {
+    //   title,
+    //   subtitle,
+    //   storyline,
+    //   rating,
+    //   imagePath,
+    //   bookmarked: false,
+    //   genre,
+    // };
     this.setState({
       movies: [...movies, newMovie],
     });
@@ -84,7 +84,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ this.handleFilter } />
+        <MovieList movies={ this.handleFilter() } />
         <AddMovie onClick={ this.handleClick } />
       </div>
     );

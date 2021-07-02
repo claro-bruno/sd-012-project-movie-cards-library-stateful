@@ -20,25 +20,23 @@ class SearchBar extends Component {
         <Input
           dataTestidLabel="text-input-label"
           textLabel="Inclui o texto"
-          data-testid="text-input"
-          id="text-input"
+          dataTestid="text-input"
           type="text"
           name="searchText"
           value={ searchText }
           onChange={ onSearchTextChange }
-          isRequired={ false }
         />
-        <Input
-          dataTestidLabel="checkbox-input-label"
-          textLabel="Mostrar somente favoritos"
-          data-testid="checkbox-input"
-          id="checkbox-input"
-          type="checkbox"
-          name="bookmarkedOnly"
-          checked={ bookmarkedOnly }
-          onChange={ onBookmarkedChange }
-          isRequired={ false }
-        />
+        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input
+            data-testid="checkbox-input"
+            id="checkbox-input"
+            type="checkbox"
+            name="bookmarkedOnly"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+          />
+        </label>
         <Select
           dataTestidLabel="select-input-label"
           textLabel="Filtrar por gênero"

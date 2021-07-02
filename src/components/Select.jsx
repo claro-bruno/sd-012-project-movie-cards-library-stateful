@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import Option from './Option';
-
 class Select extends Component {
   render() {
     const {
@@ -26,12 +24,13 @@ class Select extends Component {
           onChange={ onChange }
         >
           { options.map(({ value, text }) => (
-            <Option
-              dataTestid={ dataTestidOption }
+            <option
+              data-testid={ dataTestidOption }
               value={ value }
-              text={ text }
               key={ value }
-            />
+            >
+              { text }
+            </option>
           )) }
         </select>
       </label>
