@@ -1,18 +1,19 @@
 // implement MovieLibrary component here!
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  // Passar a props como parâmetro do constructor para poder utilizar como estado inicial na chave movies visto no slack da trybe, no link shorturl.at/aFIP2
+  constructor(props) {
+    super(props);
     this.handleChange = this.handleChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: '',
+      movies: props.movies,
     };
   }
 
@@ -25,8 +26,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
@@ -43,8 +43,8 @@ class MovieLibrary extends React.Component {
   }
 }
 
-// MovieLibrary.propTypes = {
-//   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-// };
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;
