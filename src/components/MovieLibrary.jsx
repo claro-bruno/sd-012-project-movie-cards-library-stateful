@@ -8,7 +8,7 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.filterSearchText = this.filterSearchText.bind(this);
+    this.filterSearchText = this.searchFilter.bind(this);
 
     this.state = {
       searchText: '',
@@ -26,7 +26,8 @@ class MovieLibrary extends Component {
     });
   }
 
-  filterSearchText() {
+  // funcao searchFilter feita com a valiosa ajuda do Diogo Sant'Anna :)
+  searchFilter() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     let allFilters = movies;
     if (searchText) {
@@ -57,7 +58,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ this.filterSearchText() } />
+        <MovieList movies={ this.searchFilter() } />
         <AddMovie />
       </div>
     );
