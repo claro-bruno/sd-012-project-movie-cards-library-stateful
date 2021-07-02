@@ -3,9 +3,9 @@ import React from 'react';
 
 class Input extends React.Component {
   render() {
-    const { label, type, name, value, dataTestid, dataTestInput, onChange } = this.props;
+    const { label, type, name, value, dataTestId, dataTestInput, onChange } = this.props;
     return (
-      <label htmlFor={ name } data-testid={ dataTestid }>
+      <label htmlFor={ name } data-testid={ dataTestId }>
         { label }
         <input
           type={ type }

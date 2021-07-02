@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Input from './Input';
-import Checkbox from './Checkbox';
-import Select from './Select';
+import InputText from './InputText';
+// import Input from './Input';
+// import Checkbox from './Checkbox';
+// import Select from './Select';
 
-const generes = [
-  { genre: 'Todos', genreValue: '' },
-  { genre: 'Ação', genreValue: 'action' },
-  { genre: 'Comédia', genreValue: 'comedy' },
-  { genre: 'Suspense', genreValue: 'thriller' },
-];
+// const generes = [
+//   { genre: 'Todos', genreValue: '' },
+//   { genre: 'Ação', genreValue: 'action' },
+//   { genre: 'Comédia', genreValue: 'comedy' },
+//   { genre: 'Suspense', genreValue: 'thriller' },
+// ];
 
 class SearchBar extends React.Component {
   render() {
@@ -23,33 +24,28 @@ class SearchBar extends React.Component {
     } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <Input
-          label="Inclui o texto"
-          type="text"
-          name="searchText"
-          value={ searchText }
-          dataTestid="text-input-label"
-          dataTestInput="text-input"
-          onChange={ onSearchTextChange }
+        <InputText
+          searchText={ searchText }
+          onSearchTextChange={ onSearchTextChange }
         />
 
-        <Checkbox
+        {/* <Checkbox
           label="Mostrar somente favoritos"
           type="checkbox"
           name="bookmarkedOnly"
           dataTestId="checkbox-input"
           checked={ bookmarkedOnly }
           onChange={ onBookmarkedChange }
-        />
+        /> */}
 
-        <Select
+        {/* <Select
           label="Filtrar por gênero"
           name="selectedGenre"
           dataTestId="select-input"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
           options={ generes }
-        />
+        /> */}
       </form>
     );
   }
