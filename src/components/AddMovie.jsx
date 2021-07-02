@@ -1,5 +1,6 @@
 import React from 'react';
 import Input from './Input';
+import Select from './Select';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -18,25 +19,16 @@ class AddMovie extends React.Component {
   handleChange(e) {
     const { value, name } = e.target;
     this.setState({
-      ...this.state, [name]: value,
+      [name]: value,
     });
   }
 
   render() {
-    const {
-      subtitle,
-      title,
-      imagePath,
-      storyline,
-      rating,
-      genre,
-    } = this.state;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <Input
           label="Título"
-          dataLabel="title-input-label"
-          dataInput="title-input"
           name="title"
           type="text"
           value={ title }
@@ -44,8 +36,6 @@ class AddMovie extends React.Component {
         />
         <Input
           label="Subtítulo"
-          dataLabel="subtitle-input-label"
-          dataInput="subtitle-input"
           name="subtitle"
           type="text"
           value={ subtitle }
@@ -53,24 +43,28 @@ class AddMovie extends React.Component {
         />
         <Input
           label="Imagem"
-          dataLabel="image-input-label"
-          dataInput="image-input"
-          name="image"
+          name="imagePath"
           type="text"
           value={ imagePath }
-          // value={ imagePath }
           onChange={ this.handleChange }
         />
-
         <Input
           label="Avaliação"
-          dataLabel="rating-input-label"
-          dataInput="rating-input"
           name="rating"
           type="number"
           value={ rating }
           onChange={ this.handleChange }
         />
+        <label htmlFor="storyline" data-testid="storyline-input-label">
+          Sinopse
+          <textarea
+            data-testid="storyline-input"
+            name="storyline"
+            value={ storyline }
+            onChange={ this.handleChange }
+          />
+        </label>
+        <Select genre={ genre } onChange={ this.handleChange } />
       </form>
     );
   }
