@@ -32,7 +32,7 @@ class MovieLibrary extends Component {
   }
 
   updateGenre = ({ target }) => {
-    const { value} = target;
+    const { value } = target;
     this.setState(() => ({ selectedGenre: value }));
   }
 
