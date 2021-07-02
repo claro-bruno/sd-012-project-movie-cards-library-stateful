@@ -28,6 +28,7 @@ class MovieLibrary extends React.Component {
 
   changeMovieList(newMovie) {
     // fundão brabo fizemo junto
+
     this.setState((prevState) => ({
       movies: [...prevState.movies, newMovie],
     }));
@@ -36,6 +37,15 @@ class MovieLibrary extends React.Component {
   render() {
     const { movies } = this.state;
     const { textInput, favoritesOnly, genreOption } = this.state;
+
+    const filteredMovies = movies
+      .filter(({ bookmarked }) => !favoritesOnly || bookmarked)
+      .filter(
+        ({ title, subtitle, storyline }) => title.includes(textInput)
+              || subtitle.includes(textInput)
+              || storyline.includes(textInput),
+      )
+      .filter(({ genre }) => genre.includes(genreOption));
 
     return (
       <div>
@@ -49,7 +59,7 @@ class MovieLibrary extends React.Component {
         />
         <div>
           <MovieList
-            movies={ movies }
+            movies={ filteredMovies }
             searchText={ textInput }
             bookmarkedOnly={ favoritesOnly }
             selectedGenre={ genreOption }
