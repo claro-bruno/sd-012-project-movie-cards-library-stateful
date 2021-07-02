@@ -24,7 +24,7 @@ class AddRating extends React.Component {
 }
 
 AddRating.propTypes = {
-  name: PropTypes.string,
+  name: PropTypes.number,
   callBack: PropTypes.func,
 };
 

@@ -35,7 +35,7 @@ FormAddRating.propTypes = {
   labelText: PropTypes.string,
   dataFormId2: PropTypes.string,
   inputType: PropTypes.string,
-  inputValue: PropTypes.string,
+  inputValue: PropTypes.number,
   inputOnChange: PropTypes.func,
   htmlForId: PropTypes.string,
 };

@@ -7,7 +7,9 @@ import AddMovies from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super();
-
+    // const { movies } = this.props;
+    // const { movies } = props;
+    // é a mesma coisa esses de cima
     this.state = {
       searchText: '',
       bookmarkedOnly: false, // essa é a checkbox quando não está selecionada
@@ -24,6 +26,17 @@ class MovieLibrary extends Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  addNewMovie = ({ title, subtitle, storyline, rating, genre, imagePath }) => {
+    const newMovie = { title,
+      subtitle,
+      storyline,
+      rating: parseFloat(rating),
+      genre,
+      imagePath,
+    };
+    this.setState(({ movies }) => ({ movies: [...movies, newMovie] })); // o "...movies" quer dizer que já tem os filmes antigos e adiciona os que colocar em newMovie
   }
 
   filterMovies(movieList) {
@@ -45,7 +58,7 @@ class MovieLibrary extends Component {
     const { searchText,
       bookmarkedOnly,
       selectedGenre,
-      movies,
+      movies, // array de filmes que será do data
     } = this.state;
 
     return (
@@ -59,7 +72,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ this.filterMovies(movies) } />
-        <AddMovies movies={ this.filterMovies(movies) } />
+        <AddMovies onClick={ this.addNewMovie } />
       </section>
     );
   }
