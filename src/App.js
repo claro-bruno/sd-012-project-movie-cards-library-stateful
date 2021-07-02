@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import './App.css';
 import SearchBar from './components/SearchBar';
+import AddMovie from './components/AddMovie';
 
 class App extends React.Component {
   constructor() {
@@ -43,6 +44,10 @@ class App extends React.Component {
           onBookmarkedChange={ this.onBookmarkedChange }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
+        />
+        <AddMovie
+          handleChange={ this.handleChange }
+          onClick={ () => console.log('test!') }
         />
       </div>
     );
