@@ -9,8 +9,6 @@ class MovieLibrary extends Component {
     super(props);
     const { movies } = props;
     this.filterSearchBar = this.filterSearchBar.bind(this);
-    this.filterGenderMovies = this.filterGenderMovies.bind(this);
-    this.filterTextMovies = this.filterTextMovies.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.state = {
       searchText: '',
@@ -47,40 +45,6 @@ class MovieLibrary extends Component {
       || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
       ));
     return resultadoFilterWord;
-  }
-
-  // filterFavoriteMovies() {
-  //   const { movies, bookmarkedOnly } = this.state;
-  //   const filmesFiltrados = movies.filter((movie) => movie.bookmarked);
-  //   return bookmarkedOnly ? filmesFiltrados : movies;
-  // }
-
-  filterGenderMovies() {
-    const { movies, selectedGenre } = this.state;
-    const filmesFiltrados = movies.filter((movie) => movie.genre === selectedGenre);
-    return selectedGenre === '' ? movies : filmesFiltrados;
-  }
-
-  filterTextMovies() {
-    // const { movies, searchText } = this.state;
-    // const filmesTitulosFiltrados = movies
-    //   .filter((movie) => movie.title.toLowerCase().includes(searchText));
-    // const filmesSubtitulosFiltrados = movies
-    //   .filter((movie) => movie.subtitle.toLowerCase().includes(searchText));
-    // const filmesSinopseFiltrados = movies
-    //   .filter((movie) => movie.storyline.toLowerCase().includes(searchText));
-    // console.log(filmesTitulosFiltrados);
-    // console.log(filmesSubtitulosFiltrados);
-    // console.log(filmesSinopseFiltrados);
-    // console.log('________________________');
-    // return [...(
-    //   filmesTitulosFiltrados,
-    //   filmesSubtitulosFiltrados,
-    //   filmesSinopseFiltrados)];
-    // const filmesFiltrados = movies.filter((movie) => (movie.title
-    //     || movie.subtitle
-    //     || movie.storyline).toLowerCase().includes(searchText.toLowerCase()));
-    // return filmesFiltrados;
   }
 
   render() {

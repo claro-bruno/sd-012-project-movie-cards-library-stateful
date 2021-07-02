@@ -31,7 +31,6 @@ class AddMovie extends Component {
   }
 
   clickFunction() {
-    // onClick();
     this.setState({
       title: '',
       subtitle: '',
