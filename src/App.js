@@ -5,20 +5,11 @@ import MovieLibrary from './components/MovieLibrary';
 import movies from './data';
 
 class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      movie: movies,
-    };
-  }
-
   render() {
-    const { movie } = this.state;
     return (
       <div className="App">
         <Header />
-        <MovieLibrary movies={ movie } />
+        <MovieLibrary movies={ movies } />
       </div>
     );
   }

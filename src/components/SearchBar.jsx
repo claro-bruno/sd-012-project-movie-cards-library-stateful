@@ -17,7 +17,7 @@ class SearchBar extends Component {
     return (
       <form data-testid="search-bar-form">
         <Input
-          name="includes"
+          name="searchText"
           label="Inclui o texto:"
           labelTestId="text-input-label"
           type="text"
@@ -27,7 +27,7 @@ class SearchBar extends Component {
           labelId="txtInput"
         />
         <Input
-          name="favorites"
+          name="bookmarkedOnly"
           label="Mostrar somente favoritos"
           labelTestId="checkbox-input-label"
           type="checkbox"
@@ -37,7 +37,7 @@ class SearchBar extends Component {
           labelId="checkboxInput"
         />
         <Filter
-          name="filter"
+          name="selectedGenre"
           label="Filtrar por gênero"
           labelTestId="select-input-label"
           labelId="selectField"
