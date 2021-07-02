@@ -8,6 +8,7 @@ class Select extends React.Component {
       <label data-testid={ `${name}-input-label` } htmlFor={ `${name}-input` }>
         <span className="mr15">{spanText}</span>
         <select
+          name={ name }
           data-testid={ `${name}-input` }
           value={ genre }
           onChange={ handler }

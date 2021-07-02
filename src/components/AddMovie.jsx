@@ -16,6 +16,7 @@ class AddMovie extends React.Component {
 
     this.handleHating = this.handleHating.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleButton = this.handleButton.bind(this);
   }
 
   handleHating({ target }) {
@@ -31,6 +32,17 @@ class AddMovie extends React.Component {
     });
   }
 
+  handleButton() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     // const { handleChange } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
@@ -43,6 +55,7 @@ class AddMovie extends React.Component {
         rating={ rating }
         genre={ genre }
         handler={ this.handleChange }
+        handleButton={ this.handleButton }
       />
     );
   }

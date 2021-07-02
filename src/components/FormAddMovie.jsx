@@ -15,7 +15,7 @@ class Form extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyline,
-      rating, genre, handler, hc = handler } = this.props;
+      rating, genre, handler, hc = handler, handleButton } = this.props;
     return (
       <form data-testid="add-movie-form">
         <Input name="title" spanText="Título" value={ title } handler={ hc } />
@@ -24,14 +24,7 @@ class Form extends React.Component {
         <Input name="storyline" spanText="Sinopse" value={ storyline } handler={ hc } />
         <Input name="rating" spanText="Avaliação" value={ rating } handler={ hc } />
         <Select name="genre" spanText="Gênero" value={ genre } handler={ hc } />
-        <Button
-          title={ title }
-          subtitle={ subtitle }
-          imagePath={ imagePath }
-          storyline={ storyline }
-          rating={ rating }
-          genre={ genre }
-        />
+        <Button onClick={ handleButton } />
       </form>
     );
   }
@@ -46,6 +39,7 @@ Form.propTypes = {
   genre: PropTypes.string.isRequired,
   handler: PropTypes.func.isRequired,
   hc: PropTypes.func.isRequired,
+  handleButton: PropTypes.func.isRequired,
 };
 
 export default Form;
