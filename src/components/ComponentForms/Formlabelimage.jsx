@@ -23,7 +23,7 @@ class Formlabelimage extends React.Component {
   }
 }
 
-Formlabelimage.propType = {
+Formlabelimage.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };

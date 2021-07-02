@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import FormLabeltitle from './ComponentForms/FormLabeltitle';
 import Formlabelsubtitle from './ComponentForms/Formlabelsubtitle';
 import Formlabelimage from './ComponentForms/Formlabelimage';
@@ -32,8 +33,9 @@ class AddMovie extends React.Component {
     });
   }
 
-  addMovie(onClick) {
-    onClick({ ...this.state });
+  addMovie() {
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({ subtitle: '',
       title: '',
       imagePath: '',
@@ -44,7 +46,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const { rating, genre, title, subtitle, storyline, imagePath } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -75,7 +76,7 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={ () => this.addMovie(onClick) }
+          onClick={ this.addMovie }
         >
           Adicionar filme
         </button>
@@ -83,5 +84,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

@@ -17,6 +17,7 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.addCard = this.addCard.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -34,8 +35,10 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: value });
   }
 
-  addCard() {
-
+  addCard(newstates) {
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, newstates],
+    }));
   }
 
   render() {
@@ -65,7 +68,7 @@ class MovieLibrary extends React.Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayof(PropTypes.object).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default MovieLibrary;
