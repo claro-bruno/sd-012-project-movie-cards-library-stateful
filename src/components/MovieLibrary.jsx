@@ -19,8 +19,8 @@ class MovieLibrary extends Component {
 
     this.handleChanges = this.handleChanges.bind(this);
     this.filter = this.filter.bind(this);
-    this.filterCheckbox = this.filterCheckbox.bind(this);
-    this.filterSelect = this.filterSelect.bind(this);
+    /* this.filterCheckbox = this.filterCheckbox.bind(this);
+    this.filterSelect = this.filterSelect.bind(this); */
     this.addNewMovie = this.addNewMovie.bind(this);
   }
 
@@ -34,30 +34,18 @@ class MovieLibrary extends Component {
   }
 
   filter() {
-    const { movies, searchText } = this.state;
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
 
-    const displayArray = movies.filter((movie) => movie
+    const displayArray = movies.filter((movie) => (searchText ? movie
       .title.toLowerCase().includes(searchText.toLowerCase())
       || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
-      || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
+      || movie.storyline.toLowerCase().includes(searchText.toLowerCase()) : movies));
 
-    return displayArray;
-  }
+    const displayFavoriteArray = displayArray.filter((movie) => (bookmarkedOnly
+      ? movie.bookmarked === bookmarkedOnly : displayArray));
 
-  filterCheckbox() {
-    const { movies, bookmarkedOnly } = this.state;
-
-    const displayFavoriteArray = movies.filter((movie) => movie
-      .bookmarked === bookmarkedOnly);
-
-    return displayFavoriteArray;
-  }
-
-  filterSelect() {
-    const { movies, selectedGenre } = this.state;
-
-    const displaySelected = movies.filter((movie) => movie
-      .genre === selectedGenre);
+    const displaySelected = displayFavoriteArray.filter((movie) => (selectedGenre
+      ? movie.genre === selectedGenre : displayArray));
 
     return displaySelected;
   }
@@ -67,7 +55,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -80,7 +68,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChanges }
         />
         <MovieList
-          movies={ movies }
+          movies={ this.filter() }
         />
         <AddMovie onClick={ this.addNewMovie } />
       </div>
