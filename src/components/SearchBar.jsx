@@ -6,6 +6,7 @@ class SearchBar extends React.Component {
       <section>
         <form data-testid="search-bar-form" action="">
           <input type="text" data-testid="text-input" id="filter" />
+          <input type="checkbox" name="" id="" />
         </form>
       </section>
     );
