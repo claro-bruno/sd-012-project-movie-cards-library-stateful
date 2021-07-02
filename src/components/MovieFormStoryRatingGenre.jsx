@@ -8,7 +8,7 @@ class MovieFormStoryRatingGenre extends React.Component {
       <div>
         <label htmlFor="sinopse_" data-testid="storyline-input-label">
           Sinopse
-          <input
+          <textarea
             name="storyline"
             id="sinopse_"
             type="textarea"

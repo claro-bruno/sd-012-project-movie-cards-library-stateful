@@ -29,14 +29,12 @@ class AddMovie extends React.Component {
   }
 
   handleClick() {
-    const { movieAdd } = this.state;
-    const { onClick } = this.props;
-    onClick(movieAdd);
     this.setState(initialState);
   }
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { onClick } = this.props;
     return (
       <section>
         <form data-testid="add-movie-form">
@@ -52,10 +50,19 @@ class AddMovie extends React.Component {
             genre={ genre }
             handleChange={ this.handleChange }
           />
+          {/* código js dentro da tag button feito com ajuda de Eric e Thalles */}
+          <button
+            type="button"
+            data-testid="send-button"
+            onClick={ (e) => {
+              e.preventDefault();
+              this.handleClick();
+              onClick(this.state);
+            } }
+          >
+            Adicionar filme
+          </button>
         </form>
-        <button type="button" data-testid="send-button" onClick={ this.handleClick }>
-          Adicionar filme
-        </button>
       </section>
     );
   }
