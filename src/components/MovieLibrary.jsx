@@ -45,7 +45,7 @@ class MovieLibrary extends Component {
     }
   }
 
-  // Feito com ajuda de Márcio Daniel - Turma 8 e Diogo - Turma 12.
+  // Feito com ajuda de Márcio Daniel - Turma 8, Diogo Santana, Miguel Retroz, André Dantas (Turma 12)
   filterMovies() {
     const { movies, bookmarkedOnly, selectedGenre, searchText } = this.state;
     let result = movies;
@@ -66,10 +66,10 @@ class MovieLibrary extends Component {
   }
 
   // Feito com a ajuda de Diogo - Turma 12
-  newCard(movie) { // o parâmetro movie recebe o this.state em 'onClick(this.state)' que fica no componente AddMovie.jsx;
-    this.setState((prevState) => ({
-      ...prevState,
-      movies: [...prevState.movies, movie],
+  newCard(movie) { // o parâmetro 'movie' recebe o this.state.movies, que correspondete ao array do estado prévio (atualizado) em 'onClick(this.state)' que fica no componente AddMovie.jsx. O array movies é passado como props.
+    this.setState((prevState) => ({ // O parâmetro prevState recebe o state anterior referente às modificações que consiste no array movies (no formato original).
+      ...prevState, // prepara o array movies para ser espalhado na chave movies de this.state.
+      movies: [...prevState.movies, movie], // a chave movies de this.state.movies receberá o array anterior, que contém os objetos (filmes), espalhado no novo array e, logo após, será inserido o novo filme (movie), que corresponde ao novo objeto que foi adicionado pelo usuário.
     }));
   }
 
