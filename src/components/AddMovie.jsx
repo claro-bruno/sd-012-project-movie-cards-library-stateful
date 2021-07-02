@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 class AddMovie extends Component {
   render() {
     return (
-      <div> ADDMOVIE TEST </div>
+      <form data-testid="add-movie-form" action="">
+        <div> ADDMOVIE TEST </div>
+      </form>
     );
   }
 }
