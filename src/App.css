@@ -82,14 +82,19 @@ body {
   padding: 12px 20px;
 }
 
+.search {
+  border-radius: 3px;
+  margin-left: 5%;
+}
+
 form {
+  align-items: center;
   color: white;
   margin: auto;
-  align-items: center;
 }
 
 h2 {
-  padding: 3%;
   color: #1f965e;
+  padding: 3%;
   text-align: center;
 }
