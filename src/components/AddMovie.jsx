@@ -6,11 +6,11 @@ import AddMovieImagePath from './childsComponents/addMovieImagePath';
 import AddMovieStoryline from './childsComponents/addMovieStoryline';
 import AddMovieRating from './childsComponents/addMovieRating';
 import AddMovieGenre from './childsComponents/addMovieGenre';
+import AddMovieButton from './childsComponents/addMovieButton';
 
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       title: '',
       subtitle: '',
@@ -28,6 +28,19 @@ class AddMovie extends React.Component {
     });
   }
 
+  onClick = () => {
+    const { onClick } = this.props;
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+    onClick(this.state);
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
@@ -43,13 +56,14 @@ class AddMovie extends React.Component {
         <AddMovieStoryline handleChange={ this.handleChange } storyline={ storyline } />
         <AddMovieRating handleChange={ this.handleChange } rating={ rating } />
         <AddMovieGenre handleChange={ this.handleChange } rating={ genre } />
+        <AddMovieButton onClick={ this.onClick } />
       </form>
     );
   }
 }
 
 AddMovie.propTypes = {
-  onclick: PropTypes.func,
+  onClick: PropTypes.func,
 }.isRequired;
 
 export default AddMovie;
