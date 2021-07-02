@@ -3,31 +3,29 @@ import PropTypes from 'prop-types';
 
 class Checkbox extends Component {
   render() {
-    const { label, type, name, checked, dataTestId, onChange } = this.props;
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
 
     return (
-      <label htmlFor={ name } data-testid={ `${dataTestId}-label` }>
+      <label
+        htmlFor="inputCheckBox"
+        data-testid="checkbox-input-label"
+      >
+        <p>Mostrar somente favoritos</p>
         <input
-          type={ type }
-          id={ name }
-          name={ name }
-          checked={ checked }
-          onChange={ onChange }
-          data-testid={ dataTestId }
+          checked={ bookmarkedOnly }
+          onChange={ onBookmarkedChange }
+          type="checkbox"
+          name="inputCheckBox"
+          data-testid="checkbox-input"
         />
-        { label }
       </label>
     );
   }
 }
 
 Checkbox.propTypes = PropTypes.exact({
-  label: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  checked: PropTypes.bool.isRequired,
-  dataTestId: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
 }).isRequired;
 
 export default Checkbox;

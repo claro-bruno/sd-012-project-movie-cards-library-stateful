@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import InputText from './InputText';
+import Checkbox from './Checkbox';
 // import Input from './Input';
 // import Checkbox from './Checkbox';
 // import Select from './Select';
@@ -29,14 +30,10 @@ class SearchBar extends React.Component {
           onSearchTextChange={ onSearchTextChange }
         />
 
-        {/* <Checkbox
-          label="Mostrar somente favoritos"
-          type="checkbox"
-          name="bookmarkedOnly"
-          dataTestId="checkbox-input"
-          checked={ bookmarkedOnly }
-          onChange={ onBookmarkedChange }
-        /> */}
+        <Checkbox
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ onBookmarkedChange }
+        />
 
         {/* <Select
           label="Filtrar por gênero"
