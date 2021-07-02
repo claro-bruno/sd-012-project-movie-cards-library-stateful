@@ -15,8 +15,8 @@ class AddMovie extends React.Component {
     };
   }
 
-  reset = (teclado) => {
-    teclado(this.state);
+  reset = (att) => {
+    att(this.state);
 
     this.setState({
       subtitle: '',
