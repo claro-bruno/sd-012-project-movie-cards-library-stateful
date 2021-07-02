@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
 import Checkbox from './Checkbox';
+import FilterGenre from './FilterGenre';
 
 class SearchBar extends Component {
   render() {
@@ -34,6 +35,15 @@ class SearchBar extends Component {
             checkboxInputAtribute="checkbox-input"
             checkboxInputType="checkbox"
             checkboxId="checkbox"
+          />
+          <FilterGenre
+            title="Filtrar por gênero"
+            labelAtribute="select-input-label"
+            valueSelect={ selectedGenre }
+            onChangeSelect={ onSelectedGenreChange }
+            selectAtribute="select-input"
+            optionAtribute="select-option"
+            id="select"
           />
         </form>
       </div>
