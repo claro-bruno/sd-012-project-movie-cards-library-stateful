@@ -46,7 +46,7 @@ class AddMovie extends React.Component {
   }
 
   resetInitialState() {
-    return this.setState((state) => ({ ...state, INITIAL_STATE }));
+    return this.setState(INITIAL_STATE);
   }
 
   render() {
