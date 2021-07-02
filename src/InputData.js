@@ -17,10 +17,10 @@ const inputData = [
 
   {
     labelTitle: 'Imagem',
-    labelId: 'imagem-input-label',
-    inputId: 'imagem-input',
+    labelId: 'image-input-label',
+    inputId: 'image-input',
     inputType: 'text',
-    inputValue: 'imagem',
+    inputValue: 'imagePath',
   },
 
   {
