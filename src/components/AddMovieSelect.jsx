@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddMovieSelect extends React.Component {
   render() {
@@ -20,3 +21,8 @@ export default class AddMovieSelect extends React.Component {
     );
   }
 }
+
+AddMovieSelect.propType = ({
+  genre: PropTypes.string,
+  handleChange: PropTypes.func,
+}).isRequired;
