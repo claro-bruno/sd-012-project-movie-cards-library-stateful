@@ -20,6 +20,8 @@ class Form2 extends Component {
         <label htmlFor="genre-input" data-testid="genre-input-label">
           Gênero
           <select
+            name="genre"
+            data-testid="genre-input"
             onChange={ handleChange }
             value={ genre }
           >
