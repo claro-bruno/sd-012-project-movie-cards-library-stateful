@@ -12,6 +12,15 @@ body {
   justify-content: center;
 }
 
+.form {
+  padding: 15px;
+  background-color: gray;
+}
+
+.label-check {
+  padding: 20px;
+}
+
 .page-title {
   color: #f8f9fa;
   font-size: 28px;

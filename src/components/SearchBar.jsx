@@ -6,7 +6,7 @@ class SearchBar extends React.Component {
     const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
       selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <form data-testid="search-bar-form">
+      <form data-testid="search-bar-form" className="form">
         <label
           data-testid="text-input-label"
           htmlFor="Label-form"
@@ -23,6 +23,7 @@ class SearchBar extends React.Component {
         <label
           data-testid="checkbox-input-label"
           htmlFor="Label-CheckBox"
+          className="label-check"
         >
           Mostrar somente favoritos
           <input

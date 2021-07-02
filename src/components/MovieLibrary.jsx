@@ -27,6 +27,20 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
+  filtro = (movies, book, genre, search) => {
+    if (search === '') { return movies; }
+    if (book === false) {
+    // if (genre === '') { return movies; }
+      const listFiltered = movies.filter(
+        (movie) => movie.title.toLowerCase().includes(search.toLowerCase())
+        || movie.subtitle.toLowerCase().includes(search.toLowerCase())
+        || movie.storyline.toLowerCase().includes(search.toLowerCase()),
+      );
+      return listFiltered;
+    }
+    return movies.filter((movie) => movie.bookmarked === true);
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectGenre, movies } = this.state;
     return (
@@ -39,7 +53,9 @@ class MovieLibrary extends React.Component {
           selectGenre={ selectGenre }
           onSelectedGenreChange={ this.callBack }
         />
-        <MovieList movies={ movies } />
+        <MovieList
+          movies={ this.filtro(movies, bookmarkedOnly, selectGenre, searchText) }
+        />
         {/* <AddMovie /> */}
       </main>
     );
