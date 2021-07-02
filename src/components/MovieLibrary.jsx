@@ -13,6 +13,7 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
+    this.newCard = this.newCard.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
     this.onTextChangeSearch = this.onTextChangeSearch.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -44,7 +45,7 @@ class MovieLibrary extends Component {
     }
   }
 
-  // Feito com ajuda de Márcio Daniel - Turma 8
+  // Feito com ajuda de Márcio Daniel - Turma 8 e Diogo - Turma 12.
   filterMovies() {
     const { movies, bookmarkedOnly, selectedGenre, searchText } = this.state;
     let result = movies;
@@ -64,8 +65,19 @@ class MovieLibrary extends Component {
     return result;
   }
 
+  // Feito com a ajuda de Diogo - Turma 12
+  newCard(movie) { // o parâmetro movie recebe o this.state em 'onClick(this.state)' que fica no componente AddMovie.jsx;
+    this.setState((prevState) => ({
+      ...prevState,
+      movies: [...prevState.movies, movie],
+    }));
+  }
+
   render() {
-    const { onTextChangeSearch, onBookmarkedChange, onSelectedGenreChange } = this;
+    const { onTextChangeSearch,
+      onBookmarkedChange,
+      onSelectedGenreChange,
+      newCard } = this;
     const { bookmarkedOnly, selectedGenre, searchText } = this.state;
     return (
       <div>
@@ -80,7 +92,7 @@ class MovieLibrary extends Component {
         <MovieList
           movies={ this.filterMovies() }
         />
-        <AddMovie />
+        <AddMovie onClick={ newCard } />
       </div>
     );
   }

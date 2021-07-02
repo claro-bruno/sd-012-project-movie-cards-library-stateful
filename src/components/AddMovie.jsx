@@ -29,7 +29,7 @@ class AddMovie extends Component {
 
   handleClick() {
     const { onClick } = this.props;
-    const { movie } = this.state;
+    onClick(this.state); // onClick vem antes de this.setState, pois recebe os valores digitados pelos usuário e os deixa no objeto this.state e este é recebido como parâmetro na função newCard(movie) que fica no componente MovieLibrary.jsx. Só depois vem o objeto this.setState com os valores das chaves como no estado inicial.
     this.setState({
       subtitle: '',
       title: '',
@@ -38,7 +38,6 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
-    onClick(movie);
   }
 
   render() {
