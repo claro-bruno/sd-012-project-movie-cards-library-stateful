@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import Checkbox from './Checkbox';
 
 class SearchBar extends Component {
   render() {
@@ -8,6 +9,7 @@ class SearchBar extends Component {
       searchText,
       onSearchTextChange,
       bookmarkedOnly,
+      onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange,
     } = this.props;
@@ -24,6 +26,15 @@ class SearchBar extends Component {
             inputAtribute="text-input"
             inputType="text"
           />
+          <Checkbox
+            checkboxLabelText="Mostrar somente favoritos"
+            checkboxLabelAtribute="checkbox-input-label"
+            checkedInput={ bookmarkedOnly }
+            checkboxOnChange={ onBookmarkedChange }
+            checkboxInputAtribute="checkbox-input"
+            checkboxInputType="checkbox"
+            checkboxId="checkbox"
+          />
         </form>
       </div>
     );
@@ -34,6 +45,7 @@ SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
