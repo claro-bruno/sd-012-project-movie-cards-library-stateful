@@ -17,22 +17,23 @@ class MovieLibrary extends Component {
     this.state = INITIAL_STATE;
   }
 
-  updateSearch = () => {
-    // this.setState({
-    //   [e.target.name]: e.target.value,
-    // });
+  updateSearch = ({ target }) => {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
   }
 
-  updateBookMarked = () => {
-    // this.setState({
-    //   [e.target.name]: e.target.value,
-    // });
+  updateBookMarked = ({ target }) => {
+    const { name, checked } = target;
+    this.setState({
+      [name]: checked,
+    });
   }
 
-  updateGenre = () => {
-    // this.setState({
-    //   [e.target.name]: e.target.value,
-    // });
+  updateGenre = ({ target }) => {
+    const { value} = target;
+    this.setState(() => ({ selectedGenre: value }));
   }
 
   render() {

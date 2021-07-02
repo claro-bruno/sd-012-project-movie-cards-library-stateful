@@ -2,6 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
+  renderHelper(searchText, onSearchTextChange) {
+    return (
+      <label htmlFor="input-search" data-testid="text-input-label">
+        Inclui o texto:
+        <input
+          id="input-search"
+          name="searchText"
+          type="text"
+          value={ searchText }
+          onChange={ onSearchTextChange }
+          data-testid="text-input"
+        />
+      </label>
+    );
+  }
+
   render() {
     const {
       searchText,
@@ -13,19 +29,11 @@ class SearchBar extends Component {
     } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="input-search" data-testid="text-input-label">
-          Inclui o texto:
-          <input
-            id="input-search"
-            type="text"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-            data-testid="text-input"
-          />
-        </label>
+        {this.renderHelper(searchText, onSearchTextChange)}
         <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
+            name="bookmarkedOnly"
             id="checkbox-input"
             type="checkbox"
             checked={ bookmarkedOnly }
