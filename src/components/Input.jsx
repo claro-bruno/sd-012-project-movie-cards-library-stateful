@@ -32,7 +32,7 @@ Input.propTypes = {
   name: PropTypes.string,
   type: PropTypes.string,
   value: PropTypes.string,
-  handleChange: PropTypes.string,
+  handleChange: PropTypes.func,
 }.isRequired;
 
 export default Input;
