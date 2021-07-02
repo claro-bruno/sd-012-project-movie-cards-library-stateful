@@ -11,6 +11,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       imagePath: '',
       storyline: '',
+      rating: 0,
     };
     this.handleChange = this.handleChange.bind(this);
   }
@@ -23,14 +24,26 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  // renderInput(label, name, type, value, handleChange) {
+  //   return (
+  //     <Input
+  //       labelDataTestId={ `${name}-input-label` }
+  //       inputDataTestId={ `${name}-input` }
+  //       label={ label }
+  //       name={ name }
+  //       type={ type }
+  //       value={ value }
+  //       handleChange={ handleChange }
+  //     />
+  //   );
+  // }
+
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
           <Input
-            labelDataTestId="title-input-label"
-            inputDataTestId="title-input"
             label="Título"
             name="title"
             type="text"
@@ -38,8 +51,6 @@ class AddMovie extends React.Component {
             handleChange={ this.handleChange }
           />
           <Input
-            labelDataTestId="subtitle-input-label"
-            inputDataTestId="subtitle-input"
             label="Subtítulo"
             name="subtitle"
             type="text"
@@ -47,8 +58,6 @@ class AddMovie extends React.Component {
             handleChange={ this.handleChange }
           />
           <Input
-            labelDataTestId="image-input-label"
-            inputDataTestId="image-input"
             type="text"
             label="Imagem"
             name="imagePath"
@@ -56,16 +65,20 @@ class AddMovie extends React.Component {
             handleChange={ this.handleChange }
           />
           <Input
-            labelDataTestId="storyline-input-label"
-            inputDataTestId="storyline-input"
             type="textarea"
             label="Sinopse"
             name="storyline"
             value={ storyline }
             handleChange={ this.handleChange }
           />
+          <Input
+            type="number"
+            label="Avaliação"
+            name="rating"
+            value={ rating }
+            handleChange={ this.handleChange }
+          />
         </form>
-
       </div>
     );
   }
