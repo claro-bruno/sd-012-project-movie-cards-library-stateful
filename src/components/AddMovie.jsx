@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Input from './Input';
-import inputs from '../inputs';
+import inputs from '../data/inputs';
 import Select from './Select';
+import genreInputOptions from '../data/genreInputOptions';
 
 class AddMovie extends Component {
   constructor() {
@@ -42,7 +43,8 @@ class AddMovie extends Component {
 
   render() {
     const { onClick } = this.props;
-    const { storyline, genre } = this.state;
+    const { state } = this;
+    const { storyline, genre } = state;
     return (
       <form data-testid="add-movie-form">
         <fieldset>
@@ -53,7 +55,7 @@ class AddMovie extends Component {
               dataTestid={ dataTestid }
               type={ type }
               name={ keyState }
-              value={ this.state[keyState] }
+              value={ state[keyState] }
               onChange={ this.handleInputs }
               key={ keyState }
             />
@@ -68,7 +70,16 @@ class AddMovie extends Component {
               onChange={ this.handleInputs }
             />
           </label>
-          <Select onChange={ this.handleInputs } genreState={ genre } />
+          <Select
+            dataTestidLabel="genre-input-label"
+            textLabel="Gênero"
+            dataTestid="genre-input"
+            onChange={ this.handleInputs }
+            name="inputGenre"
+            genre={ genre }
+            dataTestidOption="genre-option"
+            options={ genreInputOptions }
+          />
           <button
             data-testid="send-button"
             type="button"

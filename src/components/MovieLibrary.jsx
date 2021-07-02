@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-// import MovieList from './MovieList';
+import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -12,51 +13,60 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      // movies: this.props.movies,
+      movies: props.movies,
     };
 
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  onSearchTextChange() {
+  handleChange({ target }) {
+    const { name, type } = target;
+    const value = type === 'checkbox' ? target.checked : target.value;
+
     this.setState({
-      searchText: '',
+      [name]: value,
     });
   }
 
-  onBookmarkedChange() {
+  handleClick({ title, subtitle, imagePath, storyline, rating, genre }) {
+    const { movies } = this.state;
+    const newMovie = {
+      title,
+      subtitle,
+      storyline,
+      rating,
+      imagePath,
+      bookmarked: false,
+      genre,
+    };
     this.setState({
-      bookmarkedOnly: '',
-    });
-  }
-
-  onSelectedGenreChange() {
-    this.setState({
-      selectedGenre: '',
+      movies: [...movies, newMovie],
     });
   }
 
   render() {
-    // const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={ searchText }
-          onChange={ this.onSearchTextChange }
+          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.onBookmarkedChange }
+          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.onSelectedGenreChange }
+          onSelectedGenreChange={ this.handleChange }
         />
-        {/* <MovieList movies={ movies } /> */}
-        {/* <AddMovie /> */}
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ this.handleClick } />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;

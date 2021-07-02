@@ -9,7 +9,8 @@ class Input extends Component {
       dataTestid,
       type,
       name,
-      value,
+      value = '',
+      checked = false,
       onChange,
       isRequired = true,
     } = this.props;
@@ -22,6 +23,7 @@ class Input extends Component {
           type={ type }
           name={ name }
           value={ value }
+          checked={ checked }
           onChange={ onChange }
           isRequired={ isRequired }
         />
@@ -37,6 +39,7 @@ Input.propTypes = {
   type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
+  checked: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   isRequired: PropTypes.bool.isRequired,
 };
