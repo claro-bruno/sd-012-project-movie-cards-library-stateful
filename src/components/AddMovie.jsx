@@ -17,6 +17,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    // Possibilidade de atribuir um estado base vista no link https://bit.ly/36d2js9
     this.baseState = this.state;
   }
 
