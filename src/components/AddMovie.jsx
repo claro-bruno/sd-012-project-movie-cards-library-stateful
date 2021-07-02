@@ -14,7 +14,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    /* const {} = this.props; */
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="input-title" data-testid="title-input-label">
@@ -78,6 +77,10 @@ class AddMovie extends React.Component {
              <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
         </label>
+        <button
+        data-testid="send-button"
+        onClick={}
+        >Adicionar filme</button>
       </form>
     );
   }
