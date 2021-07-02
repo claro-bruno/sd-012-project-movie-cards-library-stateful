@@ -57,16 +57,18 @@ export default class MovieLibrary extends Component {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
-        <SearchBar
-          searchText={ searchText }
-          onSearchTextChange={ this.changeState }
-          bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.changeState }
-          selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.changeState }
-        />
+        <section className="searchBar">
+          <SearchBar
+            searchText={ searchText }
+            onSearchTextChange={ this.changeState }
+            bookmarkedOnly={ bookmarkedOnly }
+            onBookmarkedChange={ this.changeState }
+            selectedGenre={ selectedGenre }
+            onSelectedGenreChange={ this.changeState }
+          />
+          <AddMovie onClick={ this.addNewMovie } />
+        </section>
         <MovieList movies={ this.filterMovies() } />
-        <AddMovie onClick={ this.addNewMovie } />
       </div>
     );
   }

@@ -49,6 +49,7 @@ export default class AddMovie extends Component {
         <InputRating value={ rating } onChange={ this.handleChange } />
         <InputGenre value={ genre } onChange={ this.handleChange } />
         <button
+          className="button"
           data-testid="send-button"
           type="submit"
           onClick={ this.handleClick }
