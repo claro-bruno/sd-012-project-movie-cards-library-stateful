@@ -1,6 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import InputsText from './InputsText';
 import InputNumb from './InputNumb';
 
@@ -16,6 +16,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    this.baseState = this.state;
   }
 
   handleChange({ target }) {
@@ -26,6 +27,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     const { handleChange } = this;
     return (
@@ -58,13 +60,16 @@ class AddMovie extends React.Component {
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
+        <button type="submit" data-testid="send-button" onClick={ onClick }>
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
