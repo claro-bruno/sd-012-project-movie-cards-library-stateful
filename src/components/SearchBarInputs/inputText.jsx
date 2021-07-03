@@ -10,6 +10,7 @@ class InputText extends React.Component {
         <input
           id="inputText"
           type="text"
+          name="searchText"
           value={ valueId }
           onChange={ onChangeEvent }
           data-testid="text-input"

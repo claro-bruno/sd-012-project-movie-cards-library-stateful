@@ -13,6 +13,7 @@ class InputCheckbox extends React.Component {
         <input
           type="checkbox"
           id="inputCheckbox"
+          name="bookmarkedOnly"
           checked={ checkedId }
           onChange={ onCheck }
           data-testid="checkbox-input"
@@ -23,7 +24,7 @@ class InputCheckbox extends React.Component {
 }
 
 InputCheckbox.propTypes = {
-  checkedId: PropTypes.string.isRequired,
+  checkedId: PropTypes.bool.isRequired,
   onCheck: PropTypes.func.isRequired,
 };
 
