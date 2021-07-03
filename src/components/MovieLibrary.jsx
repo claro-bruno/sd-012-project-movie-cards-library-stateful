@@ -17,6 +17,13 @@ class MovieLibrary extends Component {
     };
   }
 
+  handleClick(event) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, event],
+    });
+  }
+
   handleChange({ target }) {
     const { name, type } = target;
     const value = (type === 'checkbox' ? target.checked : target.value);
@@ -47,13 +54,9 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: Proptypes.shape({
-    title: Proptypes.string,
-    subtitle: Proptypes.string,
-    storyline: Proptypes.string,
-    rating: Proptypes.oneOfType([Proptypes.string, Proptypes.number]),
-    imagePath: Proptypes.string,
-  }).isRequired,
+  movies: Proptypes.arrayOf(
+    Proptypes.object,
+  ).isRequired,
 };
 
 export default MovieLibrary;

@@ -5,7 +5,7 @@ class Input extends Component {
   render() {
     const { dataId, type, name, message, onChange, value, checked } = this.props;
     return (
-      <label data-testId={ ` ${dataId}-input-label` } htmlFor="labelInput">
+      <label data-testId={ `${dataId}-input-label` } htmlFor="labelInput">
         { message }
         <input
           name={ name }
@@ -28,7 +28,7 @@ Input.propTypes = {
   message: Proptypes.string.isRequired,
   onChange: Proptypes.func.isRequired,
   value: Proptypes.string.isRequired,
-  checked: Proptypes.bool.isRequired,
+  checked: Proptypes.func.isRequired,
 };
 
 export default Input;

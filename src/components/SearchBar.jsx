@@ -29,6 +29,7 @@ class SearchBar extends Component {
             name="bookmarkedOnly"
             message="Mostrar somente favoritos"
             dataId="checkbox"
+            value=""
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
           />
@@ -47,12 +48,21 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-  searchText: Proptypes.string.isRequired,
-  onSearchTextChange: Proptypes.func.isRequired,
-  bookmarkedOnly: Proptypes.bool.isRequired,
-  selectedGenre: Proptypes.string.isRequired,
-  onBookmarkedChange: Proptypes.func.isRequired,
-  onSelectedGenreChange: Proptypes.func.isRequired,
+  searchText: Proptypes.string,
+  onSearchTextChange: Proptypes.func,
+  bookmarkedOnly: Proptypes.bool,
+  onBookmarkedChange: Proptypes.func,
+  onSelectedGenreChange: Proptypes.func,
+  selectedGenre: Proptypes.string,
+};
+
+SearchBar.defaultProps = {
+  searchText: '',
+  onSearchTextChange: '',
+  bookmarkedOnly: false,
+  onBookmarkedChange: false,
+  onSelectedGenreChange: '',
+  selectedGenre: '',
 };
 
 export default SearchBar;
