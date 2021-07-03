@@ -3,14 +3,21 @@ import PropTypes from 'prop-types';
 
 class InputTag extends React.Component {
   render() {
-    const { searchText, onSearchTextChange } = this.props;
+    const { searchText, onSearchTextChange,
+      textDoInput, dataLabelId, dataInputId } = this.props;
     return (
-      <label data-testid="text-input-label" htmlFor={ searchText }>
-        Inclui o texto:
+      <label
+        data-testid={ dataLabelId }
+        htmlFor={ searchText }
+      >
+        { textDoInput }
         <input
+          value={ searchText }
           id={ searchText }
           type={ searchText }
           onChange={ onSearchTextChange }
+          data-testid={ dataInputId }
+          // checked={ }
         />
       </label>
     );
