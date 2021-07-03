@@ -28,7 +28,7 @@ class MovieInfos2 extends Component {
           labelId="genre-input-label"
           inputId="genre-input"
           optionId="genre-option"
-          onChange={ handleChange }
+          onSelectedGenreChange={ handleChange }
         />
       </>
     );
@@ -38,7 +38,7 @@ class MovieInfos2 extends Component {
 MovieInfos2.propTypes = PropTypes.exact({
   rating: PropTypes.number.isRequired,
   genre: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 }).isRequired;
 
 export default MovieInfos2;
