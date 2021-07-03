@@ -4,6 +4,8 @@ class AddMovie extends Component {
   constructor() {
     super();
 
+    this.handleChange = this.handleChange.bind(this);
+
     this.state = {
       subtitle: '',
       title: '',
