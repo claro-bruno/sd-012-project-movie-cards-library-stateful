@@ -38,13 +38,12 @@ class MovieLibrary extends Component {
         />
         <MovieList
           movies={
-            movies.filter((movie) => 
-              (movie.title.toLowerCase().includes(searchText.toLowerCase())
+            movies.filter((movie) => (movie.title
+              .toLowerCase().includes(searchText.toLowerCase())
             || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
             || movie.storyline.toLowerCase().includes(searchText.toLowerCase()))
             && (bookmarkedOnly ? movie.bookmarked : true)
-            && movie.genre.includes(selectedGenre)
-            )
+            && movie.genre.includes(selectedGenre))
           }
         />
 
