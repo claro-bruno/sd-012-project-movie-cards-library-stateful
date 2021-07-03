@@ -5,7 +5,6 @@ import movies from './data';
 import './App.css';
 
 function App() {
-  // const { movies } = this.props;
   return (
     <div className="App">
       <Header />
