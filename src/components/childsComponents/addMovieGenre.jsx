@@ -10,6 +10,7 @@ class AddMovieGenre extends React.Component {
         <select
           data-testid="genre-input"
           onChange={ handleChange }
+          name="genre"
           value={ genre }
         >
           <option data-testid="genre-option" value="action">Ação</option>

@@ -38,7 +38,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-    onClick(this.state);
+    onClick();
   }
 
   render() {
@@ -55,7 +55,7 @@ class AddMovie extends React.Component {
         <AddMovieImagePath handleChange={ this.handleChange } imagePath={ imagePath } />
         <AddMovieStoryline handleChange={ this.handleChange } storyline={ storyline } />
         <AddMovieRating handleChange={ this.handleChange } rating={ rating } />
-        <AddMovieGenre handleChange={ this.handleChange } rating={ genre } />
+        <AddMovieGenre handleChange={ this.handleChange } genre={ genre } />
         <AddMovieButton onClick={ this.onClick } />
       </form>
     );
