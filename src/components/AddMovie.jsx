@@ -72,7 +72,7 @@ class AddMovie extends Component {
         </label>
 
         <label htmlFor="rating-input" data-testid="rating-input-label">
-          Imagem
+          Avaliação
           <input
             name="rating"
             type="number"
@@ -82,6 +82,20 @@ class AddMovie extends Component {
           />
         </label>
 
+        <label htmlFor="genre-input" data-testid="genre-input-label">
+          Gênero
+          <select
+            name="genre"
+            data-testid="genre-input"
+            htmlFor="genre-option"
+            value={ genre }
+            onChange={ this.handleChange }
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
+        </label>
       </form>
     );
   }
