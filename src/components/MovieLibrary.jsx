@@ -5,17 +5,38 @@ import SearchBar from './SearchBar';
 // import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
+  constructor() {
+    super();
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+    };
+
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+  }
+
+  onSearchTextChange(e) {
+    this.setState({
+      searchText: e.target.value,
+    })
+  }
+
+  onBookmarkedChange(e) {
+    console.log(e.target);
+  }
 
   render() {
+    const { searchText, bookmarkedOnly } = this.state;
     const { movies } = this.props;
 
     return (
       <div>
-        <SearchBar 
-        // searchText={ searchText }
-        // onSearchTextChange={ () => {} }
-        // bookmarkedOnly={ false }
-        // onBookmarkedChange={ () => {} }
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.onSearchTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.onBookmarkedChange }
         // selectedGenre={ selectedGenre }
         // onSelectedGenreChange={ () => {} }
         />

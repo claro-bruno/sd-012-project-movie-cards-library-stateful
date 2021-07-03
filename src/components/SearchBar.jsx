@@ -4,39 +4,24 @@ import Checkbox from './Checkbox';
 // import Select from './Select';
 
 class SearchBar extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      searchText: '',
-      bookmarkedOnly: false,
-    };
+  constructor(props) {
+    super(props);
+    this.props = props;
 
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
   }
 
-  onSearchTextChange(e) {
-    this.setState({
-      searchText: e.target.value,
-    })
-  }
-
-  onBookmarkedChange(e) {
-    console.log(e.target);
-  }
-
   render() {
-    const { searchText, bookmarkedOnly } = this.state;
+    const { searchText, bookmarkedOnly, onSearchTextChange, onBookmarkedChange } = this.props;
 
     return (
       <form onSubmit={ this.handleSubmit } data-testid="search-bar-form">
-        <Input value={ searchText } onChange={ this.onSearchTextChange } />
-        <Checkbox checked={ bookmarkedOnly } onChange={ this.onBookmarkedChange } />
+        <Input value={ searchText } onChange={ onSearchTextChange } />
+        <Checkbox checked={ bookmarkedOnly } onChange={ onBookmarkedChange } />
         {/* <Select /> */}
       </form>
     );
