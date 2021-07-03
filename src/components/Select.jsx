@@ -6,7 +6,6 @@ class Select extends React.Component {
     const {
       label,
       inputName,
-      inputType,
       inputValue,
       onChangeInput,
       inputID,
@@ -24,14 +23,14 @@ class Select extends React.Component {
         { label }
         <select
           name={ inputName }
-          type={ inputType }
           value={ inputValue }
           onChange={ onChangeInput }
           data-testid={ inputID }
+          id={ inputID }
         >
           {
             option.map(({ description, genre }) => (
-              <option key={ genre } data-testid={ `${inputID}` } value={ genre }>
+              <option key={ genre } data-testid="select-option" value={ genre }>
                 { description }
               </option>
             ))
@@ -45,7 +44,6 @@ class Select extends React.Component {
 Select.propTypes = {
   label: PropType.string.isRequired,
   inputName: PropType.string.isRequired,
-  inputType: PropType.string.isRequired,
   inputValue: PropType.func.isRequired,
   onChangeInput: PropType.func.isRequired,
   inputID: PropType.string.isRequired,

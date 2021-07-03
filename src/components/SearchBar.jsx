@@ -28,23 +28,17 @@ class SearchBar extends React.Component {
           label="Mostrar somente favoritos"
           inputName=""
           inputType="checkbox"
-          inputValue={ bookmarkedOnly }
           onChangeInput={ onBookmarkedChange }
           inputID="checkbox-input"
           checked={ bookmarkedOnly }
+          inputValue={ bookmarkedOnly }
         />
         <Select
           label="Filtrar por gênero"
           inputName=""
-          inputType="text"
           inputValue={ selectedGenre }
           onChangeInput={ onSelectedGenreChange }
           inputID="select-input"
-          genres={ [
-            { description: 'Ação', genre: 'action' },
-            { description: 'Comédia', genre: 'comedy' },
-            { description: 'Suspense', genre: 'thriller' },
-          ] }
         />
       </form>
     );
