@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class InputText extends React.Component {
   render() {
     const { value, onChange } = this.props;
+
     return (
       <label htmlFor="search-text" data-testid="text-input-label">
         Inclui o texto:

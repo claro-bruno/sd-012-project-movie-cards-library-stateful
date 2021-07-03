@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class InputCheckBox extends React.Component {
   render() {
     const { checked, onChange } = this.props;
+
     return (
       <label htmlFor="search-checkbox" data-testid="checkbox-input-label">
         Mostrar somente favoritos
