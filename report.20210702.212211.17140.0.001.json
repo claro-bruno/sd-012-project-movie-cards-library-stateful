@@ -1,0 +1,563 @@
+
+{
+  "header": {
+    "reportVersion": 1,
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20210702.212211.17140.0.001.json",
+    "dumpEventTime": "2021-07-02T21:22:11Z",
+    "dumpEventTimeStamp": "1625271731331",
+    "processId": 17140,
+    "cwd": "/home/mlinger/Johann - Trybe/Front-end/Projetos/sd-012-project-movie-cards-library-stateful",
+    "commandLine": [
+      "node",
+      "/home/mlinger/Johann - Trybe/Front-end/Projetos/sd-012-project-movie-cards-library-stateful/node_modules/react-scripts/scripts/test.js",
+      "--verbose=true",
+      "AddMovie.test.js"
+    ],
+    "nodejsVersion": "v12.10.0",
+    "glibcVersionRuntime": "2.31",
+    "glibcVersionCompiler": "2.17",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "linux",
+    "componentVersions": {
+      "node": "12.10.0",
+      "v8": "7.6.303.29-node.16",
+      "uv": "1.31.0",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.39.2",
+      "napi": "4",
+      "llhttp": "1.1.4",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1c",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019a",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v12.10.0/node-v12.10.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.10.0/node-v12.10.0.tar.gz"
+    },
+    "osName": "Linux",
+    "osRelease": "5.8.0-59-generic",
+    "osVersion": "#66~20.04.1-Ubuntu SMP Thu Jun 17 11:14:10 UTC 2021",
+    "osMachine": "x86_64",
+    "cpus": [
+      {
+        "model": "AMD Phenom(tm) II X4 820 Processor",
+        "speed": 2800,
+        "user": 3704900,
+        "nice": 15800,
+        "sys": 930400,
+        "idle": 27455100,
+        "irq": 0
+      },
+      {
+        "model": "AMD Phenom(tm) II X4 820 Processor",
+        "speed": 2800,
+        "user": 3644000,
+        "nice": 23100,
+        "sys": 959100,
+        "idle": 27523400,
+        "irq": 0
+      },
+      {
+        "model": "AMD Phenom(tm) II X4 820 Processor",
+        "speed": 1600,
+        "user": 3722000,
+        "nice": 40000,
+        "sys": 1019300,
+        "idle": 27168600,
+        "irq": 0
+      },
+      {
+        "model": "AMD Phenom(tm) II X4 820 Processor",
+        "speed": 2800,
+        "user": 3510900,
+        "nice": 17200,
+        "sys": 932600,
+        "idle": 27273400,
+        "irq": 0
+      }
+    ],
+    "networkInterfaces": [
+      {
+        "name": "lo",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "127.0.0.1",
+        "netmask": "255.0.0.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "enp0s7",
+        "internal": false,
+        "mac": "10:78:d2:b0:66:cc",
+        "address": "10.0.0.105",
+        "netmask": "255.255.255.0",
+        "family": "IPv4"
+      },
+      {
+        "name": "lo",
+        "internal": true,
+        "mac": "00:00:00:00:00:00",
+        "address": "::1",
+        "netmask": "ffff:ffff:ffff:ffff:ffff:ffff:ffff:ffff",
+        "family": "IPv6",
+        "scopeid": 0
+      },
+      {
+        "name": "enp0s7",
+        "internal": false,
+        "mac": "10:78:d2:b0:66:cc",
+        "address": "fe80::6753:1212:8919:be28",
+        "netmask": "ffff:ffff:ffff:ffff::",
+        "family": "IPv6",
+        "scopeid": 2
+      }
+    ],
+    "host": "mlinger-APMCP61-D3"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x0000000000ae3e75",
+      "symbol": "report::TriggerNodeReport(v8::Isolate*, node::Environment*, char const*, char const*, std::string const&, v8::Local<v8::String>) [node]"
+    },
+    {
+      "pc": "0x00000000009bdd83",
+      "symbol": "node::OnFatalError(char const*, char const*) [node]"
+    },
+    {
+      "pc": "0x0000000000b1948e",
+      "symbol": "v8::Utils::ReportOOMFailure(v8::internal::Isolate*, char const*, bool) [node]"
+    },
+    {
+      "pc": "0x0000000000b19809",
+      "symbol": "v8::internal::V8::FatalProcessOutOfMemory(v8::internal::Isolate*, char const*, bool) [node]"
+    },
+    {
+      "pc": "0x0000000000cca1f5",
+      "symbol": " [node]"
+    },
+    {
+      "pc": "0x0000000000cca866",
+      "symbol": "v8::internal::Heap::RecomputeLimits(v8::internal::GarbageCollector) [node]"
+    },
+    {
+      "pc": "0x0000000000cd609a",
+      "symbol": "v8::internal::Heap::PerformGarbageCollection(v8::internal::GarbageCollector, v8::GCCallbackFlags) [node]"
+    },
+    {
+      "pc": "0x0000000000cd6fa5",
+      "symbol": "v8::internal::Heap::CollectGarbage(v8::internal::AllocationSpace, v8::internal::GarbageCollectionReason, v8::GCCallbackFlags) [node]"
+    },
+    {
+      "pc": "0x0000000000cd9a68",
+      "symbol": "v8::internal::Heap::AllocateRawWithRetryOrFail(int, v8::internal::AllocationType, v8::internal::AllocationAlignment) [node]"
+    },
+    {
+      "pc": "0x0000000000ca1597",
+      "symbol": "v8::internal::Factory::NewFillerObject(int, bool, v8::internal::AllocationType) [node]"
+    },
+    {
+      "pc": "0x0000000000fc9708",
+      "symbol": "v8::internal::Runtime_AllocateInYoungGeneration(int, unsigned long*, v8::internal::Isolate*) [node]"
+    },
+    {
+      "pc": "0x000000000134e879",
+      "symbol": " [node]"
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 2067640320,
+    "totalCommittedMemory": 2064908032,
+    "usedMemory": 2056059072,
+    "availableMemory": 47944312,
+    "memoryLimit": 2111832064,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 262144,
+        "committedMemory": 31744,
+        "capacity": 261832,
+        "used": 31432,
+        "available": 230400
+      },
+      "new_space": {
+        "memorySize": 4194304,
+        "committedMemory": 2883920,
+        "capacity": 2094656,
+        "used": 710016,
+        "available": 1384640
+      },
+      "old_space": {
+        "memorySize": 2055843840,
+        "committedMemory": 2054747776,
+        "capacity": 2048896808,
+        "used": 2048853936,
+        "available": 42872
+      },
+      "code_space": {
+        "memorySize": 688128,
+        "committedMemory": 633600,
+        "capacity": 604640,
+        "used": 604640,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 2363392,
+        "committedMemory": 2322480,
+        "capacity": 1639360,
+        "used": 1639360,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 4239360,
+        "committedMemory": 4239360,
+        "capacity": 4216136,
+        "used": 4216136,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 3552,
+        "used": 3552,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 2094656,
+        "used": 0,
+        "available": 2094656
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 118.123,
+    "kernelCpuSeconds": 2.87773,
+    "cpuConsumptionPercent": 145.784,
+    "maxRss": 2115923968,
+    "pageFaults": {
+      "IORequired": 75,
+      "IONotRequired": 574634
+    },
+    "fsActivity": {
+      "reads": 50248,
+      "writes": 8
+    }
+  },
+  "uvthreadResourceUsage": {
+    "userCpuSeconds": 57.6394,
+    "kernelCpuSeconds": 1.89572,
+    "cpuConsumptionPercent": 71.7291,
+    "fsActivity": {
+      "reads": 50248,
+      "writes": 8
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "GJS_DEBUG_TOPICS": "JS ERROR;JS LOG",
+    "npm_config_cache_lock_stale": "60000",
+    "npm_config_ham_it_up": "",
+    "npm_config_legacy_bundling": "",
+    "npm_config_sign_git_tag": "",
+    "LANGUAGE": "pt_BR:pt:en",
+    "USER": "mlinger",
+    "npm_package_devDependencies__testing_library_jest_dom": "5.11.4",
+    "npm_config_user_agent": "npm/6.10.3 node/v12.10.0 linux x64",
+    "npm_config_always_auth": "",
+    "npm_package_dependencies_acorn": "7.1.1",
+    "npm_package_devDependencies__testing_library_user_event": "12.1.5",
+    "npm_config_bin_links": "true",
+    "npm_config_key": "",
+    "SSH_AGENT_PID": "1558",
+    "XDG_SESSION_TYPE": "x11",
+    "GIT_ASKPASS": "/usr/share/code/resources/app/extensions/git/dist/askpass.sh",
+    "npm_config_allow_same_version": "",
+    "npm_config_description": "true",
+    "npm_config_fetch_retries": "2",
+    "npm_config_heading": "npm",
+    "npm_config_if_present": "",
+    "npm_config_init_version": "1.0.0",
+    "npm_config_user": "1000",
+    "npm_node_execpath": "/home/mlinger/.nvm/versions/node/v12.10.0/bin/node",
+    "SHLVL": "1",
+    "npm_config_prefer_online": "",
+    "npm_config_noproxy": "",
+    "HOME": "/home/mlinger",
+    "CHROME_DESKTOP": "code-url-handler.desktop",
+    "OLDPWD": "/home/mlinger/Johann - Trybe/Front-end/Projetos/sd-012-project-movie-cards-library-stateful",
+    "LESS": "-R",
+    "npm_package_browserslist_production_0": ">0.2%",
+    "npm_package_devDependencies_eslint_plugin_babel": "^5.3.1",
+    "npm_config_force": "",
+    "DESKTOP_SESSION": "ubuntu",
+    "TERM_PROGRAM_VERSION": "1.57.1",
+    "NVM_BIN": "/home/mlinger/.nvm/versions/node/v12.10.0/bin",
+    "npm_package_browserslist_production_1": "not dead",
+    "npm_config_only": "",
+    "npm_config_read_only": "",
+    "GIO_LAUNCHED_DESKTOP_FILE": "/usr/share/applications/code.desktop",
+    "ZSH": "/home/mlinger/.oh-my-zsh",
+    "LSCOLORS": "Gxfxcxdxbxegedabagacad",
+    "NVM_INC": "/home/mlinger/.nvm/versions/node/v12.10.0/include/node",
+    "npm_package_scripts_lint_styles": "npx stylelint '**/*.css'",
+    "npm_package_browserslist_production_2": "not op_mini all",
+    "npm_package_devDependencies_enzyme_adapter_react_16": "1.15.1",
+    "npm_config_cache_min": "10",
+    "npm_config_init_license": "ISC",
+    "GTK_MODULES": "gail:atk-bridge",
+    "GNOME_SHELL_SESSION_MODE": "ubuntu",
+    "PAGER": "less",
+    "VSCODE_GIT_ASKPASS_MAIN": "/usr/share/code/resources/app/extensions/git/dist/askpass-main.js",
+    "npm_config_editor": "vi",
+    "npm_config_rollback": "true",
+    "npm_config_tag_version_prefix": "v",
+    "MANAGERPID": "1341",
+    "VSCODE_GIT_ASKPASS_NODE": "/usr/share/code/code",
+    "npm_config_cache_max": "Infinity",
+    "npm_config_timing": "",
+    "npm_config_userconfig": "/home/mlinger/.npmrc",
+    "DBUS_SESSION_BUS_ADDRESS": "unix:path=/run/user/1000/bus",
+    "npm_config_engine_strict": "",
+    "npm_config_init_author_name": "",
+    "npm_config_init_author_url": "",
+    "npm_config_preid": "",
+    "npm_config_tmp": "/tmp",
+    "GIO_LAUNCHED_DESKTOP_FILE_PID": "16060",
+    "COLORTERM": "truecolor",
+    "npm_package_dependencies_react_scripts": "3.4.0",
+    "npm_package_description": "Ao iniciar este projeto, você concorda com as diretrizes do Código de Ética e Conduta e do Manual da Pessoa Estudante da Trybe.",
+    "npm_config_depth": "Infinity",
+    "npm_config_package_lock_only": "",
+    "npm_config_save_dev": "",
+    "npm_config_usage": "",
+    "NVM_DIR": "/home/mlinger/.nvm",
+    "npm_package_devDependencies_eslint_config_trybe_frontend": "^1.2.1",
+    "npm_package_readmeFilename": "README.md",
+    "npm_config_metrics_registry": "https://registry.npmjs.org/",
+    "npm_config_cafile": "",
+    "npm_config_otp": "",
+    "npm_config_package_lock": "true",
+    "npm_config_progress": "true",
+    "npm_config_https_proxy": "",
+    "npm_config_save_prod": "",
+    "IM_CONFIG_PHASE": "1",
+    "npm_config_audit": "true",
+    "npm_config_cidr": "",
+    "npm_config_onload_script": "",
+    "npm_config_sso_type": "oauth",
+    "LOGNAME": "mlinger",
+    "npm_config_rebuild_bundle": "true",
+    "npm_config_save_bundle": "",
+    "npm_config_shell": "/usr/bin/zsh",
+    "_": "/home/mlinger/.nvm/versions/node/v12.10.0/bin/npm",
+    "JOURNAL_STREAM": "8:37129",
+    "npm_package_private": "true",
+    "npm_config_dry_run": "",
+    "npm_config_prefix": "/home/mlinger/.nvm/versions/node/v12.10.0",
+    "XDG_SESSION_CLASS": "user",
+    "npm_package_scripts_lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json . --ext .js,.jsx",
+    "npm_config_scope": "",
+    "npm_config_browser": "",
+    "npm_config_cache_lock_wait": "10000",
+    "npm_config_ignore_prepublish": "",
+    "npm_config_registry": "https://registry.npmjs.org/",
+    "npm_config_save_optional": "",
+    "npm_config_searchopts": "",
+    "npm_config_versions": "",
+    "USERNAME": "mlinger",
+    "TERM": "xterm-256color",
+    "npm_package_devDependencies_stylelint": "13.8.0",
+    "npm_config_cache": "/home/mlinger/.npm",
+    "npm_config_proxy": "",
+    "npm_config_send_metrics": "",
+    "GNOME_DESKTOP_SESSION_ID": "this-is-deprecated",
+    "npm_package_scripts_start": "react-scripts start",
+    "npm_config_global_style": "",
+    "npm_config_ignore_scripts": "",
+    "npm_config_version": "",
+    "WINDOWPATH": "2",
+    "npm_package_browserslist_development_0": "last 1 chrome version",
+    "npm_config_local_address": "",
+    "npm_config_viewer": "man",
+    "npm_config_node_gyp": "/home/mlinger/.nvm/versions/node/v12.10.0/lib/node_modules/npm/node_modules/node-gyp/bin/node-gyp.js",
+    "PATH": "/home/mlinger/.nvm/versions/node/v12.10.0/lib/node_modules/npm/node_modules/npm-lifecycle/node-gyp-bin:/home/mlinger/Johann - Trybe/Front-end/Projetos/sd-012-project-movie-cards-library-stateful/node_modules/.bin:/home/mlinger/.nvm/versions/node/v12.10.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin",
+    "SESSION_MANAGER": "local/mlinger-APMCP61-D3:@/tmp/.ICE-unix/1613,unix/mlinger-APMCP61-D3:/tmp/.ICE-unix/1613",
+    "INVOCATION_ID": "2d3d725ea7af4bcca4e88cfc6d1e3d1c",
+    "npm_package_name": "sd-0x-project-movie-cards-library-stateful",
+    "npm_package_browserslist_development_1": "last 1 firefox version",
+    "npm_config_audit_level": "low",
+    "npm_config_prefer_offline": "",
+    "NODE": "/home/mlinger/.nvm/versions/node/v12.10.0/bin/node",
+    "XDG_RUNTIME_DIR": "/run/user/1000",
+    "XDG_MENU_PREFIX": "gnome-",
+    "GDK_BACKEND": "x11",
+    "npm_package_browserslist_development_2": "last 1 safari version",
+    "npm_config_color": "true",
+    "npm_config_sign_git_commit": "",
+    "DISPLAY": ":1",
+    "npm_package_scripts_eject": "react-scripts eject",
+    "npm_config_fetch_retry_mintimeout": "10000",
+    "npm_config_maxsockets": "50",
+    "npm_config_offline": "",
+    "npm_config_sso_poll_frequency": "500",
+    "LANG": "pt_BR.UTF-8",
+    "XDG_CURRENT_DESKTOP": "Unity",
+    "npm_package_dependencies_react_dom": "16.14.0",
+    "npm_package_devDependencies_eslint": "6.8.0",
+    "npm_config_umask": "0002",
+    "XAUTHORITY": "/run/user/1000/gdm/Xauthority",
+    "XDG_SESSION_DESKTOP": "ubuntu",
+    "XMODIFIERS": "@im=ibus",
+    "TERM_PROGRAM": "vscode",
+    "VSCODE_GIT_IPC_HANDLE": "/run/user/1000/vscode-git-6d1aa4ce33.sock",
+    "LS_COLORS": "rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:",
+    "npm_package_gitHead": "148c53d94b48dce997956ea6fbf2abbc29e77e55",
+    "npm_config_fetch_retry_maxtimeout": "60000",
+    "npm_config_loglevel": "notice",
+    "npm_config_logs_max": "10",
+    "npm_config_message": "%s",
+    "npm_lifecycle_script": "react-scripts test --verbose=true \"AddMovie.test.js\"",
+    "SSH_AUTH_SOCK": "/run/user/1000/keyring/ssh",
+    "ORIGINAL_XDG_CURRENT_DESKTOP": "ubuntu:GNOME",
+    "npm_package_scripts_test": "react-scripts test --verbose=true \"AddMovie.test.js\"",
+    "npm_config_ca": "",
+    "npm_config_cert": "",
+    "npm_config_global": "",
+    "npm_config_link": "",
+    "SHELL": "/usr/bin/zsh",
+    "npm_package_version": "0.1.0",
+    "npm_package_devDependencies__testing_library_react": "11.0.4",
+    "npm_config_access": "",
+    "npm_config_also": "",
+    "npm_config_save": "true",
+    "npm_config_unicode": "true",
+    "npm_lifecycle_event": "test",
+    "QT_ACCESSIBILITY": "1",
+    "GDMSESSION": "ubuntu",
+    "npm_package_scripts_build": "react-scripts build",
+    "npm_config_argv": "{\"remain\":[\"AddMovie.test.js\"],\"cooked\":[\"test\",\"AddMovie.test.js\"],\"original\":[\"test\",\"AddMovie.test.js\"]}",
+    "npm_config_before": "",
+    "npm_config_long": "",
+    "npm_config_production": "",
+    "npm_config_searchlimit": "20",
+    "npm_config_unsafe_perm": "true",
+    "npm_config_update_notifier": "true",
+    "npm_package_devDependencies_stylelint_order": "4.1.0",
+    "npm_config_auth_type": "legacy",
+    "npm_config_node_version": "12.10.0",
+    "npm_config_tag": "latest",
+    "npm_config_git_tag_version": "true",
+    "npm_config_commit_hooks": "true",
+    "npm_config_script_shell": "",
+    "npm_config_shrinkwrap": "true",
+    "GPG_AGENT_INFO": "/run/user/1000/gnupg/S.gpg-agent:0:1",
+    "GJS_DEBUG_OUTPUT": "stderr",
+    "npm_config_fetch_retry_factor": "10",
+    "npm_config_save_exact": "",
+    "npm_config_strict_ssl": "true",
+    "QT_IM_MODULE": "ibus",
+    "npm_config_dev": "",
+    "npm_config_globalconfig": "/home/mlinger/.nvm/versions/node/v12.10.0/etc/npmrc",
+    "npm_config_init_module": "/home/mlinger/.npm-init.js",
+    "npm_config_parseable": "",
+    "PWD": "/home/mlinger/Johann - Trybe/Front-end/Projetos/sd-012-project-movie-cards-library-stateful",
+    "npm_package_devDependencies_enzyme": "3.10.0",
+    "npm_config_globalignorefile": "/home/mlinger/.nvm/versions/node/v12.10.0/etc/npmignore",
+    "npm_execpath": "/home/mlinger/.nvm/versions/node/v12.10.0/lib/node_modules/npm/bin/npm-cli.js",
+    "XDG_DATA_DIRS": "/usr/share/ubuntu:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop",
+    "XDG_CONFIG_DIRS": "/etc/xdg/xdg-ubuntu:/etc/xdg",
+    "NVM_CD_FLAGS": "-q",
+    "npm_package_dependencies_minimist": "1.2.3",
+    "npm_config_cache_lock_retries": "10",
+    "npm_config_searchstaleness": "900",
+    "npm_config_node_options": "",
+    "npm_config_save_prefix": "^",
+    "npm_config_scripts_prepend_node_path": "warn-only",
+    "BREAKPAD_DUMP_LOCATION": "/home/mlinger/.config/Code/exthost Crash Reports",
+    "npm_package_devDependencies_babel_eslint": "^10.0.3",
+    "npm_config_group": "1000",
+    "npm_config_init_author_email": "",
+    "npm_config_searchexclude": "",
+    "npm_config_git": "git",
+    "npm_config_optional": "true",
+    "npm_package_dependencies_react": "16.14.0",
+    "npm_package_eslintConfig_extends": "react-app",
+    "npm_config_json": "",
+    "INIT_CWD": "/home/mlinger/Johann - Trybe/Front-end/Projetos/sd-012-project-movie-cards-library-stateful",
+    "BABEL_ENV": "test",
+    "NODE_ENV": "test",
+    "PUBLIC_URL": "",
+    "NODE_PATH": "",
+    "JEST_WORKER_ID": "1"
+  },
+  "userLimits": {
+    "core_file_size_blocks": {
+      "soft": 0,
+      "hard": "unlimited"
+    },
+    "data_seg_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "file_size_blocks": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_locked_memory_bytes": {
+      "soft": 67108864,
+      "hard": 67108864
+    },
+    "max_memory_size_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "open_files": {
+      "soft": 1048576,
+      "hard": 1048576
+    },
+    "stack_size_bytes": {
+      "soft": 8388608,
+      "hard": "unlimited"
+    },
+    "cpu_time_seconds": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    },
+    "max_user_processes": {
+      "soft": 15247,
+      "hard": 15247
+    },
+    "virtual_memory_kbytes": {
+      "soft": "unlimited",
+      "hard": "unlimited"
+    }
+  },
+  "sharedObjects": [
+    "linux-vdso.so.1",
+    "/lib/x86_64-linux-gnu/libdl.so.2",
+    "/lib/x86_64-linux-gnu/librt.so.1",
+    "/lib/x86_64-linux-gnu/libstdc++.so.6",
+    "/lib/x86_64-linux-gnu/libm.so.6",
+    "/lib/x86_64-linux-gnu/libgcc_s.so.1",
+    "/lib/x86_64-linux-gnu/libpthread.so.0",
+    "/lib/x86_64-linux-gnu/libc.so.6",
+    "/lib64/ld-linux-x86-64.so.2"
+  ]
+}
