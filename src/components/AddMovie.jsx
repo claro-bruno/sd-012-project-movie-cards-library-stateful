@@ -7,6 +7,7 @@ import ImagePath from './subcomponents/ImagePath';
 import Sinopse from './subcomponents/Sinopse';
 import Avaliacao from './subcomponents/Avaliacao';
 import Genre from './subcomponents/Genre';
+import data from '../data';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -67,6 +68,16 @@ class AddMovie extends React.Component {
   clickHandle = (event) => {
     event.preventDefault();
     const { onClick } = this.props;
+    const { rating, genre, subtitle, title, imagePath, storyline } = this.state;
+    data.push({
+      title,
+      subtitle,
+      storyline,
+      rating,
+      imagePath,
+      bookmarked: false,
+      genre,
+    });
     onClick();
     this.setState({
       subtitle: '',

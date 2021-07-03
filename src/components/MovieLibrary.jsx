@@ -3,23 +3,30 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
-import data from '../data';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const { movies } = this.props;
+    this.state = {
+      movies,
+    };
     this.submitForm = this.submitForm.bind(this);
   }
 
   submitForm = () => {
-    console.log(data);
+    const { movies } = this.props;
+    this.setState({
+      movies,
+    });
   }
 
   render() {
+    const { movies } = this.state;
     return (
       <div>
         <SearchBar />
-        <MovieList movies={ data } />
+        <MovieList movies={ movies } />
         <AddMovie onClick={ this.submitForm } />
       </div>
     );
