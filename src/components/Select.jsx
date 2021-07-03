@@ -28,7 +28,8 @@ class Select extends Component {
           onChange={ onSelectedGenreChange }
           data-testid={ inputId }
         >
-          {name === 'selectedGenre' && generes.unshift({ genre: 'Todos', genreValue: '' })}
+          {name === 'selectedGenre'
+          && generes.unshift({ genre: 'Todos', genreValue: '' })}
 
           {generes.map(({ genre, genreValue }) => {
             const optionTag = (

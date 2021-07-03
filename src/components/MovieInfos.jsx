@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import TextArea from './TextArea';
 
 class MovieInfos extends Component {
   render() {
@@ -35,7 +36,7 @@ class MovieInfos extends Component {
           labelId="image-input-label"
           inputId="image-input"
         />
-        <Input
+        <TextArea
           label="Sinopse"
           type="textarea"
           name="storyline"

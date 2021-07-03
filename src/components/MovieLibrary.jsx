@@ -12,6 +12,8 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      addedMovies: [],
+      movies: props.movies,
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -47,12 +49,14 @@ class MovieLibrary extends Component {
   }
 
   addMovieToLibrary(newMovie) {
-    this.setState(({ movies }) => ({
-      movies: [
-        ...movies,
-        newMovie,
-      ],
-    }));
+    this.setState(({ addedMovies }) => ({
+      addedMovies: [...addedMovies, newMovie],
+    }), () => {
+      const { movies } = this.state;
+      this.setState({
+        movies: [...movies, newMovie],
+      });
+    });
   }
 
   filterBySearchText({ value }) {
@@ -111,7 +115,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovieToLibrary } />
       </>
     );
   }

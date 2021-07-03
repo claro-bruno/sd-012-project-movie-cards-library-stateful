@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 
 class Button extends Component {
   render() {
-    const { btnText, name, dataTestId, onClick } = this.props;
+    const {
+      btnText,
+      name,
+      dataTestId,
+      onClick } = this.props;
 
     return (
       <button
