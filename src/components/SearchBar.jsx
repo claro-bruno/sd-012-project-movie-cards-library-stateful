@@ -1,7 +1,7 @@
 import React from 'react';
 import Input from './Input';
 import Checkbox from './Checkbox';
-// import Select from './Select';
+import Select from './Select';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -16,13 +16,15 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, onSearchTextChange, onBookmarkedChange } = this.props;
+    const { searchText, onSearchTextChange } = this.props;
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
+    const { selectedGenre, onSelectedGenreChange } = this.props;
 
     return (
       <form onSubmit={ this.handleSubmit } data-testid="search-bar-form">
         <Input value={ searchText } onChange={ onSearchTextChange } />
         <Checkbox checked={ bookmarkedOnly } onChange={ onBookmarkedChange } />
-        {/* <Select /> */}
+        <Select value={ selectedGenre } onChange={ onSelectedGenreChange }/>
       </form>
     );
   }
