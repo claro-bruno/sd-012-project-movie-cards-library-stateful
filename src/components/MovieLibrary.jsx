@@ -26,6 +26,7 @@ class MovieLibrary extends Component {
   }
 
   onSearchTextChange = ({ target }) => {
+    console.log(target.name)
     const { name, value } = target;
     this.setState({
       [name]: value,
