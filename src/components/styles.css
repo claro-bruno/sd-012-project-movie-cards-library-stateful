@@ -1,0 +1,61 @@
+.search-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.search-container  input, select {
+  margin-left: 10px;
+}
+
+.add-form-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  background-color: white;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 50px;
+}
+
+.add-form-container input, select {
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.add-form-container button {
+  margin-top: 20px;
+  padding: 5px 20px;
+  text-align: center;
+  background: linear-gradient(45deg, blue, rgb(130, 147, 240));
+  color: white;
+  border: none;
+}
+
+.add-form-container button:hover {
+  background: linear-gradient(45deg,rgb(130, 147, 240), blue);
+}
+
+.add-form-container h5 {
+  color: whitesmoke;
+  background: linear-gradient(180deg,rgb(52 58 64), rgb(29 28 28));
+}
+
+.movie-card {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+}
+
+.movie-card:hover {
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+  width: 400px;
+  height: 500px;
+}
+

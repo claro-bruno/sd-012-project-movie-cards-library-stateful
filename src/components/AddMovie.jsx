@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './styles.css';
 
 const INITIAL_STATE = {
   subtitle: '',
@@ -29,6 +30,7 @@ class AddMovie extends Component {
 
   renderHelper = (title, subtitle, imagePath, storyline) => (
     <div>
+      <h5> Novo Filme</h5>
       <label htmlFor="input-titulo" data-testid="title-input-label">
         Título
         <input
@@ -66,6 +68,7 @@ class AddMovie extends Component {
         Sinopse
         <textarea
           name="storyline"
+          cols="23"
           id="input-textarea"
           value={ storyline }
           data-testid="storyline-input"
@@ -80,7 +83,7 @@ class AddMovie extends Component {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     // rating = Number(rating);
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" className="add-form-container">
         {this.renderHelper(title, subtitle, imagePath, storyline)}
         <label htmlFor="input-rating" data-testid="rating-input-label">
           Avaliação
