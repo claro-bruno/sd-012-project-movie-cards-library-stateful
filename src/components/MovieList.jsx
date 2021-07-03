@@ -8,7 +8,7 @@ class MovieList extends React.Component {
     // const { movies } = this.props;
 
     return (
-      <div data-testid="movie-list" className="movie-list">teste</div>
+      <div data-testid="movie-list" className="movie-list">MovieList</div>
     );
   }
 }

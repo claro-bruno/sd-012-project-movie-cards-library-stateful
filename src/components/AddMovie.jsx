@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import Input from './Input';
 import MovieInfos from './MovieInfos';
 import MovieInfos2 from './MovieInfos2';
-import Select from './Select';
-import Button from './Button';
 
 const INITIAL_STATE = {
   subtitle: '',
@@ -75,9 +71,5 @@ class AddMovie extends Component {
     );
   }
 }
-
-AddMovie.propTypes = PropTypes.exact({
-  onClick: PropTypes.func.isRequired,
-}).isRequired;
 
 export default AddMovie;
