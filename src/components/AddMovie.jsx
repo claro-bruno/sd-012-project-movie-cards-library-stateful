@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Input from './Input';
 import Select from './Select';
 
@@ -14,6 +15,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleButton = this.handleButton.bind(this);
   }
 
   handleChange(e) {
@@ -23,12 +25,27 @@ class AddMovie extends React.Component {
     });
   }
 
+  handleButton(e) {
+    e.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" onSubmit={ this.handleButton }>
         <Input
           label="Título"
+          dataId="title"
           name="title"
           type="text"
           value={ title }
@@ -36,6 +53,7 @@ class AddMovie extends React.Component {
         />
         <Input
           label="Subtítulo"
+          dataId="subtitle"
           name="subtitle"
           type="text"
           value={ subtitle }
@@ -43,6 +61,7 @@ class AddMovie extends React.Component {
         />
         <Input
           label="Imagem"
+          dataId="image"
           name="imagePath"
           type="text"
           value={ imagePath }
@@ -50,6 +69,7 @@ class AddMovie extends React.Component {
         />
         <Input
           label="Avaliação"
+          dataId="rating"
           name="rating"
           type="number"
           value={ rating }
@@ -65,9 +85,13 @@ class AddMovie extends React.Component {
           />
         </label>
         <Select genre={ genre } onChange={ this.handleChange } />
+        <button data-testid="send-button" type="submit">Adicionar filme</button>
       </form>
     );
   }
 }
 
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 export default AddMovie;
