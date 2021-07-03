@@ -7,17 +7,16 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    // const { movies } = props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [],
     };
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <section>
         <SearchBar
