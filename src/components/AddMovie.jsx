@@ -15,9 +15,10 @@ class AddMovie extends Component {
     this.state = INITIAL_STATE;
   }
 
-  handleChange = (e) => {
+  handleChange = ({ target }) => {
+    const { name, value } = target;
     this.setState({
-      [e.target.name]: e.target.value,
+      [name]: name === 'rating' ? Number(value) : value,
     });
   };
 
@@ -77,6 +78,7 @@ class AddMovie extends Component {
   render() {
     const { onClick } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    // rating = Number(rating);
     return (
       <form data-testid="add-movie-form">
         {this.renderHelper(title, subtitle, imagePath, storyline)}
@@ -86,7 +88,9 @@ class AddMovie extends Component {
             name="rating"
             id="input-rating"
             type="number"
-            value={ Number(rating) }
+            min="0"
+            max="5"
+            value={ rating }
             data-testid="rating-input"
             onChange={ this.handleChange }
           />

@@ -15,6 +15,7 @@ class MovieLibrary extends Component {
       movies,
     };
     this.state = INITIAL_STATE;
+    this.addMovie = this.addMovie.bind(this);
   }
 
   updateSearch = ({ target }) => {
@@ -37,7 +38,7 @@ class MovieLibrary extends Component {
   }
 
   filter() {
-    const { searchText, bookmarkedOnly, selectedGenre , movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     if (searchText) {
       return movies.filter(({ title, subtitle, storyline }) => (
         title.toLocaleLowerCase().includes(searchText.toLocaleLowerCase())
@@ -54,6 +55,11 @@ class MovieLibrary extends Component {
     return movies;
   }
 
+  addMovie(newMovie) {
+    const { movies } = this.state;
+    this.setState(() => ({ movies: [...movies, newMovie] }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -68,7 +74,7 @@ class MovieLibrary extends Component {
 
         />
         <MovieList movies={ this.filter() } />
-        <AddMovie onClick={ () => { } } />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
