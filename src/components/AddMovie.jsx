@@ -47,39 +47,44 @@ class addMovie extends React.Component {
     const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
-        <AddMovieForm
-          title={ title }
-          subtitle={ subtitle }
-          imagePath={ imagePath }
-          storyline={ storyline }
-          handleChanger={ this.handleChanger }
-        />
-        <TextInput
-          valorInicial={ rating }
-          valorAlterado={ this.handleChanger }
-          dataTestid="rating-input"
-          dataTestidLabel="rating-input-label"
-          labelTitle="Avaliação"
-          nome="rating"
-          tipo="number"
-        />
-        <Select
-          valorInicial={ genre }
-          valorAlterado={ this.handleChanger }
-          dataTestidLabel="genre-input-label"
-          dataTestid="genre-input"
-          dataTestidOption="genre-option"
-          labelTitle="Gênero"
-          nome="genre"
-          optionValue={ ['action', 'comedy', 'thriller'] }
-          array={ ['Ação', 'Comédia', 'Suspense'] }
-        />
-        <Button
-          buttonTitle="Adicionar filme"
-          dataTestid="send-button"
-          click={ () => this.onClick2(onClick) }
-        />
+      <form data-testid="add-movie-form" className="add-movie">
+        <div className="add-movie-form">
+          <h2>Adicionar um filme aos cards:</h2>
+          <div className="add-movie-form-items">
+            <AddMovieForm
+              title={ title }
+              subtitle={ subtitle }
+              imagePath={ imagePath }
+              storyline={ storyline }
+              handleChanger={ this.handleChanger }
+            />
+            <TextInput
+              valorInicial={ rating }
+              valorAlterado={ this.handleChanger }
+              dataTestid="rating-input"
+              dataTestidLabel="rating-input-label"
+              labelTitle="Avaliação"
+              nome="rating"
+              tipo="number"
+            />
+            <Select
+              valorInicial={ genre }
+              valorAlterado={ this.handleChanger }
+              dataTestidLabel="genre-input-label"
+              dataTestid="genre-input"
+              dataTestidOption="genre-option"
+              labelTitle="Gênero"
+              nome="genre"
+              optionValue={ ['action', 'comedy', 'thriller'] }
+              array={ ['Ação', 'Comédia', 'Suspense'] }
+            />
+            <Button
+              buttonTitle="Adicionar filme"
+              dataTestid="send-button"
+              click={ () => this.onClick2(onClick) }
+            />
+          </div>
+        </div>
       </form>
     );
   }

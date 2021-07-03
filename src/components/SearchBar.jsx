@@ -13,38 +13,40 @@ class SearchBar extends React.Component {
       onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form" className="search-bar">
-        <TextInput
-          dataTestid="text-input"
-          dataTestidLabel="text-input-label"
-          tipo="text"
-          nome="searchText"
-          labelTitle="Inclui o texto:"
-          valorInicial={ searchText }
-          valorAlterado={ onSearchTextChange }
-          id="text-input"
-        />
-        <TextInput
-          dataTestid="checkbox-input"
-          dataTestidLabel="checkbox-input-label"
-          tipo="checkbox"
-          nome="bookmarkedOnly"
-          labelTitle="Mostrar somente favoritos"
-          check={ bookmarkedOnly }
-          valorAlterado={ onBookmarkedChange }
-          id="checkbox-input"
-        />
-        <Select
-          valorInicial={ selectedGenre }
-          valorAlterado={ onSelectedGenreChange }
-          dataTestidOption="select-option"
-          dataTestidLabel="select-input-label"
-          dataTestid="select-input"
-          labelTitle="Filtrar por gênero"
-          nome="selectedGenre"
-          optionValue={ ['', 'action', 'comedy', 'thriller'] }
-          array={ ['Todos', 'Ação', 'Comédia', 'Suspense'] }
-          id="select-input"
-        />
+        <div className="search-bar-div">
+          <TextInput
+            dataTestid="text-input"
+            dataTestidLabel="text-input-label"
+            tipo="text"
+            nome="searchText"
+            labelTitle="Inclui o texto:"
+            valorInicial={ searchText }
+            valorAlterado={ onSearchTextChange }
+            id="text-input"
+          />
+          <TextInput
+            dataTestid="checkbox-input"
+            dataTestidLabel="checkbox-input-label"
+            tipo="checkbox"
+            nome="bookmarkedOnly"
+            labelTitle="Mostrar somente favoritos"
+            check={ bookmarkedOnly }
+            valorAlterado={ onBookmarkedChange }
+            id="checkbox-input"
+          />
+          <Select
+            valorInicial={ selectedGenre }
+            valorAlterado={ onSelectedGenreChange }
+            dataTestidOption="select-option"
+            dataTestidLabel="select-input-label"
+            dataTestid="select-input"
+            labelTitle="Filtrar por gênero"
+            nome="selectedGenre"
+            optionValue={ ['', 'action', 'comedy', 'thriller'] }
+            array={ ['Todos', 'Ação', 'Comédia', 'Suspense'] }
+            id="select-input"
+          />
+        </div>
       </form>
     );
   }

@@ -30,6 +30,9 @@ class MovieLibrary extends React.Component {
 
   onClick(state) {
     const { movies } = this.state;
+    if (state.imagePath === '') {
+      state.imagePath = 'https://lh3.googleusercontent.com/proxy/wO5eD5QOf9kPzfhz2MXJUkkJgQ7yYzZ8NCbQ5fGOT5Dy04tqUUpa9vVU4ry_kq6zB3SM3YvBTl1aXoDZLKcdk2vmF9lijXQFm8GHJkx_6X3t2ynvOI64d4O84FDydMQoeuXlYyE0-n7KQ04gvamzWGSCVIz3g9oZlRdMGXwWyNlhpH2KWxgg';
+    }
     this.setState({
       movies: [...movies, state],
     });
