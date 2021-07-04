@@ -2,6 +2,7 @@
 // Iniciando o projeto
 import React from 'react';
 import Input from './Input';
+import TextArea from './TextArea';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -10,6 +11,8 @@ class AddMovie extends React.Component {
     this.state = {
       title: '',
       subtitle: '',
+      imagePath: '',
+      storyline: '',
     };
 
     // this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -29,7 +32,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
         <Input
@@ -46,6 +49,21 @@ class AddMovie extends React.Component {
           value={ subtitle }
           handleChange={ this.handleChange }
           type="text"
+        />
+
+        <Input
+          label="Imagem"
+          name="image"
+          value={ imagePath }
+          handleChange={ this.handleChange }
+          type="text"
+        />
+        <TextArea
+          label="Sinopse"
+          name="storyline"
+          value={ storyline }
+          handleChange={ this.handleChange }
+          type="textarea"
         />
         {/* <label htmlFor="link4" data-testid="title-input-label">
           Título
