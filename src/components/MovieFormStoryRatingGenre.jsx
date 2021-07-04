@@ -23,7 +23,7 @@ class MovieFormStoryRatingGenre extends React.Component {
             name="rating"
             id="avaliacao_"
             type="number"
-            value={ rating }
+            value={ +rating }
             onChange={ handleChange }
             data-testid="rating-input"
           />
