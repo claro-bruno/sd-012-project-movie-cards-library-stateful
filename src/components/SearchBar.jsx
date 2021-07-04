@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Form from './Form';
 
 class SearchBar extends Component {
   render() {
