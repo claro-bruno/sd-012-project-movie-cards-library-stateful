@@ -11,6 +11,19 @@ class Input extends React.Component {
       id,
     } = this.props;
 
+    if (inputType === 'textarea') {
+      return (
+        <label htmlFor={ inputName } data-testid={ `${id}-input-label` }>
+          { inputLabelName }
+          <textarea
+            name={ inputName }
+            value={ inputValue }
+            onChange={ handleChange }
+            data-testid={ `${id}-input` }
+          />
+        </label>
+      );
+    }
     return (
       <label htmlFor={ inputType } data-testid={ `${id}-input-label` }>
         { inputLabelName }

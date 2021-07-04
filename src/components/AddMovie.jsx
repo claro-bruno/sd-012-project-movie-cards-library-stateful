@@ -56,6 +56,22 @@ class AddMovie extends React.Component {
           inputValue={ imagePath }
           handleChange={ handleChange }
         />
+        <Input
+          inputType="textarea"
+          id="storyline"
+          inputLabelName="Sinopse"
+          inputName="storyline"
+          inputValue={ storyline }
+          handleChange={ handleChange }
+        />
+        <Input
+          inputType="number"
+          id="image"
+          inputLabelName="Imagem"
+          inputName="imagePath"
+          inputValue={ imagePath }
+          handleChange={ handleChange }
+        />
       </form>
     );
   }
