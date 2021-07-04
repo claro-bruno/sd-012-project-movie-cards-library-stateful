@@ -60,7 +60,11 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { handleTextChange, handleBookmarkedChange, handleSelectedGenreChange } = this;
+    const { handleTextChange,
+      handleBookmarkedChange,
+      handleSelectedGenreChange,
+      moviesFilter,
+    } = this;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
@@ -72,7 +76,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ handleSelectedGenreChange }
         />
-        <MovieList movies={ this.moviesFilter() } />
+        <MovieList movies={ moviesFilter() } />
         <AddMovie />
       </div>
     );
