@@ -1,49 +1,92 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import ButtonAddMovie from './ButtonAddMovie';
+import SelectGenre from './SelectGenre';
+import RatingForAddMovie from './RatingForAddMovie';
+import TextStoryline from './TextStoryline';
 
 class AddMovie extends Component {
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
+
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
+  }
+
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
+    const { handleClick, handleChange } = this;
+    const { subtitle, title, storyline, imagePath, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor=" " data-testid="title-input-label">
-          <p>Título</p>
+        <label data-testid="title-input-label" htmlFor="title">
+          Título
           <input
+            name="title"
             type="text"
+            value={ title }
+            onChange={ handleChange }
             data-testid="title-input"
           />
         </label>
-        <label htmlFor=" " data-testid="subtitle-input-label">
-          <p>Subtítulo</p>
+        <label data-testid="subtitle-input-label" htmlFor="subtitle">
+          Subtítulo
           <input
+            name="subtitle"
             type="text"
+            value={ subtitle }
+            onChange={ handleChange }
             data-testid="subtitle-input"
           />
         </label>
-        <label htmlFor=" " data-testid="image-input-label">
-          <p>Imagem</p>
+        <label data-testid="image-input-label" htmlFor="imagePath">
+          Imagem
           <input
+            name="imagePath"
             type="text"
+            value={ imagePath }
+            onChange={ handleChange }
             data-testid="image-input"
           />
         </label>
-        <label htmlFor=" " data-testid="storyline-input-label">
-          <p>Sinopse</p>
-          <input
-            type="textarea"
-            data-testid="storyline-input"
-          />
-        </label>
-        <label htmlFor=" " data-testid="rating-input-label">
-          <p>Avaliação</p>
-          <input
-            type="number"
-            data-testid="rating-input"
-            name="rating"
-            value={ 0 }
-          />
-        </label>
+        <TextStoryline handleChange={ handleChange } storyline={ storyline } />
+        <RatingForAddMovie handleChange={ handleChange } rating={ rating } />
+        <SelectGenre handleChange={ handleChange } genre={ genre } />
+        <ButtonAddMovie handleClick={ handleClick } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = PropTypes.exact({
+  handleChange: PropTypes.func.isRequired,
+  handleClick: PropTypes.func.isRequired,
+}).isRequired;
 
 export default AddMovie;
