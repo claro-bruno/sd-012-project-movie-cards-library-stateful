@@ -1,18 +1,15 @@
 // implement MovieLibrary component here
 import React from 'react';
-import PropTypes from 'prop-types';
+import SearchBar from './SearchBar';
 
 class MovieLibrary extends React.Component {
   render() {
-    const { movies } = this.props;
-    return { movies };
+    return (
+      <div>
+        <SearchBar />
+      </div>
+    );
   }
 }
-
-MovieLibrary.propTypes = {
-  movies: PropTypes.PropTypes.arrayOf(
-    PropTypes.object,
-  ).isRequired,
-};
 
 export default MovieLibrary;
