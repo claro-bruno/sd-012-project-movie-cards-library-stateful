@@ -1,6 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
-// import Form from './Form';
+import Input from './Input';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -9,31 +9,25 @@ class AddMovie extends React.Component {
     this.state = {
       title: '',
     };
-    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleTitleChange(event) {
-    console.log('funciona');
-    this.setState({ title: event.target.value });
+  handleChange(event) {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   }
 
   render() {
     const { title } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <section>
-          <label htmlFor="vinculo" data-testid="title-input-label">
-            Título
-            <input
-              type="text"
-              id="vinculo"
-              data-testid="title-input"
-              name="title"
-              value={ title }
-              onChange={ this.handleTitleChange }
-            />
-          </label>
-        </section>
+        <Input
+          name="title"
+          type="text"
+          value={ title }
+          label="Título"
+          handleChange={ this.handleChange }
+        />
       </form>
     );
   }
