@@ -17,6 +17,8 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleReset = this.handleReset.bind(this);
+    this.geraInput = this.geraInput.bind(this);
   }
 
   handleChange({ target }) {
@@ -27,53 +29,70 @@ class AddMovie extends React.Component {
     });
   }
 
+  handleReset() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  geraInput(objeto) {
+    const { type, id, labelName, name, value } = objeto;
+    return (
+      <Input
+        inputType={ type }
+        id={ id }
+        inputLabelName={ labelName }
+        inputName={ name }
+        inputValue={ value }
+        handleChange={ this.handleChange }
+      />
+    );
+  }
+
   render() {
-    const { handleChange } = this;
+    const { geraInput, handleReset, handleChange } = this;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <Input
-          inputType="text"
-          id="title"
-          inputLabelName="Título"
-          inputName="title"
-          inputValue={ title }
-          handleChange={ handleChange }
-        />
-        <Input
-          inputType="text"
-          id="subtitle"
-          inputLabelName="Subtítulo"
-          inputName="subtitle"
-          inputValue={ subtitle }
-          handleChange={ handleChange }
-        />
-        <Input
-          inputType="text"
-          id="image"
-          inputLabelName="Imagem"
-          inputName="imagePath"
-          inputValue={ imagePath }
-          handleChange={ handleChange }
-        />
-        <Input
-          inputType="textarea"
-          id="storyline"
-          inputLabelName="Sinopse"
-          inputName="storyline"
-          inputValue={ storyline }
-          handleChange={ handleChange }
-        />
-        <Input
-          inputType="number"
-          id="rating"
-          inputLabelName="Avaliação"
-          inputName="rating"
-          inputValue={ rating }
-          handleChange={ handleChange }
-        />
+        {geraInput({ type: 'text',
+          id: 'title',
+          labelName: 'Título',
+          name: 'title',
+          value: title })}
+        {geraInput({ type: 'text',
+          id: 'subtitle',
+          labelName: 'Subtítulo',
+          name: 'subtitle',
+          value: subtitle })}
+        {geraInput({ type: 'text',
+          id: 'image',
+          labelName: 'Imagem',
+          name: 'imagePath',
+          value: imagePath })}
+        {geraInput({ type: 'textarea',
+          id: 'storyline',
+          labelName: 'Sinopse',
+          name: 'storyline',
+          value: storyline })}
+        {geraInput({ type: 'number',
+          id: 'rating',
+          labelName: 'Avaliação',
+          name: 'rating',
+          value: rating })}
         <Select value={ genre } handleChange={ handleChange } />
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ handleReset }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
