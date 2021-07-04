@@ -29,17 +29,17 @@ class AddMovie extends React.Component {
   render() {
     const { handleChange } = this;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    const {
-      onClick
-    } = this.props;
 
     return (
       <form data-testid="add-movie-form">
-        <Input />
-        <Input />
-        <Input />
-        <Input />
-        <Input />
+        <Input
+          inputType="text"
+          id="title"
+          inputLabelName="Título"
+          inputName="title"
+          inputValue={ title }
+          handleChange={ handleChange }
+        />
       </form>
     );
   }
