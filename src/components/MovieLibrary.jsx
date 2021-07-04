@@ -51,6 +51,8 @@ class MovieLibrary extends React.Component {
     return movies;
   }
 
+  // A ideia de unir o processo de filtro das três funções em uma única passando uma como parâmetro da outra,
+  // foi retirada do repositório do colega Luciano Almeida da Turma 12.
   filterMovies() {
     const { searchText, bookmarkedOnly, selectedGenre, moviesUpdate } = this.state;
     let filtered = this.filterByText(moviesUpdate, searchText);
