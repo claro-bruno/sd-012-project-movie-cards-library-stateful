@@ -23,7 +23,6 @@ class AddMovie extends Component {
     });
   }
 
-  // eslint-disable-next-line max-lines-per-function
   render() {
     // const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline } = this.state;
