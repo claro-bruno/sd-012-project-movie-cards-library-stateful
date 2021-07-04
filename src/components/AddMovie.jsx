@@ -1,8 +1,9 @@
 // implement AddMovie component here
-// Iniciando o projeto
+
 import React from 'react';
 import Input from './Input';
 import TextArea from './TextArea';
+import Select from './Select';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -14,19 +15,19 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
+      genre: '',
     };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
-  // genérico
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <Input
@@ -36,7 +37,6 @@ class AddMovie extends React.Component {
           handleChange={ this.handleChange }
           type="text"
         />
-
         <Input
           label="Subtítulo"
           name="subtitle"
@@ -44,7 +44,6 @@ class AddMovie extends React.Component {
           handleChange={ this.handleChange }
           type="text"
         />
-
         <Input
           label="Imagem"
           name="image"
@@ -67,7 +66,13 @@ class AddMovie extends React.Component {
           handleChange={ this.handleChange }
           type="number"
         />
-
+        <Select
+          label="Gênero"
+          name="genre"
+          value={ genre }
+          handleChange={ this.handleChange }
+          type="text"
+        />
       </form>
     );
   }

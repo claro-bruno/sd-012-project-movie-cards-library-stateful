@@ -36,6 +36,7 @@ class SearchBar extends React.Component {
               data-testid="select-input"
               onChange={ onSelectedGenreChange }
             >
+              Gênero
               <option data-testid="select-option" value="">Todos </option>
               <option data-testid="select-option" value="action">Ação</option>
               <option data-testid="select-option" value="comedy">Comédia</option>
