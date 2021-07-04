@@ -19,9 +19,10 @@ class AddMovie extends Component {
     });
   }
 
+  // eslint-disable-next-line max-lines-per-function
   render() {
     // const { onClick } = this.props;
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -55,6 +56,16 @@ class AddMovie extends Component {
                 type="text"
                 name="imagePath"
                 value={ imagePath }
+                onChange={ this.changeHandler }
+              />
+            </label>
+
+            <label htmlFor="sinopse" data-testid="storyline-input-label">
+              Sinopse
+              <textarea
+                data-testid="storyline-input"
+                name="sinopse"
+                value={ storyline }
                 onChange={ this.changeHandler }
               />
             </label>
