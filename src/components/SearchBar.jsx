@@ -8,22 +8,26 @@ class SearchBar extends React.Component {
     super();
 
     this.state = {
-      inputValue: '',
+      // searchText: '',
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({ inputValue: e.target.value });
+  onSearchTextChange(e) {
+    this.setState({ searchText: e.target.value });
+    // this.setState({ selectedGenre: e.target.value });
+  }
+
+  onSelectedGenreChange(e) {
     this.setState({ selectedGenre: e.target.value });
   }
 
   render() {
-    const { inputValue, searchText, // uma string//
-      // onSearchTextChange, // uma callback//
-      // bookmarkedOnly, // um boolean//
-      // onBookmarkedChange, // uma callback//
+    const { searchText, onSearchTextChange, // uma callback//
+      bookmarkedOnly, // um boolean//
+      onBookmarkedChange, // uma callback//
       selectedGenre, // uma string//
       onSelectedGenreChange, // uma callback//
     } = this.state;
@@ -35,30 +39,34 @@ class SearchBar extends React.Component {
             dataLabelId="text-input-label"
             dataInputId="text-input"
             searchText={ searchText }
-            onSearchTextChange={ this.handleChange }
+            onSearchTextChange={ this.onSearchTextChange }
           />
           <InputTag
             textDoInput="Mostrar somente favoritos"
             dataLabelId="checkbox-input-label"
             searchText="checkbox"
           />
-          <label htmlFor="select-input-label" data-testid="select-input-label">
+          <label
+            htmlFor="select-input-label"
+            data-testid="select-input-label"
+            // onSearchTextChange={ this.onSelectedGenreChange }
+          >
             Filtrar por gênero
             <select
               data-testid="select-input"
               value={ selectedGenre }
-              onChange={ onSelectedGenreChange }
+              onChange={ this.onSelectedGenreChange }
             >
               <option value="" data-testid="select-option">Todos</option>
-              <option value="comedy" data-testid="select-option">Ação</option>
-              <option value="thriller" data-testid="select-option">Comédia</option>
+              <option value="action" data-testid="select-option">Ação</option>
+              <option value="comedy" data-testid="select-option">Comédia</option>
               <option value="thriller" data-testid="select-option">Suspense</option>
             </select>
           </label>
           {
-            movies.filter((movieF) => movieF.title.includes(inputValue)
-            || movieF.genre.includes(inputValue) || movieF.subtitle.includes(inputValue)
-            || movieF.storyline.includes(inputValue)
+            movies.filter((movieF) => movieF.title.includes(searchText)
+            || movieF.genre.includes(searchText) || movieF.subtitle.includes(searchText)
+            || movieF.storyline.includes(searchText)
             || movieF.genre.includes(selectedGenre))
               .map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
           }
