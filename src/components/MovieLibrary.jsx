@@ -21,7 +21,8 @@ class MovieLibrary extends React.Component {
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleBookmarkedChange = this.handleBookmarkedChange.bind(this);
     this.handleSelectedGenreChange = this.handleSelectedGenreChange.bind(this);
-    this.moviesFilter = this.moviesFilter.bind(this);
+    this.filterMovies = this.filterMovies.bind(this);
+    this.handleAddMovie = this.handleAddMovie.bind(this);
   }
 
   handleTextChange({ target }) {
@@ -42,28 +43,44 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: value });
   }
 
-  moviesFilter() {
-    const { movies, bookmarkedOnly, selectedGenre, searchText } = this.state;
-    const filtering = movies.filter((movie) => {
-      const { title, subtitle, storyline, bookmarked, genre } = movie;
+  handleAddMovie(movie) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, movie],
+    });
+  }
 
-      const searchBool = searchText !== '' ? (title.includes(searchText)
+  filterMovies() {
+    const {
+      movies,
+      bookmarkedOnly,
+      selectedGenre,
+      searchText,
+    } = this.state;
+    const filteredMovies = movies.filter((movie) => {
+      const { title, subtitle, storyline, bookmarked, genre } = movie;
+      let searchBool = false;
+      if (searchText !== '') {
+        searchBool = (title.includes(searchText)
         || subtitle.includes(searchText)
-        || storyline.includes(searchText))
-        : true;
+        || storyline.includes(searchText));
+      } else {
+        searchBool = true;
+      }
       const bookmarkBool = bookmarkedOnly ? bookmarked : true;
       const genreBool = genre.includes(selectedGenre);
 
       return (searchBool && bookmarkBool && genreBool);
     });
-    return filtering;
+    return filteredMovies;
   }
 
   render() {
     const { handleTextChange,
       handleBookmarkedChange,
       handleSelectedGenreChange,
-      moviesFilter,
+      filterMovies,
+      handleAddMovie,
     } = this;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -76,8 +93,8 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ handleSelectedGenreChange }
         />
-        <MovieList movies={ moviesFilter() } />
-        <AddMovie />
+        <MovieList movies={ filterMovies() } />
+        <AddMovie onClick={ handleAddMovie } />
       </div>
     );
   }
