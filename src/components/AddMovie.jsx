@@ -73,7 +73,7 @@ class AddMovie extends React.Component {
           inputValue={ rating }
           handleChange={ handleChange }
         />
-        <Select value={ genre } onChange={ handleChange } />
+        <Select value={ genre } handleChange={ handleChange } />
       </form>
     );
   }
