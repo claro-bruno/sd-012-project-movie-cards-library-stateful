@@ -66,10 +66,10 @@ class AddMovie extends React.Component {
         />
         <Input
           inputType="number"
-          id="image"
-          inputLabelName="Imagem"
-          inputName="imagePath"
-          inputValue={ imagePath }
+          id="rating"
+          inputLabelName="Avaliação"
+          inputName="rating"
+          inputValue={ rating }
           handleChange={ handleChange }
         />
       </form>
