@@ -3,6 +3,7 @@ import React from 'react';
 import Input from './Input';
 import TextArea from './TextArea';
 import Select from './Select';
+import Imagem from './Imagem';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -43,9 +44,9 @@ class AddMovie extends React.Component {
           handleChange={ this.handleChange }
           type="text"
         />
-        <Input
+        <Imagem
           label="Imagem"
-          name="image"
+          name="imagePath"
           value={ imagePath }
           handleChange={ this.handleChange }
           type="text"
