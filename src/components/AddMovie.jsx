@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import Image from './Image';
+import Sinopse from './Sinopse';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
@@ -27,48 +31,26 @@ class AddMovie extends Component {
       <div>
         <form data-testid="add-movie-form">
           <section>
-            <label htmlFor="title" data-testid="title-input-label">
-              Título
-              <input
-                data-testid="title-input"
-                type="text"
-                name="title"
-                value={ title }
-                onChange={ this.changeHandler }
-              />
-            </label>
 
-            <label htmlFor="subtitle" data-testid="subtitle-input-label">
-              Subtítulo
-              <input
-                data-testid="subtitle-input"
-                type="text"
-                name="subtitle"
-                value={ subtitle }
-                onChange={ this.changeHandler }
-              />
-            </label>
+            <Title
+              value={ title }
+              onChange={ this.changeHandler }
+            />
 
-            <label htmlFor="imagem" data-testid="image-input-label">
-              Imagem
-              <input
-                data-testid="image-input"
-                type="text"
-                name="imagePath"
-                value={ imagePath }
-                onChange={ this.changeHandler }
-              />
-            </label>
+            <Subtitle
+              value={ subtitle }
+              onChange={ this.changeHandler }
+            />
 
-            <label htmlFor="sinopse" data-testid="storyline-input-label">
-              Sinopse
-              <textarea
-                data-testid="storyline-input"
-                name="sinopse"
-                value={ storyline }
-                onChange={ this.changeHandler }
-              />
-            </label>
+            <Image
+              value={ imagePath }
+              onChange={ this.changeHandler }
+            />
+
+            <Sinopse
+              value={ storyline }
+              onChange={ this.changeHandler }
+            />
           </section>
         </form>
       </div>
