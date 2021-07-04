@@ -1,16 +1,16 @@
 // implement SearchBar component here
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const { 
+    const {
       searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange 
+      onSelectedGenreChange,
     } = this.props;
     return (
       <div>
@@ -37,7 +37,12 @@ class SearchBar extends React.Component {
           </label>
           <label htmlFor="selectGenre" data-testid="select-input-label">
             Filtrar por gênero
-            <select id="selectGenre" data-testid="select-input" value={ selectedGenre } onChange={ onSelectedGenreChange }>
+            <select
+              id="selectGenre"
+              data-testid="select-input"
+              value={ selectedGenre }
+              onChange={ onSelectedGenreChange }
+            >
               <option value="" data-testid="select-option">Todos</option>
               <option value="action" data-testid="select-option">Ação</option>
               <option value="comedy" data-testid="select-option">Comédia</option>
@@ -50,10 +55,19 @@ class SearchBar extends React.Component {
   }
 }
 
-// Rating.propTypes = { rating: PropTypes.number };
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
 
-// Rating.defaultProps = {
-//   rating: 'undefined',
-// };
+SearchBar.defaultProps = {
+  searchText: 'undefined',
+  bookmarkedOnly: 'undefined',
+  selectedGenre: 'undefined',
+};
 
 export default SearchBar;
