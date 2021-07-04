@@ -9,7 +9,6 @@ class SearchBar extends React.Component {
 
     this.state = {
       inputValue: '',
-
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -17,13 +16,14 @@ class SearchBar extends React.Component {
 
   handleChange(e) {
     this.setState({ inputValue: e.target.value });
+    this.setState({ selectedGenre: e.target.value });
   }
 
   render() {
     const { inputValue, searchText, // uma string//
-      onSearchTextChange, // uma callback//
-      bookmarkedOnly, // um boolean//
-      onBookmarkedChange, // uma callback//
+      // onSearchTextChange, // uma callback//
+      // bookmarkedOnly, // um boolean//
+      // onBookmarkedChange, // uma callback//
       selectedGenre, // uma string//
       onSelectedGenreChange, // uma callback//
     } = this.state;
@@ -42,13 +42,13 @@ class SearchBar extends React.Component {
             dataLabelId="checkbox-input-label"
             searchText="checkbox"
           />
-          <label htmlFor="select-input-label">
+          <label htmlFor="select-input-label" data-testid="select-input-label">
+            Filtrar por gênero
             <select
               data-testid="select-input"
               value={ selectedGenre }
               onChange={ onSelectedGenreChange }
             >
-              Filtrar por gênero
               <option value="" data-testid="select-option">Todos</option>
               <option value="comedy" data-testid="select-option">Ação</option>
               <option value="thriller" data-testid="select-option">Comédia</option>
@@ -58,7 +58,8 @@ class SearchBar extends React.Component {
           {
             movies.filter((movieF) => movieF.title.includes(inputValue)
             || movieF.genre.includes(inputValue) || movieF.subtitle.includes(inputValue)
-            || movieF.storyline.includes(inputValue))
+            || movieF.storyline.includes(inputValue)
+            || movieF.genre.includes(selectedGenre))
               .map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
           }
         </form>
@@ -68,11 +69,3 @@ class SearchBar extends React.Component {
 }
 
 export default SearchBar;
-
-//   const { searchText,
-//   onSearchTextChange,
-//   bookmarkedOnly,
-//   onBookmarkedChange,
-//   selectedGenre,
-//   onSelectedGenreChange,
-// } = this.props;
