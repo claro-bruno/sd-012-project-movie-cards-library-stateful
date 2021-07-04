@@ -67,7 +67,12 @@ class MovieLibrary extends React.Component {
       } else {
         searchBool = true;
       }
-      const bookmarkBool = bookmarkedOnly ? bookmarked : true;
+      let bookmarkBool = false;
+      if (bookmarkedOnly) {
+        bookmarkBool = bookmarked;
+      } else {
+        bookmarkBool = true;
+      }
       const genreBool = genre.includes(selectedGenre);
 
       return (searchBool && bookmarkBool && genreBool);
