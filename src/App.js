@@ -1,5 +1,5 @@
 import React from 'react';
-// import movies from './data';
+import AddMovie from './components/AddMovie';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 // import MovieList from './components/MovieList';
@@ -10,6 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar />
+      <AddMovie />
     </div>
   );
 }
