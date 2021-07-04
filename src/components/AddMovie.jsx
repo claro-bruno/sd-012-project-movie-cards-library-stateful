@@ -5,21 +5,23 @@ import AreaInput from './AreaInput';
 import NumberInput from './NumberInput';
 import SelectInput from './SelectInput';
 
+import '../styles/addmovie.css';
+
 const inputs = [
   {
-    text: 'Título',
+    text: 'Título ',
     name: 'title',
     testid: 'title',
     value: 'title',
   },
   {
-    text: 'Subtítulo',
+    text: 'Subtítulo ',
     name: 'subtitle',
     testid: 'subtitle',
     value: 'subtitle',
   },
   {
-    text: 'Imagem',
+    text: 'Imagem (URL)',
     name: 'imagePath',
     testid: 'image',
     value: 'imagePath',
@@ -57,8 +59,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  onClick(event) {
-    event.preventDefault();
+  onClick() {
     const { onClick } = this.props;
 
     onClick(this.state);
@@ -77,8 +78,8 @@ class AddMovie extends React.Component {
     const { storyline, rating, genre } = this.state;
 
     return (
-      <form data-testid="add-movie-form">
-
+      <form data-testid="add-movie-form" className="add-movie">
+        <h2>Adicionar filme</h2>
         { inputs.map(({ text, name, testid, value }) => {
           const { state } = this;
           return (
@@ -93,28 +94,28 @@ class AddMovie extends React.Component {
         })}
 
         <AreaInput
-          text="Sinopse"
+          text="Sinopse "
           name="storyline"
           testid="storyline"
           value={ storyline }
           onChange={ this.handleChange }
         />
         <NumberInput
-          text="Avaliação"
+          text="Avaliação "
           name="rating"
           testid="rating"
           value={ rating }
           onChange={ this.handleChange }
         />
         <SelectInput
-          text="Gênero"
+          text="Gênero "
           name="genre"
           testid="genre"
           value={ genre }
           onChange={ this.handleChange }
           options={ options }
         />
-        <button type="submit" data-testid="send-button" onClick={ this.onClick }>
+        <button type="button" data-testid="send-button" onClick={ this.onClick }>
           Adicionar filme
         </button>
       </form>

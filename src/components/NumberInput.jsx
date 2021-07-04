@@ -10,6 +10,7 @@ class NumberInput extends React.Component {
         <input
           type="number"
           max="5"
+          min="0"
           step="0.1"
           data-testid={ `${testid}-input` }
           name={ name }

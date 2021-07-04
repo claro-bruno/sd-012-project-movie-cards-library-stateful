@@ -72,9 +72,6 @@ class MovieLibrary extends React.Component {
         />
         <MovieList
           movies={ moviesFiltered }
-          searchText={ searchText }
-          bookmarkedOnly={ bookmarkedOnly }
-          selectedGenre={ selectedGenre }
         />
         <AddMovie onClick={ this.handleMoviePush } />
       </main>

@@ -4,6 +4,8 @@ import TextInput from './TextInput';
 import CheckboxInput from './CheckboxInput';
 import SelectInput from './SelectInput';
 
+import '../styles/searchbar.css';
+
 class SearchBar extends React.Component {
   render() {
     const {
@@ -23,28 +25,31 @@ class SearchBar extends React.Component {
     ];
 
     return (
-      <form data-testid="search-bar-form">
+      <form data-testid="search-bar-form" className="search-bar">
+        <h2>Pesquisar filme</h2>
         <TextInput
-          text="Inclui o texto"
+          text="Inclui o texto "
           name="searchText"
           testid="text"
           value={ searchText }
           onChange={ onSearchTextChange }
         />
-        <CheckboxInput
-          text="Mostrar somente favoritos"
-          name="bookmarkedOnly"
-          checked={ bookmarkedOnly }
-          onChange={ onBookmarkedChange }
-        />
-        <SelectInput
-          text="Filtrar por gênero"
-          name="selectedGenre"
-          testid="select"
-          value={ selectedGenre }
-          onChange={ onSelectedGenreChange }
-          options={ options }
-        />
+        <div>
+          <CheckboxInput
+            text="Mostrar somente favoritos "
+            name="bookmarkedOnly"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+          />
+          <SelectInput
+            text="Filtrar por gênero "
+            name="selectedGenre"
+            testid="select"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
+            options={ options }
+          />
+        </div>
       </form>
     );
   }

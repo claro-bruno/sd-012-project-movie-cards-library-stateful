@@ -1,0 +1,34 @@
+.movie-card {
+  background-color: #cbcdcb;
+  border: 1px solid gray;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  margin: 16px 0;
+  max-width: 250px;
+  padding: 16px;
+}
+
+.movie-card:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
+.movie-card h4 {
+  font-size: 24px;
+  margin: 8px 0;
+}
+
+.movie-card h5 {
+  font-size: 16px;
+  margin: 8px 0;
+}
+
+.movie-card p {
+  border-radius: 8px;
+  box-shadow: 2px 2px 2px 3px #00000080;
+  font-size: 16px;
+  line-height: 1.5;
+  padding: 8px;
+  text-align: justify;
+}

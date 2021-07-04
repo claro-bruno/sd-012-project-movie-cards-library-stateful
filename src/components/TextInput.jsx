@@ -5,8 +5,10 @@ class TextInput extends React.Component {
   render() {
     const { name, value, onChange, text, testid } = this.props;
     return (
-      <label htmlFor={ name } data-testid={ `${testid}-input-label` }>
-        { text }
+      <div>
+        <label htmlFor={ name } data-testid={ `${testid}-input-label` }>
+          { text }
+        </label>
         <input
           type="text"
           data-testid={ `${testid}-input` }
@@ -15,7 +17,7 @@ class TextInput extends React.Component {
           value={ value }
           onChange={ onChange }
         />
-      </label>
+      </div>
     );
   }
 }

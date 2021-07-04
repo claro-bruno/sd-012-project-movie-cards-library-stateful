@@ -1,0 +1,8 @@
+.movie-card-rating {
+  align-self: flex-end;
+  background-color: yellow;
+  border-radius: 8px;
+  font-weight: 800;
+  padding: 8px;
+  width: fit-content;
+}
