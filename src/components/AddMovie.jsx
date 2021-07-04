@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
 import Input from './Input';
+import Select from './Select';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -72,6 +73,7 @@ class AddMovie extends React.Component {
           inputValue={ rating }
           handleChange={ handleChange }
         />
+        <Select value={ genre } onChange={ handleChange } />
       </form>
     );
   }
