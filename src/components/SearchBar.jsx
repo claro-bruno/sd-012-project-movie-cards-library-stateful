@@ -27,6 +27,7 @@ class SearchBar extends Component {
         <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
+            name="bookmarkedOnly"
             type="checkbox"
             data-testid="checkbox-input"
             checked={ bookmarkedOnly }
@@ -37,6 +38,7 @@ class SearchBar extends Component {
         <label htmlFor="select-input" data-testid="select-input-label">
           Filtrar por gênero
           <select
+            name="selectedGenre"
             data-testid="select-input"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
@@ -54,7 +56,8 @@ class SearchBar extends Component {
 
 export default SearchBar;
 
-// Referência: Natalia Souza - Turma 11.
+// Referência: Natalia Souza - tuma 11.
+// Repositório consultado: https://github.com/tryber/sd-011-project-movie-cards-library-stateful/pull/147/files
 SearchBar.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,

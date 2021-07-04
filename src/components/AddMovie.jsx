@@ -26,7 +26,8 @@ class AddMovie extends Component {
     });
   }
 
-  // Referência: Natalia Souza - tuma 11.q
+  // Referência: Natalia Souza - tuma 11.
+  // Repositório consultado: https://github.com/tryber/sd-011-project-movie-cards-library-stateful/pull/147/files
   handleClick() {
     const { onClick } = this.props;
     onClick(this.state);
@@ -71,7 +72,7 @@ class AddMovie extends Component {
         <label htmlFor="image-input" data-testid="image-input-label">
           Imagem
           <input
-            name="image"
+            name="imagePath"
             type="text"
             data-testid="image-input"
             value={ imagePath }
