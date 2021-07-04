@@ -1,5 +1,4 @@
 // implement AddMovie component here
-
 import React from 'react';
 import Input from './Input';
 import TextArea from './TextArea';
