@@ -6,7 +6,7 @@ class Select extends React.Component {
     const {
       value,
       handleChange,
-    } = this.props
+    } = this.props;
 
     return (
       <label htmlFor="genre" data-testid="genre-input-label">
@@ -25,5 +25,10 @@ class Select extends React.Component {
     );
   }
 }
+
+Select.propTypes = {
+  value: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default Select;
