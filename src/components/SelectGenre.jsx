@@ -8,8 +8,8 @@ class SelectGenre extends React.Component {
         <select
           id="select-genre"
           data-testid="genre-input"
-          value=""
-          onChange=""
+          value
+          onChange
         >
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>

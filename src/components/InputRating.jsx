@@ -9,6 +9,8 @@ class InputRating extends React.Component {
           type="number"
           id="input-rating"
           data-testid="rating-input"
+          value
+          onChange
         />
       </label>
     );

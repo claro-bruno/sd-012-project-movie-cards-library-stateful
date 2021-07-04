@@ -8,8 +8,8 @@ class TextArea extends React.Component {
         <textarea
           id="input-sinopse"
           data-testid="storyline-input"
-          value=""
-          onChange=""
+          value
+          onChange
         />
       </label>
     );

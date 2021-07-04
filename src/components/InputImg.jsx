@@ -9,8 +9,6 @@ class InputImg extends React.Component {
           type="text"
           id="input-img"
           data-testid="image-input"
-          value=""
-          onChange=""
         />
       </label>
     );

@@ -9,8 +9,8 @@ class InputTitle extends React.Component {
           type="text"
           id="input-title"
           data-testid="title-input"
-          value=""
-          onChange=""
+          value
+          onChange
         />
       </label>);
   }
