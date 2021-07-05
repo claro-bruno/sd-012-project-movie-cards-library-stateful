@@ -4,6 +4,7 @@ import Subtitle from './Subtitle';
 import Image from './Image';
 import Sinopse from './Sinopse';
 import Avaliacao from './Avaliacao';
+import Genre from './Genre';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
@@ -15,6 +16,7 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
+      genre: 'action',
     };
 
     this.changeHandler = this.changeHandler.bind(this);
@@ -29,7 +31,7 @@ class AddMovie extends Component {
 
   render() {
     // const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -57,6 +59,11 @@ class AddMovie extends Component {
 
             <Avaliacao
               value={ rating }
+              onChange={ this.changeHandler }
+            />
+
+            <Genre
+              value={ genre }
               onChange={ this.changeHandler }
             />
           </section>
