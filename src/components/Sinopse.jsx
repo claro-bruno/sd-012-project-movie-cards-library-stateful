@@ -5,11 +5,11 @@ class Sinopse extends Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label htmlFor="sinopse" data-testid="storyline-input-label">
+      <label htmlFor="storyline" data-testid="storyline-input-label">
         Sinopse
         <textarea
           data-testid="storyline-input"
-          name="sinopse"
+          name="storyline"
           value={ value }
           onChange={ onChange }
         />
@@ -19,8 +19,13 @@ class Sinopse extends Component {
 }
 
 Sinopse.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string,
+  onChange: PropTypes.func,
+};
+
+Sinopse.defaultProps = {
+  onChange: () => {},
+  value: '',
 };
 
 export default Sinopse;

@@ -3,6 +3,7 @@ import Title from './Title';
 import Subtitle from './Subtitle';
 import Image from './Image';
 import Sinopse from './Sinopse';
+import Avaliacao from './Avaliacao';
 // import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
@@ -11,6 +12,9 @@ class AddMovie extends Component {
     this.state = {
       title: '',
       subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
     };
 
     this.changeHandler = this.changeHandler.bind(this);
@@ -25,7 +29,7 @@ class AddMovie extends Component {
 
   render() {
     // const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -48,6 +52,11 @@ class AddMovie extends Component {
 
             <Sinopse
               value={ storyline }
+              onChange={ this.changeHandler }
+            />
+
+            <Avaliacao
+              value={ rating }
               onChange={ this.changeHandler }
             />
           </section>
