@@ -25,6 +25,7 @@ class AddMovie extends Component {
     this.handleSinopseChange = this.handleSinopseChange.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleGenreChange = this.handleGenreChange.bind(this);
+    this.onClickFunc = this.onClickFunc.bind(this);
   }
 
   handleTitleChange(e) {
@@ -51,14 +52,27 @@ class AddMovie extends Component {
     this.setState({ genre: e.target.value });
   }
 
-  render() {
+  onClickFunc(e) {
+    e.preventDefault();
     const { onClick } = this.props;
+    onClick();
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
           <TitletInput title={ title } method={ this.handleTitleChange } />
-          <SubtitleInput subtititle={ subtitle } method={ this.handleSubtitleChange } />
+          <SubtitleInput subtitle={ subtitle } method={ this.handleSubtitleChange } />
           <ImagePathInput imagePath={ imagePath } method={ this.handleImageChange } />
           <SinopseInput sinopse={ storyline } method={ this.handleSinopseChange } />
           <RatingInput rating={ rating } method={ this.handleRatingChange } />
@@ -67,7 +81,7 @@ class AddMovie extends Component {
             id="add-movie"
             type="submit"
             data-testid="send-button"
-            onClick={ onClick }
+            onClick={ this.onClickFunc }
           >
             Adicionar filme
           </button>

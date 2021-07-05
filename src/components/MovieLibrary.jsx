@@ -16,6 +16,7 @@ class MovieLibrary extends Component {
     };
     this.handleSearchTextChange = this.handleSearchTextChange.bind(this);
     this.handleGenreChange = this.handleGenreChange.bind(this);
+    this.onclickFunction = this.onclickFunction.bind(this);
   }
 
   handleSearchTextChange(e) {
@@ -24,6 +25,10 @@ class MovieLibrary extends Component {
 
   handleGenreChange(e) {
     this.setState({ selectedGenre: e.target.value });
+  }
+
+  onclickFunction() {
+    console.log('teitnb');
   }
 
   render() {
@@ -37,7 +42,7 @@ class MovieLibrary extends Component {
           onSearchTextChange={ this.handleSearchTextChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.onclickFunction } />
       </div>
     );
   }
