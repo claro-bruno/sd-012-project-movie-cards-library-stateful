@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import Button from './Button';
 // import PropType from 'prop-types';
 import Input from './Input';
 import Select from './Select';
@@ -16,6 +17,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(event) {
@@ -23,10 +25,14 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" onSubmit={ this.handleSubmit }>
         <Input
           label="Título"
           name="title"
@@ -69,6 +75,7 @@ class AddMovie extends React.Component {
           value={ genre }
           handleChange={ this.handleChange }
         />
+        <Button />
       </form>
     );
   }

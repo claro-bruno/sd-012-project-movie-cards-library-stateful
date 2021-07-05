@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
-    const { label,
-      name, type, value, handleChange } = this.props;
+    const { label, name, type, value, handleChange } = this.props;
     return (
       <div>
         <label
