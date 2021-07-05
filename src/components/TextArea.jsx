@@ -6,6 +6,7 @@ class TextArea extends React.Component {
       <label htmlFor="input-sinopse" data-testid="storyline-input-label">
         Sinopse
         <textarea
+          name="storyline"
           id="input-sinopse"
           data-testid="storyline-input"
           value

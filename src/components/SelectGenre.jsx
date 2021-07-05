@@ -6,6 +6,7 @@ class SelectGenre extends React.Component {
       <label htmlFor="select-genre" data-testid="genre-input-label">
         Gênero
         <select
+          name="genre"
           id="select-genre"
           data-testid="genre-input"
           value
