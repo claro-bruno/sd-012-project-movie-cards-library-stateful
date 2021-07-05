@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
 import Checkbox from './Checkbox';
+import Select from './Select';
 
 class SearchBar extends Component {
   render() {
@@ -10,6 +11,8 @@ class SearchBar extends Component {
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
     } = this.props;
     return (
       <form data-testid="search-bar-form">
@@ -30,6 +33,14 @@ class SearchBar extends Component {
           checked={ bookmarkedOnly }
           onChangeInput={ onBookmarkedChange }
           name="bookmarked"
+        />
+        <Select
+          inputLabel="Filtrar por gênero"
+          inputValue={ selectedGenre }
+          inputLabelId="select-input-label"
+          dataTestId="select-input"
+          onChange={ onSelectedGenreChange }
+          name="selectedGenre"
         />
       </form>
     );
