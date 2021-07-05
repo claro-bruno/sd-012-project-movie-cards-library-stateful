@@ -6,13 +6,14 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies: [...props.movies],
     };
   }
 
@@ -23,11 +24,15 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { movies } = this.props;
+    const { movies } = this.state;
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
-        <AddMovie onClick={ () => console.log('AddMovie') } />
+        <AddMovie
+          onClick={ (e) => {
+            this.setState((prevState) => ({ movies: [...prevState.movies, e] }));
+          } }
+        />
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleMovies }
