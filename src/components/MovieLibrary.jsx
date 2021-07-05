@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -71,9 +71,9 @@ class MovieLibrary extends React.Component {
     }
   }
 
-  moviesFiltered = () => {
+  addmovie = (newMovie) => {
     const { movies } = this.state;
-    return movies;
+    this.setState({ movies: [...movies, newMovie] });
   }
 
   render() {
@@ -91,7 +91,7 @@ class MovieLibrary extends React.Component {
         <MovieList
           movies={ movies }
         />
-        {/* <AddMovie /> */}
+        <AddMovie onClick={ this.addmovie } />
       </main>
     );
   }
