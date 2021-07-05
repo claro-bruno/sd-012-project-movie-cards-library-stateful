@@ -8,8 +8,8 @@ class AddMovie extends React.Component {
   constructor() {
     super();
 
-    this.handlechange = this.handlechange.bind(this);
-    this.handlechange = this.handleclick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -21,14 +21,14 @@ class AddMovie extends React.Component {
     };
   }
 
-  handlechange({ target }) {
-    const { inputName, inputValue, checked, inputType } = target;
+  handleChange({ target }) {
+    const { name, value } = target;
     this.setState({
-      [inputName]: inputType === 'checkbox' ? checked : inputValue,
+      [name]: value,
     });
   }
 
-  handleclick(e) {
+  handleClick(e) {
     e.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
@@ -43,15 +43,20 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { title, subtitle, imagePath, rating, storyline, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <AddMovie1
-          handlechange={ this.handlechange }
-          state={ this.state }
+          handlechange={ this.handleChange }
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
         />
         <AddMovie2
-          handlechange={ this.handlechange }
-          state={ this.state }
+          handlechange={ this.handleChange }
+          rating={ rating }
+          storyline={ storyline }
+          genre={ genre }
         />
         {/* <Button
           handleclick={ this.handleclick }

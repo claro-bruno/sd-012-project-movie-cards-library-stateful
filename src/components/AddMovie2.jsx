@@ -2,15 +2,16 @@ import React from 'react';
 import PropType from 'prop-types';
 import InputMovie from './InputMovie';
 import TextArea from './TextArea';
-import Select from './Select';
+import SelectMovie from './SelectMovie';
 
 class AddMovie2 extends React.Component {
   render() {
     const {
-      state,
       handlechange,
+      storyline,
+      rating,
+      genre,
     } = this.props;
-    const { storyline, rating, genre } = state;
 
     return (
       <section>
@@ -22,7 +23,7 @@ class AddMovie2 extends React.Component {
           onChangeInput={ handlechange }
           inputID="rating-input"
         />
-        <Select
+        <SelectMovie
           label="Gênero"
           inputName="genre"
           inputValue={ genre }
@@ -42,11 +43,9 @@ class AddMovie2 extends React.Component {
 }
 
 AddMovie2.propTypes = {
-  state: PropType.shape({
-    storyline: PropType.string.isRequired,
-    rating: PropType.number.isRequired,
-    genre: PropType.string.isRequired,
-  }).isRequired,
+  storyline: PropType.string.isRequired,
+  rating: PropType.number.isRequired,
+  genre: PropType.string.isRequired,
   handlechange: PropType.func.isRequired,
 };
 

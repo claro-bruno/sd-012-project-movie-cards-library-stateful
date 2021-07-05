@@ -5,11 +5,11 @@ import InputMovie from './InputMovie';
 class AddMovie1 extends React.Component {
   render() {
     const {
-      state,
       handlechange,
+      title,
+      subtitle,
+      imagePath,
     } = this.props;
-
-    const { title, subtitle, imagePath } = state;
 
     return (
       <section>
@@ -43,11 +43,9 @@ class AddMovie1 extends React.Component {
 }
 
 AddMovie1.propTypes = {
-  state: PropType.shape({
-    title: PropType.string.isRequired,
-    subtitle: PropType.string.isRequired,
-    imagePath: PropType.string.isRequired,
-  }).isRequired,
+  title: PropType.string.isRequired,
+  subtitle: PropType.string.isRequired,
+  imagePath: PropType.string.isRequired,
   handlechange: PropType.func.isRequired,
 };
 

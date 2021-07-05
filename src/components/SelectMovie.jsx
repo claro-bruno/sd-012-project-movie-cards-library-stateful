@@ -1,7 +1,7 @@
 import React from 'react';
 import PropType from 'prop-types';
 
-class Select extends React.Component {
+class SelectMovie extends React.Component {
   render() {
     const {
       label,
@@ -12,7 +12,6 @@ class Select extends React.Component {
     } = this.props;
 
     const option = [
-      { description: 'Todos', genre: '' },
       { description: 'Ação', genre: 'action' },
       { description: 'Comédia', genre: 'comedy' },
       { description: 'Suspense', genre: 'thriller' },
@@ -45,7 +44,7 @@ class Select extends React.Component {
   }
 }
 
-Select.propTypes = {
+SelectMovie.propTypes = {
   label: PropType.string.isRequired,
   inputName: PropType.string.isRequired,
   inputValue: PropType.string.isRequired,
@@ -53,4 +52,4 @@ Select.propTypes = {
   inputID: PropType.string.isRequired,
 };
 
-export default Select;
+export default SelectMovie;

@@ -22,9 +22,9 @@ class MovieLibrary extends Component {
   }
 
   handleChange({ target }) {
-    const { name, value } = target;
+    const { name, value, type, checked } = target;
     this.setState({
-      [name]: value,
+      [name]: type === 'checkbox' ? checked : value,
     });
   }
 
