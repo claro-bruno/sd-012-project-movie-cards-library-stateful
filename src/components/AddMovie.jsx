@@ -1,5 +1,29 @@
 import React from 'react';
 
+import StringInput from './StringInput';
+import TxtAreaInput from './TxtAreaInput';
+
+const inputObject = [
+  {
+    name: 'title',
+    text: 'Título',
+    testid: 'title',
+    value: 'title',
+  },
+  {
+    name: 'subtitle',
+    text: 'Subtítulo',
+    testid: 'subtitle',
+    value: 'subtitle',
+  },
+  {
+    name: 'imagePath',
+    text: 'Imagem',
+    testid: 'image',
+    value: 'imagePath',
+  },
+];
+
 class AddMovie extends React.Component {
   constructor() {
     super();
@@ -11,74 +35,37 @@ class AddMovie extends React.Component {
       storyline: '',
     };
 
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleSubtitleChange = this.handleSubtitleChange.bind(this);
-    this.handleImagePathChange = this.handleImagePathChange.bind(this);
-    this.handleStoryLineChange = this.handleStoryLineChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleTitleChange(event) {
-    this.setState({ title: event.target.value });
-  }
-
-  handleSubtitleChange(event) {
-    this.setState({ subtitle: event.target.value });
-  }
-
-  handleImagePathChange(event) {
-    this.setState({ imagePath: event.target.value });
-  }
-
-  handleStoryLineChange(event) {
-    this.setState({ storyline: event.target.value });
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
-
+    const { storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title">
-          Título
-          <input
-            data-testid="title-input"
-            name="title"
-            type="text"
-            value={ title }
-            onChange={ this.handleTitleChange }
-          />
-        </label>
-        <label data-testid="subtitle-input-label" htmlFor="subtitle">
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            name="subtitle"
-            type="text"
-            value={ subtitle }
-            onChange={ this.handleSubtitleChange }
-          />
-        </label>
-        <label data-testid="image-input-label" htmlFor="imagePath">
-          Imagem
-          <input
-            data-testid="image-input"
-            name="imagePath"
-            type="text"
-            value={ imagePath }
-            onChange={ this.handleImagePathChange }
-          />
-        </label>
-        <label data-testid="storyline-input-label" htmlFor="storyline">
-          Sinopse
-          <textarea
-            data-testid="storyline-input"
-            name="storyline"
-            value={ storyline }
-            onChange={ this.handleStoryLineChange }
-            cols="30"
-            rows="10"
-          />
-        </label>
+        { inputObject.map(({ name, text, testid, value }) => {
+          const { state } = this;
+          return (
+            <StringInput
+              text={ text }
+              testid={ testid }
+              key={ name }
+              name={ name }
+              value={ state[value] }
+              onChange={ this.handleChange }
+            />
+          );
+        }) }
+        <TxtAreaInput
+          value={ storyline }
+          onChange={ this.handleChange }
+        />
       </form>
     );
   }
