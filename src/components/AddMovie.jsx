@@ -9,13 +9,19 @@ class AddMovie extends React.Component {
     this.state = {
       title: '',
       rating: 0,
+      imagePath: '',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleImagePathChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  }
+
+  handleImagePathChange(event) {
+    this.setState({ imagePath: event.target.value });
   }
 
   render() {
@@ -36,13 +42,16 @@ class AddMovie extends React.Component {
           label="Subtítulo"
           handleChange={ this.handleChange }
         />
-        <Input
-          name="image"
-          type="image"
-          value={ imagePath }
-          label="Imagem"
-          handleChange={ this.handleChange }
-        />
+        <label htmlFor="imagePath" data-testid="image-input-label">
+          Imagem
+          <input
+            data-testid="image-input"
+            name="imagePath"
+            type="text"
+            value={ imagePath }
+            onChange={ this.handleImagePathChange }
+          />
+        </label>
         <Input
           name="rating"
           type="number"
