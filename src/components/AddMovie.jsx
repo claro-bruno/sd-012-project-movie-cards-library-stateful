@@ -1,6 +1,6 @@
 // vai usar state
 import React from 'react';
-/* import PropTypes from 'prop-types'; */
+import PropTypes from 'prop-types';
 
 const initialState = {
   subtitle: '',
@@ -23,6 +23,11 @@ class AddMovie extends React.Component {
     this.setState({
       [target.name]: target.value,
     });
+  }
+
+  resetStateAddMovie = (callback) => {
+    callback(this.state);
+    this.setState(initialState);
   }
 
   // criando as funçoes que renderizam o titulo, subtitulo etc, pois causava probelma com eslint por ser muito grande no render
@@ -126,9 +131,22 @@ class AddMovie extends React.Component {
     return item;
   }
 
+  renderButton = (onClick) => {
+    const item = (
+      <button
+        type="button"
+        data-testid="send-button"
+        onClick={ () => this.resetStateAddMovie(onClick) }
+      >
+        Adicionar filme
+      </button>
+    );
+    return item;
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
-    /* const { onClick } = this.props; */
+    const { onClick } = this.props;
 
     return (
       <form data-testid="add-movie-form">
@@ -138,13 +156,14 @@ class AddMovie extends React.Component {
         { this.renderSinopse(storyline) }
         { this.renderRating(rating) }
         { this.renderGenre(genre) }
+        { this.renderButton(onClick) }
       </form>
     );
   }
 }
 
-/* AddMovie.propTypes = {
+AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
-}; */
+};
 
 export default AddMovie;
