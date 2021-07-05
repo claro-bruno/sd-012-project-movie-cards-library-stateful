@@ -7,11 +7,12 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super();
+    const storage = localStorage.getItem('movies');
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      movies: JSON.parse(storage) || props.movies,
     };
     this.handleChange = this.handleChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
@@ -26,11 +27,8 @@ class MovieLibrary extends Component {
 
   filterMovies(movies) {
     const { bookmarkedOnly: marked, selectedGenre: genre, searchText } = this.state;
-    const storage = localStorage.getItem('movies');
 
-    const movieList = JSON.parse(storage) || movies;
-
-    const search = movieList.filter((movie) => {
+    const search = movies.filter((movie) => {
       const check = (movie.title.toLowerCase()
         .includes(searchText.toLowerCase())
       || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
