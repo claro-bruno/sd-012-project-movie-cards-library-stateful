@@ -57,7 +57,7 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropType.arrayOf({
+  movies: PropType.arrayOf(PropType.exact({
     title: PropType.string.isRequired,
     subtitle: PropType.string.isRequired,
     storyline: PropType.string.isRequired,
@@ -65,7 +65,7 @@ MovieLibrary.propTypes = {
     imagePath: PropType.string.isRequired,
     bookmarked: PropType.bool.isRequired,
     genre: PropType.string.isRequired,
-  }).isRequired,
+  })).isRequired,
 };
 
 export default MovieLibrary;
