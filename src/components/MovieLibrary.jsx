@@ -16,6 +16,7 @@ class MovieLibrary extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
     this.addMovie = this.addMovie.bind(this);
+    this.saveToLocalStorage = this.saveToLocalStorage.bind(this);
   }
 
   handleChange({ target }) {
@@ -25,8 +26,11 @@ class MovieLibrary extends Component {
 
   filterMovies(movies) {
     const { bookmarkedOnly: marked, selectedGenre: genre, searchText } = this.state;
+    const storage = localStorage.getItem('movies');
 
-    const search = movies.filter((movie) => {
+    const movieList = JSON.parse(storage) || movies;
+
+    const search = movieList.filter((movie) => {
       const check = (movie.title.toLowerCase()
         .includes(searchText.toLowerCase())
       || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
@@ -44,7 +48,12 @@ class MovieLibrary extends Component {
   addMovie(movie) {
     this.setState((state) => ({
       movies: [...state.movies, movie],
-    }));
+    }), () => this.saveToLocalStorage());
+  }
+
+  saveToLocalStorage() {
+    const { movies } = this.state;
+    localStorage.setItem('movies', JSON.stringify(movies));
   }
 
   render() {

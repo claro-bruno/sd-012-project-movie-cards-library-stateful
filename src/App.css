@@ -10,6 +10,20 @@ body {
   width: 100%;
 }
 
+body::-webkit-scrollbar {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #222426;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #6e6e6edd;
+  border: 1px solid #f48024;
+  border-radius: 20px;
+}
+
 .root {
   height: 100%;
 }
