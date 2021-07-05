@@ -5,17 +5,9 @@ import Select from './SelectFormAddMovie';
 import Button from './ButtonFormAddMovie';
 
 class Form extends React.Component {
-//   constructor() {
-//     super();
-
-  //      this.state = {
-  //       abc: "",
-  //     };
-  //   }
-
   render() {
     const { title, subtitle, imagePath, storyline,
-      rating, genre, handler, hc = handler, handleButton } = this.props;
+      rating, genre, hc, handleButton, onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <Input name="title" spanText="Título" value={ title } handler={ hc } />
@@ -24,7 +16,7 @@ class Form extends React.Component {
         <Input name="storyline" spanText="Sinopse" value={ storyline } handler={ hc } />
         <Input name="rating" spanText="Avaliação" value={ rating } handler={ hc } />
         <Select name="genre" spanText="Gênero" value={ genre } handler={ hc } />
-        <Button onClick={ handleButton } />
+        <Button onClick={ onClick } resetStates={ handleButton } />
       </form>
     );
   }
@@ -37,9 +29,9 @@ Form.propTypes = {
   storyline: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
   genre: PropTypes.string.isRequired,
-  handler: PropTypes.func.isRequired,
   hc: PropTypes.func.isRequired,
   handleButton: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Form;

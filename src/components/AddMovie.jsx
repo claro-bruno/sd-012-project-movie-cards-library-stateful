@@ -1,6 +1,6 @@
 import React from 'react';
-import Form from './FormAddMovie';
 // import PropTypes from 'prop-types';
+import Form from './FormAddMovie';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -44,7 +44,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    // const { handleChange } = this.props;
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <Form
@@ -54,8 +53,8 @@ class AddMovie extends React.Component {
         storyline={ storyline }
         rating={ rating }
         genre={ genre }
-        handler={ this.handleChange }
-        handleButton={ this.handleButton }
+        hc={ this.handleChange }
+        onClick={ this.handleButton }
       />
     );
   }
