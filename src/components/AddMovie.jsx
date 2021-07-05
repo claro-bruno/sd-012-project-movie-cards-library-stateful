@@ -3,6 +3,7 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import Input from './Input';
 import TextArea from './TextArea';
+import AddMovieInfo from './AddMovieInfo';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -30,35 +31,11 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <Input
-          id="title-input-id"
-          dataTestIDLabel="title-input-label"
-          labelContent="Título"
-          type="text"
-          name="title"
-          value={ title }
-          dataTestIDInput="title-input"
-          onChangeCallback={ this.handleChange }
-        />
-        <Input
-          id="subtitle-input-id"
-          dataTestIDLabel="subtitle-input-label"
-          labelContent="Subtítulo"
-          type="text"
-          name="subtitle"
-          value={ subtitle }
-          dataTestIDInput="subtitle-input"
-          onChangeCallback={ this.handleChange }
-        />
-        <Input
-          id="imagePath-input-id"
-          dataTestIDLabel="image-input-label"
-          labelContent="Imagem"
-          type="text"
-          name="imagePath"
-          value={ imagePath }
-          dataTestIDInput="image-input"
-          onChangeCallback={ this.handleChange }
+        <AddMovieInfo
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+          handleChange={ this.handleChange }
         />
         <TextArea
           id="textArea-input"
