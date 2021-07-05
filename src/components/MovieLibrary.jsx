@@ -14,6 +14,16 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
+
+    this.onClick = this.onClick.bind(this);
+  }
+
+   onClick(movie) {
+   const {  } = movie
+  }
+
+  handleTextChange(event) {
+    this.setState()
   }
 
   render() {
@@ -24,7 +34,8 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar searchText={ searchText } />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick }
+      />
       </div>
     );
   }
