@@ -21,7 +21,12 @@ class MovieLibrary extends Component {
     return (
       <div>
         <span>MovieLibrary Component</span>
-        <SearchBar searchText={ this.searchText } bookmarkedOnly={ this.bookmarkedOnly } selectedGenre={ this.selectedGenre } movies={ this.movies } />
+        <SearchBar
+          searchText={ this.searchText }
+          bookmarkedOnly={ this.bookmarkedOnly }
+          selectedGenre={ this.selectedGenre }
+          movies={ this.movies }
+        />
         <MovieList movies={ this.movies } />
       </div>
     );
