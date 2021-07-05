@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
-    const { label, name, type, value, handleChange } = this.props;
+    const { checked, label, name, type, value, handleChange } = this.props;
     return (
       <div>
         <label
@@ -17,6 +17,7 @@ class Input extends React.Component {
             type={ type }
             value={ value }
             onChange={ handleChange }
+            checked={ checked }
           />
         </label>
       </div>
