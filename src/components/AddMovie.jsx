@@ -2,6 +2,7 @@ import React from 'react';
 
 import StringInput from './StringInput';
 import TxtAreaInput from './TxtAreaInput';
+import NumberInput from './NumberInput';
 
 const inputObject = [
   {
@@ -33,6 +34,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       imagePath: '',
       storyline: '',
+      rating: 0,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -46,7 +48,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { storyline } = this.state;
+    const { storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
         { inputObject.map(({ name, text, testid, value }) => {
@@ -64,6 +66,10 @@ class AddMovie extends React.Component {
         }) }
         <TxtAreaInput
           value={ storyline }
+          onChange={ this.handleChange }
+        />
+        <NumberInput
+          value={ rating }
           onChange={ this.handleChange }
         />
       </form>
