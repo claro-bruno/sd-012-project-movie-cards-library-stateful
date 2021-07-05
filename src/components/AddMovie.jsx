@@ -1,13 +1,14 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
 import InputText from './myComponents/inputAddMovie/InputText';
+import InputTextSubtitle from './myComponents/inputAddMovie/InputTextSubtitle';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      // subtitle: '',
+      subtitle: '',
       title: '',
       // imagePath: '',
       // storyline: '',
@@ -15,22 +16,26 @@ class AddMovie extends React.Component {
       // genre: 'action',
     };
 
-    this.handleState = this.handleState.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleState(event) {
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+
     this.setState({
-      title: event.target.value,
+      [name]: value,
     });
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle } = this.state;
     // const onClick = this.props;
 
     return (
       <form data-testid="add-movie-form">
-        <InputText value={ title } onChange={ this.handleState } />
+        <InputText value={ title } onChange={ this.handleChange } />
+        <InputTextSubtitle value={ subtitle } onChange={ this.handleChange } />
       </form>
     );
   }
