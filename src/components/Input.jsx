@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class Input extends React.Component {
   render() {
     const { label, name, value,
-      handleChange, type } = this.props;
+      handleChange, type, checked } = this.props;
     return (
 
       <label htmlFor={ `${name}-input-label` } data-testid={ `${name}-input-label` }>
@@ -15,6 +15,7 @@ class Input extends React.Component {
           onChange={ handleChange }
           type={ type }
           data-testid={ `${name}-input` }
+          checked={ checked }
         />
       </label>
     );
