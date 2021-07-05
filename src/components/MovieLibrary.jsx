@@ -17,6 +17,7 @@ class MovieLibrary extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   handleChange({ target }) {
@@ -48,6 +49,13 @@ class MovieLibrary extends Component {
     return arrayMovies;
   }
 
+  // Referência: Natalia Souza - tuma 11.
+  addMovie(newMovie) {
+    this.setState((estadoAnterior) => ({
+      movies: [...estadoAnterior.movies, newMovie],
+    }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
@@ -62,7 +70,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ this.filterMovies() } />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovie } />
       </section>
     );
   }
