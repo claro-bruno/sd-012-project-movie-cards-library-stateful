@@ -2,8 +2,7 @@ import React from 'react';
 import Header from './components/Header';
 import './App.css';
 import data from './data';
-import MovieList from './components/MovieList';
-import SearchBar from './components/SearchBar';
+import MovieLibrary from './components/MovieLibrary';
 
 class App extends React.Component {
   constructor() {
@@ -16,8 +15,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <SearchBar />
-        <MovieList movies={ data } />
+        <MovieLibrary movies={ data } />
       </div>
     );
   }
