@@ -39,7 +39,7 @@ class SearchBar extends React.Component {
           <select
             data-testid="select-input"
             value={ selectedGenre }
-            name="selectedGenre"
+            name="selectGenre"
             onChange={ onSelectedGenreChange }
           >
             <option value="" data-testid="select-option">Todos</option>

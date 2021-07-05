@@ -16,29 +16,64 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectGenre: '',
       movies: moviesList,
+      movies2: moviesList,
     };
 
     this.state = initialState;
   }
 
+  filtro = () => {
+    const { bookmarkedOnly, selectGenre, searchText, movies2 } = this.state;
+    if (searchText === '') {
+      this.setState({ movies: movies2 });
+    } else {
+      const listFiltered = movies2.filter(
+        (movie) => movie.title.toLowerCase().includes(searchText.toLowerCase())
+          || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+          || movie.storyline.toLowerCase().includes(searchText.toLowerCase()),
+      );
+      this.setState({ movies: listFiltered });
+    } if (bookmarkedOnly === true) {
+      this.setState({ movies: movies2.filter((movie) => movie.bookmarked === true) });
+    }
+    if (selectGenre !== '') {
+      this.selecFunc();
+    }
+  }
+
+  selecFunc = () => {
+    const { selectGenre, movies2 } = this.state;
+    if (selectGenre === 'action') {
+      this.setState({ movies: movies2.filter((movie) => movie.genre === 'action') });
+    }
+    if (selectGenre === 'comedy') {
+      this.setState({ movies: movies2.filter((movie) => movie.genre === 'comedy') });
+    }
+    if (selectGenre === 'thriller') {
+      this.setState({ movies: movies2.filter((movie) => movie.genre === 'thriller') });
+    }
+  }
+
   callBack = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    this.setState({ [name]: value }, () => this.filtro());
   }
 
-  filtro = (movies, book, genre, search) => {
-    if (search === '') { return movies; }
-    if (book === false) {
-    // if (genre === '') { return movies; }
-      const listFiltered = movies.filter(
-        (movie) => movie.title.toLowerCase().includes(search.toLowerCase())
-        || movie.subtitle.toLowerCase().includes(search.toLowerCase())
-        || movie.storyline.toLowerCase().includes(search.toLowerCase()),
-      );
-      return listFiltered;
+  callBackMarked = (e) => {
+    const { bookmarkedOnly } = this.state;
+    const { name, value } = e.target;
+    if (value === 'on') {
+      this.setState({ [name]: true }, () => this.filtro());
     }
-    return movies.filter((movie) => movie.bookmarked === true);
+    if (bookmarkedOnly === true) {
+      this.setState({ [name]: false }, () => this.filtro());
+    }
+  }
+
+  moviesFiltered = () => {
+    const { movies } = this.state;
+    return movies;
   }
 
   render() {
@@ -49,12 +84,12 @@ class MovieLibrary extends React.Component {
           searchText={ searchText }
           onSearchTextChange={ this.callBack }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.callBack }
+          onBookmarkedChange={ this.callBackMarked }
           selectGenre={ selectGenre }
           onSelectedGenreChange={ this.callBack }
         />
         <MovieList
-          movies={ this.filtro(movies, bookmarkedOnly, selectGenre, searchText) }
+          movies={ movies }
         />
         {/* <AddMovie /> */}
       </main>
