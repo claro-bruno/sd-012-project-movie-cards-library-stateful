@@ -1,9 +1,10 @@
 // implement AddMovie component here
 import React from 'react';
-import Button from './Button';
+import Button from './Botton';
 // import PropType from 'prop-types';
 import Input from './Input';
 import Select from './Select';
+import ImagePath from './ImagePatch';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -47,7 +48,7 @@ class AddMovie extends React.Component {
           value={ subtitle }
           handleChange={ this.handleChange }
         />
-        <Input
+        <ImagePath
           type="text"
           label="Imagem"
           name="imagePath"
