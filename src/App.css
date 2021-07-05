@@ -81,3 +81,22 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.form {
+  align-items: center;
+  align-self: center;
+  background-color: #91e8ebc7;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+  max-width: 500px;
+  min-width: 400px;
+  width: 80%;
+}
+
+.formTitle {
+  color: rgb(1, 2, 12);
+  font-size: 16px;
+  text-align: center;
+}

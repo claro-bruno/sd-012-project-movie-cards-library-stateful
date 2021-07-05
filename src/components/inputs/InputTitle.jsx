@@ -14,6 +14,7 @@ class InputTitle extends React.Component {
           name="title"
           value={ value }
           onChange={ onChange }
+          className="form-control"
         />
       </label>
     );

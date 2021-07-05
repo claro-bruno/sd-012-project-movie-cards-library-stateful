@@ -14,6 +14,7 @@ class InputSubtitle extends React.Component {
           name="subtitle"
           value={ value }
           onChange={ onChange }
+          className="form-control"
         />
       </label>
     );

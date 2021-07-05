@@ -14,6 +14,7 @@ class InputImage extends React.Component {
           name="imagePath"
           value={ value }
           onChange={ onChange }
+          className="form-control"
         />
       </label>
     );

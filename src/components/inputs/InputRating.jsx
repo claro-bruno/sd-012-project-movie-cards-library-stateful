@@ -9,11 +9,12 @@ class InputRating extends React.Component {
         Avaliação
         <input
           id="addRating"
-          type="Number"
+          type="number"
           data-testid="rating-input"
           name="rating"
           value={ value }
           onChange={ onChange }
+          className="form-control"
         />
       </label>
     );
@@ -21,7 +22,7 @@ class InputRating extends React.Component {
 }
 
 InputRating.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 

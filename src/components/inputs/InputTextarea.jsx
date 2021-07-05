@@ -14,6 +14,7 @@ class InputTextarea extends React.Component {
           name="storyline"
           value={ value }
           onChange={ onChange }
+          className="form-control"
         />
       </label>
     );

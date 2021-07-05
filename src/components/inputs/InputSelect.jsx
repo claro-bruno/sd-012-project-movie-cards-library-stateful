@@ -5,7 +5,7 @@ class InputSelect extends React.Component {
   render() {
     const { value, handleChange } = this.props;
     return (
-      <label htmlFor="addGenre" data-testid="genre-input-label">
+      <label className="my-1 mr-2" htmlFor="addGenre" data-testid="genre-input-label">
         Gênero
         <select
           id="addGenre"
@@ -14,6 +14,7 @@ class InputSelect extends React.Component {
           name="genre"
           value={ value }
           onChange={ handleChange }
+          className="form-control"
         >
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>

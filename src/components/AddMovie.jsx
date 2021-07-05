@@ -52,41 +52,41 @@ class AddMovie extends React.Component {
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
-      <section>
-        <form data-testid="add-movie-form">
-          <InputTitle
-            value={ title }
-            onChange={ this.handleChange }
-          />
-          <InputSubtitle
-            value={ subtitle }
-            onChange={ this.handleChange }
-          />
-          <InputImage
-            value={ imagePath }
-            onChange={ this.handleChange }
-          />
-          <InputTextarea
-            value={ storyline }
-            onChange={ this.handleChange }
-          />
-          <InputRating
-            value={ rating }
-            onChange={ this.handleChange }
-          />
-          <InputSelect
-            value={ genre }
-            onChange={ this.handleChange }
-          />
-        </form>
+      <form data-testid="add-movie-form" className="form-group">
+        <h2 className="formTitle">Cadastro de novos filmes</h2>
+        <section className="form">
+          <div className="form-group">
+            <div className="form-group col-md-6">
+              <InputTitle value={ title } onChange={ this.handleChange } />
+            </div>
+            <div className="form-group col-md-6">
+              <InputSubtitle value={ subtitle } onChange={ this.handleChange } />
+            </div>
+            <div className="form-group col-md-6">
+              <InputImage value={ imagePath } onChange={ this.handleChange } />
+            </div>
+          </div>
+          <div className="form-group">
+            <div className="form-group col-md-6">
+              <InputTextarea value={ storyline } onChange={ this.handleChange } />
+            </div>
+            <div className="form-group col-md-6">
+              <InputSelect value={ genre } onChange={ this.handleChange } />
+            </div>
+            <div className="form-group col-md-2">
+              <InputRating value={ rating } onChange={ this.handleChange } />
+            </div>
+          </div>
+        </section>
         <button
           type="submit"
           data-testid="send-button"
           onClick={ this.clickSubmit }
+          className="btn btn-primary"
         >
           Adicionar filme
         </button>
-      </section>
+      </form>
     );
   }
 }
