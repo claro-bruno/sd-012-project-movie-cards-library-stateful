@@ -10,9 +10,15 @@ class MovieLibrary extends React.Component {
     super(props);
     const { movies } = this.props;
     this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
       movies,
     };
     this.submitForm = this.submitForm.bind(this);
+    this.textHandler = this.textHandler.bind(this);
+    this.seletGenreHandler = this.seletGenreHandler.bind(this);
+    this.bookmarkedHandler = this.bookmarkedHandler.bind(this);
   }
 
   submitForm = () => {
@@ -20,13 +26,45 @@ class MovieLibrary extends React.Component {
     this.setState({
       movies,
     });
+    console.log(movies.length);
+  }
+
+  bookmarkedHandler(event) {
+    const { checked } = event.target;
+    this.setState({ bookmarkedOnly: checked });
+  }
+
+  seletGenreHandler(event) {
+    const { value } = event.target;
+    this.setState({ selectedGenre: value });
+  }
+
+  textHandler(event) {
+    const { value } = event.target;
+    this.setState({ searchText: value });
   }
 
   render() {
-    const { movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    let { movies } = this.state;
+    if (bookmarkedOnly) movies = movies.filter((movie) => movie.bookmarked);
+    if (selectedGenre) movies = movies.filter((movie) => movie.genre === selectedGenre);
+    if (searchText) {
+      movies = movies
+        .filter(({ title, subtitle, storyline }) => title.includes(searchText)
+          || subtitle.includes(searchText)
+          || storyline.includes(searchText));
+    }
     return (
       <div>
-        <SearchBar />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.textHandler }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.bookmarkedHandler }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.seletGenreHandler }
+        />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.submitForm } />
       </div>
