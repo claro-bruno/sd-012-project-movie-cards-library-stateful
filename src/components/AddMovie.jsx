@@ -39,7 +39,6 @@ class AddMovie extends Component {
   }
 
   render() {
-
     return (
       <form data-testid="add-movie-form">
         <Input
