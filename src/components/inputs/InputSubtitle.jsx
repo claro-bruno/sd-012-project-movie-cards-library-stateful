@@ -5,8 +5,8 @@ class InputSubtitle extends React.Component {
   render() {
     const { value, onChange } = this.props;
     return (
-      <label htmlFor="addImagePath" data-testid="image-input-label">
-        Imagem
+      <label htmlFor="addSubtitle" data-testid="subtitle-input-label">
+        Subtítulo
         <input
           id="addSubtitle"
           type="text"

@@ -9,7 +9,7 @@ class InputRating extends React.Component {
         Avaliação
         <input
           id="addRating"
-          type="number"
+          type="Number"
           data-testid="rating-input"
           name="rating"
           value={ value }

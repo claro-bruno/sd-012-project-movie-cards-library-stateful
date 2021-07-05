@@ -1,5 +1,6 @@
 // implement AddMovie component here ;)
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputSelect from './inputs/InputSelect';
 import InputTextarea from './inputs/InputTextarea';
 import InputTitle from './inputs/InputTitle';
@@ -43,6 +44,8 @@ class AddMovie extends React.Component {
 
   clickSubmit(e) {
     e.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState(defaultState);
   }
 
@@ -87,5 +90,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
