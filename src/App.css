@@ -1,7 +1,7 @@
 body {
-  display: flex;
   background-color: whitesmoke;
   box-sizing: border-box;
+  display: flex;
   font-size: 16px;
 }
 
@@ -29,11 +29,11 @@ body {
 } */
 
 .movie-list {
+  align-items: center;
   display: flex;
   flex-flow: row wrap;
-  align-items: center;
-  padding: 48px 30px;
   justify-content: center;
+  padding: 48px 30px;
 }
 
 .movie-card {
