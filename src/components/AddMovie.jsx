@@ -3,6 +3,7 @@ import React from 'react';
 import InputText from './myComponents/inputAddMovie/InputText';
 import InputTextSubtitle from './myComponents/inputAddMovie/InputTextSubtitle';
 import InputTextImage from './myComponents/inputAddMovie/InputTextImage';
+import InputTextAreaSin from './myComponents/inputAddMovie/InputTextAreaSin';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -12,7 +13,7 @@ class AddMovie extends React.Component {
       subtitle: '',
       title: '',
       imagePath: '',
-      // storyline: '',
+      storyline: '',
       // rating: 0,
       // genre: 'action',
     };
@@ -30,7 +31,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     // const onClick = this.props;
 
     return (
@@ -38,6 +39,7 @@ class AddMovie extends React.Component {
         <InputText value={ title } onChange={ this.handleChange } />
         <InputTextSubtitle value={ subtitle } onChange={ this.handleChange } />
         <InputTextImage value={ imagePath } onChange={ this.handleChange } />
+        <InputTextAreaSin value={ storyline } onChange={ this.handleChange } />
       </form>
     );
   }
