@@ -67,7 +67,7 @@ class MovieLibrary extends React.Component {
         <MovieList
           movies={ this.filterMovies(movies) }
         />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovieFunc } />
       </section>
     );
   }
