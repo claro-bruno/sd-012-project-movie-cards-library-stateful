@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
 import MovieHeader from './MovieHeader';
+import Select from './Select';
 
 class AddMovie extends Component {
   constructor() {
@@ -40,7 +41,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { imagePath, storyline, rating } = this.state;
+    const { rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <MovieHeader />
@@ -50,7 +51,7 @@ class AddMovie extends Component {
           inputName="image"
           dataTestIdLabel="image-input-label"
           dataTestId="image-input"
-          inputValue={ imagePath }
+          inputValue={ this.imagePath }
           onChangeInput={ this.handleChange }
         />
         <label htmlFor="storyline-input-label" data-testid="storyline-input-label">
@@ -58,7 +59,7 @@ class AddMovie extends Component {
           <textarea
             data-testid="storyline-input"
             id="storyline-input"
-            value={ storyline }
+            value={ this.storyline }
             onChange={ this.handleChange }
           />
         </label>
@@ -70,6 +71,14 @@ class AddMovie extends Component {
           dataTestId="rating-input"
           inputValue={ rating }
           onChangeInput={ this.handleChange }
+        />
+        <Select
+          inputLabel="Gênero"
+          inputValue={ genre }
+          inputLabelId="genre-input-label"
+          dataTestId="genre-input"
+          onChange={ this.handleChange }
+          name="selectedGenre"
         />
       </form>
     );
