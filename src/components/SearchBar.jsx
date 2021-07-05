@@ -35,6 +35,7 @@ class SearchBar extends Component {
           name="bookmarked"
         />
         <Select
+          dataId="select-option"
           inputLabel="Filtrar por gênero"
           inputValue={ selectedGenre }
           inputLabelId="select-input-label"

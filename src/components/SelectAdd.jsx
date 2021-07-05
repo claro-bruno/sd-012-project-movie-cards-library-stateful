@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Option from './Option';
 
-class Select extends Component {
+class SelectAdd extends Component {
   render() {
     const {
       inputLabel,
@@ -23,7 +23,6 @@ class Select extends Component {
           onChange={ onChange }
           name={ name }
         >
-          <Option value="" name="Todos" dataId={ dataId } />
           <Option value="action" name="Ação" dataId={ dataId } />
           <Option value="comedy" name="Comédia" dataId={ dataId } />
           <Option value="thriller" name="Suspense" dataId={ dataId } />
@@ -33,7 +32,7 @@ class Select extends Component {
   }
 }
 
-Select.propTypes = PropTypes.shape({
+SelectAdd.propTypes = PropTypes.shape({
   inputLabel: PropTypes.string.isRequired,
   dataTestId: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -41,4 +40,4 @@ Select.propTypes = PropTypes.shape({
   name: PropTypes.string.isRequired,
 }).isRequired;
 
-export default Select;
+export default SelectAdd;

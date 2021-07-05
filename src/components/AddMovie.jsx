@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
 import MovieHeader from './MovieHeader';
-import Select from './Select';
+import SelectAdd from './SelectAdd';
+import Button from './Button';
 
 class AddMovie extends Component {
   constructor() {
@@ -22,8 +23,10 @@ class AddMovie extends Component {
   }
 
   handleChange({ target }) { // exemplo dado no vídeo do Course
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
-      [target.name]: target.value,
+      [name]: value,
     });
   }
 
@@ -72,14 +75,16 @@ class AddMovie extends Component {
           inputValue={ rating }
           onChangeInput={ this.handleChange }
         />
-        <Select
+        <SelectAdd
+          dataId="genre-option"
           inputLabel="Gênero"
           inputValue={ genre }
           inputLabelId="genre-input-label"
           dataTestId="genre-input"
           onChange={ this.handleChange }
-          name="selectedGenre"
+          name="genre"
         />
+        <Button onClick={ this.handleClick } />
       </form>
     );
   }
