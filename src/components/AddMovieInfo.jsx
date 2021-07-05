@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import TextArea from './TextArea';
 
 class AddMovieInfo extends React.Component {
   render() {
-    const { title, subtitle, imagePath, handleChange } = this.props;
+    const { title, subtitle, imagePath, handleChange, storyline } = this.props;
     return (
       <section>
         <Input
@@ -37,6 +38,15 @@ class AddMovieInfo extends React.Component {
           dataTestIDInput="image-input"
           onChangeCallback={ handleChange }
         />
+        <TextArea
+          id="textArea-input"
+          testIDLabel="storyline-input-label"
+          labelContent="Sinopse"
+          value={ storyline }
+          onChange={ handleChange }
+          testIDInput="storyline-input"
+          name="storyline"
+        />
       </section>
     );
   }
@@ -47,6 +57,7 @@ AddMovieInfo.propTypes = {
   subtitle: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
+  storyline: PropTypes.string.isRequired,
 };
 
 export default AddMovieInfo;
