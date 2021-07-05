@@ -1,18 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
+import Select from './Select';
 
 class SearchBar extends Component {
-  constructor() {
-    super();
-    this.state = {
-
-    };
-  }
-
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly } = this.props;
-    const { onBookmarkedChange } = this.props;
+    const { onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <Input
@@ -33,6 +27,7 @@ class SearchBar extends Component {
           checked={ bookmarkedOnly }
           onChange={ onBookmarkedChange }
         />
+        <Select value={ selectedGenre } onChange={ onSelectedGenreChange } />
       </form>
     );
   }
@@ -42,6 +37,9 @@ SearchBar.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
   bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
 }.isRequired;
 
 export default SearchBar;
