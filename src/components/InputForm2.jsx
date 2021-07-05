@@ -54,9 +54,13 @@ class InputsForm2 extends React.Component {
 
 InputsForm2.propTypes = {
   storyline: PropTypes.string.isRequired,
-  rating: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
+  rating: PropTypes.string,
   genre: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
+};
+
+InputsForm2.defaultProps = {
+  rating: 'undefined',
 };
 
 export default InputsForm2;
