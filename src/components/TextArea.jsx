@@ -6,7 +6,6 @@ class TextArea extends React.Component {
     const {
       label,
       inputName,
-      inputType,
       inputValue,
       onChangeInput,
       inputID,
@@ -17,7 +16,6 @@ class TextArea extends React.Component {
         { label }
         <textarea
           name={ inputName }
-          type={ inputType }
           value={ inputValue }
           onChange={ onChangeInput }
           data-testid={ inputID }
@@ -30,8 +28,7 @@ class TextArea extends React.Component {
 TextArea.propTypes = {
   label: PropType.string.isRequired,
   inputName: PropType.string.isRequired,
-  inputType: PropType.string.isRequired,
-  inputValue: PropType.func.isRequired,
+  inputValue: PropType.string.isRequired,
   onChangeInput: PropType.func.isRequired,
   inputID: PropType.string.isRequired,
 };

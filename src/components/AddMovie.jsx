@@ -2,7 +2,7 @@ import React from 'react';
 import PropType from 'prop-types';
 import AddMovie1 from './AddMovie1';
 import AddMovie2 from './AddMovie2';
-import Button from './Button';
+// import Button from './Button';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -11,7 +11,7 @@ class AddMovie extends React.Component {
     this.handlechange = this.handlechange.bind(this);
     this.handlechange = this.handleclick.bind(this);
 
-    this.State = {
+    this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
@@ -22,13 +22,14 @@ class AddMovie extends React.Component {
   }
 
   handlechange({ target }) {
-    const { inputName, inputValue } = target;
+    const { inputName, inputValue, checked, inputType } = target;
     this.setState({
-      [inputName]: inputValue,
+      [inputName]: inputType === 'checkbox' ? checked : inputValue,
     });
   }
 
-  handleclick() {
+  handleclick(e) {
+    e.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -52,10 +53,17 @@ class AddMovie extends React.Component {
           handlechange={ this.handlechange }
           state={ this.state }
         />
-        <Button
+        {/* <Button
           handleclick={ this.handleclick }
           dataTestId="send-button"
-        />
+        /> */}
+        <button
+          type="submit"
+          onClick={ this.handleClick }
+          data-testid="send-button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }

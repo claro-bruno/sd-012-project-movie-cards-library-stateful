@@ -10,8 +10,8 @@ class Button extends React.Component {
 
     return (
       <button
-        type="submit"
-        buttonID={ dataTestId }
+        type="button"
+        data-testid={ dataTestId }
         handleclick={ handleclick }
       >
         Adicionar filme

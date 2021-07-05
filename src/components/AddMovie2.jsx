@@ -44,7 +44,7 @@ class AddMovie2 extends React.Component {
 AddMovie2.propTypes = {
   state: PropType.shape({
     storyline: PropType.string.isRequired,
-    rating: PropType.string.isRequired,
+    rating: PropType.number.isRequired,
     genre: PropType.string.isRequired,
   }).isRequired,
   handlechange: PropType.func.isRequired,

@@ -31,7 +31,7 @@ InputMovie.propTypes = {
   label: PropType.string.isRequired,
   inputName: PropType.string.isRequired,
   inputType: PropType.string.isRequired,
-  inputValue: PropType.func.isRequired,
+  inputValue: PropType.node.isRequired,
   onChangeInput: PropType.func.isRequired,
   inputID: PropType.string.isRequired,
 };

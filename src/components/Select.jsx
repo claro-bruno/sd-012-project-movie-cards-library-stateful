@@ -44,7 +44,7 @@ class Select extends React.Component {
 Select.propTypes = {
   label: PropType.string.isRequired,
   inputName: PropType.string.isRequired,
-  inputValue: PropType.func.isRequired,
+  inputValue: PropType.string.isRequired,
   onChangeInput: PropType.func.isRequired,
   inputID: PropType.string.isRequired,
 };

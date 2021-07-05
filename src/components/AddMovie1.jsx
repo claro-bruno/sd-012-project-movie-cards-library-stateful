@@ -8,6 +8,7 @@ class AddMovie1 extends React.Component {
       state,
       handlechange,
     } = this.props;
+
     const { title, subtitle, imagePath } = state;
 
     return (
