@@ -6,6 +6,7 @@ import InputTextSubtitle from './myComponents/inputAddMovie/InputTextSubtitle';
 import InputTextImage from './myComponents/inputAddMovie/InputTextImage';
 import InputTextAreaSin from './myComponents/inputAddMovie/InputTextAreaSin';
 import InputNumberRat from './myComponents/inputAddMovie/InputNumberRat';
+import InputSelectGen from './myComponents/inputAddMovie/InputSelectGen';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -17,7 +18,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -33,7 +34,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     // const onClick = this.props;
 
     return (
@@ -43,6 +44,7 @@ class AddMovie extends React.Component {
         <InputTextImage value={ imagePath } onChange={ this.handleChange } />
         <InputTextAreaSin value={ storyline } onChange={ this.handleChange } />
         <InputNumberRat value={ rating } onChange={ this.handleChange } />
+        <InputSelectGen value={ genre } onChange={ this.handleChange } />
       </form>
     );
   }
