@@ -6,6 +6,7 @@ class InputTag extends React.Component {
     const { searchText, onSearchTextChange,
       textDoInput, dataLabelId, dataInputId } = this.props;
     return (
+      // console.log(this.props)
       <label
         data-testid={ dataLabelId }
         htmlFor={ searchText }
@@ -13,9 +14,9 @@ class InputTag extends React.Component {
         { textDoInput }
         <input
           value={ searchText }
-          id={ searchText }
-          type={ searchText }
           onChange={ onSearchTextChange }
+          id={ searchText }
+          type="text"
           data-testid={ dataInputId }
           // checked={ }
         />
@@ -24,13 +25,11 @@ class InputTag extends React.Component {
   }
 }
 InputTag.propTypes = {
-  searchText: PropTypes.string,
-  onSearchTextChange: PropTypes.func,
-  title: PropTypes.string,
-  subtitle: PropTypes.string,
-  storyline: PropTypes.string,
-  rating: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  imagePath: PropTypes.string,
-}.require;
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  textDoInput: PropTypes.string.isRequired,
+  dataLabelId: PropTypes.string.isRequired,
+  dataInputId: PropTypes.string.isRequired,
+};
 
 export default InputTag;

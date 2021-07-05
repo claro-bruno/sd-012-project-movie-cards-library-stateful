@@ -1,14 +1,15 @@
 import React from 'react';
 import movies from '../data';
-import InputTag from './Inputs/InputTag';
+import InputTag from './OutrosComponentes/InputTag';
 import MovieCard from './MovieCard';
+import SelectTag from './OutrosComponentes/SelectTag';
 
 class SearchBar extends React.Component {
-  constructor() {
-    super();
-
+  constructor(props) {
+    super(props);
     this.state = {
-      // searchText: '',
+      searchText: '',
+      selectedGenre: '',
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -17,61 +18,50 @@ class SearchBar extends React.Component {
 
   onSearchTextChange(e) {
     this.setState({ searchText: e.target.value });
-    // this.setState({ selectedGenre: e.target.value });
+    console.log(e.target.value);
   }
 
   onSelectedGenreChange(e) {
     this.setState({ selectedGenre: e.target.value });
+    console.log(e.target.value);
   }
 
   render() {
-    const { searchText, onSearchTextChange, // uma callback//
-      bookmarkedOnly, // um boolean//
-      onBookmarkedChange, // uma callback//
-      selectedGenre, // uma string//
-      onSelectedGenreChange, // uma callback//
+    const { searchText,
+      // onSearchTextChange,
+      // bookmarkedOnly,
+      // onBookmarkedChange,
+      selectedGenre,
+      // onSelectedGenreChange,
     } = this.state;
     return (
-      <section>
-        <form data-testid="search-bar-form" action="">
-          <InputTag
-            textDoInput="Inclui o texto:"
-            dataLabelId="text-input-label"
-            dataInputId="text-input"
-            searchText={ searchText }
-            onSearchTextChange={ this.onSearchTextChange }
-          />
-          <InputTag
-            textDoInput="Mostrar somente favoritos"
-            dataLabelId="checkbox-input-label"
-            searchText="checkbox"
-          />
-          <label
-            htmlFor="select-input-label"
-            data-testid="select-input-label"
-            // onSearchTextChange={ this.onSelectedGenreChange }
-          >
-            Filtrar por gênero
-            <select
-              data-testid="select-input"
-              value={ selectedGenre }
-              onChange={ this.onSelectedGenreChange }
-            >
-              <option value="" data-testid="select-option">Todos</option>
-              <option value="action" data-testid="select-option">Ação</option>
-              <option value="comedy" data-testid="select-option">Comédia</option>
-              <option value="thriller" data-testid="select-option">Suspense</option>
-            </select>
-          </label>
-          {
-            movies.filter((movieF) => movieF.title.includes(searchText)
-            || movieF.genre.includes(searchText) || movieF.subtitle.includes(searchText)
+      <form data-testid="search-bar-form" action="">
+        <InputTag
+          textDoInput="Inclui o texto:"
+          dataLabelId="text-input-label"
+          dataInputId="text-input"
+          searchText={ searchText }
+          onSearchTextChange={ this.onSearchTextChange }
+        />
+        <InputTag
+          textDoInput="Mostrar somente favoritos"
+          dataLabelId="checkbox-input-label"
+          searchText="checkbox"
+        />
+        <SelectTag
+          selectLabelText="Filtrar por gênero"
+          selectedGenre={ selectedGenre }
+          value={ selectedGenre }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
+        />
+        {
+          movies.filter((movieF) => movieF.title.includes(searchText)
+            || movieF.subtitle.includes(searchText)
             || movieF.storyline.includes(searchText)
             || movieF.genre.includes(selectedGenre))
-              .map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
-          }
-        </form>
-      </section>
+            .map((movie) => <MovieCard key={ movie.title } movie={ movie } />)
+        }
+      </form>
     );
   }
 }
