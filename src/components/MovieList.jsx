@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import MovieCard from './MovieCard';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 class MovieList extends React.Component {
   render() {
@@ -12,15 +13,16 @@ class MovieList extends React.Component {
       <section>
         <SearchBar
           searchText={ String }
-          onSearchTextChange={ () => {} }
+          onSearchTextChange={ Function }
           bookmarkedOnly={ Boolean }
-          onBookmarkedChange={ callback }
+          onBookmarkedChange={ Function }
           selectedGenre={ String }
-          onSelectedGenreChange={ callback }
+          onSelectedGenreChange={ Function }
         />
         <div data-testid="movie-list" className="movie-list">
           { movies.map((movie) => <MovieCard key={ movie.title } movie={ movie } />) }
         </div>
+        <AddMovie />
       </section>
     );
   }

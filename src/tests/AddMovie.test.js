@@ -1,69 +1,69 @@
-// import React from 'react';
-// import { render, fireEvent } from '@testing-library/react';
-// import '@testing-library/jest-dom';
-// import event from '@testing-library/user-event';
-// import AddMovie from '../components/AddMovie';
+import React from 'react';
+import { render, fireEvent } from '@testing-library/react';
+import '@testing-library/jest-dom';
+import event from '@testing-library/user-event';
+import AddMovie from '../components/AddMovie';
 
-// const initialState = {
-//   subtitle: '',
-//   title: '',
-//   imagePath: '',
-//   storyline: '',
-//   rating: 0,
-//   genre: 'action',
-// };
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
 
-// const onClick = jest.fn();
-// let form;
-// let titleInput;
-// let titleInputLabel;
-// let subtitleInput;
-// let subtitleInputLabel;
-// let imageInput;
-// let imageInputLabel;
-// let storylineInput;
-// let storylineInputLabel;
-// let ratingInput;
-// let ratingInputLabel;
-// let genreInput;
-// let genreInputLabel;
-// let genreOptions;
-// let sendButton;
+const onClick = jest.fn();
+let form;
+let titleInput;
+let titleInputLabel;
+let subtitleInput;
+let subtitleInputLabel;
+let imageInput;
+let imageInputLabel;
+let storylineInput;
+let storylineInputLabel;
+let ratingInput;
+let ratingInputLabel;
+let genreInput;
+let genreInputLabel;
+let genreOptions;
+let sendButton;
 
-// const movieHarryPotter = 'Harry Potter I';
-// const subtitleMagical = 'Magical subtitle';
-// const inputStoryline = 'The boy who lived.';
+const movieHarryPotter = 'Harry Potter I';
+const subtitleMagical = 'Magical subtitle';
+const inputStoryline = 'The boy who lived.';
 
-// beforeEach(() => {
-//   const { queryAllByTestId, queryByTestId } = render(<AddMovie onClick={ onClick } />);
-//   form = queryAllByTestId('add-movie-form');
-//   titleInput = queryByTestId('title-input');
-//   titleInputLabel = queryByTestId('title-input-label');
-//   subtitleInput = queryByTestId('subtitle-input');
-//   subtitleInputLabel = queryByTestId('subtitle-input-label');
-//   imageInput = queryByTestId('image-input');
-//   imageInputLabel = queryByTestId('image-input-label');
-//   storylineInput = queryByTestId('storyline-input');
-//   storylineInputLabel = queryByTestId('storyline-input-label');
-//   ratingInput = queryByTestId('rating-input');
-//   ratingInputLabel = queryByTestId('rating-input-label');
-//   genreInput = queryByTestId('genre-input');
-//   genreInputLabel = queryByTestId('genre-input-label');
-//   genreOptions = queryAllByTestId('genre-option');
-//   sendButton = queryByTestId('send-button');
-// });
+beforeEach(() => {
+  const { queryAllByTestId, queryByTestId } = render(<AddMovie onClick={ onClick } />);
+  form = queryAllByTestId('add-movie-form');
+  titleInput = queryByTestId('title-input');
+  titleInputLabel = queryByTestId('title-input-label');
+  subtitleInput = queryByTestId('subtitle-input');
+  subtitleInputLabel = queryByTestId('subtitle-input-label');
+  imageInput = queryByTestId('image-input');
+  imageInputLabel = queryByTestId('image-input-label');
+  storylineInput = queryByTestId('storyline-input');
+  storylineInputLabel = queryByTestId('storyline-input-label');
+  ratingInput = queryByTestId('rating-input');
+  ratingInputLabel = queryByTestId('rating-input-label');
+  genreInput = queryByTestId('genre-input');
+  genreInputLabel = queryByTestId('genre-input-label');
+  genreOptions = queryAllByTestId('genre-option');
+  sendButton = queryByTestId('send-button');
+});
 
-// describe('6 - Crie um componente chamado `<AddMovie />`', () => {
-//   it('Renderize o componente', () => {
-//     render(<AddMovie onClick={ () => jest.fn() } />);
-//   });
-// });
+describe('6 - Crie um componente chamado `<AddMovie />`', () => {
+  it('Renderize o componente', () => {
+    render(<AddMovie onClick={ () => jest.fn() } />);
+  });
+});
 
-// describe('7 - Renderize um formulário dentro de `<AddMovie />`', () => {
-//   it('Renderize 1, e apenas 1, form', () => {
-//     expect(form).toHaveLength(1);
-//   });
-// });
+describe('7 - Renderize um formulário dentro de `<AddMovie />`', () => {
+  it('Renderize 1, e apenas 1, form', () => {
+    expect(form).toHaveLength(1);
+  });
+});
 
 // describe('8 - Renderize um input do tipo texto dentro do formulário em `<AddMovie />` para obter o título do novo filme', () => {
 //   it('Renderize um input de texto para quem usa escrever o titulo do filme', () => {
