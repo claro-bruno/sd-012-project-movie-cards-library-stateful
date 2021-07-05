@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
-import Select from './Select';
 
 class AddMovie extends Component {
   constructor() {
@@ -54,10 +53,19 @@ class AddMovie extends Component {
         <Input
           inputLabel="Título"
           inputType="text"
-          inputName="searchText"
+          inputName="title"
           dataTestIdLabel="title-input-label"
           dataTestId="title-input"
           inputValue={ this.title }
+          onChangeInput={ this.handleChange }
+        />
+        <Input
+          inputLabel="Subtítulo"
+          inputType="text"
+          inputName="subtitle"
+          dataTestIdLabel="subtitle-input-label"
+          dataTestId="subtitle-input"
+          inputValue={ this.subtitle }
           onChangeInput={ this.handleChange }
         />
       </form>
