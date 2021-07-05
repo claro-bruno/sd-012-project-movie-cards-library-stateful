@@ -24,6 +24,6 @@ class InputTextImage extends React.Component {
 InputTextImage.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-}
+};
 
 export default InputTextImage;
