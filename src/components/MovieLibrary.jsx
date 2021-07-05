@@ -9,7 +9,7 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
-    this.filterTxt = this.filterTxt.bind(this);
+    this.filterMovie = this.filterMovie.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -30,12 +30,14 @@ class MovieLibrary extends React.Component {
     return txt.toLowerCase().includes(searchTxt.toLowerCase());
   }
 
-  filterTxt() {
-    const { searchText, movies } = this.state;
+  filterMovie() {
+    const { searchText, movies, bookmarkedOnly, selectedGenre } = this.state;
     const { lowerTxt } = this;
     return movies.filter(({ title, subtitle, storyline }) => (lowerTxt(title, searchText)
       || lowerTxt(subtitle, searchText)
-      || lowerTxt(storyline, searchText)));
+      || lowerTxt(storyline, searchText)))
+      .filter(({ bookmarked }) => (bookmarkedOnly ? bookmarked : bookmarked !== null))
+      .filter(({ genre }) => (selectedGenre ? genre === selectedGenre : genre));
   }
 
   render() {
@@ -50,7 +52,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ this.filterTxt() } />
+        <MovieList movies={ this.filterMovie() } />
 
       </div>
     );
