@@ -3,9 +3,12 @@ import React from 'react';
 class SearchBar extends React.Component {
   render() {
     return (
-      <input
-        type="string"
-      />
+      <form data-testid="search-bar-form">
+        <label> </label>
+        <input
+          type="text"
+        />
+      </form>
     );
   }
 }
