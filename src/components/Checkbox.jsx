@@ -1,17 +1,31 @@
 import React from 'react';
+// import PropTypes from 'prop-types';
 
-class Input extends React.Component {
+class Checkbox extends React.Component {
   render() {
     const { bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <fieldset>
-          <label data-testid="checkbox-input">
+        <label data-testid="checkbox-input" htmlFor="checkbox-input">
           Mostrar somente favoritos
-          <input type="checkbox" checked={ bookmarkedOnly } onChange={ onBookmarkedChange } />
-          </label>
+          <input
+            id="checkbox-input"
+            type="checkbox"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+          />
+        </label>
       </fieldset>
     );
   }
 }
 
-export default Input;
+// Checkbox.propTypes = {
+//   bookmarkedOnly: PropTypes.bool,
+//   onBookmarkedChange: PropTypes.func,
+// };
+// Checkbox.defaultProps = {
+//   bookmarkedOnly: false,
+// }
+
+export default Checkbox;

@@ -1,10 +1,9 @@
 import React from 'react';
 
-
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.state = {
       title: '',
       subtitle: '',
@@ -12,44 +11,22 @@ class AddMovie extends React.Component {
       rating: 0,
       imagePath: '',
       genre: 'action',
-    }
+    };
 
-    this.addTitle = this.addTitle.bind(this);
-    this.addSubtitle = this.addSubtitle.bind(this);
-    this.addImage= this.addImage.bind(this);
-    this.addStoryline= this.addStoryline.bind(this);
-    this.addRating= this.addRating.bind(this);
-    this.addGenre= this.addGenre.bind(this);
-    this.submitNewMovie= this.submitNewMovie.bind(this);
+    this.newMovieInfo = this.newMovieInfo.bind(this);
+    this.submitNewMovie = this.submitNewMovie.bind(this);
   }
 
-  addTitle(e) {
-    this.setState({ title: e.target.value });
+  newMovieInfo(e) {
+    const { name, value } = e.target;
+    this.setState({ [name]: value });
   }
 
-  addSubtitle(e) {
-    this.setState({ subtitle: e.target.value });
-  }
-
-  addImage(e) {
-    this.setState({ imagePath: e.target.value });
-  }
-  
-  addStoryline(e) {
-    this.setState({ storyline: e.target.value });
-  }
-  
-  addRating(e) {
-    this.setState({ rating: e.target.value });
-  }
-  
-  addGenre(e) {
-    this.setState({ genre: e.target.value });
-  }
-  
   submitNewMovie(state) {
+    state.preventDefault();
+    state = this.state;
     console.log(state);
-    return(
+    return (
       this.setState({
         title: '',
         subtitle: '',
@@ -72,59 +49,71 @@ class AddMovie extends React.Component {
     } = this.state;
 
     return (
-      <form data-testid="add-movie-form">
-        <label data-testid="title-input-label">Título
+      <form data-testid="add-movie-form" onSubmit={ this.submitNewMovie }>
+        <label data-testid="title-input-label" htmlFor="title-input">
+          Título
           <input
+            id="title-input"
             data-testid="title-input"
             type="text"
             value={ title }
-            onChange={ this.addTitle }
-            />
+            onChange={ this.newMovieInfo }
+          />
         </label>
-        <label data-testid="subtitle-input-label">Subtítulo
+        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
+          Subtítulo
           <input
+            id="subtitle-input"
             data-testid="subtitle-input"
             type="text"
             value={ subtitle }
-            onChange={ this.addSubtitle }
-            />
+            onChange={ this.newMovieInfo }
+          />
         </label>
-        <label data-testid="image-input-label">Imagem
+        <label data-testid="image-input-label" htmlFor="image-input">
+          Imagem
           <input
+            id="image-input"
             data-testid="image-input"
             type="text"
             value={ imagePath }
-            onChange={ this.addImage }
-            />
+            onChange={ this.newMovieInfo }
+          />
         </label>
-        <label data-testid="storyline-input-label">Sinopse
+        <label data-testid="storyline-input-label" htmlFor="storyline-input">
+          Sinopse
           <textarea
+            id="storyline-input"
             data-testid="storyline-input"
             value={ storyline }
-            onChange={ this.addStoryline }
-            />
+            onChange={ this.newMovieInfo }
+          />
         </label>
-        <label data-testid="rating-input-label">Avaliação
+        <label data-testid="rating-input-label" htmlFor="rating-input">
+          Avaliação
           <input
+            id="rating-input"
             data-testid="rating-input"
             type="number"
             step=".1"
             value={ rating }
-            onChange={ this.addRating }
-            />
+            onChange={ this.newMovieInfo }
+          />
         </label>
-        <label data-testid="genre-input-label">Gênero
+        <label data-testid="genre-input-label" htmlFor="genre-input">
+          Gênero
           <select
+            id="genre-input"
             data-testid="genre-input"
             value={ genre }
-            onChange={ this.addGenre }
-            >
+            onChange={ this.newMovieInfo }
+          >
             <option value="action" data-testid="genre-option">Ação</option>
             <option value="comedy" data-testid="genre-option">Comédia</option>
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
         </label>
-        <button data-testid="send-button" onClick={ this.submitNewMovie }>Adicionar filme</button>
+        <button data-testid="send-button" type="submit">Adicionar filme</button>
       </form>
     );
   }

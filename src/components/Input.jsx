@@ -5,10 +5,15 @@ class Input extends React.Component {
     const { searchText, onSearchTextChange } = this.props;
     return (
       <fieldset>
-          <label data-testid="text-input-label">
+        <label data-testid="text-input-label" htmlFor="search-input">
           Inclui o texto:
-          <input type="text" value={ searchText } onChange={ onSearchTextChange } />
-          </label>
+          <input
+            id="search-input"
+            type="text"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+          />
+        </label>
       </fieldset>
     );
   }
