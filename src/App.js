@@ -10,10 +10,8 @@ class App extends React.Component {
     console.log(React.Component);
     return (
       <div className="App">
-        <Header />
         <MovieList movies={ movies } />
         <SearchBar />
-        <AddMovie />
       </div>
     );
   }
