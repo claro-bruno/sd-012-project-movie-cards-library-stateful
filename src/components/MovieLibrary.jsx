@@ -13,13 +13,23 @@ export default class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      ...this.props,
+      movies: [...props.movies],
     };
     this.state = INITIAL_STATE;
 
+    this.onAddMovie = this.onAddMovie.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+  }
+
+  // Requisito 19 - Consultei repositório do colega David,https://github.com/tryber/sd-012-project-movie-cards-library-stateful/pull/44
+  onAddMovie(movie) {
+    this.setState(({ movies: oldMOvies }) => {
+      oldMOvies.push(movie);
+      return { movies: oldMOvies };
+    });
   }
 
   // Requisito 17
@@ -77,7 +87,7 @@ export default class MovieLibrary extends Component {
         />
 
         <MovieList movies={ movies } />
-        <AddMovie onClick={ movies } />
+        <AddMovie onClick={ this.onAddMovie } />
       </div>
     );
   }
