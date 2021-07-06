@@ -1,10 +1,10 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-   /*  constructor(props) {
+  /* constructor(props) {
       super(props);
-    } */
-  
+  } */
+
   render() {
     return (
       <div>
@@ -15,5 +15,5 @@ class SearchBar extends React.Component {
     );
   }
 }
-  
+
 export default SearchBar;
