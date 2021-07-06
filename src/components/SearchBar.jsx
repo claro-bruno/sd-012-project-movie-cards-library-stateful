@@ -2,10 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SeachBar extends React.Component {
-  onSearchTextChange() {
-
-  }
-
   render() {
     const {
       searchText,
@@ -19,6 +15,7 @@ class SeachBar extends React.Component {
         <label htmlFor="botao-text" data-testid="text-input-label">
           Inclui o texto:
           <input
+            name="searchText"
             data-testid="text-input"
             id="botao-text"
             type="text"
@@ -29,6 +26,7 @@ class SeachBar extends React.Component {
         <label htmlFor="checkbox" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
+            name="bookmarkedOnly"
             type="checkbox"
             id="checkbox"
             data-testid="checkbox-input"
@@ -39,6 +37,7 @@ class SeachBar extends React.Component {
         <label htmlFor="select" data-testid="select-input-label">
           Filtrar por gênero
           <select
+            name="selectedGenre"
             data-testid="select-input"
             id="select"
             value={ selectedGenre }
@@ -48,7 +47,6 @@ class SeachBar extends React.Component {
             <option value="action" data-testid="select-option">Ação</option>
             <option value="comedy" data-testid="select-option">Comédia</option>
             <option value="thriller" data-testid="select-option">Suspense</option>
-
           </select>
         </label>
       </form>
