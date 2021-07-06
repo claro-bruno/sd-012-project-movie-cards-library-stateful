@@ -6,7 +6,7 @@ import MovieImage from './MovieCards/MovieImage';
 import MovieStory from './MovieCards/MovieStory';
 import MovieRating from './MovieCards/MovieRating';
 import MovieGenre from './MovieCards/MovieGenre';
-import ButtonAddMovie from './ButtonAddMovie';
+import AddMovieButton from './AddMovieButton';
 
 class AddMovie extends Component {
   constructor(props) {
@@ -56,7 +56,7 @@ class AddMovie extends Component {
         <MovieRating rating={ rating } onRatingNumberChange={ this.handleChange } />
         <MovieGenre genre={ genre } onGenreChange={ this.handleChange } />
 
-        <ButtonAddMovie Click={ () => this.handleClick(onClick) } />
+        <AddMovieButton funcOnClick={ () => this.handleClick(onClick) } />
       </form>
     );
   }
