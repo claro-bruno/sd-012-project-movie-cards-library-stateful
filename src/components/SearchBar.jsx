@@ -45,10 +45,7 @@ SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
-  favoritesOnly: PropTypes.bool.isRequired,
+  bookmarkedOnly: PropTypes.func.isRequired,
 };
 
-SearchBar.defaultProps = {
-  searchText: '',
-}
 export default SearchBar;
