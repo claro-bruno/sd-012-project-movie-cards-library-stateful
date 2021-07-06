@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class AddMovie extends Component {
   constructor () {
     super()
+    this.updateState = this.updateState.bind(this)
     this.state = {
       subtitle:'',
       title:'',
@@ -13,16 +14,34 @@ class AddMovie extends Component {
     }
   }
 
+  updateState (e) {
+    this.setState({
+      title: e.target.value
+    })
+  }
+
   render () {
-    
+    const { title } = this.state;
+
     return (
       <form
         action=""
         data-testid="add-movie-form"
       >
-        <p>oi</p>
-        <p>oi</p>
-        <p>oi</p>
+        <label
+          htmlFor="Titulo"
+          data-testid="title-input-label"
+        >
+          Título
+        </label>
+        <input
+          name="title"
+          type="text"
+          id="Titulo"
+          value={ title }
+          data-testid="title-input"
+          onChange={ this.updateState }
+        />
       </form>
     );
   }
