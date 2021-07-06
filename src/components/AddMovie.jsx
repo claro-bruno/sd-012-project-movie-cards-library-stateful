@@ -62,6 +62,7 @@ class AddMovie extends React.Component {
           type="number"
           value={ rating }
           onChange={ this.handleChange }
+          testId="rating"
         />
       </form>
     );
