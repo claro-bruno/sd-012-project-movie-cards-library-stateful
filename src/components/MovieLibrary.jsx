@@ -21,7 +21,6 @@ class MovieLibrary extends Component {
   }
 
   updateState(e) {
-    console.log(e.target.type);
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
     this.setState({ [e.target.name]: value });
   }
