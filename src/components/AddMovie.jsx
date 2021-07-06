@@ -31,7 +31,7 @@ class AddMovie extends Component {
         <label
           htmlFor="Título"
           data-testid="title-input-label"
-          >
+        >
           Título
           <input
             name="title"
