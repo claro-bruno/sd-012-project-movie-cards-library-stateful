@@ -10,7 +10,7 @@ class InputCheckBox extends React.Component {
         Mostrar somente favoritos
         <input
           type="checkbox"
-          name="search-checkbox"
+          name="bookmarkedOnly"
           checked={ checked }
           onChange={ onChange }
           id="search-checkbox"
