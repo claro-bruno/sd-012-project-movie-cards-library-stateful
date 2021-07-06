@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import { objectOf, arrayOf } from 'prop-types';
+import { objectOf, arrayOf } from 'prop-types'
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
@@ -99,11 +99,11 @@ class MovieLibrary extends Component {
   }
 }
 
-/* MovieLibrary.propTypes = {
+MovieLibrary.propTypes = {
   movies: arrayOf(objectOf),
 };
 MovieLibrary.defaultProps = {
   movies: ['object'],
-}; */
+};
 
 export default MovieLibrary;
