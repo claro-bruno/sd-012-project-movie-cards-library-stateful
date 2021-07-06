@@ -70,6 +70,21 @@ class AddMovie extends React.Component {
     return doTheImage;
   }
 
+  theTextArea = (storyline) => {
+    const doTheTextArea = (
+      <label htmlFor="storyline" data-testid="storyline-input-label">
+        Sinopse
+        <textarea
+          name="storyline"
+          value={ storyline }
+          data-testid="storyline-input"
+          onChange={ this.handleComponent }
+        />
+      </label>
+    );
+    return doTheTextArea;
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     const { onClick } = this.props;
@@ -78,6 +93,7 @@ class AddMovie extends React.Component {
         {this.theTitle(title)}
         {this.theSubtitle(subtitle)}
         {this.theImage(imagePath)}
+        {this.theTextArea(storyline)}
       </form>
     );
   }
