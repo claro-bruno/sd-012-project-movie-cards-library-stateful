@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header';
-// import SearchBar from './components/SearchBar';
-import AddMovie from './components/AddMovie';
+import MovieLibrary from './components/MovieLibrary';
+import movies from './data';
 
 class App extends React.Component {
   constructor(props) {
@@ -19,8 +19,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        {/* <SearchBar /> */}
-        <AddMovie onClick={ this.onClickAddMovie } />
+        <MovieLibrary movies={ movies } />
       </div>
     );
   }

@@ -47,7 +47,7 @@ describe('15 - Crie um componente chamado `<MovieLibrary />`', () => {
   });
 });
 
-describe.skip('16 - Configure o estado inicial do componente `<MovieLibrary />`', () => {
+describe('16 - Configure o estado inicial do componente `<MovieLibrary />`', () => {
   it('Defina o estado inicial de `searchText` como uma string vazia', () => {
     const { getByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchText = getByTestId(textTestId);
@@ -73,7 +73,7 @@ describe.skip('16 - Configure o estado inicial do componente `<MovieLibrary />`'
   });
 });
 
-describe.skip('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
+describe('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
   it('Renderize o componente `<SearchBar />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const searchBar = getAllByTestId('search-bar-form');
