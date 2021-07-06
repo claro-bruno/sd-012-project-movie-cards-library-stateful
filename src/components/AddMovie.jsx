@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 
 class AddMovie extends Component {
-  constructor () {
-    super()
-    this.updateState = this.updateState.bind(this)
+  constructor() {
+    super();
+    this.updateState = this.updateState.bind(this);
     this.state = {
-      subtitle:'',
-      title:'',
-      imagePath:'',
-      storyline:'',
-      rating: 0,
-      genre:'action',
-    }
+    //  subtitle: '',
+      title: '',
+    //  imagePath: '',
+    //  storyline: '',
+    //  rating: 0,
+    //  genre: 'action',
+    };
   }
 
-  updateState (e) {
+  updateState(e) {
     this.setState({
-      title: e.target.value
-    })
+      title: e.target.value,
+    });
   }
 
-  render () {
+  render() {
     const { title } = this.state;
 
     return (
@@ -33,7 +33,7 @@ class AddMovie extends Component {
           data-testid="title-input-label"
         >
           Título
-        <input
+          <input
           name="title"
           type="text"
           id="Título"
@@ -42,11 +42,11 @@ class AddMovie extends Component {
           onChange={ this.updateState }
         />
         </label>
-        <label
+        {/* <label
         htmlFor=""
         >
 
-        </label>
+        </label> */}
       </form>
     );
   }
