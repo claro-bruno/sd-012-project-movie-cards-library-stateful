@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
-    const { value, onChange } = this.props;
+    const { searchText, onSearchTextChange } = this.props;
     return (
       <fieldset>
         <label data-testid="text-input-label" htmlFor="search-input">
@@ -11,8 +11,8 @@ class Input extends React.Component {
           <input
             id="search-input"
             type="text"
-            value={ value }
-            onChange={ onChange }
+            value={ searchText }
+            onChange={ onSearchTextChange }
           />
         </label>
       </fieldset>
@@ -21,11 +21,11 @@ class Input extends React.Component {
 }
 
 Input.propTypes = {
-  value: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func.isRequired,
 };
 Input.defaultProps = {
-  value: '',
+  searchText: '',
 };
 
 export default Input;

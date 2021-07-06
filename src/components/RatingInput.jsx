@@ -21,7 +21,7 @@ class RatingInput extends React.Component {
 }
 
 RatingInput.propTypes = {
-  value: PropTypes.string,
+  value: PropTypes.number,
   onChange: PropTypes.func.isRequired,
 };
 RatingInput.defaultProps = {
