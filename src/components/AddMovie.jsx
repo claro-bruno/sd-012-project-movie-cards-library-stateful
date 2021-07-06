@@ -24,12 +24,12 @@
 
 //         </label>
 //       </form>
-//     );    
+//     );
 //   }
 // }
 
 // AddMovie.proptypes = {
 //     onclick: PropTypes.func.isRequired,
 // };
-  
+
 //   export default AddMovie;
