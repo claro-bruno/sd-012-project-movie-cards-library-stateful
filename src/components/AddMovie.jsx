@@ -16,10 +16,13 @@ class AddMovie extends Component {
   render () {
     
     return (
-      <form action="">
-          <p>oi</p>
-          <p>oi</p>
-          <p>oi</p>
+      <form
+        action=""
+        data-testid="add-movie-form"
+      >
+        <p>oi</p>
+        <p>oi</p>
+        <p>oi</p>
       </form>
     );
   }
