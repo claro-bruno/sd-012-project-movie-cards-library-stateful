@@ -25,7 +25,7 @@ class AddMovie extends React.Component {
 
   newMovieInfo(e) {
     const { name, value } = e.target;
-    this.setState({ [name]: value });
+    return this.setState({ [name]: value });
   }
 
   submitNewMovie(state) {

@@ -8,6 +8,7 @@ class StorylineInput extends React.Component {
       <label data-testid="storyline-input-label" htmlFor="storyline-input">
         Sinopse
         <textarea
+          name="storyline"
           id="storyline-input"
           data-testid="storyline-input"
           value={ value }
