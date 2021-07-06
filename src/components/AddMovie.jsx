@@ -1,25 +1,30 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Title from './Title';
 import Subtitle from './Subtitle';
 import Image from './Image';
 import Sinopse from './Sinopse';
 import Avaliacao from './Avaliacao';
 import Genre from './Genre';
-// import PropTypes from 'prop-types';
+import ButtonAdd from './ButtonAdd';
+
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
 
 class AddMovie extends Component {
   constructor() {
     super();
-    this.state = {
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = initialState;
 
     this.changeHandler = this.changeHandler.bind(this);
+
+    this.buttonState = this.buttonState.bind(this);
   }
 
   changeHandler(event) {
@@ -29,9 +34,16 @@ class AddMovie extends Component {
     });
   }
 
+  buttonState() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(initialState);
+  }
+
   render() {
-    // const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { changeHandler, buttonState } = this;
+
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -39,41 +51,44 @@ class AddMovie extends Component {
 
             <Title
               value={ title }
-              onChange={ this.changeHandler }
+              onChange={ changeHandler }
             />
 
             <Subtitle
               value={ subtitle }
-              onChange={ this.changeHandler }
+              onChange={ changeHandler }
             />
 
             <Image
               value={ imagePath }
-              onChange={ this.changeHandler }
+              onChange={ changeHandler }
             />
 
             <Sinopse
               value={ storyline }
-              onChange={ this.changeHandler }
+              onChange={ changeHandler }
             />
 
             <Avaliacao
               value={ rating }
-              onChange={ this.changeHandler }
+              onChange={ changeHandler }
             />
 
             <Genre
               value={ genre }
-              onChange={ this.changeHandler }
+              onChange={ changeHandler }
             />
           </section>
+          <ButtonAdd
+            onClick={ buttonState }
+          />
         </form>
       </div>
     );
   }
 }
 
-// AddMovie.propTypes = {
-//   onClick: PropTypes.func.isRequired,
-// };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 export default AddMovie;

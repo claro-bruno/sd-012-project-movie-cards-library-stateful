@@ -34,14 +34,13 @@ class Genre extends Component {
             Suspense
           </option>
         </select>
-
       </label>
     );
   }
 }
 
 Genre.propTypes = {
-  value: PropTypes.number.isRequired,
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
