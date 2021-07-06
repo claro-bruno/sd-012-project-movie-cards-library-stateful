@@ -14,12 +14,12 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText='string'
-          onSearchTextChange='callback'
-          bookmarkedOnly='boolean'
-          onBookmarkedChange='callback'
-          selectedGenre='string'
-          onSelectedGenreChange='callback'
+          searchText="string"
+          onSearchTextChange="callback"
+          bookmarkedOnly="boolean"
+          onBookmarkedChange="callback"
+          selectedGenre="string"
+          onSelectedGenreChange="callback"
         />
         {/* { <MovieList movies={this.props.movies} />
         <AddMovie />} */}
