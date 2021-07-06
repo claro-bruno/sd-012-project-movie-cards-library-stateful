@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Select from './Select';
 import TextArea from './TextArea';
 import ImagePath from './ImagePath';
@@ -30,8 +31,7 @@ class AddMovie extends Component {
 
   resetState() {
     const { onClick } = this.props;
-    const { state } = this.state;
-    onClick(state);
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -80,5 +80,9 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

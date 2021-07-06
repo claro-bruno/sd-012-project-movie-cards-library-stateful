@@ -19,12 +19,26 @@ class MovieLibrary extends Component {
   }
 
   onClick(movie) {
-    const {  } = movie;
+    const { subtitle, imagePath, genre, rating, storyline, title } = movie;
+    const { movies } = this.state;
+    const newObj = {
+      title,
+      subtitle,
+      imagePath,
+      genre,
+      rating,
+      storyline,
+      bookmarked: false,
+    };
+    console.log(movie);
+    this.setState({
+      movies: [...movies, newObj],
+    });
   }
 
-  handleTextChange(event) {
-    this.setState();
-  }
+  // handleTextChange(event) {
+  //   this.setState();
+  // }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
@@ -32,12 +46,20 @@ class MovieLibrary extends Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar searchText={ searchText } />
+        <SearchBar
+          searchText={ searchText }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
+        />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default MovieLibrary;

@@ -19,4 +19,9 @@ class RatingInput extends Component {
   }
 }
 
+RatingInput.propTypes = {
+  rating: PropTypes.number.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
+
 export default RatingInput;

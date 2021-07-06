@@ -6,7 +6,7 @@ class TextArea extends Component {
     const { storyline, handleChange } = this.props;
     return (
       <label htmlFor="storyline-input" data-testid="storyline-input-label">
-      Sinopse
+        Sinopse
         <textarea
           name="storyline"
           value={ storyline }
@@ -17,5 +17,10 @@ class TextArea extends Component {
     );
   }
 }
+
+TextArea.propTypes = {
+  storyline: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default TextArea;
