@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import TextInput from './searchBar/TextInput';
 import CheckboxInput from './searchBar/CheckboxInput';
+import Select from './searchBar/Select';
 
 class SearchBar extends Component {
   render() {
@@ -22,6 +23,7 @@ class SearchBar extends Component {
         />
         <TextInput value={ searchText } onChange={ onSearchTextChange } />
         <CheckboxInput checked={ bookmarkedOnly } onChange={ onBookmarkedChange } />
+        <Select value={ selectedGenre } onChange={ onSelectedGenreChange } />
       </section>
     );
   }
