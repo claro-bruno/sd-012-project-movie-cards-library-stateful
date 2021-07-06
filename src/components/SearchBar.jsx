@@ -29,6 +29,9 @@ class SearchBar extends React.Component {
               />
             </label>
           </label>
+          <label htmlFor="select-input" data-testid="select-input-label">
+            <select value={ selectedGenre } onChange={ onSelectedGenreChange }> </select>
+          </label>
         </form>
       </div>
     );
