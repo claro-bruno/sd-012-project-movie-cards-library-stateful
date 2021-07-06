@@ -1,22 +1,10 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.handleChange = this.handleChange.bind(this);
-    this.changeMovieList = this.changeMovieList.bind(this);
-
-    this.state = {
-      textInput: '',
-      genreOption: '',
-      favoritesOnly: '',
-    };
-  }
-
   render() {
-    const { textInput, favoritesOnly, genreOption } = this.state;
     return (
       <div>
         <SearchBar
@@ -27,8 +15,21 @@ class MovieLibrary extends React.Component {
           selectedGenre={ genreOption }
           onSelectedGenreChange={ this.handleChange }
         />
+        <div>
+          <MovieList
+            movies={ filterMovies }
+            searchText={ textInput }
+            bookmarkedOnly={ favoritesOnly }
+            selectedGenre={ genreOption }
+          />
+        </div>
+        <AddMovie
+          onClick={ this.changeMovieList }
+        />
       </div>
+
     );
   }
 }
+
 export default MovieLibrary;
