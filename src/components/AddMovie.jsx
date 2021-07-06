@@ -29,19 +29,22 @@ class AddMovie extends Component {
         data-testid="add-movie-form"
       >
         <label
-          htmlFor="Titulo"
           data-testid="title-input-label"
         >
           Título
-        </label>
         <input
           name="title"
           type="text"
-          id="Titulo"
           value={ title }
           data-testid="title-input"
           onChange={ this.updateState }
         />
+        </label>
+        <label
+        htmlFor=""
+        >
+
+        </label>
       </form>
     );
   }
