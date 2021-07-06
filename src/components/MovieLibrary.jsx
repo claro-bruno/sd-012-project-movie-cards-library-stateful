@@ -20,7 +20,6 @@ export default class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    // this.filter = this.filter.bind(this);
   }
 
   // Requisito 17
@@ -40,39 +39,31 @@ export default class MovieLibrary extends Component {
   }
 
   // Requisito 18 - Ajuda monitor Daniel
-  // filteredBookmarked(movies) {
-  //   const newMovies = movies.filter((movie) => movie.bookmarked);
-  //   return newMovies;
-  // }
+  filteredBookmarked(movies) {
+    const newMovies = movies.filter((movie) => movie.bookmarked);
+    return newMovies;
+  }
 
-  // filteredSearchtext(movies, searchText) {
-  //   const newMovies = movies.filter((movie) => movie.title
-  //     .toLowerCase().includes(searchText.toLowerCase())
-  //     || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
-  //     || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
-  //   return newMovies;
-  // }
+  filteredSearchtext(movies, searchText) {
+    const newMovies = movies.filter((movie) => movie.title
+      .toLowerCase().includes(searchText.toLowerCase())
+      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+      || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
+    return newMovies;
+  }
 
-  // filteredGenre(movies, selectedGenre) {
-  //   const newMovies = movies.filter((movie) => movie.genre === selectedGenre);
-  //   return newMovies;
-  // }
-
-  // filter(searchText = false, movies, bookmarkedOnly = false, selectedGenre = false) {
-  //   let filterMovie = [...movies];
-  //   if (bookmarkedOnly) filterMovie = this.filteredBookmarked(filterMovie);
-  //   if (searchText) filterMovie = this.filteredSearchtext(filterMovie, searchText);
-  //   if (selectedGenre) filterMovie = this.filteredGenre(filterMovie, selectedGenre);
-  //   return filterMovie;
-  // }
+  filteredGenre(movies, selectedGenre) {
+    const newMovies = movies.filter((movie) => movie.genre === selectedGenre);
+    return newMovies;
+  }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
-    // let { movies } = this.state;
-    // if (bookmarkedOnly) movies = this.filteredBookmarked(movies);
-    // if (searchText) movies = this.filteredSearchtext(movies, searchText);
-    // if (selectedGenre) movies = this.filteredGenre(movies, selectedGenre);
+    let { movies } = this.state;
+    if (bookmarkedOnly) movies = this.filteredBookmarked(movies);
+    if (searchText) movies = this.filteredSearchtext(movies, searchText);
+    if (selectedGenre) movies = this.filteredGenre(movies, selectedGenre);
 
     return (
       <div>
