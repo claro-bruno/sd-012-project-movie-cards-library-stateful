@@ -1,17 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props;
 
     this.handleChange = this.handleChange.bind(this);
     this.changeMovieList = this.changeMovieList.bind(this);
 
     this.state = {
-      movies,
       textInput: '',
       genreOption: '',
       favoritesOnly: '',
@@ -34,8 +31,4 @@ class MovieLibrary extends React.Component {
     );
   }
 }
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(Object).isRequired,
-};
-
 export default MovieLibrary;
