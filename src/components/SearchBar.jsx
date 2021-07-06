@@ -7,6 +7,8 @@ class SearchBar extends React.Component {
     const {
       searchText,
       onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
     } = this.props;
 
     return (
@@ -15,10 +17,22 @@ class SearchBar extends React.Component {
           <label htmlFor="text-input-label" data-testid="text-input-label">
             Inclui o texto:
             <input
+              name="textInput"
               data-testid="text-input"
               type="text"
               value={ searchText }
               onChange={ onSearchTextChange }
+            />
+          </label>
+          <label htmlFor="favoritesOnly" data-testid="checkbox-input-label">
+            Mostrar somente favoritos
+            <input
+              id="favoritesOnly"
+              name="favoritesOnly"
+              data-testid="checkbox-input"
+              type="checkbox"
+              checked={ bookmarkedOnly }
+              onChange={ onBookmarkedChange }
             />
           </label>
         </form>
@@ -30,5 +44,11 @@ class SearchBar extends React.Component {
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  favoritesOnly: PropTypes.bool.isRequired,
 };
+
+SearchBar.defaultProps = {
+  searchText: '',
+}
 export default SearchBar;
