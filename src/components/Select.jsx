@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Select extends Component {
   render() {
@@ -9,7 +10,7 @@ class Select extends Component {
         <select
           value={ genre }
           data-testid="genre-input"
-          onChange={ this.handleChange }
+          onChange={ handleChange }
           name="genre"
         >
           <option value="action" data-testid="genre-option">Ação</option>
@@ -20,5 +21,10 @@ class Select extends Component {
     );
   }
 }
+
+Select.propTypes = {
+  genre: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default Select;

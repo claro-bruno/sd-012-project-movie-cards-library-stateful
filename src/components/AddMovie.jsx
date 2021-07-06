@@ -70,9 +70,9 @@ class AddMovie extends Component {
         <RatingInput rating={ rating } handleChange={ this.handleChange } />
         <Select genre={ genre } handleChange={ this.handleChange } />
         <button
-        data-testid="send-button"
-        onClick={ this.resetState }
-        type='reset'
+          data-testid="send-button"
+          onClick={ this.resetState }
+          type="reset"
         >
           Adicionar filme
         </button>
