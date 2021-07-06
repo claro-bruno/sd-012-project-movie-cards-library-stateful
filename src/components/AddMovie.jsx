@@ -52,7 +52,7 @@ class AddMovie extends Component {
         <MovieTitle title={ title } onTitleTextChange={ this.handleChange } />
         <MovieSubtitle subtitle={ subtitle } onSubtitleTextChange={ this.handleChange } />
         <MovieImage image={ imagePath } onImageTextChange={ this.handleChange } />
-        <MovieStory storyline={ storyline } onStoryTextChange={ this.handleChange } />
+        <MovieStory story={ storyline } onStoryTextChange={ this.handleChange } />
         <MovieRating rating={ rating } onRatingNumberChange={ this.handleChange } />
         <MovieGenre genre={ genre } onGenreChange={ this.handleChange } />
 
