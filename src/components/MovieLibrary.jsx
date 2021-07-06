@@ -17,12 +17,34 @@ class MovieLibrary extends Component {
     };
     this.updateState = this.updateState.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
+    this.adcFilmes = this.adcFilmes.bind(this);
   }
 
   updateState(e) {
     console.log(e.target.type);
     const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
     this.setState({ [e.target.name]: value });
+  }
+
+  adcFilmes(movie) {
+    const {
+      title,
+      subtitle,
+      storyline,
+      imagePath,
+      rating,
+      genre } = movie;
+    const { movies } = this.state;
+    const obj = {
+      title,
+      subtitle,
+      storyline,
+      imagePath,
+      rating,
+      genre,
+      bookmarked: false,
+    };
+    this.setState({ movies: [...movies, obj] });
   }
 
   filterMovies() {
@@ -57,7 +79,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.updateState }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.adcFilmes } />
       </div>
     );
   }
