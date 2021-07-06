@@ -32,7 +32,7 @@ class AddMovie extends Component {
     });
   }
 
-  handleCLick(callback) {
+  handleClick(callback) {
     callback(this.state);
     this.setState({
       title: '',
@@ -50,7 +50,7 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         <MovieTitle title={ title } onTitleTextChange={ this.handleChange } />
-        <MovieSubtitle subtitle={ subtitle } onSubtitleChange={ this.handleChange } />
+        <MovieSubtitle subtitle={ subtitle } onSubtitleTextChange={ this.handleChange } />
         <MovieImage image={ imagePath } onImageTextChange={ this.handleChange } />
         <MovieStory storyline={ storyline } onStoryTextChange={ this.handleChange } />
         <MovieRating rating={ rating } onRatingNumberChange={ this.handleChange } />
