@@ -15,11 +15,11 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText="string"
-          onSearchTextChange="callback"
-          bookmarkedOnly="boolean"
-          onBookmarkedChange="callback"
+          onSearchTextChange={((item) => item)}
+          bookmarkedOnly={false}
+          onBookmarkedChange={((item) => item)}
           selectedGenre="string"
-          onSelectedGenreChange="callback"
+          onSelectedGenreChange={((item) => item)}
         />
         {/* { <MovieList movies={this.props.movies} />
         <AddMovie />} */}
