@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 // import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 // import AddMovie from './AddMovie';
@@ -14,12 +13,12 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText="string"
-          onSearchTextChange={((item) => item)}
-          bookmarkedOnly={false}
-          onBookmarkedChange={((item) => item)}
-          selectedGenre="string"
-          onSelectedGenreChange={((item) => item)}
+          searchText="oi"
+          onSearchTextChange={ ((item) => item) }
+          bookmarkedOnly={ true }
+          onBookmarkedChange={ ((item) => item) }
+          selectedGenre="oi"
+          onSelectedGenreChange={ ((item) => item) }
         />
         {/* { <MovieList movies={this.props.movies} />
         <AddMovie />} */}
