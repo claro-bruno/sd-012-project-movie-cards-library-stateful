@@ -5,9 +5,9 @@ class AddMovie extends Component {
     super();
     this.updateState = this.updateState.bind(this);
     this.state = {
-    //  subtitle: '',
+      subtitle: '',
       title: '',
-    //  imagePath: '',
+      imagePath: '',
     //  storyline: '',
     //  rating: 0,
     //  genre: 'action',
@@ -15,13 +15,24 @@ class AddMovie extends Component {
   }
 
   updateState(e) {
-    this.setState({
-      title: e.target.value,
-    });
+    console.log(e.target.id)
+    if (e.target.id === 'title') {
+      this.setState({
+        title: e.target.value,
+      });
+    } else if (e.target.id === 'subtitle') {
+      this.setState({
+        subtitle: e.target.value,
+      });
+    } else if (e.target.id === 'imagePath') {
+      this.setState({
+        imagePath: e.target.value,
+      });
+    }
   }
 
   render() {
-    const { title } = this.state;
+    const { title, subtitle, imagePath } = this.state;
 
     return (
       <form
@@ -36,17 +47,40 @@ class AddMovie extends Component {
           <input
             name="title"
             type="text"
-            id="Título"
+            id="title"
             value={ title }
             data-testid="title-input"
             onChange={ this.updateState }
           />
         </label>
-        {/* <label
-        htmlFor=""
+        <label
+          htmlFor="subtitulo"
+          data-testid="subtitle-input-label"
         >
-
-        </label> */}
+          Subtítulo
+          <input
+            type="text"
+            name="subtitle"
+            id="subtitle"
+            value={ subtitle }
+            data-testid="subtitle-input"
+            onChange={ this.updateState }
+          />
+        </label>
+        <label
+          htmlFor="imagePath"
+          data-testid="image-input-label"
+        >
+          Subtítulo
+          <input
+            type="text"
+            name="imagePath"
+            id="imagePath"
+            value={ imagePath }
+            data-testid="image-input"
+            onChange={ this.updateState }
+          />
+        </label>
       </form>
     );
   }
