@@ -4,6 +4,25 @@ import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
+  constructor(props) {
+    super(props);
+    /*
+    this.state = {
+      movies,
+      textInput: '',
+      genreOption: '',
+      favoritesOnly: '',
+    }; */
+    this.handleChange = this.handleChange.bind(this);
+    this.changeMovieList = this.changeMovieList.bind(this);
+  }
+
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value });
+  }
+
   render() {
     return (
       <div>
