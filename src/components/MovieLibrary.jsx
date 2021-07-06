@@ -40,6 +40,12 @@ class MovieLibrary extends Component {
     });
   }
 
+  selectedGenreChange({ target: { value } }) {
+    this.setState({
+      selectedGenre: value,
+    });
+  }
+
   searchTextChange({ target: { value } }) {
     this.setState({
       searchText: value,
