@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Subtitle extends React.Component {
   render() {
     const {
-        name,
-        value,
-        onChange
+      name,
+      value,
+      onChange,
     } = this.props;
 
     return (
@@ -24,4 +25,9 @@ class Subtitle extends React.Component {
   }
 }
 
+Subtitle.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 export default Subtitle;

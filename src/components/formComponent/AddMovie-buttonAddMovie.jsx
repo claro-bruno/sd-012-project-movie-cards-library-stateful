@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class ButtonAddMovie extends React.Component {
   render() {
@@ -12,4 +13,7 @@ class ButtonAddMovie extends React.Component {
   }
 }
 
+ButtonAddMovie.propTypes = {
+  addMovie: PropTypes.func.isRequired,
+};
 export default ButtonAddMovie;

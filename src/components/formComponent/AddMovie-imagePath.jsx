@@ -1,11 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Image extends React.Component {
   render() {
     const {
       name,
       value,
-      onChange
+      onChange,
     } = this.props;
 
     return (
@@ -15,13 +16,18 @@ class Image extends React.Component {
           id="add-image"
           data-testid="image-input"
           type="text"
-          name={name}
-          value={value}
-          onChange={onChange}
+          name={ name }
+          value={ value }
+          onChange={ onChange }
         />
       </label>
     );
   }
 }
 
+Image.propTypes = {
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+};
 export default Image;

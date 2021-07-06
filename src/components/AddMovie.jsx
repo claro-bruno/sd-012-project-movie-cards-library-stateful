@@ -1,5 +1,6 @@
 // implement AddMovie component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import Image from './formComponent/AddMovie-imagePath';
 import Title from './formComponent/AddMovie-inputTitle';
 import Subtitle from './formComponent/AddMovie-inputSubtitle';
@@ -9,8 +10,8 @@ import Rating from './formComponent/AddMovie-rating';
 import ButtonAddMovie from './formComponent/AddMovie-buttonAddMovie';
 
 const STATE = {
-  subtitle: '',
   title: '',
+  subtitle: '',
   imagePath: '',
   storyline: '',
   rating: 0,
@@ -59,5 +60,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
