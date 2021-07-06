@@ -30,7 +30,8 @@ class AddMovie extends Component {
       >
         <label
           htmlFor="Título"
-          data-testid="title-input-label">
+          data-testid="title-input-label"
+          >
           Título
           <input
             name="title"
@@ -38,7 +39,8 @@ class AddMovie extends Component {
             id="Título"
             value={ title }
             data-testid="title-input"
-            onChange={ this.updateState }/>
+            onChange={ this.updateState }
+          />
         </label>
         {/* <label
         htmlFor=""
