@@ -2,6 +2,9 @@ import React from 'react';
 
 class SearchBar extends React.Component {
   render() {
+    const { onSearchTextChange, searchText } = this.props;
+    const { onBookmarkedChange, bookmarkedOnly } = this.props;
+    const { onSelectedGenreChange, selectedGenre } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="textInput" data-testid="text-input-label">
