@@ -6,7 +6,6 @@ import Title from './addMovie/Title';
 import Rating from './addMovie/Rating';
 
 class AddMovie extends React.Component {
-
   render() {
     return (
       <form>
