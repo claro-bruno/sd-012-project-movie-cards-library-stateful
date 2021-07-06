@@ -21,7 +21,7 @@ class InputNumb extends React.Component {
 
 InputNumb.propTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   testIdLabel: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
   testid: PropTypes.string.isRequired,

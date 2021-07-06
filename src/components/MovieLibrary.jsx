@@ -3,6 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   // Passar a props como parâmetro do constructor para poder utilizar como estado inicial na chave movies visto no slack da trybe, no link shorturl.at/aFIP2
@@ -10,6 +11,7 @@ class MovieLibrary extends React.Component {
     super(props);
     this.handleChange = this.handleChange.bind(this);
     this.filterMovie = this.filterMovie.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -24,6 +26,11 @@ class MovieLibrary extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  onClick(newMovie) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovie] });
   }
 
   lowerTxt(txt, searchTxt) {
@@ -41,7 +48,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
@@ -53,7 +60,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ this.filterMovie() } />
-
+        <AddMovie movies={ movies } onClick={ this.onClick } />
       </div>
     );
   }
