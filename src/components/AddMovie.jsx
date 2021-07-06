@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import FormPart1 from './FormPart1';
+import FormPart2 from './FormPart2';
 
 class AddMovie extends Component {
   constructor() {
@@ -11,8 +12,8 @@ class AddMovie extends Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
-      // genre: 'action',
+      rating: 0,
+      genre: 'action',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -35,8 +36,8 @@ class AddMovie extends Component {
       title: '',
       imagePath: '',
       storyline: '',
-      // rating: 0,
-      // genre: 'action',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -45,6 +46,7 @@ class AddMovie extends Component {
       <section>
         <form data-testid="add-movie-form">
           <FormPart1 state={ this.state } handleChange={ this.handleChange } />
+          <FormPart2 state={ this.state } handleChange={ this.handleChange } />
         </form>
       </section>
     );
