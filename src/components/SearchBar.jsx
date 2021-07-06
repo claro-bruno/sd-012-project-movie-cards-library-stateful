@@ -6,21 +6,10 @@ import Select from './searchBar/Select';
 
 class SearchBar extends Component {
   render() {
-    const { searchText, onSearchTextChange,
-      bookmarkedOnly, onBookmarkedChange,
-      selectedGenre, onSelectedGenreChange } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <section>
-        <input
-          type="text"
-          placeholder="Search..."
-          searchText={ searchText }
-          onSearchTextChange={ onSearchTextChange }
-          bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ onBookmarkedChange }
-          selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ onSelectedGenreChange }
-        />
         <TextInput value={ searchText } onChange={ onSearchTextChange } />
         <CheckboxInput checked={ bookmarkedOnly } onChange={ onBookmarkedChange } />
         <Select value={ selectedGenre } onChange={ onSelectedGenreChange } />

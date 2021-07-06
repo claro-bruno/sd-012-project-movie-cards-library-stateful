@@ -70,7 +70,7 @@ describe('8 - Renderize um input do tipo texto dentro do formulário em `<AddMov
     expect(titleInput).toBeInTheDocument();
   });
 
-  it.skip'Renderize a label "Título" para o input de titulo', () => {
+  it.skip('Renderize a label "Título" para o input de titulo', () => {
     expect(titleInputLabel).toBeInTheDocument();
     expect(titleInputLabel).toHaveTextContent('Título');
   });
