@@ -46,7 +46,11 @@ class AddMovie extends Component {
       <section>
         <form data-testid="add-movie-form">
           <FormPart1 state={ this.state } handleChange={ this.handleChange } />
-          <FormPart2 state={ this.state } handleChange={ this.handleChange } />
+          <FormPart2
+            state={ this.state }
+            handleChange={ this.handleChange }
+            onClickButton={ this.onClickButton }
+          />
         </form>
       </section>
     );

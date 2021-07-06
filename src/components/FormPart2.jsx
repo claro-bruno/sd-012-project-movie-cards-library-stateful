@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Inputs from './Inputs';
 import Select from './Select';
+import Button from './Button';
 
 class FormPart2 extends Component {
   render() {
-    const { state, handleChange } = this.props;
+    const { state, handleChange, onClickButton } = this.props;
     const { rating, genre } = state;
     return (
       <div>
@@ -26,6 +27,11 @@ class FormPart2 extends Component {
           selectValue={ genre }
           selectOnChange={ handleChange }
         />
+        <Button
+          buttonName="Adicionar filme"
+          onClickButton={ onClickButton }
+          buttonTestId="send-button"
+        />
       </div>
     );
   }
@@ -40,6 +46,7 @@ FormPart2.propTypes = {
     genre: PropTypes.string,
   }).isRequired,
   handleChange: PropTypes.func.isRequired,
+  onClickButton: PropTypes.func.isRequired,
 };
 
 export default FormPart2;
