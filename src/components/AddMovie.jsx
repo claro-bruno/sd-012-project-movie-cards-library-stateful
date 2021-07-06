@@ -47,7 +47,7 @@ class AddMovie extends Component {
     const { storyline, genre } = state;
     return (
       <form data-testid="add-movie-form">
-        <fieldset>
+        <fieldset className="add-movie">
           { inputs.map(({ dataTestidLabel, textLabel, dataTestid, type, keyState }) => (
             <Input
               dataTestidLabel={ dataTestidLabel }
