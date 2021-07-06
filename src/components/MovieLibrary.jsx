@@ -26,9 +26,10 @@ class MovieLibrary extends Component {
     this.setState({ [name]: value });
   }
 
-  handleNewMovie({ title, subtitle, storyline, rating, genre, imageParth }) {
-    const newMovie = { title, subtitle, storyline, rating, genre, imageParth };
-    this.setState(({ movies }) => ({ movies: [...movies, newMovie] }));
+  handleNewMovie(movie) {
+    const { state } = this;
+    const newMovie = [...state.movies, movie];
+    this.setState({ movies: newMovie });
   }
 
   filterMovies() {
