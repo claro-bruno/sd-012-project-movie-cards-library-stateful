@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 
 class InputSelectGen extends React.Component {
   render() {
-    const { onChange } = this.props;
+    const { value, onChange } = this.props;
     return (
       <label htmlFor="input-select-gen" data-testid="genre-input-label">
         Gênero
         <select
           name="genre"
           id="input-select-gen"
+          value={ value }
           onChange={ onChange }
           data-testid="genre-input"
         >
@@ -23,6 +24,7 @@ class InputSelectGen extends React.Component {
 }
 
 InputSelectGen.propTypes = {
+  value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
 };
 
