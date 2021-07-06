@@ -7,19 +7,28 @@ class SearchBar extends Component {
   } */
 
   render() {
+    const { 
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
+
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="incluiTexto"
           data-testid="text-input-label"
         >
           Inclui o texto:
-            <input
+          <input
             type="text"
-            id="incluiTexto" 
-            value={ this.props.searchText }
-            onChange={ this.props.onSearchTextChange }
+            id="incluiTexto"
+            value={ searchText }
+            onChange={ onSearchTextChange }
             data-testid="text-input"
-            />
+          />
         </label>
         <label htmlFor="incluiCheckbox" 
         data-testid="checkbox-input-label"
@@ -27,8 +36,8 @@ class SearchBar extends Component {
           Mostra somente favoritos
             <input
             type="checkbox" id="incluiCheckbox"
-            checked={ this.props.bookmarkedOnly }
-            onChange={ this.props.onBookmarkedChange }
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
             />
         </label>
@@ -36,8 +45,8 @@ class SearchBar extends Component {
           Filtra por gênero
             <select
             id="incluiSelect"
-            value={ this.props.selectedGenre }
-            onChange={ this.props.onSelectedGenreChange }
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
             data-testid="select-input"
             >
             <option
