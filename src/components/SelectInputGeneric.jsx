@@ -9,7 +9,7 @@ class SelectInputGeneric extends Component {
       <label htmlFor="genre-input" data-testid="genre-input-label">
         Gênero
         <select
-          name="select"
+          name="genre"
           value={ valueSelectInput }
           data-testid="genre-input"
           onChange={ handleChangeSelect }

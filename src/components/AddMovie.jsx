@@ -54,7 +54,7 @@ class AddMovie extends Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
-      <form action="" data-testid="add-movie-form">
+      <form data-testid="add-movie-form">
         <TitleInputGeneric
           valueTitleInput={ title }
           handleChangeTitle={ this.handleChange }
