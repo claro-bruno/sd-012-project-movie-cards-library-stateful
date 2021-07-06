@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { textInput, favoritesOnly } = this.state;
+    const { textInput, favoritesOnly, genreOption } = this.state;
     return (
       <div className="App">
         <Header />
@@ -26,6 +26,8 @@ class App extends React.Component {
           onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ favoritesOnly }
           onBookmarkedChange={ this.handleChange }
+          selectedGenre={ genreOption }
+          onSelectedGenreChange={ this.handleChange }
         />
       </div>
     );
