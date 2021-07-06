@@ -15,8 +15,8 @@ class AddMovie extends React.Component {
     };
   }
 
-  resetButton = (reset) => {
-    reset(this.state);
+  reset = (key) => {
+    key(this.state);
 
     this.setState({
       subtitle: '',
@@ -51,7 +51,7 @@ class AddMovie extends React.Component {
     return doTheTitle;
   }
 
-  TheSubtitle = (subtitle) => {
+  theSubtitle = (subtitle) => {
     const doTheSubTitle = (
       <label htmlFor="subtitle" data-testid="subtitle-input-label">
         Subtítulo
@@ -132,12 +132,12 @@ class AddMovie extends React.Component {
     return doTheGenre;
   }
 
-  theButton = (fun) => {
+  theButton = (funct) => {
     const doTheButton = (
       <button
         type="button"
         data-testid="send-button"
-        onClick={ () => this.resetButton(fun) }
+        onClick={ () => this.reset(funct) }
       >
         Adicionar filme
       </button>

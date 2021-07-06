@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { objectOf, arrayOf } from 'prop-types'
+import { objectOf, arrayOf } from 'prop-types';
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
@@ -19,7 +19,7 @@ class MovieLibrary extends Component {
     };
   }
 
-  onSearchTextChange = ({ target }) => {
+  searchTextChange = ({ target }) => {
     const { value } = target;
 
     this.setState({
@@ -31,7 +31,7 @@ class MovieLibrary extends Component {
     });
   }
 
-  onBookmarkedChange = ({ target }) => {
+  bookmarkedChange = ({ target }) => {
     const value = target.checked;
 
     this.setState({
@@ -43,7 +43,7 @@ class MovieLibrary extends Component {
     });
   }
 
-  onSelectedGenreChange = ({ target }) => {
+  selectedGenreChange = ({ target }) => {
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({
@@ -82,11 +82,11 @@ class MovieLibrary extends Component {
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.onSearchTextChange }
+          onSearchTextChange={ this.searchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.onBookmarkedChange }
+          onBookmarkedChange={ this.bookmarkedChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.onSelectedGenreChange }
+          onSelectedGenreChange={ this.selectedGenreChange }
         />
         <MovieList
           movies={ movies }
