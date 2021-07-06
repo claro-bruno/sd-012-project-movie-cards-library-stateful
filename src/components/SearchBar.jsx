@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Input from './Input';
 import Checkbox from './Checkbox';
 import Select from './Select';
@@ -29,5 +30,19 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+};
+SearchBar.defaultProps = {
+  searchText: '',
+  bookmarkedOnly: false,
+  selectedGenre: 'action',
+};
 
 export default SearchBar;

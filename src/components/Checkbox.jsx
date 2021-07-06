@@ -1,9 +1,9 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class Checkbox extends React.Component {
   render() {
-    const { bookmarkedOnly, onBookmarkedChange } = this.props;
+    const { checked, onChange } = this.props;
     return (
       <fieldset>
         <label data-testid="checkbox-input" htmlFor="checkbox-input">
@@ -11,8 +11,8 @@ class Checkbox extends React.Component {
           <input
             id="checkbox-input"
             type="checkbox"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
+            checked={ checked }
+            onChange={ onChange }
           />
         </label>
       </fieldset>
@@ -20,12 +20,12 @@ class Checkbox extends React.Component {
   }
 }
 
-// Checkbox.propTypes = {
-//   bookmarkedOnly: PropTypes.bool,
-//   onBookmarkedChange: PropTypes.func,
-// };
-// Checkbox.defaultProps = {
-//   bookmarkedOnly: false,
-// }
+Checkbox.propTypes = {
+  checked: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
+};
+Checkbox.defaultProps = {
+  checked: false,
+};
 
 export default Checkbox;

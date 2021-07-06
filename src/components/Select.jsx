@@ -1,16 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Select extends React.Component {
   render() {
-    const { selectedGenre, onSelectedGenreChange } = this.props;
+    const { value, onChange } = this.props;
     return (
       <fieldset>
         <label data-testid="select-input-label" htmlFor="select-input">
           Filtrar por gênero
           <select
             id="select-input"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
+            value={ value }
+            onChange={ onChange }
           >
             <option value="">Todos</option>
             <option value="action">Ação</option>
@@ -22,5 +23,13 @@ class Select extends React.Component {
     );
   }
 }
+
+Select.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+};
+Select.defaultProps = {
+  value: '',
+};
 
 export default Select;
