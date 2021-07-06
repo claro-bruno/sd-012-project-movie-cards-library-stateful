@@ -8,7 +8,6 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -17,28 +16,31 @@ class MovieLibrary extends Component {
     };
   }
 
-  handleChange = (event) => {
-    const { name, value, checked, type } = event.target;
-    this.setState({
-      [name]: type === 'checkbox' ? checked : value,
-    });
-  }
-
   handleOnClick = (state) => {
     const { movies } = this.state;
-    this.setState({
-      movies: [...movies, state],
-    });
+    this.setState({ movies: [...movies, state] });
+  }
+
+  handleChange = (event) => {
+    const { name, value, checked, type } = event.target;
+    this.setState({ [name]: type === 'checkbox' ? checked : value });
   }
 
   filterMovies = () => {
-    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
-    return (movies.filter((movie) => (
+    const {
+      movies,
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+    } = this.state;
+
+    return (movies.filter((movie) => ( // Resolvido com a ajuda do código da pessoa estudante Gabriel Bueno.
       (movie.title.toLowerCase().includes(searchText.toLowerCase())
       || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
       || movie.storyline.toLowerCase().includes(searchText.toLowerCase()))
       && (bookmarkedOnly ? movie.bookmarked : true)
-      && movie.genre.includes(selectedGenre))));
+      && movie.genre.includes(selectedGenre)
+    )));
   }
 
   render() {
@@ -58,9 +60,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ this.filterMovies() } />
-        <AddMovie
-          onClick={ this.handleOnClick }
-        />
+        <AddMovie onClick={ this.handleOnClick } />
       </div>
     );
   }

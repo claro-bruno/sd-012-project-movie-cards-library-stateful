@@ -16,4 +16,5 @@ class ButtonAddMovie extends React.Component {
 ButtonAddMovie.propTypes = {
   addMovie: PropTypes.func.isRequired,
 };
+
 export default ButtonAddMovie;
