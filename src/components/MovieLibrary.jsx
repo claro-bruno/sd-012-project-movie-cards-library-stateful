@@ -20,87 +20,59 @@ export default class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.filter = this.filter.bind(this);
+    // this.filter = this.filter.bind(this);
   }
 
-  // handleChange({ target }) {
-  //   this.setState({
-  //     [target.name]: target.type === 'checkbox' ? target.checked : target.value,
-  //   });
-  // }
   // Requisito 17
   onSearchTextChange({ target }) {
-    this.setState(() => ({ searchText: target.value }));
+    const { value } = target;
+    this.setState(() => ({ searchText: value }));
   }
 
   onBookmarkedChange({ target }) {
-    this.setState(() => ({ bookmarkedOnly: target.checked }));
+    const { checked } = target;
+    this.setState(() => ({ bookmarkedOnly: checked }));
   }
 
   onSelectedGenreChange({ target }) {
-    this.setState(() => ({ selectedGenre: target.value }));
+    const { value } = target;
+    this.setState(() => ({ selectedGenre: value }));
   }
-
-  // Requisito 18 - Ajuda monitor Isaac (antigo)
-  // filtered(movies) {
-  //   const { bookmarkedOnly, selectedGenre, searchText } = this.state;
-  //   return movies
-  //     .filter((movie) => this.filtereBookmarked(movie, bookmarkedOnly))
-  //     .filter(() => this.filteredGenre(movie, this.filteredGenre(movie, selectedGenre))
-  //     .filter(() => ));
-  // }
-
-  // filtereBookmarked(movies, bookmarkedOnly) {
-  //   if (bookmarkedOnly && movies.bookmarked) return true;
-  //   if (bookmarkedOnly) return false;
-  //   return true;
-  // }
 
   // Requisito 18 - Ajuda monitor Daniel
-  filteredBookmarked(movies) {
-    const newMovies = movies.filter((movie) => movie.bookmarked);
-    return newMovies;
-  }
-
-  filteredSearchtext(movies, searchText) {
-    const newMovies = movies.filter((movie) => movie.title
-      .toLowerCase().includes(searchText.toLowerCase())
-      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
-      || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
-    return newMovies;
-  }
-
-  filteredGenre(movies, selectedGenre) {
-    const newMovies = movies.filter((movie) => movie.genre === selectedGenre);
-    return newMovies;
-  }
-
-  filter(searchText = false, movies, bookmarkedOnly = false, selectedGenre = false) {
-    let filterMovie = [...movies];
-    if (bookmarkedOnly) filterMovie = this.filteredBookmarked(filterMovie);
-    if (searchText) filterMovie = this.filteredSearchtext(filterMovie, searchText);
-    if (selectedGenre) filterMovie = this.filteredGenre(filterMovie, selectedGenre);
-    return filterMovie;
-  }
-
-  // tem q trabalhar a lógica dessas duas proximas funcoes, por hora eu só copiei e colei da func ai de cima
-  // filteredGenre(movie, selectedGenre) {
-  //   if (selectedGenre && movie.genre) return true;
-  //   if (selectedGenre) return false;
-  //   return true;
+  // filteredBookmarked(movies) {
+  //   const newMovies = movies.filter((movie) => movie.bookmarked);
+  //   return newMovies;
   // }
 
-  // filteredText(movie, searchText) {
-  //   if (searchText && movie.Text) return true;
-  //   if (searchText) return false;
-  //   return true;
+  // filteredSearchtext(movies, searchText) {
+  //   const newMovies = movies.filter((movie) => movie.title
+  //     .toLowerCase().includes(searchText.toLowerCase())
+  //     || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+  //     || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
+  //   return newMovies;
   // }
 
-  // Requisito 18 - Ajuda Monitora Lêticia com as funções callbacks
+  // filteredGenre(movies, selectedGenre) {
+  //   const newMovies = movies.filter((movie) => movie.genre === selectedGenre);
+  //   return newMovies;
+  // }
+
+  // filter(searchText = false, movies, bookmarkedOnly = false, selectedGenre = false) {
+  //   let filterMovie = [...movies];
+  //   if (bookmarkedOnly) filterMovie = this.filteredBookmarked(filterMovie);
+  //   if (searchText) filterMovie = this.filteredSearchtext(filterMovie, searchText);
+  //   if (selectedGenre) filterMovie = this.filteredGenre(filterMovie, selectedGenre);
+  //   return filterMovie;
+  // }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    const newMovies = this.filter(searchText, movies, bookmarkedOnly, selectedGenre);
+
+    // let { movies } = this.state;
+    // if (bookmarkedOnly) movies = this.filteredBookmarked(movies);
+    // if (searchText) movies = this.filteredSearchtext(movies, searchText);
+    // if (selectedGenre) movies = this.filteredGenre(movies, selectedGenre);
 
     return (
       <div>
@@ -113,7 +85,7 @@ export default class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
 
-        <MovieList movies={ newMovies } />
+        <MovieList movies={ movies } />
         <AddMovie onClick={ movies } />
       </div>
     );
