@@ -12,14 +12,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar
-        searchText={ searchText }
-        onSearchTextChange={ onSearchTextChange }
-        onBookmarkedChange={ onBookmarkedChange }
-        bookmarkedOnly={ bookmarkedOnly }
-        selectedGenre={ selectedGenre }
-        onSelectedGenreChange={ onSelectedGenreChange }
-      />
+      <SearchBar />
       <AddMovie movies={ movies } />
       <MovieLibrary />
       {/* <Input /> */}
