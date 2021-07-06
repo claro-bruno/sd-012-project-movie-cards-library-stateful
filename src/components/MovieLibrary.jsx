@@ -16,7 +16,7 @@ class MovieLibrary extends Component {
         <SearchBar
           searchText="oi"
           onSearchTextChange={ ((item) => item) }
-          bookmarkedOnly={ true }
+          bookmarkedOnly={ null }
           onBookmarkedChange={ ((item) => item) }
           selectedGenre="oi"
           onSelectedGenreChange={ ((item) => item) }
@@ -24,7 +24,7 @@ class MovieLibrary extends Component {
         {/* <MovieList movies={this.props.movies} /> */}
         <AddMovie
           onClick={ ((item) => item) }
-        /> 
+        />
       </div>
     );
   }
