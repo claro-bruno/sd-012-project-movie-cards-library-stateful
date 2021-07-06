@@ -19,7 +19,10 @@ class SearchBar extends Component {
           onSelectedGenreChange={ onSelectedGenreChange }
         />
         <form data-testid="search-bar-form">
-          <label data-testid="text-input-label" htmlFor="searchText">
+          <label
+            data-testid="text-input-label"
+            htmlFor="text-input"
+          >
             Inclui o texto:
             <input
               type="text"
@@ -29,6 +32,18 @@ class SearchBar extends Component {
             />
           </label>
         </form>
+        <label
+          data-testid="checkbox-input-label"
+          htmlFor="checkbox-input"
+        >
+          Mostrar somente favoritos
+          <input
+            type="checkbox"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
+            data-testid="checkbox-input"
+          />
+        </label>
       </section>
     );
   }
