@@ -6,9 +6,10 @@ class Checkbox extends React.Component {
     const { checked, onChange } = this.props;
     return (
       <fieldset>
-        <label data-testid="checkbox-input" htmlFor="checkbox-input">
+        <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
           Mostrar somente favoritos
           <input
+            data-testid="checkbox-input"
             id="checkbox-input"
             type="checkbox"
             checked={ checked }
