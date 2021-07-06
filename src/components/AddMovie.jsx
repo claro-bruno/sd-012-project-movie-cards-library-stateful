@@ -54,6 +54,22 @@ class AddMovie extends React.Component {
     return doTheSubTitle;
   }
 
+  theImage = (imagePath) => {
+    const doTheImage = (
+      <label htmlFor="imagePath" data-testid="image-input-label">
+        Imagem
+        <input
+          name="imagePath"
+          type="text"
+          value={ imagePath }
+          data-testid="image-input"
+          onChange={ this.handleComponent }
+        />
+      </label>
+    );
+    return doTheImage;
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     const { onClick } = this.props;
@@ -61,6 +77,7 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         {this.theTitle(title)}
         {this.theSubtitle(subtitle)}
+        {this.theImage(imagePath)}
       </form>
     );
   }
