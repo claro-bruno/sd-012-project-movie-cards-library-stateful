@@ -15,6 +15,19 @@ class AddMovie extends React.Component {
     };
   }
 
+  resetButton = (keyinput) => {
+    keyinput(this.state);
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   handleComponent = (element) => {
     const { name, value } = element.target;
     this.setState({
@@ -119,6 +132,19 @@ class AddMovie extends React.Component {
     return doTheGenre;
   }
 
+  theButton = (fun) => {
+    const doTheButton = (
+      <button
+        type="button"
+        data-testid="send-button"
+        onClick={ () => this.resetButton(fun) }
+      >
+        Adicionar filme
+      </button>
+    );
+    return doTheButton;
+  }
+
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     const { onClick } = this.props;
@@ -130,6 +156,7 @@ class AddMovie extends React.Component {
         {this.theTextArea(storyline)}
         {this.theRating(rating)}
         {this.theGenre(genre)}
+        {this.theButton(onClick)}
       </form>
     );
   }
