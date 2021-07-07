@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
+import InputTitle from './componentForAddMovie/InputTitle';
+import InputSubtitle from './componentForAddMovie/InputSubtitle';
+import InputImage from './componentForAddMovie/InputImage';
 
 class AddMovie extends Component {
   constructor() {
     super();
     this.updateState = this.updateState.bind(this);
     this.state = {
-    //  subtitle: '',
       title: '',
-    //  imagePath: '',
+      subtitle: '',
+      imagePath: '',
     //  storyline: '',
     //  rating: 0,
     //  genre: 'action',
@@ -19,7 +22,7 @@ class AddMovie extends Component {
       this.setState({
         title: e.target.value,
       });
-    }/*  else if (e.target.id === 'subtitle') {
+    } else if (e.target.id === 'subtitle') {
       this.setState({
         subtitle: e.target.value,
       });
@@ -27,7 +30,7 @@ class AddMovie extends Component {
       this.setState({
         imagePath: e.target.value,
       });
-    } */
+    }
   }
 
   render() {
@@ -38,34 +41,18 @@ class AddMovie extends Component {
         action=""
         data-testid="add-movie-form"
       >
-        <label
-          htmlFor="Título"
-          data-testid="title-input-label"
-        >
-          Título
-          <input
-            name="title"
-            type="text"
-            id="title"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.updateState }
-          />
-        </label>
-        <label
-          htmlFor="subtitulo"
-          data-testid="subtitle-input-label"
-        >
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            id="subtitle"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.updateState }
-          />
-        </label>
+        <InputTitle
+          title={ title }
+          updateState={ this.updateState }
+        />
+        <InputSubtitle
+         subtitle={ subtitle }
+         updateState={ this.updateState }
+        />
+        <InputImage
+          imagePath={ imagePath }
+          updateState={ this.updateState }
+        />
       </form>
     );
   }
