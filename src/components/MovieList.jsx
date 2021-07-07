@@ -11,7 +11,7 @@ class MovieList extends React.Component {
       <div data-testid="movie-list" className="movie-list">
         { movies
           .filter((filt) => (
-            checkBox === true
+            checkBox
               ? filt.bookmarked === checkBox
               : filt.genre.includes(genreSelected)
           ))
