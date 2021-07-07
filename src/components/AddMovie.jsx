@@ -4,6 +4,7 @@ import InputSubtitle from './componentForAddMovie/InputSubtitle';
 import InputImage from './componentForAddMovie/InputImage';
 import InputTextarea from './componentForAddMovie/InputTextarea';
 import InputNumber from './componentForAddMovie/InputNumber';
+import SelectGenre from './componentForAddMovie/SelectGenre';
 
 class AddMovie extends Component {
   constructor() {
@@ -15,11 +16,12 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-    //  genre: 'action',
+      genre: 'action',
     };
   }
 
   updateState(e) {
+    console.log(e.target.value)
     if (e.target.id === 'title') {
       this.setState({
         title: e.target.value,
@@ -40,6 +42,10 @@ class AddMovie extends Component {
       this.setState({
         rating: e.target.value,
       });
+    } else {
+      this.setState({
+        genre: e.target.value,
+      });
     }
   }
 
@@ -50,6 +56,7 @@ class AddMovie extends Component {
       imagePath,
       storyline,
       rating,
+      genre,
     } = this.state;
 
     return (
@@ -75,6 +82,10 @@ class AddMovie extends Component {
         />
         <InputNumber
           rating={ rating }
+          updateState={ this.updateState }
+        />
+        <SelectGenre
+          genre={ genre }
           updateState={ this.updateState }
         />
       </form>
