@@ -33,7 +33,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  onClickSubmit(addNewMovie) {
+  onClickSubmit(event, addNewMovie) {
+    event.preventDefault();
     addNewMovie(this.state);
     this.resetState();
   }
@@ -54,16 +55,34 @@ class AddMovie extends React.Component {
     const { addNewMovie } = this.props;
     return (
       <form data-testid="add-movie-form">
-        <InputTitle value={ title } handleClick={ this.handleClick } />
-        <InputSubtitle value={ subtitle } handleClick={ this.handleClick } />
-        <InputImg value={ imagePath } handleClick={ this.handleClick } />
-        <TextArea value={ storyline } handleClick={ this.handleClick } />
-        <InputRating value={ rating } handleClick={ this.handleClick } />
-        <SelectGenre value={ genre } handleClick={ this.handleClick } />
+        <InputTitle
+          value={ title }
+          handleClick={ this.handleClick }
+        />
+        <InputSubtitle
+          value={ subtitle }
+          handleClick={ this.handleClick }
+        />
+        <InputImg
+          value={ imagePath }
+          handleClick={ this.handleClick }
+        />
+        <TextArea
+          value={ storyline }
+          handleClick={ this.handleClick }
+        />
+        <InputRating
+          value={ rating }
+          handleClick={ this.handleClick }
+        />
+        <SelectGenre
+          value={ genre }
+          handleClick={ this.handleClick }
+        />
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ () => this.onClickSubmit(addNewMovie) }
+          onClick={ (event) => this.onClickSubmit(event, addNewMovie) }
         >
           Adicionar filme
         </button>
