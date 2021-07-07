@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 class Button extends Component {
   render() {
-    const { resetState } = this.props;
+    const { onClick } = this.props;
 
     return (
       <button
         type="reset"
         data-testid="send-button"
-        onClick={ resetState }
+        onClick={ onClick }
       >
         Adicionar filme
       </button>
@@ -18,7 +18,7 @@ class Button extends Component {
 }
 
 Button.propTypes = {
-  resetState: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default Button;

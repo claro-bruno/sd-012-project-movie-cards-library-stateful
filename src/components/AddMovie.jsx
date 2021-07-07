@@ -41,8 +41,9 @@ class AddMovie extends Component {
         storyline: e.target.value,
       });
     } else if (e.target.id === 'rating') {
+      let number = Number(e.target.value)
       this.setState({
-        rating: e.target.value,
+        rating: number,
       });
     } else {
       this.setState({
@@ -52,14 +53,18 @@ class AddMovie extends Component {
   }
 
   resetState() {
-    this.setState({
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
+    const { onClick } = this.props
+    onClick(this.state)
+    return (
+      this.setState({
+        title: '',
+        subtitle: '',
+        imagePath: '',
+        storyline: '',
+        rating: 0,
+        genre: 'action',
+      })
+    )
   }
 
   render() {
@@ -101,7 +106,7 @@ class AddMovie extends Component {
           updateState={ this.updateState }
         />
         <Button
-          resetState={ this.resetState }
+          onClick={ this.resetState }
         />
       </form>
     );
