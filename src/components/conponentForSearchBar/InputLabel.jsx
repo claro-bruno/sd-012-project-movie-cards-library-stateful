@@ -13,30 +13,30 @@ class InputLabel extends Component {
     return (
       <div>
         <label
-          htmlFor="incluiTexto"
+          htmlFor="Text"
           data-testid="text-input-label"
         >
-          Inclui o texto:
+          Inclui o texto
           <input
             type="text"
-            id="incluiTexto"
+            id="Text"
             value={ searchText }
             onChange={ onSearchTextChange }
             data-testid="text-input"
           />
         </label>
         <label
-          htmlFor="incluiCheckbox"
+          htmlFor="Checkbox"
           data-testid="checkbox-input-label"
         >
-          Mostra somente favoritos
           <input
             type="checkbox"
-            id="incluiCheckbox"
+            id="Checkbox"
             checked={ bookmarkedOnly }
             onChange={ onBookmarkedChange }
             data-testid="checkbox-input"
           />
+          Mostrar somente favoritos
         </label>
       </div>
     );

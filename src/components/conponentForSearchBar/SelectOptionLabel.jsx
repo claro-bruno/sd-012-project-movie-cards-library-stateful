@@ -14,7 +14,7 @@ class SelectOptionLabel extends Component {
           htmlFor="incluiSelect"
           data-testid="select-input-label"
         >
-          Filtra por gênero
+          Filtrar por gênero
           <select
             id="incluiSelect"
             value={ selectedGenre }
