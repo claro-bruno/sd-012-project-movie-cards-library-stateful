@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import InputLabel from './conponentForSearchBar/InputLabel';
+import SelectOptionLabel from './conponentForSearchBar/SelectOptionLabel';
+
 class SearchBar extends Component {
   /* constructor(props) {
       super(props);
@@ -26,43 +28,10 @@ class SearchBar extends Component {
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ onBookmarkedChange }
         />
-        <label
-          htmlFor="incluiSelect"
-          data-testid="select-input-label"
-        >
-          Filtra por gênero
-          <select
-            id="incluiSelect"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-            data-testid="select-input"
-          >
-            <option
-              value=""
-              data-testid="select-option"
-            >
-              Todos
-            </option>
-            <option
-              value="action"
-              data-testid="select-option"
-            >
-              Ação
-            </option>
-            <option
-              value="comedy"
-              data-testid="select-option"
-            >
-              Comédia
-            </option>
-            <option
-              value="thriller"
-              data-testid="select-option"
-            >
-              Suspense
-            </option>
-          </select>
-        </label>
+        <SelectOptionLabel
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }

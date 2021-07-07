@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class InputLabel extends Component {
-  
   render() {
-    const { 
+    const {
       searchText,
       onSearchTextChange,
       bookmarkedOnly,
@@ -11,7 +11,7 @@ class InputLabel extends Component {
     } = this.props;
 
     return (
-      <div >
+      <div>
         <label
           htmlFor="incluiTexto"
           data-testid="text-input-label"
@@ -39,8 +39,15 @@ class InputLabel extends Component {
           />
         </label>
       </div>
-    )
+    );
   }
 }
+
+InputLabel.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+};
 
 export default InputLabel;
