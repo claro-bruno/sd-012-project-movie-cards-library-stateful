@@ -51,8 +51,15 @@ class AddMovie extends Component {
     }
   }
 
-  resetState(e) {
-    console.log('botao')
+  resetState() {
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
