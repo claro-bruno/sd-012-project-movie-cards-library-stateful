@@ -28,6 +28,9 @@ class MovieLibrary extends Component {
         <SearchBar />
         <AddMovie onClick={ this.handleClick } />
         { movies.map((movie) => <MovieCard movie={ movie } key={ movie.id } />)}
+        { searchText }
+        { bookmarkedOnly }
+        {selectedGenre}
       </div>
     );
   }
