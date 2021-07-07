@@ -14,17 +14,17 @@ class InputTitle extends Component {
           htmlFor="Título"
           data-testid="title-input-label"
         >
-        Título
-        <input
-          name="title"
-          type="text"
-          id="title"
-          value={ title }
-          data-testid="title-input"
-          onChange={ updateState }
+          Título
+          <input
+            name="title"
+            type="text"
+            id="title"
+            value={ title }
+            data-testid="title-input"
+            onChange={ updateState }
         />
-      </label>
-    </div>
+        </label>
+      </div>
     );
   }
 }
@@ -32,6 +32,6 @@ class InputTitle extends Component {
 InputTitle.propTypes = {
   title: PropTypes.string.isRequired,
   updateState: PropTypes.func.isRequired,
-}
+};
 
 export default InputTitle;
