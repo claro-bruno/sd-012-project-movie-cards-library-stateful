@@ -1,5 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Title from './Title';
+import Subtitle from './Subtitle';
+import ImagePath from './ImagePath';
+import Storyline from './Storyline';
 
 const InitialState = {
   title: '',
@@ -37,10 +41,10 @@ class AddMovie extends React.Component {
     const { state } = this;
     return (
       <form data-testid="add-movie-form">
-        <title changeHandler={ this.changeHandler } title={ state.title } />
-        <subtitle changeHandler={ this.changeHandler } subtitle={ state.subtitle } />
-        <imagePath changeHandler={ this.changeHandler } imagePath={ state.imagePath } />
-        <storyline changeHandler={ this.changeHandler } Storyline={ state.Storyline } />
+        <Title changeHandler={ this.changeHandler } title={ state.title } />
+        <Subtitle changeHandler={ this.changeHandler } subtitle={ state.subtitle } />
+        <ImagePath changeHandler={ this.changeHandler } imagePath={ state.imagePath } />
+        <Storyline changeHandler={ this.changeHandler } Storyline={ state.Storyline } />
         <label htmlFor="rating" data-testid="rating-input-label">
           Avaliação
           <input
