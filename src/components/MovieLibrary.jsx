@@ -8,7 +8,7 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
     const { movies } = this.props;
-    
+
     this.state = {
       movies,
       textInput: '',
@@ -17,7 +17,7 @@ class MovieLibrary extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.changeMovieList = this.changeMovieList.bind(this);
+    // this.changeMovieList = this.changeMovieList.bind(this);
   }
 
   handleChange({ target }) {
@@ -31,6 +31,14 @@ class MovieLibrary extends React.Component {
     // Rederizando o estado dos filmes
     const { textInput, favoritesOnly, genreOption } = this.state;
     // Definindo as estradas
+    const filterMovies = movies
+      .filter(({ bookmarked }) => !favoritesOnly || bookmarked)
+      .filter(
+        ({ title, subtitle, storyline }) => title.includes(textInput)
+            || subtitle.includes(textInput)
+            || storyline.includes(textInput),
+      )
+      .filter(({ genre }) => genre.includes(genreOption));
     return (
       <div>
         <SearchBar
