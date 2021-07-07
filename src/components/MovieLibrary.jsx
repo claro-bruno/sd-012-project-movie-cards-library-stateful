@@ -41,6 +41,9 @@ class MovieLibrary extends React.Component {
         />
         <MovieList
           movies={ movies }
+          searchByText={ searchText }
+          checkBox={ bookmarkedOnly }
+          genreSelected={ selectedGenre }
         />
       </div>
     );
