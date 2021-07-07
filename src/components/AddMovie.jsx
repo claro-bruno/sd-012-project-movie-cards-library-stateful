@@ -52,7 +52,7 @@ class AddMovie extends Component {
             onChange={ this.updateState }
           />
         </label>
-        {/* <label
+        <label
           htmlFor="subtitulo"
           data-testid="subtitle-input-label"
         >
@@ -65,21 +65,7 @@ class AddMovie extends Component {
             data-testid="subtitle-input"
             onChange={ this.updateState }
           />
-        </label> */}
-        {/* <label
-          htmlFor="imagePath"
-          data-testid="image-input-label"
-        >
-          Imagem
-          <input
-            type="text"
-            name="imagePath"
-            id="imagePath"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.updateState }
-          />
-        </label> */}
+        </label>
       </form>
     );
   }
