@@ -15,17 +15,12 @@ class MovieLibrary extends Component {
       // movies: [...props.movies],
     };
 
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    // this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  onSearchTextChange(e) {
-    this.setState({ searchText: e.target.value });
-  }
-
-  onSelectedGenreChange(e) {
-    this.setState({ selectedGenre: e.target.value });
-    console.log(e.target.value);
+  handleChange(e) {
+    this.setState({ searchText: e.target.value, selectedGenre: e.target.value });
   }
 
   render() {
@@ -34,9 +29,9 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          onSearchTextChange={ this.onSearchTextChange }
+          onSearchTextChange={ this.handleChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.onSelectedGenreChange }
+          onSelectedGenreChange={ this.handleChange }
         />
         <MovieList
           movies={
@@ -51,11 +46,5 @@ class MovieLibrary extends Component {
     );
   }
 }
-
-// MovieLibrary.propTypes = {
-//   movies: PropTypes.arrayOf(
-//     PropTypes.object,
-//   ).isRequired,
-// };
 
 export default MovieLibrary;

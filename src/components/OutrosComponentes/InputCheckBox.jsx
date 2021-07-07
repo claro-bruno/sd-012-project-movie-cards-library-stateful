@@ -17,10 +17,6 @@ class InputCheckBoxTag extends React.Component {
           checked={ bookmarkedOnly }
           onChange={ onBookmarkedChange }
           data-testid={ dataTestidInput }
-          // value={ searchText }
-          // id={ searchText }
-          // type="text"
-          // checked={ }
         />
       </label>
     );

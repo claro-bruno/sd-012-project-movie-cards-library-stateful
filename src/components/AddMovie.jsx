@@ -1,25 +1,56 @@
 import React, { Component } from 'react';
 
 class AddMovie extends Component {
+  constructor() {
+    super();
+    this.state = {
+      title: '',
+      subtitle: '',
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    // this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+  }
+
+  handleChange(e) {
+    this.setState({ title: e.target.value });
+  }
+  // takeStats() {
+  //   this.state
+  // }
+
   render() {
+    const { title, subtitle, imagePath } = this.state;
     return (
       <form data-testid="add-movie-form" action="">
-        subtítulo
-        <input
-          type="text"
-        />
-        título
-        <input type="text" />
-        caminho da imagem
-        <label htmlFor="s">
-          <textarea data-testid="storyline-input" name="ss" id="s" cols="10" rows="10" />
+        <label htmlFor="title" data-testid="title-input-label">
+          Título
+          <input
+            type="text"
+            data-testid="title-input"
+            onChange={ this.handleChange }
+            value={ title }
+          />
         </label>
-        <input type="text" />
-        avaliação
-        <input type="number" />
-        gênero
-        <input type="text" />
-
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            type="text"
+            value={ subtitle }
+            data-testid="subtitle-input"
+            onChange={ this.handleChange }
+          />
+        </label>
+        <label htmlFor="imagePath" data-testid="image-input-label">
+          Imagem
+          <input
+            type="text"
+            value={ imagePath }
+            data-testid="subtitle-input"
+            onChange={ this.handleChange }
+            // data-testid="image-input"
+          />
+        </label>
       </form>
     );
   }
