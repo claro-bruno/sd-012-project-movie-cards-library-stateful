@@ -13,10 +13,10 @@ class SelectTag extends React.Component {
       >
         {selectLabelText}
         <select
-          id="select-input-label"
-          data-testid="select-input"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
+          id={ selectedGenre }
+          data-testid="select-input"
         >
           <option value="" data-testid="select-option">Todos</option>
           <option value="action" data-testid="select-option">Ação</option>

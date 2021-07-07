@@ -18,7 +18,6 @@ class InputTag extends React.Component {
           id={ searchText }
           type="text"
           data-testid={ dataInputId }
-          // checked={ }
         />
       </label>
     );
