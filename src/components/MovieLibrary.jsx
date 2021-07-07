@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
+import MovieCard from './MovieCard';
 
-export class MovieLibrary extends Component {
+class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     const { movies } = this.props;
@@ -11,18 +14,20 @@ export class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(state) {
+    console.log(state);
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
-        <p>
-          { movies }
-          { searchText }
-          {selectedGenre}
-          {bookmarkedOnly}
-        </p>
+        <SearchBar />
+        <AddMovie onClick={ this.handleClick } />
+        { movies.map((movie) => <MovieCard movie={ movie } key={ movie.id } />)}
       </div>
     );
   }
