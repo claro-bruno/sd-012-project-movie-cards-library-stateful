@@ -46,8 +46,8 @@ class AddMovie extends Component {
           updateState={ this.updateState }
         />
         <InputSubtitle
-         subtitle={ subtitle }
-         updateState={ this.updateState }
+          subtitle={ subtitle }
+          updateState={ this.updateState }
         />
         <InputImage
           imagePath={ imagePath }

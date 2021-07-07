@@ -24,7 +24,7 @@ class InputImage extends Component {
             onChange={ updateState }
           />
         </label>
-    </div>
+      </div>
     );
   }
 }
@@ -32,6 +32,6 @@ class InputImage extends Component {
 InputImage.propTypes = {
   imagePath: PropTypes.string.isRequired,
   updateState: PropTypes.func.isRequired,
-}
+};
 
 export default InputImage;

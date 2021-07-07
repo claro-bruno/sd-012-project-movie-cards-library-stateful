@@ -24,7 +24,7 @@ class InputSubtitle extends Component {
             onChange={ updateState }
           />
         </label>
-    </div>
+      </div>
     );
   }
 }
@@ -32,6 +32,6 @@ class InputSubtitle extends Component {
 InputSubtitle.propTypes = {
   subtitle: PropTypes.string.isRequired,
   updateState: PropTypes.func.isRequired,
-}
+};
 
 export default InputSubtitle;
