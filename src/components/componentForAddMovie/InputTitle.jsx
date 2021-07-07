@@ -11,7 +11,7 @@ class InputTitle extends Component {
     return (
       <div>
         <label
-          htmlFor="Título"
+          htmlFor="title"
           data-testid="title-input-label"
         >
           Título

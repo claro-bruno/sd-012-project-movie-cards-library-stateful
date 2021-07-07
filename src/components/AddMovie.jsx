@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import InputTitle from './componentForAddMovie/InputTitle';
 import InputSubtitle from './componentForAddMovie/InputSubtitle';
 import InputImage from './componentForAddMovie/InputImage';
+import InputTextarea from './componentForAddMovie/InputTextarea';
 
 class AddMovie extends Component {
   constructor() {
@@ -11,7 +12,7 @@ class AddMovie extends Component {
       title: '',
       subtitle: '',
       imagePath: '',
-    //  storyline: '',
+      storyline: '',
     //  rating: 0,
     //  genre: 'action',
     };
@@ -30,11 +31,20 @@ class AddMovie extends Component {
       this.setState({
         imagePath: e.target.value,
       });
+    } else if (e.target.id === 'sinopse') {
+      this.setState({
+        storyline: e.target.value,
+      });
     }
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const {
+      title,
+      subtitle,
+      imagePath,
+      storyline
+    } = this.state;
 
     return (
       <form
@@ -51,6 +61,10 @@ class AddMovie extends Component {
         />
         <InputImage
           imagePath={ imagePath }
+          updateState={ this.updateState }
+        />
+        <InputTextarea
+          storyline={ storyline }
           updateState={ this.updateState }
         />
       </form>
