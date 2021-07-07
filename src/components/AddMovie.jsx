@@ -43,7 +43,7 @@ class AddMovie extends Component {
       title,
       subtitle,
       imagePath,
-      storyline
+      storyline,
     } = this.state;
 
     return (

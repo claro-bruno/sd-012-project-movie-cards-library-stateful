@@ -19,8 +19,7 @@ class InputTextarea extends Component {
             value={ storyline }
             data-testid="storyline-input"
             onChange={ updateState }
-          >
-          </textarea>
+          />
         </label>
       </div>
     );
