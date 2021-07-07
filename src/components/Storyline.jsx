@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Storyline extends React.Component {
   render() {
@@ -18,5 +19,14 @@ class Storyline extends React.Component {
     );
   }
 }
+
+Storyline.propTypes = {
+  changeHandler: PropTypes.func.isRequired,
+  storyline: PropTypes.string,
+};
+
+Storyline.defaultProps = {
+  storyline: 'undefined',
+};
 
 export default Storyline;

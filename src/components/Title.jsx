@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Title extends React.Component {
   render() {
@@ -18,5 +19,14 @@ class Title extends React.Component {
     );
   }
 }
+
+Title.propTypes = {
+  changeHandler: PropTypes.func.isRequired,
+  title: PropTypes.string,
+};
+
+Title.defaultProps = {
+  title: 'undefined',
+};
 
 export default Title;
