@@ -5,9 +5,9 @@ class AddMovie extends Component {
     super();
     this.updateState = this.updateState.bind(this);
     this.state = {
-      subtitle: '',
+    //  subtitle: '',
       title: '',
-      imagePath: '',
+    //  imagePath: '',
     //  storyline: '',
     //  rating: 0,
     //  genre: 'action',
@@ -19,7 +19,7 @@ class AddMovie extends Component {
       this.setState({
         title: e.target.value,
       });
-    } else if (e.target.id === 'subtitle') {
+    }/*  else if (e.target.id === 'subtitle') {
       this.setState({
         subtitle: e.target.value,
       });
@@ -27,7 +27,7 @@ class AddMovie extends Component {
       this.setState({
         imagePath: e.target.value,
       });
-    }
+    } */
   }
 
   render() {
@@ -52,7 +52,7 @@ class AddMovie extends Component {
             onChange={ this.updateState }
           />
         </label>
-        <label
+        {/* <label
           htmlFor="subtitulo"
           data-testid="subtitle-input-label"
         >
@@ -65,7 +65,7 @@ class AddMovie extends Component {
             data-testid="subtitle-input"
             onChange={ this.updateState }
           />
-        </label>
+        </label> */}
         {/* <label
           htmlFor="imagePath"
           data-testid="image-input-label"

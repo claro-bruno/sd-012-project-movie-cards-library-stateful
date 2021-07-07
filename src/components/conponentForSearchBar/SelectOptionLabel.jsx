@@ -5,7 +5,7 @@ class SelectOptionLabel extends Component {
   render() {
     const {
       selectedGenre,
-      onSelectedGenreChange
+      onSelectedGenreChange,
     } = this.props;
 
     return (
@@ -48,7 +48,7 @@ class SelectOptionLabel extends Component {
           </select>
         </label>
       </div>
-    )
+    );
   }
 }
 
