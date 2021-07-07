@@ -19,31 +19,16 @@ class SearchBar extends Component {
       <div>
         <form data-testid="search-bar-form">
           <Input
-            inputLabelId="input-text"
-            inputAtributeLabel="text-input-label"
-            inputText="Inclui o texto:"
-            inputValue={ searchText }
+            searchText={ searchText }
             inputOnChange={ onSearchTextChange }
-            inputAtribute="text-input"
-            inputType="text"
           />
           <Checkbox
-            checkboxLabelText="Mostrar somente favoritos"
-            checkboxLabelAtribute="checkbox-input-label"
-            checkedInput={ bookmarkedOnly }
-            checkboxOnChange={ onBookmarkedChange }
-            checkboxInputAtribute="checkbox-input"
-            checkboxInputType="checkbox"
-            checkboxId="checkbox"
+            bookmarkedOnly={ bookmarkedOnly }
+            checkOnChange={ onBookmarkedChange }
           />
           <FilterGenre
-            title="Filtrar por gênero"
-            labelAtribute="select-input-label"
             valueSelect={ selectedGenre }
             onChangeSelect={ onSelectedGenreChange }
-            selectAtribute="select-input"
-            optionAtribute="select-option"
-            id="select"
           />
         </form>
       </div>

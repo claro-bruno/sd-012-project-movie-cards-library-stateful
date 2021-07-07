@@ -4,45 +4,41 @@ import Proptypes from 'prop-types';
 class FilterGenre extends Component {
   render() {
     const {
-      title,
-      labelAtribute,
       valueSelect,
       onChangeSelect,
-      selectAtribute,
-      optionAtribute,
-      id,
     } = this.props;
     return (
-      <label htmlFor={ id } data-testid={ labelAtribute }>
-        { title }
+      <label htmlFor="filter" data-testid="select-input-label">
+        Filtrar por gênero
         <select
+          name="selectedGenre"
           value={ valueSelect }
           onChange={ onChangeSelect }
-          data-testid={ selectAtribute }
+          data-testid="select-input"
         >
           <option
-            data-testid={ optionAtribute }
+            data-testid="select-option"
             name="Todos"
             value=""
           >
             Todos
           </option>
           <option
-            data-testid={ optionAtribute }
+            data-testid="select-option"
             name="Ação"
             value="action"
           >
             Ação
           </option>
           <option
-            data-testid={ optionAtribute }
+            data-testid="select-option"
             name="Comédia"
             value="comedy"
           >
             Comédia
           </option>
           <option
-            data-testid={ optionAtribute }
+            data-testid="select-option"
             name="Suspense"
             value="thriller"
           >
@@ -55,13 +51,8 @@ class FilterGenre extends Component {
 }
 
 FilterGenre.propTypes = {
-  title: Proptypes.string.isRequired,
-  labelAtribute: Proptypes.string.isRequired,
   valueSelect: Proptypes.string.isRequired,
   onChangeSelect: Proptypes.func.isRequired,
-  selectAtribute: Proptypes.string.isRequired,
-  optionAtribute: Proptypes.string.isRequired,
-  id: Proptypes.string.isRequired,
 };
 
 export default FilterGenre;

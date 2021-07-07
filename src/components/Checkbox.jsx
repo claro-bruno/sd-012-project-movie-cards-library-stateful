@@ -4,23 +4,19 @@ import PropTypes from 'prop-types';
 class Checkbox extends Component {
   render() {
     const {
-      checkboxLabelText,
-      checkboxLabelAtribute,
-      checkedInput,
-      checkboxOnChange,
-      checkboxInputAtribute,
-      checkboxInputType,
-      checkboxId,
+      bookmarkedOnly,
+      checkOnChange,
     } = this.props;
     return (
-      <label htmlFor={ checkboxId } data-testid={ checkboxLabelAtribute }>
-        { checkboxLabelText }
+      <label htmlFor="checkbox" data-testid="checkbox-input-label">
+        Mostrar somente favoritos
         <input
-          type={ checkboxInputType }
-          checked={ checkedInput }
-          onChange={ checkboxOnChange }
-          data-testid={ checkboxInputAtribute }
-          id={ checkboxId }
+          name="bookmarkedOnly"
+          type="checkbox"
+          value={ bookmarkedOnly }
+          onChange={ checkOnChange }
+          data-testid="checkbox-input"
+          checked={ bookmarkedOnly }
         />
       </label>
     );
@@ -28,13 +24,8 @@ class Checkbox extends Component {
 }
 
 Checkbox.propTypes = {
-  checkboxLabelText: PropTypes.string.isRequired,
-  checkboxLabelAtribute: PropTypes.string.isRequired,
-  checkedInput: PropTypes.bool.isRequired,
-  checkboxOnChange: PropTypes.func.isRequired,
-  checkboxInputAtribute: PropTypes.string.isRequired,
-  checkboxInputType: PropTypes.string.isRequired,
-  checkboxId: PropTypes.string.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  checkOnChange: PropTypes.func.isRequired,
 };
 
 export default Checkbox;
