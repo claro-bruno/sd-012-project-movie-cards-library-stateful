@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import TitleInput from './TitleInput';
 import SubtitleInput from './SubtitleInput';
 import ImageInput from './ImageInput';
@@ -31,8 +32,9 @@ class AddMovie extends React.Component {
   submitNewMovie(e, state) {
     e.preventDefault();
     state = this.state;
-    this.props.onClick(state);
-    
+    const { onClick } = this.props;
+    onClick(state);
+
     return (
       this.setState({
         title: '',
@@ -74,5 +76,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

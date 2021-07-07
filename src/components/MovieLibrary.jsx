@@ -7,12 +7,12 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    let movies = props.movies;
+    const { movies } = props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies,
+      movieList: movies,
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -42,16 +42,16 @@ class MovieLibrary extends Component {
   }
 
   newMovie(state) {
-    state['bookmarked'] = true;
-    state['rating'] = parseFloat(state.rating, 10);
-    this.setState((prevState, _props) => {
-      prevState.movies.push(state)
+    state.bookmarked = true;
+    state.rating = parseFloat(state.rating);
+    this.setState((prevState) => {
+      prevState.movies.push(state);
     });
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.state;
+    const { movieList } = this.state;
 
     return (
       <div>
@@ -63,7 +63,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movies={ movies } filters={ this.state } />
+        <MovieList movies={ movieList } filters={ this.state } />
         <AddMovie onClick={ this.newMovie } />
       </div>
     );
