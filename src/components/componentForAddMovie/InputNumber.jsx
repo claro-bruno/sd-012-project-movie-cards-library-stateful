@@ -7,6 +7,7 @@ class InputNumber extends Component {
       rating,
       updateState,
     } = this.props;
+
     return (
       <div>
         <label
@@ -19,6 +20,7 @@ class InputNumber extends Component {
             name="rating"
             id="rating"
             value={ rating }
+            data-testid="rating-input"
             onChange={ updateState }
           />
         </label>
