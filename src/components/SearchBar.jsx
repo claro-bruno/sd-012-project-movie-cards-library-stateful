@@ -2,12 +2,12 @@ import React from 'react';
 
 class SearchBar extends React.Component {
   render() {
-    const {searchText,
+    const { searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
-      onSelectedGenreChange
+      onSelectedGenreChange,
     } = this.props;
 
     return (
