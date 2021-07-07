@@ -6,6 +6,7 @@ import ImagePath from './ImagePath';
 import Storyline from './Storyline';
 import RatingAddMovie from './RatingAddMovie';
 import Genre from './Genre';
+import Button from './Button';
 
 class AddMovie extends Component {
   constructor() {
@@ -30,8 +31,19 @@ class AddMovie extends Component {
     });
   }
 
+  handleResetState() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -41,6 +53,13 @@ class AddMovie extends Component {
         <Storyline storyline={ storyline } onChange={ this.handleChange } />
         <RatingAddMovie rating={ rating } onChange={ this.handleChange } />
         <Genre genre={ genre } onChange={ this.handleChange } />
+        <Button
+          onClick={ () => {
+            onClick(this.state);
+            this.handleResetState();
+          } }
+          text="Adicionar filme"
+        />
       </form>
     );
   }
