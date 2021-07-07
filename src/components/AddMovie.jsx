@@ -15,7 +15,6 @@ class AddMovie extends Component {
   }
 
   updateState(e) {
-    console.log(e.target.id)
     if (e.target.id === 'title') {
       this.setState({
         title: e.target.value,

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import InputLabel from './conponentForSearchBar/InputLabel';
 class SearchBar extends Component {
   /* constructor(props) {
       super(props);
@@ -20,32 +20,12 @@ class SearchBar extends Component {
       <form
         data-testid="search-bar-form"
       >
-        <label
-          htmlFor="incluiTexto"
-          data-testid="text-input-label"
-        >
-          Inclui o texto:
-          <input
-            type="text"
-            id="incluiTexto"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-            data-testid="text-input"
-          />
-        </label>
-        <label
-          htmlFor="incluiCheckbox"
-          data-testid="checkbox-input-label"
-        >
-          Mostra somente favoritos
-          <input
-            type="checkbox"
-            id="incluiCheckbox"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-            data-testid="checkbox-input"
-          />
-        </label>
+        <InputLabel
+          searchText={ searchText }
+          onSearchTextChange={ onSearchTextChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ onBookmarkedChange }
+        />
         <label
           htmlFor="incluiSelect"
           data-testid="select-input-label"
@@ -91,7 +71,7 @@ class SearchBar extends Component {
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
-  //bookmarkedOnly: PropTypes.bool.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
