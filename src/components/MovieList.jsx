@@ -15,7 +15,7 @@ class MovieList extends React.Component {
               ? filt.bookmarked === checkBox
               : filt.genre.includes(genreSelected)
           ))
-          // .filter((filtGen) => filtGen.genre.includes(genreSelected))
+          .filter((filtGen) => filtGen.genre.includes(genreSelected))
           .filter((filtText) => filtText.title.includes(searchByText)
             || filtText.subtitle.includes(searchByText)
             || filtText.storyline.includes(searchByText))
