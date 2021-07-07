@@ -53,4 +53,4 @@ SearchBar.propTypes = {
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
-export default SearchBar;
+export default SearchBar; // oi
