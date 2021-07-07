@@ -28,8 +28,10 @@ class AddMovie extends React.Component {
     return this.setState({ [name]: value });
   }
 
-  submitNewMovie() {
-    const callback = this.props.onClick;
+  submitNewMovie(e, state) {
+    e.preventDefault();
+    state = this.state;
+    this.props.onClick(state);
     
     return (
       this.setState({
