@@ -5,11 +5,14 @@ import InputImage from './componentForAddMovie/InputImage';
 import InputTextarea from './componentForAddMovie/InputTextarea';
 import InputNumber from './componentForAddMovie/InputNumber';
 import SelectGenre from './componentForAddMovie/SelectGenre';
+import Button from './componentForAddMovie/Button';
 
 class AddMovie extends Component {
   constructor() {
     super();
     this.updateState = this.updateState.bind(this);
+    this.resetState = this.resetState.bind(this);
+
     this.state = {
       title: '',
       subtitle: '',
@@ -48,6 +51,10 @@ class AddMovie extends Component {
     }
   }
 
+  resetState(e) {
+    console.log('botao')
+  }
+
   render() {
     const {
       title,
@@ -60,7 +67,6 @@ class AddMovie extends Component {
 
     return (
       <form
-        action=""
         data-testid="add-movie-form"
       >
         <InputTitle
@@ -86,6 +92,9 @@ class AddMovie extends Component {
         <SelectGenre
           genre={ genre }
           updateState={ this.updateState }
+        />
+        <Button
+          resetState={ this.resetState }
         />
       </form>
     );
