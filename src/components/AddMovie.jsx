@@ -44,7 +44,7 @@ class AddMovie extends React.Component {
         <Title changeHandler={ this.changeHandler } title={ state.title } />
         <Subtitle changeHandler={ this.changeHandler } subtitle={ state.subtitle } />
         <ImagePath changeHandler={ this.changeHandler } imagePath={ state.imagePath } />
-        <Storyline changeHandler={ this.changeHandler } Storyline={ state.Storyline } />
+        <Storyline changeHandler={ this.changeHandler } storyline={ state.storyline } />
         <label htmlFor="rating" data-testid="rating-input-label">
           Avaliação
           <input
