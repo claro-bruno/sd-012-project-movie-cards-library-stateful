@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Options from './Options';
 
-class Select extends Component {
+class SelectSearchBar extends Component {
   render() {
     const {
       selectLabel,
@@ -29,21 +29,22 @@ class Select extends Component {
             <Options
               optionValue=""
               optionName="Todos"
+              optionTestId="select-option"
             />
             <Options
               optionValue="action"
               optionName="Ação"
-              optionTestId="genre-option"
+              optionTestId="select-option"
             />
             <Options
               optionValue="comedy"
               optionName="Comédia"
-              optionTestId="genre-option"
+              optionTestId="select-option"
             />
             <Options
               optionValue="thriller"
               optionName="Suspense"
-              optionTestId="genre-option"
+              optionTestId="select-option"
             />
           </select>
         </label>
@@ -52,7 +53,7 @@ class Select extends Component {
   }
 }
 
-Select.propTypes = PropTypes.shape({
+SelectSearchBar.propTypes = PropTypes.shape({
   selectLabel: PropTypes.string,
   selectLabelTestId: PropTypes.string,
   selectName: PropTypes.string,
@@ -63,4 +64,4 @@ Select.propTypes = PropTypes.shape({
   selectValue: PropTypes.string,
 }).isRequired;
 
-export default Select;
+export default SelectSearchBar;

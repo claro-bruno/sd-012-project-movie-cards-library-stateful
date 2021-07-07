@@ -1,10 +1,13 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Inputs from './Inputs';
+import SelectSearchBar from './SelectSearchBar';
 
 class SearchBar extends Component {
   render() {
-    const { searchText,
+    const {
+      searchText,
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
@@ -14,41 +17,33 @@ class SearchBar extends Component {
 
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor="search-text-input">
-          Inclui o texto
-          <input
-            name="search-text-input"
-            type="text"
-            data-testid="text-input"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-          />
-        </label>
-        <label data-testid="checkbox-input-label" htmlFor="bookmarked-input">
-          Mostrar somente favoritos
-          <input
-            name="bookmarked-input"
-            type="checkbox"
-            data-testid="checkbox-input"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
-          />
-        </label>
-        <label data-testid="select-input-label" htmlFor="select-genre-field">
-          Filtrar por gênero
-          <select
-            name="select-genre-field"
-            type="select"
-            data-testid="select-input"
-            value={ selectedGenre }
-            onChange={ onSelectedGenreChange }
-          >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        <Inputs
+          label="Inclui o texto:"
+          labelTestId="text-input-label"
+          inputName="searchText"
+          inputType="text"
+          inputTestId="text-input"
+          inputValue={ searchText }
+          inputOnChange={ onSearchTextChange }
+        />
+        <Inputs
+          label="Mostrar somente favoritos"
+          labelTestId="checkbox-input-label"
+          inputName="bookmarkedOnly"
+          inputType="checkbox"
+          inputTestId="checkbox-input"
+          inputIsChecked={ bookmarkedOnly }
+          inputOnChange={ onBookmarkedChange }
+        />
+        <SelectSearchBar
+          selectLabelTestId="select-input-label"
+          selectLabel="Filtrar por gênero"
+          selectName="selectedGenre"
+          selectId="select-genre-input"
+          selectTestId="select-input"
+          selectValue={ selectedGenre }
+          selectOnChange={ onSelectedGenreChange }
+        />
       </form>
     );
   }

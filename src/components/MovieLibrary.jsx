@@ -27,7 +27,7 @@ class MovieLibrary extends Component {
 
     this.setState({
       [name]: value,
-    }, () => this.filterMovies());
+    });
   }
 
   // O trecho a seguir é retirado do projeto da colega Caroline Benichio
@@ -65,7 +65,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ this.funcFilter() } />
-        <AddMovie />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
