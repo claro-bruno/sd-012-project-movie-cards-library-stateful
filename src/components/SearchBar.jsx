@@ -12,7 +12,7 @@ class SearchBar extends Component {
         <Input
           labelTestId="text-input-label"
           labelText="Inclui o texto"
-          name="text-input"
+          name="searchText"
           inputTestId="text-input"
           type="text"
           value={ searchText }
@@ -21,7 +21,7 @@ class SearchBar extends Component {
         <Input
           labelTestId="checkbox-input-label"
           labelText="Mostrar somente favoritos"
-          name="checkbox-input"
+          name="bookmarkedOnly"
           inputTestId="checkbox-input"
           type="checkbox"
           checked={ bookmarkedOnly }
