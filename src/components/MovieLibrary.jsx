@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
@@ -6,13 +7,15 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
+    //  const { movies } = this.props;
     /*
     this.state = {
       movies,
       textInput: '',
       genreOption: '',
       favoritesOnly: '',
-    }; */
+    };
+*/
     this.handleChange = this.handleChange.bind(this);
     this.changeMovieList = this.changeMovieList.bind(this);
   }
@@ -50,5 +53,8 @@ class MovieLibrary extends React.Component {
     );
   }
 }
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(Object).isRequired,
+};
 
 export default MovieLibrary;
