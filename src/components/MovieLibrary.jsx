@@ -7,15 +7,15 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    //  const { movies } = this.props;
-    /*
+    const { movies } = this.props;
+    
     this.state = {
       movies,
       textInput: '',
       genreOption: '',
       favoritesOnly: '',
     };
-*/
+
     this.handleChange = this.handleChange.bind(this);
     this.changeMovieList = this.changeMovieList.bind(this);
   }
@@ -27,6 +27,10 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
+    const { movies } = this.state;
+    // Rederizando o estado dos filmes
+    const { textInput, favoritesOnly, genreOption } = this.state;
+    // Definindo as estradas
     return (
       <div>
         <SearchBar

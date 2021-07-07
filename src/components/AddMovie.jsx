@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Genre from './addMovie/Genre';
 import ImagePath from './addMovie/ImagePath';
 import Subtitle from './addMovie/Subtitle';
@@ -28,7 +29,7 @@ class AddMovie extends React.Component {
   }
 
   submitMovie() {
-    // const { onClick } = this.props;
+    const { onClick } = this.props;
     // A função onClick está apresentando um erro que ainda não identifiquei
     const { title, subtitle, storyline,
       imagePath, genre, rating } = this.state;
@@ -102,5 +103,8 @@ class AddMovie extends React.Component {
     );
   }
 }
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
