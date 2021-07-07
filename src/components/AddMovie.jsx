@@ -33,9 +33,7 @@ class AddMovie extends React.Component {
     });
   }
 
-  onClickSubmit(event) {
-    event.preventDefault();
-    const { addNewMovie } = this.props;
+  onClickSubmit(addNewMovie) {
     addNewMovie(this.state);
     this.resetState();
   }
@@ -53,6 +51,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
+    const { addNewMovie } = this.props;
     return (
       <form data-testid="add-movie-form">
         <InputTitle value={ title } handleClick={ this.handleClick } />
@@ -64,7 +63,7 @@ class AddMovie extends React.Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={ (event) => this.onClickSubmit(event) }
+          onClick={ () => this.onClickSubmit(addNewMovie) }
         >
           Adicionar filme
         </button>
