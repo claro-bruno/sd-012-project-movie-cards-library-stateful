@@ -15,6 +15,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { title } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form" />
