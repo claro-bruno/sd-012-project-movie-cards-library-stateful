@@ -1,8 +1,7 @@
-// implement SearchBar component here
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class SearchBar extends Component {
+export default class SearchBar extends Component {
   render() {
     const { searchText,
       onSearchTextChange,
@@ -21,7 +20,8 @@ class SearchBar extends Component {
               name="searchText"
               value={ searchText }
               onChange={ onSearchTextChange }
-              data-testID="text-input" />
+              data-testID="text-input"
+            />
           </label>
           <label htmlFor="checkbox-input" data-testID="checkbox-input-label">
             Mostrar somente favoritos
@@ -62,5 +62,3 @@ SearchBar.propTypes = {
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
-
-export default SearchBar;
