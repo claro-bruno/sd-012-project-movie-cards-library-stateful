@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+// import MovieCard from './MovieCard';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -41,11 +42,13 @@ class MovieLibrary extends Component {
     });
   }
 
-  newMovie(state) {
+  async newMovie(state) {
     state.bookmarked = true;
     state.rating = parseFloat(state.rating);
     this.setState((prevState) => {
-      prevState.movies.push(state);
+      const newMovies = [...prevState.movieList];
+      newMovies.push(state);
+      return { movieList: newMovies };
     });
   }
 
