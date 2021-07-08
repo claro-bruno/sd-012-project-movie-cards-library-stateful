@@ -22,8 +22,18 @@ class MovieLibrary extends React.Component {
 
   handleChange({ target }) {
     const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const value = target.type === 'checkbox'
+      ? target.checked : target.value;
     this.setState({ [name]: value });
+    // Lidando com os campos de entrada
+    // pegando o conceito de https://www.freecodecamp.org/news/get-pro-with-react-setstate-in-10-minutes-d38251d1c781/
+  }
+
+  addMovie = (newMovie) => {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
   }
 
   render() {
@@ -32,6 +42,7 @@ class MovieLibrary extends React.Component {
     const { textInput, favoritesOnly, genreOption } = this.state;
     // Definindo as estradas
     const filterMovies = movies
+
       .filter(({ bookmarked }) => !favoritesOnly || bookmarked)
       .filter(
         ({ title, subtitle, storyline }) => title.includes(textInput)

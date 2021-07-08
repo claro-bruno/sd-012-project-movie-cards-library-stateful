@@ -7,6 +7,7 @@ import Title from './addMovie/Title';
 import Rating from './addMovie/Rating';
 
 class AddMovie extends React.Component {
+  // Colocando no estado que vai executar quando o componente for chamado
   constructor(props) {
     super(props);
 
@@ -53,6 +54,7 @@ class AddMovie extends React.Component {
       genre: 'action',
       rating: 0,
     });
+    // (this.setState) Atualizando o estado de um new movie.
   }
 
   render() {
@@ -61,6 +63,7 @@ class AddMovie extends React.Component {
     const { storyline, genre } = this.state;
     return (
       <form data-testid="add-movie-form" onSubmit={ (e) => e.preventDefault() }>
+
         <Title
           title={ title }
           handleChange={ this.handleChange }
