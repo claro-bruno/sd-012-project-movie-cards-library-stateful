@@ -46,22 +46,22 @@ class MovieLibrary extends Component {
     const {
       bookmarkedOnly,
       selectedGenre,
-      searchText
+      searchText,
     } = this.state;
     const { movies } = this.props;
-    
-    if (selectedGenre.length > 0){
+    if (selectedGenre.length > 0) {
       return movies.filter((item) => item.genre === selectedGenre);
     }
     if (searchText.length > 0) {
-      return movies.filter((item) => item.title.toLowerCase().includes(searchText.toLowerCase())) || movies.filter((item) => item.subtitle.toLowerCase().includes(searchText.toLowerCase())) || movies.filter((item) => item.storyline.toLowerCase().includes(searchText.toLowerCase()))
+      return movies.filter((item) => item.title.toLowerCase().includes(searchText.toLowerCase()))
+        || movies.filter((item) => item.subtitle.toLowerCase().includes(searchText.toLowerCase()))
+        || movies.filter((item) => item.storyline.toLowerCase().includes(searchText.toLowerCase()));
     }
-    if(bookmarkedOnly === false) {
+    if (bookmarkedOnly === false) {
       return movies;
-    } else if (bookmarkedOnly === true) {
+    } else {
       return movies.filter((item) => item.bookmarked === true);
     }
-
   }
 
   render() {
