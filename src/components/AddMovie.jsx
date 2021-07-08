@@ -31,7 +31,11 @@ class AddMovie extends Component {
     });
   }
 
-  handleResetState() {
+  handleResetState(e) {
+    e.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+
     this.setState({
       subtitle: '',
       title: '',
@@ -43,7 +47,6 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -54,9 +57,8 @@ class AddMovie extends Component {
         <RatingAddMovie rating={ rating } onChange={ this.handleChange } />
         <Genre genre={ genre } onChange={ this.handleChange } />
         <Button
-          onClick={ () => {
-            onClick(this.state);
-            this.handleResetState();
+          onClick={ (e) => {
+            this.handleResetState(e);
           } }
           text="Adicionar filme"
         />

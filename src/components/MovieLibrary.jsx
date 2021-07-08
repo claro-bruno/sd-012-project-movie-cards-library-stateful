@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import MovieCard from './MovieCard';
+import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -16,10 +16,16 @@ class MovieLibrary extends Component {
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleFilteredMovies = this.handleFilteredMovies.bind(this);
   }
 
   handleClick(state) {
-    console.log(state);
+    const { title, subtitle, imagePath, storyline } = state;
+    if (title || subtitle || imagePath || storyline) {
+      this.setState((prevState) => ({
+        movies: [...prevState.movies, state],
+      }));
+    } else { alert('Nao foi possivel adicionar o filme'); }
   }
 
   handleChange({ target }) {
@@ -27,11 +33,34 @@ class MovieLibrary extends Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
-    });
+    }, () => this.handleFilteredMovies());
+  }
+
+  handleFilteredMovies() {
+    const { searchText, selectedGenre, bookmarkedOnly } = this.state;
+    let { movies } = this.state;
+
+    if (searchText !== '') {
+      movies = movies.filter((movie) => (
+        movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+        || movie.storyline.includes(searchText)
+      ));
+    }
+
+    if (bookmarkedOnly) {
+      movies = movies.filter((movie) => movie.bookmarked === true);
+    }
+
+    if (selectedGenre !== '') {
+      movies = movies.filter((movie) => movie.genre === selectedGenre);
+    }
+
+    return movies;
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
@@ -43,9 +72,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <AddMovie onClick={ this.handleClick } />
-        { movies.map((movie) => <MovieCard movie={ movie } key={ movie.id } />)}
-        { bookmarkedOnly }
-        {selectedGenre}
+        <MovieList movies={ this.handleFilteredMovies() } />
       </div>
     );
   }
