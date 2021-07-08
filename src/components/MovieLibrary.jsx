@@ -9,20 +9,26 @@ class MovieLibrary extends Component {
     super();
     this.state = {
       searchText: '',
-      // bookmarkedOnly: false,
+      bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
   }
 
   handleChange(e) {
-    this.setState({ searchText: e.target.value, selectedGenre: e.target.value });
+    this.setState({ searchText: e.target.value,
+      selectedGenre: e.target.value });
+  }
+
+  onBookmarkedChange(e) {
+    this.setState({ bookmarkedOnly: e.target.value });
   }
 
   render() {
-    const { searchText, selectedGenre, movies } = this.state;
+    const { searchText, selectedGenre, bookmarkedOnly, movies } = this.state;
 
     return (
       <div>
@@ -31,6 +37,8 @@ class MovieLibrary extends Component {
           onSearchTextChange={ this.handleChange }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          bookmarked={ bookmarkedOnly }
         />
         <MovieList
           movies={
@@ -38,6 +46,7 @@ class MovieLibrary extends Component {
             || movieF.subtitle.includes(searchText)
             || movieF.storyline.includes(searchText)
             || movieF.genre.includes(selectedGenre))
+            || movies.filter((favo) => favo.bookmarked.includes(bookmarkedOnly))
           }
         />
         <AddMovie />

@@ -6,13 +6,13 @@ class InputCheckBoxTag extends React.Component {
     const { textBoxLabel,
       dataTestidLabel, bookmarkedOnly, onBookmarkedChange, dataTestidInput } = this.props;
     return (
-      // console.log(this.props)
       <label
         data-testid={ dataTestidLabel }
         htmlFor={ dataTestidInput }
       >
         { textBoxLabel }
         <input
+          id="bookmarked"
           type="checkbox"
           checked={ bookmarkedOnly }
           onChange={ onBookmarkedChange }

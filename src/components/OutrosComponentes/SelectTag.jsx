@@ -5,7 +5,6 @@ class SelectTag extends React.Component {
   render() {
     const { selectLabelText, selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      // console.log(this.props)
       <label
         data-testid="select-input-label"
         htmlFor="select-input-label"

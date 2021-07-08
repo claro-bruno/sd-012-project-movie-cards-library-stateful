@@ -26,7 +26,7 @@ class AddMovie extends Component {
 
   handleChange2(e) { this.setState({ [e.target.name]: e.target.value }); }
 
-  // funcão de restaurar stado anterior pego e adaptador do repositorio de caio-takeshi.
+  // funcão de restaurar stado anterior pego e adaptador do repositorio de caio-takeshi
   onClick = () => {
     const { onClick } = this.props;
     onClick({ ...this.state });
