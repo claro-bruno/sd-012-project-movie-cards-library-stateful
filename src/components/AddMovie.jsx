@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Title from './AddButtonComp/Title';
 import Subtitle from './AddButtonComp/Subtitle';
 import ImagePath from './AddButtonComp/ImagePath';
@@ -20,10 +21,22 @@ class AddMovie extends Component {
     };
 
     this.handleChange2 = this.handleChange2.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
-  handleChange2(e) {
-    this.setState({ [e.target.name]: e.target.value,
+  handleChange2(e) { this.setState({ [e.target.name]: e.target.value }); }
+
+  // funcão de restaurar stado anterior pego e adaptador do repositorio de caio-takeshi.
+  onClick = () => {
+    const { onClick } = this.props;
+    onClick({ ...this.state });
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -45,9 +58,13 @@ class AddMovie extends Component {
 
         <SelectAdd genre={ genre } handleChange2={ this.handleChange2 } />
 
-        <ButtonAdd />
+        <ButtonAdd onClick={ this.onClick } />
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 export default AddMovie;

@@ -23,7 +23,7 @@ class MovieLibrary extends Component {
 
   render() {
     const { searchText, selectedGenre, movies } = this.state;
-    console.log(typeof (movies));
+
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -47,8 +47,8 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.shape({
-  }).isRequired,
+  movies: PropTypes.arrayOf(PropTypes.shape({
+  })).isRequired,
 };
 
 export default MovieLibrary;
