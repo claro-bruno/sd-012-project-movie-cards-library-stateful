@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
-import Data from '../data';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies: props.movies,
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.addFilm = this.addFilm.bind(this);
   }
 
   handleChange({ target }) {
@@ -33,10 +35,16 @@ class MovieLibrary extends Component {
       });
     }
   }
+
+  addFilm(newFilm) {
+    this.setState((antiqueFilm) => ({
+      movies: [...antiqueFilm.movies, newFilm],
+    }));
+  }
   // se o tipo do valor for igual a checkbox, ele vai pegar o target.checked (que existe no checkbox), senão, ele pega o value
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <SearchBar
@@ -47,12 +55,16 @@ class MovieLibrary extends Component {
           onBookmarkedChange={ this.handleChange }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ Data } />
-        <AddMovie />
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ (newFilm) => this.addFilm(newFilm) } />
       </div>
 
     );
   }
 }
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+
+};
 
 export default MovieLibrary;
