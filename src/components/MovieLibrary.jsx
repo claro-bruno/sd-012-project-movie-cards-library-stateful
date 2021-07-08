@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-// import MovieCard from './MovieCard';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -19,6 +18,9 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.textFilter = this.textFilter.bind(this);
+    this.bookmarkedFilter = this.bookmarkedFilter.bind(this);
+    this.genreFilter = this.genreFilter.bind(this);
     this.newMovie = this.newMovie.bind(this);
   }
 
@@ -42,6 +44,42 @@ class MovieLibrary extends Component {
     });
   }
 
+  textFilter(movies, searchText) {
+    return movies.filter((movie) => Object.keys(movie).some((key) => {
+      let match = false;
+      if (typeof (movie[key]) !== 'number' && typeof (movie[key]) !== 'boolean') {
+        match = movie[key].includes(searchText);
+      }
+      return match;
+    }));
+  }
+
+  bookmarkedFilter(textFilter, bookmarkedOnly) {
+    if (bookmarkedOnly === true) {
+      return textFilter.filter((movie) => movie.bookmarked === true);
+    }
+    return textFilter;
+  }
+
+  genreFilter(filteredMovies, selectedGenre) {
+    let selected = '';
+    switch (selectedGenre) {
+    case 'action':
+      selected = filteredMovies.filter((movie) => movie.genre === 'action');
+      break;
+    case 'comedy':
+      selected = filteredMovies.filter((movie) => movie.genre === 'comedy');
+      break;
+    case 'thriller':
+      selected = filteredMovies.filter((movie) => movie.genre === 'thriller');
+      break;
+    default:
+      selected = filteredMovies;
+      break;
+    }
+    return selected;
+  }
+
   async newMovie(state) {
     state.bookmarked = true;
     state.rating = parseFloat(state.rating);
@@ -53,8 +91,11 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movieList } = this.state;
+    const { state } = this;
+    const { searchText, bookmarkedOnly, selectedGenre, movieList } = state;
+    const searchMovies = this.textFilter(movieList, searchText);
+    const filteredMovies = this.bookmarkedFilter(searchMovies, bookmarkedOnly);
+    const selectMovies = this.genreFilter(filteredMovies, selectedGenre);
 
     return (
       <div>
@@ -66,7 +107,7 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <MovieList movies={ movieList } filters={ this.state } />
+        <MovieList movies={ selectMovies } />
         <AddMovie onClick={ this.newMovie } />
       </div>
     );
