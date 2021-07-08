@@ -6,6 +6,7 @@ import InputTextarea from './componentForAddMovie/InputTextarea';
 import InputNumber from './componentForAddMovie/InputNumber';
 import SelectGenre from './componentForAddMovie/SelectGenre';
 import Button from './componentForAddMovie/Button';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
@@ -41,7 +42,7 @@ class AddMovie extends Component {
         storyline: e.target.value,
       });
     } else if (e.target.id === 'rating') {
-      let number = Number(e.target.value)
+      const number = Number(e.target.value);
       this.setState({
         rating: number,
       });
@@ -53,18 +54,17 @@ class AddMovie extends Component {
   }
 
   resetState() {
-    const { onClick } = this.props
-    onClick(this.state)
-    return (
-      this.setState({
-        title: '',
-        subtitle: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: 'action',
-      })
-    )
+    const { onClick } = this.props;
+    onClick(this.state);
+    
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -112,5 +112,9 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
