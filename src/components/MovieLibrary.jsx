@@ -6,30 +6,39 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  //   constructor() {
-  //   super();
-  //   this.state = {
-  //     bookmarkedOnly: false,
-  //     selectedGenre: '',
-  //     searchText: '',
-  //   };
-  // }
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor() {
+    super();
+    const { movies } = this.props;
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies,
+    };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    const { name, type, checked, value } = event.target;
+    if (type === 'checkbox') {
+      this.setState({ [name]: checked });
+    }
+    this.setState({ [name]: value });
+  }
+
   // adicionar()
   render() {
-    const { movies } = this.props;
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText={ String }
-          onSearchTextChange={ Function }
-          bookmarkedOnly={ Boolean }
-          onBookmarkedChange={ Function }
-          selectedGenre={ String }
-          onSelectedGenreChange={ Function }
+          searchText={ searchText }
+          onSearchTextChange={ this.handleChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleChange }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies } />
         <AddMovie onClick={ Function } />
