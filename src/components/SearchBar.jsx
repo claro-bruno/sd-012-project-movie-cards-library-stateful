@@ -34,7 +34,7 @@ class SearchBar extends Component {
             />
           </label>
           <label htmlFor="select-input" data-testID="select-input-label">
-            Gênero
+            Filtrar por gênero
             <select
               name="selectedGenre"
               id="select-test-ID"
@@ -46,7 +46,6 @@ class SearchBar extends Component {
               <option data-testID="select-option" value="action">Ação</option>
               <option data-testID="select-option" value="comedy">Comédia</option>
               <option data-testID="select-option" value="thriller">Suspense</option>
-              <option data-testID="select-option" value="drama">Drama</option>
             </select>
           </label>
         </form>
