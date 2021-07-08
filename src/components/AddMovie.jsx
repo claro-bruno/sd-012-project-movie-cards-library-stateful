@@ -18,6 +18,8 @@ class AddMovie extends React.Component {
 
   transferInput({ target }) {
     const { name, value } = target;
+    /*  const value = target.type === 'checkbox' ? target.checked : target.value; */
+    console.log(name, value);
     this.setState({
       [name]: value,
     });
@@ -63,7 +65,7 @@ class AddMovie extends React.Component {
       <label htmlFor="image-input" data-testid="image-input-label">
         Imagem
         <input
-          name="image-input"
+          name="imagePath"
           type="text"
           data-testid="image-input"
           value={ imagePath }
@@ -114,9 +116,10 @@ class AddMovie extends React.Component {
           name="genre"
           data-testid="genre-input"
           value={ genre }
-          onChange={ genre }
+          onChange={ this.transferInput }
           id="genre-input"
         >
+          {/* <option value="" data-testid="genre-option">Todos</option> */}
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
           <option value="thriller" data-testid="genre-option">Suspense</option>
