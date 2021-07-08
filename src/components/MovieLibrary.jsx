@@ -43,7 +43,7 @@ class MovieLibrary extends Component {
     const {
       searchText,
       bookmarkedOnly,
-      selectedGenre
+      selectedGenre,
     } = this.state;
     const { movies } = this.props;
     return (
@@ -69,7 +69,7 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf([PropTypes.object]).isRequired,
+  movies: PropTypes.instanceOf(Array).isRequired,
 };
 
 export default MovieLibrary;

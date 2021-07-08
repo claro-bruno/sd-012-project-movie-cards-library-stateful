@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import InputTitle from './componentForAddMovie/InputTitle';
 import InputSubtitle from './componentForAddMovie/InputSubtitle';
 import InputImage from './componentForAddMovie/InputImage';
@@ -6,7 +7,6 @@ import InputTextarea from './componentForAddMovie/InputTextarea';
 import InputNumber from './componentForAddMovie/InputNumber';
 import SelectGenre from './componentForAddMovie/SelectGenre';
 import Button from './componentForAddMovie/Button';
-import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
@@ -56,7 +56,6 @@ class AddMovie extends Component {
   resetState() {
     const { onClick } = this.props;
     onClick(this.state);
-    
     this.setState({
       title: '',
       subtitle: '',
