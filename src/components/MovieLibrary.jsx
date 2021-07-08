@@ -26,7 +26,9 @@ class MovieLibrary extends Component {
   }
 
   onBookmarkedChange(e) {
-    console.log(e.target.checked);
+    this.setState({
+      bookmarkedOnly: e.target.checked,
+    });
   }
 
   onSelectedGenreChange(e) {
