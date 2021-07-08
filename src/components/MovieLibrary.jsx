@@ -17,7 +17,7 @@ class MovieLibrary extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    // this.changeMovieList = this.changeMovieList.bind(this);
+    this.changeMovieList = this.changeMovieList.bind(this);
   }
 
   handleChange({ target }) {
@@ -35,6 +35,21 @@ class MovieLibrary extends React.Component {
       movies: [...movies, newMovie],
     });
   }
+
+  changeMovieList() {
+    const { favoritesOnly } = this.state;
+    if (favoritesOnly === false) {
+      this.setState({
+        favoritesOnly: true,
+      });
+    } else {
+      this.setState({
+        favoritesOnly: false,
+      });
+    }
+  }
+  // Com base no colega fabio Ryudi
+  /* https://github.com/tryber/sd-012-project-movie-cards-library-stateful/blob/fabio-ryudi-movie-cards-library-stateful/src/components/AddMovie.jsx */
 
   render() {
     const { movies } = this.state;
