@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
+import Data from '../data';
 
 class MovieLibrary extends Component {
   constructor() {
@@ -12,12 +13,25 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
     };
+
+    this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange({ target }) {
-    const { name, type } = target;
-    const value = (type === 'checkbox' ? target.checked : target.value);
-    this.setState({ [name]: value });
+    const { type, value, checked } = target;
+    if (type === 'text') {
+      this.setState({
+        searchText: value,
+      });
+    } else if (type === 'checkbox') {
+      this.setState({
+        bookmarkedOnly: checked,
+      });
+    } else {
+      this.setState({
+        selectedGenre: value,
+      });
+    }
   }
   // se o tipo do valor for igual a checkbox, ele vai pegar o target.checked (que existe no checkbox), senão, ele pega o value
 
@@ -27,7 +41,13 @@ class MovieLibrary extends Component {
       <div>
         <SearchBar
           searchText={ searchText }
+          onSearchTextChange={ this.handleChange }
+          bookmarkedOnly={ bookmarkedOnly }
+          selectedGenre={ selectedGenre }
+          onBookmarkedChange={ this.handleChange }
+          onSelectedGenreChange={ this.handleChange }
         />
+        <MovieList movies={ Data } />
         <AddMovie />
       </div>
 
