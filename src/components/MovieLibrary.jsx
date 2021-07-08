@@ -66,7 +66,7 @@ class MovieLibrary extends Component {
     if (bookmarkedOnly === false) {
       return movies;
     }
-    if (bookmarkedOnly === true){
+    if (bookmarkedOnly === true) {
       return movies.filter((item) => item.bookmarked === true);
     }
   }
