@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class MovieTitle extends React.Component {
   render() {
@@ -18,5 +19,9 @@ class MovieTitle extends React.Component {
     );
   }
 }
+MovieTitle.propTypes = {
+  title: PropTypes.string.isRequired,
+  handleChangeFunction: PropTypes.func.isRequired,
+};
 
 export default MovieTitle;

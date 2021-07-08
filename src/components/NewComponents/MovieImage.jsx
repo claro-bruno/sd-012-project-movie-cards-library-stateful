@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class MovieImage extends React.Component {
   render() {
@@ -19,5 +20,10 @@ class MovieImage extends React.Component {
     );
   }
 }
+
+MovieImage.propTypes = {
+  image: PropTypes.string.isRequired,
+  handleChangeFunction: PropTypes.func.isRequired,
+};
 
 export default MovieImage;

@@ -4,6 +4,7 @@ import MovieSubtitle from './NewComponents/MovieSubtitle';
 import MovieTitle from './NewComponents/MovieTitle';
 import MovieStoryline from './NewComponents/MovieStoryline';
 import MovieRating from './NewComponents/MovieRating';
+import MovieGenre from './NewComponents/MovieGenre';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -29,15 +30,34 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { subtitle, title, imagePath, storyline, rating } = this.state;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
       <div>
         <form data-testid="add-movie-form">
-          <MovieTitle title={ title } handleChangeFunction={ this.handleChange } />
-          <MovieSubtitle subtitle={ subtitle } handleChangeFunction={ this.handleChange } />
-          <MovieImage image={ imagePath } handleChangeFunction={ this.handleChange } />
-          <MovieStoryline storyline={ storyline } handleChangeFunction={ this.handleChange } />
-          <MovieRating rating={ rating } handleChangeFunction={ this.handleChange } />
+          <MovieTitle
+            title={ title }
+            handleChangeFunction={ this.handleChange }
+          />
+          <MovieSubtitle
+            subtitle={ subtitle }
+            handleChangeFunction={ this.handleChange }
+          />
+          <MovieImage
+            image={ imagePath }
+            handleChangeFunction={ this.handleChange }
+          />
+          <MovieStoryline
+            storyline={ storyline }
+            handleChangeFunction={ this.handleChange }
+          />
+          <MovieRating
+            rating={ rating }
+            handleChangeFunction={ this.handleChange }
+          />
+          <MovieGenre
+            genre={ genre }
+            handleChangeFunction={ this.handleChange }
+          />
         </form>
 
       </div>
