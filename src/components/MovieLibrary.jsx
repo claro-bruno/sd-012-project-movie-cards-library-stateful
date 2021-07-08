@@ -54,19 +54,20 @@ class MovieLibrary extends Component {
     }
     if (searchText.length > 0) {
       return movies.filter((item) => item.title.toLowerCase()
-        .includes(searchText.toLowerCase())
-      )
+        .includes(searchText
+          .toLowerCase()))
         || movies.filter((item) => item.subtitle.toLowerCase()
-          .includes(searchText.toLowerCase())
-        )
+          .includes(searchText
+            .toLowerCase()))
         || movies.filter((item) => item.storyline.toLowerCase()
-          .includes(searchText.toLowerCase())
-        );
+          .includes(searchText
+            .toLowerCase()));
     }
     if (bookmarkedOnly === false) {
       return movies;
-    } else {
-      movies.filter((item) => item.bookmarked === true);
+    }
+    if (bookmarkedOnly === true){
+      return movies.filter((item) => item.bookmarked === true);
     }
   }
 
