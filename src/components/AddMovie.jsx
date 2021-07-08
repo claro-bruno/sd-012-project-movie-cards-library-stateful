@@ -1,4 +1,6 @@
 import React from 'react';
+import MovieSubtitle from './NewComponents/MovieSubtitle';
+import MovieTitle from './NewComponents/MovieTitle';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -15,10 +17,14 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title } = this.state;
+    const { subtitle, title } = this.state;
     return (
       <div>
-        <form data-testid="add-movie-form" />
+        <form data-testid="add-movie-form">
+          <MovieTitle />
+          <MovieSubtitle />
+        </form>
+
       </div>
     );
   }
