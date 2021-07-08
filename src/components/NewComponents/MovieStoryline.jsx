@@ -4,7 +4,7 @@ class MovieStoryline extends React.Component {
   render() {
     const { storyline, handleChangeFunction } = this.props;
     return (
-      <label htmlFor="MovieSubtitle" data-testid="storyline-input-label">
+      <label htmlFor="MovieStoryline" data-testid="storyline-input-label">
         Sinopse
         <textarea
           name="storyline"
