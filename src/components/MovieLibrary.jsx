@@ -1,22 +1,20 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import movies from '../data';
 
 class MovieLibrary extends Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       searchText: '',
       // bookmarkedOnly: false,
       selectedGenre: '',
-      // movies: [...props.movies],
+      movies: props.movies,
     };
 
     this.handleChange = this.handleChange.bind(this);
-    // this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   handleChange(e) {
@@ -24,7 +22,8 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, selectedGenre } = this.state;
+    const { searchText, selectedGenre, movies } = this.state;
+    console.log(typeof (movies));
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -46,5 +45,10 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.shape({
+  }).isRequired,
+};
 
 export default MovieLibrary;

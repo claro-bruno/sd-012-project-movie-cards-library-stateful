@@ -6,7 +6,6 @@ class InputTag extends React.Component {
     const { searchText, onSearchTextChange,
       textDoInput, dataLabelId, dataInputId } = this.props;
     return (
-      // console.log(this.props)
       <label
         data-testid={ dataLabelId }
         htmlFor={ searchText }
