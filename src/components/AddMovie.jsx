@@ -12,12 +12,12 @@ class AddMovie extends React.Component {
     super(props);
 
     this.state = {
-      title: '',
       subtitle: '',
-      storyline: '',
+      title: '',
       imagePath: '',
-      genre: 'action',
+      storyline: '',
       rating: 0,
+      genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
     this.submitMovie = this.submitMovie.bind(this);

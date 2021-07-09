@@ -36,6 +36,8 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  // Com base no colega fabio Ryudi
+  /* https://github.com/tryber/sd-012-project-movie-cards-library-stateful/blob/fabio-ryudi-movie-cards-library-stateful/src/components/AddMovie.jsx */
   changeMovieList() {
     const { favoritesOnly } = this.state;
     if (favoritesOnly === false) {
@@ -48,10 +50,11 @@ class MovieLibrary extends React.Component {
       });
     }
   }
-  // Com base no colega fabio Ryudi
-  /* https://github.com/tryber/sd-012-project-movie-cards-library-stateful/blob/fabio-ryudi-movie-cards-library-stateful/src/components/AddMovie.jsx */
 
   render() {
+    const {
+      addMovie,
+    } = this;
     const { movies } = this.state;
     // Rederizando o estado dos filmes
     const { textInput, favoritesOnly, genreOption } = this.state;
@@ -83,9 +86,7 @@ class MovieLibrary extends React.Component {
             selectedGenre={ genreOption }
           />
         </div>
-        <AddMovie
-          onClick={ this.changeMovieList }
-        />
+        <AddMovie onClick={ addMovie } />
       </div>
 
     );

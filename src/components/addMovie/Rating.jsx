@@ -10,9 +10,9 @@ class Rating extends React.Component {
         <input
           type="number"
           data-testid="rating-input"
-          name="importRating"
+          name="rating"
           value={ rating }
-          id="importRating"
+          id="rating"
           onChange={ handleChange }
         />
       </label>
