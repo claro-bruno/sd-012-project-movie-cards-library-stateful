@@ -206,7 +206,7 @@ class AddMovie extends React.Component {
 
   render() {
     return (
-      <form data-testid="add-movie-form" onSubmit={ this.onSubmitForm }>
+      <form data-testid="add-movie-form">
         {this.renderTitleInput()}
         {this.renderSubtitleInput()}
         {this.renderImagepathInput()}

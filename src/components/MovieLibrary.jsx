@@ -63,18 +63,14 @@ class MovieLibrary extends Component {
 
   sendButtonClick(newMovie) {
     const { movies } = this.state;
-    console.log(newMovie);
-    console.log(movies.length);
     this.setState({
       movies: [...movies, newMovie],
     });
-    console.log(movies);
     this.render();
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    // const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
