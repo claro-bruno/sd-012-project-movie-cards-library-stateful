@@ -18,6 +18,7 @@ class InputLabel extends Component {
         >
           Inclui o texto
           <input
+            name="searchText"
             type="text"
             id="Text"
             value={ searchText }
@@ -30,6 +31,7 @@ class InputLabel extends Component {
           data-testid="checkbox-input-label"
         >
           <input
+            name="bookmarkedOnly"
             type="checkbox"
             id="Checkbox"
             checked={ bookmarkedOnly }
