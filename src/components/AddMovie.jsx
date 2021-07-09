@@ -6,9 +6,12 @@ class AddMovie extends React.Component {
        storyline, rating, genre} = this.props;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor>
+        <label data-testid="title-input-label" htmlFor="title-input">
           Título
           <input data-testid="title-input" value={ title } onChange={ title } />
+        </label>
+        <label>
+          <input />
         </label>
       </form>
     );
