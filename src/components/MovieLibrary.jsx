@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import MovieCard from './MovieCard';
 
 class MovieLibrary extends React.Component {
   render() {
@@ -9,6 +10,7 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <SearchBar />
+        {movies.map((movie) => <MovieCard movie={ movie } key={ movie.title } />)}
         <AddMovie />
       </div>
     );
@@ -16,12 +18,6 @@ class MovieLibrary extends React.Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.shape({
-    imagePath: PropTypes.string,
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    storyline: PropTypes.string,
-    rating: PropTypes.number,
-  }).isRequired,
+  movies: PropTypes.arrayOf({}).isRequired,
 };
 export default MovieLibrary;

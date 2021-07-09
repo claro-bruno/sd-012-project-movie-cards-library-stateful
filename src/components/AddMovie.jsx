@@ -1,19 +1,21 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
+const INITIAL_STATE = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
 
 class AddMovie extends React.Component {
   constructor() {
     super();
+    this.state = INITIAL_STATE;
     this.transferInput = this.transferInput.bind(this);
-
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.incrementMovie = this.incrementMovie.bind(this);
   }
 
   transferInput({ target }) {
@@ -25,8 +27,10 @@ class AddMovie extends React.Component {
     });
   }
 
-  /* incrementMovie() {
- } */
+  incrementMovie() {
+    /* onClick(this.state); */
+    this.setState(INITIAL_STATE);
+  }
 
   renderTitle(title) {
     return (
@@ -155,7 +159,7 @@ class AddMovie extends React.Component {
   }
 }
 
-/* AddMovie.propTypes = {
+AddMovie.propTypes = {
   movies: PropTypes.shape({
     imagePath: PropTypes.string,
     title: PropTypes.string,
@@ -163,6 +167,6 @@ class AddMovie extends React.Component {
     storyline: PropTypes.string,
     rating: PropTypes.number,
   }).isRequired,
-}; */
+};
 
 export default AddMovie;
