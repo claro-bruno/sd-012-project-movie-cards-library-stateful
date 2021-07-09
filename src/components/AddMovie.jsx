@@ -47,12 +47,12 @@ class AddMovie extends React.Component {
     onClick(updateMovies);
 
     this.setState({
-      title: '',
       subtitle: '',
-      storyline: '',
+      title: '',
       imagePath: '',
-      genre: 'action',
+      storyline: '',
       rating: 0,
+      genre: 'action',
     });
     // (this.setState) Atualizando o estado de um new movie.
   }

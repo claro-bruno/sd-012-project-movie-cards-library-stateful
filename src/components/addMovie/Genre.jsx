@@ -5,13 +5,13 @@ class Genre extends React.Component {
   render() {
     const { handleChange, genre } = this.props;
     return (
-      <label htmlFor="importGenre" data-testid="genre-input-label">
+      <label htmlFor="genre" data-testid="genre-input-label">
         Gênero
         <select
           data-testid="genre-input"
-          name="importGenre"
+          name="genre"
           value={ genre }
-          id="importGenre"
+          id="genre"
           onChange={ handleChange }
         >
           <option value="action" data-testid="genre-option">
