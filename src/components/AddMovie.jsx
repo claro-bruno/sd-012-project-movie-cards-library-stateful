@@ -59,9 +59,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleClickSend() {
+  handleClickSend(currentState) {
     const { onClick } = this.props;
-    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -70,6 +69,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
+    return (onClick(currentState));
   }
 
   renderTitleInput() {
@@ -192,12 +192,12 @@ class AddMovie extends React.Component {
     );
   }
 
-  renderSendButton() {
+  renderSendButton(currentState) {
     return (
       <button
         type="button"
         data-testid="send-button"
-        onClick={ () => this.handleClickSend() }
+        onClick={ () => this.handleClickSend(currentState) }
       >
         Adicionar filme
       </button>
@@ -205,17 +205,15 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    // const { onclick } = this.props;
-
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" onSubmit={ this.onSubmitForm }>
         {this.renderTitleInput()}
         {this.renderSubtitleInput()}
         {this.renderImagepathInput()}
         {this.renderStorylineTextarea()}
         {this.renderRatingInput()}
         {this.renderGenreSelect()}
-        {this.renderSendButton()}
+        {this.renderSendButton(this.state)}
       </form>
     );
   }
