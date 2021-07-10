@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 import InputImage from './InputImage';
 import InputRating from './InputRating';
 import InputSubtitle from './InputSubtitle';
@@ -24,6 +25,7 @@ class AddMovie extends React.Component {
     this.updateStoryline = this.updateStoryline.bind(this);
     this.updateRating = this.updateRating.bind(this);
     this.updateGenre = this.updateGenre.bind(this);
+    this.resetButton = this.resetButton.bind(this);
   }
 
   updateTitle(event) {
@@ -60,7 +62,20 @@ class AddMovie extends React.Component {
   updateGenre(event) {
     this.setState({
       genre: event.target.value,
-    })
+    });
+  }
+
+  resetButton() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -73,6 +88,7 @@ class AddMovie extends React.Component {
         <TextStoryline storyline={ storyline } updateStoryline={ this.updateStoryline } />
         <InputRating rating={ rating } updateRating={ this.updateRating } />
         <Select genre={ genre } updateGenre={ this.updateGenre } />
+        <Button onClick={ this.resetButton } />
       </form>
     );
   }

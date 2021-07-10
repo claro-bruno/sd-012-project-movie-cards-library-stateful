@@ -6,7 +6,7 @@ class Select extends React.Component {
     return (
       <label data-testid="genre-input-label" htmlFor>
         Gênero
-        <select 
+        <select
           value={ genre }
           data-testid="genre-input"
           onChange={ updateGenre }
