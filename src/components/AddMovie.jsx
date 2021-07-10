@@ -11,14 +11,21 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
-    this.updateState = this.updateState.bind(this);
+    };
+    this.updateTitle = this.updateTitle.bind(this);
+    this.updateSubtitle = this.updateSubtitle.bind(this);
   }
 
-  updateState(event) {
+  updateTitle(event) {
     this.setState({
       title: event.target.value,
-    })
+    });
+  }
+
+  updateSubtitle(event) {
+    this.setState({
+      subtitle: event.target.value,
+    });
   }
 
   render() {
@@ -29,13 +36,22 @@ class AddMovie extends React.Component {
           Título:
           <input
             type="text"
-            onChange={ this.updateState }
+            onChange={ this.updateTitle }
             data-testid="title-input"
-            value={title}
+            value={ title }
+          />
+        </label>
+        <label data-testid="subtitle-input-label" htmlFor>
+          Subtítulo:
+          <input
+            type="text"
+            onChange={ this.updateSubtitle }
+            data-testid="subtitle-input"
+            value={ subtitle }
           />
         </label>
       </form>
-    )
+    );
   }
 }
 
