@@ -20,7 +20,7 @@ class AddMovie extends Component {
     this.handleInputs = this.handleInputs.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
- 
+
   handleInputs({ target }) {
     const { name, value } = target;
     this.setState({
@@ -41,26 +41,25 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onClick } = this.props; 
+    const { onClick } = this.props;
     const { state } = this;
     const { storyline, genre } = state;
     return (
       <form data-testid="add-movie-form">
         <label>
           { inputs.map(({ dataTestidLabel, textLabel, dataTestid, type, keyState }) => (
-            <Input
+            <inputs
               dataTestidLabel={ dataTestidLabel }
               textLabel={ textLabel }
               dataTestid={ dataTestid }
               type={ type }
-              name= { keyState }
+              name={ keyState }
               value={ state[keyState] }
               onChange={ this.handleInputs }
               key={ keyState }
             />
           ))}
           <label htmlFor="storyline-input" data-testid="storyline-input-label">
-            
             Sinopse
             <textarea
               data-testid="storyline-input"
@@ -83,13 +82,13 @@ class AddMovie extends Component {
           <button
             data-testid="send-button"
             type="button"
-            onClick={ this.handleClick(onClick) }
+            onClick={ () => this.handleClick(onClick) }
           >
             Adicionar filme
           </button>
         </label>
       </form>
-    )
+    );
   }
 }
 
