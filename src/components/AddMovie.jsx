@@ -23,8 +23,6 @@ class AddMovie extends Component {
     this.state = initialState;
 
     this.changeHandler = this.changeHandler.bind(this);
-
-    this.buttonState = this.buttonState.bind(this);
   }
 
   changeHandler(event) {
@@ -34,15 +32,10 @@ class AddMovie extends Component {
     });
   }
 
-  buttonState() {
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState(initialState);
-  }
-
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { changeHandler, buttonState } = this;
+    const { changeHandler } = this;
+    const { onClickAdd } = this.props;
 
     return (
       <div>
@@ -80,7 +73,7 @@ class AddMovie extends Component {
             />
           </section>
           <ButtonAdd
-            onClick={ buttonState }
+            onClickAdd={ onClickAdd }
           />
         </form>
       </div>
@@ -89,6 +82,6 @@ class AddMovie extends Component {
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onClickAdd: PropTypes.func.isRequired,
 };
 export default AddMovie;

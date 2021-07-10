@@ -17,6 +17,7 @@ class MovieLibrary extends Component {
 
     this.handlerChange = this.handlerChange.bind(this);
     this.handlerFilter = this.handlerFilter.bind(this);
+    this.onClickAdd = this.onClickAdd.bind(this);
   }
 
   handlerChange({ target }) {
@@ -35,8 +36,8 @@ class MovieLibrary extends Component {
     if (searchText) {
       filterMovies = movies.filter((movie) => (
         movie.title.toLowerCase().includes(searchText.toLowerCase())
-      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
-      || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
+        || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+        || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
       ));
     }
     if (bookmarkedOnly) {
@@ -64,7 +65,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handlerChange }
         />
         <MovieList movies={ handlerFilter() } />
-        <AddMovie />
+        <AddMovie onClickAdd={ this.onClickAdd } />
       </div>
     );
   }
