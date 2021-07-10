@@ -4,7 +4,7 @@ import React from 'react';
 class SearchBar extends React.Component {
   render() {
     return (
-      <form id="search-bar-form">
+      <form data-testid="search-bar-form">
         <input type="search" name="" id="text-input" />
         <button type="submit">Search</button>
       </form>
