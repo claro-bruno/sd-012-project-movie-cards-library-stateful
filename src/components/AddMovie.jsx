@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-
+import Input from './input';
+import inputs from '../inputs';
 
 class AddMovie extends Component {
   constructor() {
@@ -13,10 +14,12 @@ class AddMovie extends Component {
       genre: 'action',
     };
 
+    this.onChangeInput = this.onChangeInput.bind(this);
     this.onChangeInputTitle = this.onChangeTitle.bind(this);
     this.onChangeSubtitle = this.onChangeSubtitle.bind(this);
     this.onChangeImage = this.onChangeImage.bind(this);
     this.onChangeStoryline = this.onChangeStoryline.bind(this);
+    this.onChangeRating = this.onChangeRating.bind(this);
   }
   onChangeTitle(e) {
     this.setState({ title: e.target.value });
@@ -26,57 +29,53 @@ class AddMovie extends Component {
     this.setState({ subtitle: e.target.value });
   }
 
-  onChangeIMage(e) {
-    this.setState({ image: e.target.value })
-  }
-
   onChangeStoryline(e) {
     this.setState({ soryline: e.target.value })
   }
 
+  onChangeGenre(e) {
+    this.setState({ genre: e.target.value })
+  }
+
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { storyline, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="title-input" data-testid="text-input-label">
-          Título
-          <input
-            data-testid="title-input"
-            id="title-input"
-            type="text"
-            value={ title }
-            onChange={ this.onChangeTitle }
-          />
-        </label>
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            data-testid="subtitle-input"
-            id="subtitle-input"
-            type="text"
-            value={ subtitle }
-            onChange={ this.onChangeSubtitle }
-          />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem
-          <input
-            data-testid="image-input"
-            id="image-input"
-            type="text"
-            value={ imagePath }
-            onChange={ this.onChangeImage }
-          />
-        </label>
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            data-testid="storyline-input"
-            id="storyline-input"
-            value={ storyline }
-            onChange={ this.onChangeStoryline }
-          />
+        <label>
+          { inputs.map(({ dataTestidLabel, textLabel, dataTestid, type, key }) => (
+            <Input
+              dataTestidLabel={ dataTestidLabel }
+              textLabel={ textLabel }
+              dataTestid={ dataTestid }
+              type={ type }
+              value={ this.state[key] }
+              onChange={ this.onChangeInput }
+              key={ key }
+            />
+          ))}
+          <label htmlFor="storyline-input" data-testid="storyline-input-label">
+            Sinopse
+            <textarea
+              data-testid="storyline-input"
+              id="storyline-input"
+              value={ storyline }
+              onChange={ this.onChangeStoryline }
+            />
+          </label>
+          <label htmlFor="genre-input" data-testid="genre-input-label">
+            Gênero
+            <select
+              data-testid="genre-input"
+              id="genre-input"
+              value={ genre }
+              onChange={ this.onChangeGenre }
+            >
+              <option data-testid="genre-option" value="action">Ação</option>
+              <option data-testid="genre-option" value="comedy">Comédia</option>
+              <option data-testid="genre-option" value="thriller">Suspense</option>
+            </select>
+          </label>
         </label>
       </form>
     )
