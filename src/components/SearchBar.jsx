@@ -21,6 +21,8 @@ class SearchBar extends Component {
               data-testid="text-input"
             />
           </label>
+        </form>
+        <form action="">
           <label data-testid="checkbox-input-label" htmlFor="checkboxInput">
             <input
               id="checkboxInput"
