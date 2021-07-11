@@ -22,10 +22,10 @@ class SearchBar extends Component {
               onChange={ onSearchTextChange }
               data-testid="text-input"
             />
-            <label data-testid="checkbox-input-label" htmlFor="checkboxInput">
+            <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
               Mostrar somente favoritos
               <input
-                id="checkboxInput"
+                id="checkbox-input"
                 type="checkboxInput"
                 checked={ bookmarkedOnly }
                 onChange={ onBookmarkedChange }
