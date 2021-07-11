@@ -1,4 +1,5 @@
 import React from 'react';
+import { string, func } from 'prop-types';
 
 class TextStoryline extends React.Component {
   render() {
@@ -15,5 +16,9 @@ class TextStoryline extends React.Component {
     );
   }
 }
+TextStoryline.propTypes = {
+  updateStoryline: func.isRequired,
+  storyline: string.isRequired,
+};
 
 export default TextStoryline;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { func } from 'prop-types';
 import Button from './Button';
 import InputImage from './InputImage';
 import InputRating from './InputRating';
@@ -93,5 +94,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: func.isRequired,
+};
 
 export default AddMovie;
