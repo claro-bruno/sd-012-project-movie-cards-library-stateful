@@ -7,26 +7,27 @@ class SearchBar extends Component {
       searchText,
       onSearchTextChange,
     } = this.props;
-    return(
+    return (
       <div>
         <form data-testid="search-bar-form">
-          <label data-testid="text-input-label">
-            Inclui o texto  
-            <input 
-              type="text" 
+          <label data-testid="text-input-label" htmlFor="textInput">
+            Inclui o texto
+            <input
+              id="textInput"
+              type="text"
               value={ searchText }
               onChange={ onSearchTextChange }
-              data-testid="text-input"    
+              data-testid="text-input"
             />
           </label>
         </form>
       </div>
-    )
+    );
   }
 }
 
 SearchBar.propTypes = {
-  seachText: PropTypes.string.isRequired,
+  searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.string.isRequired,
 };
 
