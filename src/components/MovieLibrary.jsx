@@ -22,20 +22,14 @@ class MovieLibrary extends Component {
   handleChange({ target }) {
     const { name, type } = target;
     const value = type === 'checkbox' ? target.checked : target.value;
-      this.setState({ [name]: value })
-  } 
+
+    this.setState({
+      [name]: value,
+    });
+  }
 
   handleClick(newMovie) {
     const { movies } = this.state;
-    // const newMovie = {
-    //   title,
-    //   subtitle,
-    //   storyline,
-    //   rating,
-    //   imagePath,
-    //   bookmarked: false,
-    //   genre,
-    // };
     this.setState({
       movies: [...movies, newMovie],
     });
@@ -70,7 +64,7 @@ class MovieLibrary extends Component {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
-        <h2> My awesome movie library </h2>
+        {/* <h2> My awesome movie library </h2> */}
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.handleChange }

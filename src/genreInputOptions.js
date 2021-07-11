@@ -12,4 +12,5 @@ const genreInputOptions = [
     text: 'Suspense',
   },
 ];
+
 export default genreInputOptions;

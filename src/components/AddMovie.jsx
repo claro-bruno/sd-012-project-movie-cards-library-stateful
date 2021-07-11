@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Input from './input';
+import Input from './Input';
 import inputs from '../data/inputs';
-import genreInputOptions from '../data/genreInputOptions';
 import Select from './Select';
+import genreInputOptions from '../data/genreInputOptions';
 
 class AddMovie extends Component {
   constructor() {
@@ -46,9 +46,9 @@ class AddMovie extends Component {
     const { storyline, genre } = state;
     return (
       <form data-testid="add-movie-form">
-        <label>
+        <fieldset className="add-movie">
           { inputs.map(({ dataTestidLabel, textLabel, dataTestid, type, keyState }) => (
-            <inputs
+            <Input
               dataTestidLabel={ dataTestidLabel }
               textLabel={ textLabel }
               dataTestid={ dataTestid }
@@ -86,7 +86,7 @@ class AddMovie extends Component {
           >
             Adicionar filme
           </button>
-        </label>
+        </fieldset>
       </form>
     );
   }

@@ -7,12 +7,11 @@ class Input extends Component {
       dataTestidLabel,
       textLabel,
       dataTestid,
-      name,
       type,
+      name,
       value = '',
       checked,
       onChange,
-      isRequired = true,
     } = this.props;
     return (
       <label htmlFor={ dataTestid } data-testid={ dataTestidLabel }>

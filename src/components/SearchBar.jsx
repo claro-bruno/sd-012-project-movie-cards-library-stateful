@@ -6,23 +6,24 @@ import genreSelectOptions from '../data/genreSelectOptions';
 
 class SearchBar extends Component {
   render() {
-    const { searchText,
-      bookmarkedOnly,
-      selectedGenre,
+    const {
+      searchText,
       onSearchTextChange,
+      bookmarkedOnly,
       onBookmarkedChange,
-      onSelectedGenreChange } = this.props;
-
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
     return (
-      <form data-testid="search-bar-form">
-       <Input
+      <form className="search-bar" data-testid="search-bar-form">
+        <Input
           dataTestidLabel="text-input-label"
           textLabel="Inclui o texto"
           dataTestid="text-input"
           type="text"
           name="searchText"
           value={ searchText }
-          onChange={ onSearchTextChange }  
+          onChange={ onSearchTextChange }
         />
         <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
           Mostrar somente favoritos

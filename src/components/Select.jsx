@@ -14,21 +14,21 @@ class Select extends Component {
       options,
     } = this.props;
     return (
-      <label htmlFor={ dataTestid } data-testid={ dataTestid }>
+      <label htmlFor={ dataTestid } data-testid={ dataTestidLabel }>
         { textLabel }
         <select
-         data-testid={ dataTestid }
-         id={ dataTestid }
-         name={ name }
-         value={ genre }
-         onChange={ onChange }
+          data-testid={ dataTestid }
+          id={ dataTestid }
+          name={ name }
+          value={ genre }
+          onChange={ onChange }
         >
           { options.map(({ value, text }) => (
             <option
               data-testid={ dataTestidOption }
               value={ value }
               key={ value }
-            >  
+            >
               { text }
             </option>
           )) }
