@@ -7,6 +7,7 @@ class SearchBar extends Component {
       searchText,
       onSearchTextChange,
     } = this.props;
+
     return (
       <div>
         <form data-testid="search-bar-form">
@@ -18,6 +19,14 @@ class SearchBar extends Component {
               value={ searchText }
               onChange={ onSearchTextChange }
               data-testid="text-input"
+            />
+          </label>
+          <label data-testid="checkbox-input-label" htmlFor="checkboxInput">
+            <input
+            id="checkboxInput"
+            type="checkboxInput"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange }
             />
           </label>
         </form>
