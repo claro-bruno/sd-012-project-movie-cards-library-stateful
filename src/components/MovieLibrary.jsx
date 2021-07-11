@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import SearchBar from './SearchBar';
+import SearchBar from './searchBar/SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
@@ -13,18 +13,23 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies,
+      filteredMovies: JSON.parse(localStorage.getItem('movies')) || movies,
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleFilteredMovies = this.handleFilteredMovies.bind(this);
+    this.handleResetMovies = this.handleResetMovies.bind(this);
   }
 
   handleClick(state) {
     const { title, subtitle, imagePath, storyline } = state;
-    if (title || subtitle || imagePath || storyline) {
+    if (title && subtitle && imagePath && storyline) {
       this.setState((prevState) => ({
-        movies: [...prevState.movies, state],
-      }));
+        filteredMovies: [...prevState.filteredMovies, state],
+      }), () => {
+        const { filteredMovies } = this.state;
+        localStorage.setItem('movies', JSON.stringify(filteredMovies));
+      });
     } else { alert('Nao foi possivel adicionar o filme'); }
   }
 
@@ -37,11 +42,10 @@ class MovieLibrary extends Component {
   }
 
   handleFilteredMovies() {
-    const { searchText, selectedGenre, bookmarkedOnly } = this.state;
-    let { movies } = this.state;
-
+    const { searchText, selectedGenre, bookmarkedOnly, movies } = this.state;
+    let filteredMovies = JSON.parse(localStorage.getItem('movies')) || movies;
     if (searchText !== '') {
-      movies = movies.filter((movie) => (
+      filteredMovies = filteredMovies.filter((movie) => (
         movie.title.includes(searchText)
         || movie.subtitle.includes(searchText)
         || movie.storyline.includes(searchText)
@@ -49,18 +53,29 @@ class MovieLibrary extends Component {
     }
 
     if (bookmarkedOnly) {
-      movies = movies.filter((movie) => movie.bookmarked === true);
+      filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true);
     }
 
     if (selectedGenre !== '') {
-      movies = movies.filter((movie) => movie.genre === selectedGenre);
+      filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
     }
+    this.setState({
+      filteredMovies,
+    });
+  }
 
-    return movies;
+  handleResetMovies() {
+    const { movies } = this.state;
+    this.setState({
+      filteredMovies: movies,
+    }, () => {
+      const { filteredMovies } = this.state;
+      localStorage.setItem('movies', JSON.stringify(filteredMovies));
+    });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, filteredMovies } = this.state;
     return (
       <div>
         <SearchBar
@@ -72,7 +87,8 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <AddMovie onClick={ this.handleClick } />
-        <MovieList movies={ this.handleFilteredMovies() } />
+        <MovieList movies={ filteredMovies } />
+        <button type="reset" onClick={ this.handleResetMovies }> Resetar movies</button>
       </div>
     );
   }

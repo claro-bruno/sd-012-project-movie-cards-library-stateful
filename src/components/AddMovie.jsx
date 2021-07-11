@@ -20,6 +20,7 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleResetState = this.handleResetState.bind(this);
   }
 
   handleChange(e) {
