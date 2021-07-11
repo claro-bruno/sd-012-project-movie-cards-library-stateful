@@ -22,16 +22,6 @@ class SearchBar extends Component {
             />
           </label>
         </form>
-        <form action="">
-          <label data-testid="checkbox-input-label" htmlFor="checkboxInput">
-            <input
-              id="checkboxInput"
-              type="checkboxInput"
-              checked={ bookmarkedOnly }
-              onChange={ onBookmarkedChange }
-            />
-          </label>
-        </form>
       </div>
     );
   }
