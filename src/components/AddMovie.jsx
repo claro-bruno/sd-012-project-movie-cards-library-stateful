@@ -6,12 +6,13 @@ import ImageInput from './ImageInput';
 import StorylineInput from './storylineInput';
 import RatingInput from './RatingInput';
 import GenreInput from './GenreInput';
+import ButtonInput from './ButtonInput';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
-    this.handleButtom = this.handleButtom.bind(this);
+    this.handleButton = this.handleButton.bind(this);
     this.state = {
       title: '',
       subtitle: '',
@@ -22,7 +23,7 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleButtom() {
+  handleButton() {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -44,7 +45,7 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const { handleChange } = this;
+    const { handleChange, handleButton } = this;
     return (
       <form data-testid="add-movie-form">
         <TitleInput title={ title } handleChange={ handleChange } />
@@ -53,9 +54,10 @@ class AddMovie extends React.Component {
         <StorylineInput storyline={ storyline } handleChange={ handleChange } />
         <RatingInput rating={ rating } handleChange={ handleChange } />
         <GenreInput genre={ genre } handleChange={ handleChange } />
+        <ButtonInput handleButton={ handleButton } />
       </form>
     );
-  }j
+  }
 }
 
 AddMovie.propTypes = {

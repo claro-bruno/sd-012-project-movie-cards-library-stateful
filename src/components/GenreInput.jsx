@@ -7,7 +7,7 @@ class GenreInput extends React.Component {
     return (
       <label htmlFor="ratingInput" data-testid="genre-input-label">
         Gênero
-        <select 
+        <select
           id="genreInput"
           name="genre"
           value={ genre }

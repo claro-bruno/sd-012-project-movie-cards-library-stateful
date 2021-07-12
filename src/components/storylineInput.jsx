@@ -5,7 +5,7 @@ class StorylineInput extends React.Component {
   render() {
     const { storyline, handleChange } = this.props;
     return (
-      <label htmlFor="storylineInput" data-testid="storyline-input-label" >
+      <label htmlFor="storylineInput" data-testid="storyline-input-label">
         Sinopse
         <textarea
           id="storylineInput"
