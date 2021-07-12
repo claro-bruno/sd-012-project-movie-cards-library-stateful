@@ -5,6 +5,7 @@ import ImagePath from './addMovie/ImagePath';
 import TextArea from './addMovie/TextArea';
 import Number from './addMovie/Number';
 import Select from './addMovie/Select';
+import Button from './addMovie/Button';
 
 class AddMovie extends Component {
   constructor() {
@@ -19,12 +20,24 @@ class AddMovie extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
     const { name, value } = target;
     this.setState({
       [name]: value,
+    });
+  }
+
+  handleClick() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     });
   }
 
@@ -42,6 +55,7 @@ class AddMovie extends Component {
         <TextArea value={ storyline } handleChange={ this.handleChange } />
         <Number value={ rating } handleChange={ this.handleChange } />
         <Select value={ genre } handleChange={ this.handleChange } />
+        <Button value={ this.state } handleClick={ this.handleClick } />
       </form>
     );
   }
