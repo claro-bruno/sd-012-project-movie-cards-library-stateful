@@ -9,7 +9,7 @@ class AddMovie extends React.Component {
       onBookmarkedChange,
     } = this.props;
     return (
-      <form data-testid="search-bar-form">
+      <form data-testid="add-movie-form">
         <label
           htmlFor="text-input"
           data-testid="text-input-label"
