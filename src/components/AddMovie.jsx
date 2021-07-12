@@ -45,11 +45,11 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <TitleInput title={ title } handleChange={ handleChange } />
-        <SubtitleInput title={ subtitle } handleChange={ handleChange } />
-        <ImageInput title={ imagePath } handleChange={ handleChange } />
+        <SubtitleInput subtitle={ subtitle } handleChange={ handleChange } />
+        <ImageInput imagePath={ imagePath } handleChange={ handleChange } />
       </form>
     );
-  }
+  }j
 }
 
 AddMovie.propTypes = {
