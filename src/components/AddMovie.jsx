@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Title from './addMovie/Title';
 import Subtitle from './addMovie/Subtitle';
 import ImagePath from './addMovie/ImagePath';
 import TextArea from './addMovie/TextArea';
 import Number from './addMovie/Number';
+import Select from './addMovie/Select';
 
 class AddMovie extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -30,7 +29,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
 
     return (
       <form
@@ -42,13 +41,10 @@ class AddMovie extends Component {
         <ImagePath value={ imagePath } handleChange={ this.handleChange } />
         <TextArea value={ storyline } handleChange={ this.handleChange } />
         <Number value={ rating } handleChange={ this.handleChange } />
+        <Select value={ genre } handleChange={ this.handleChange } />
       </form>
     );
   }
 }
-
-AddMovie.propTypes = {
-  handleChange: PropTypes.func.isRequired,
-};
 
 export default AddMovie;
