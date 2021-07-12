@@ -24,7 +24,7 @@ class AddMovie extends React.Component {
       title: event.target.value,
       imagePath: event.target.value,
       storyline: event.target.value,
-      rating: event.target.value, 
+      rating: event.target.value,
       genre: event.target.value,
     });
   }

@@ -11,7 +11,7 @@ class Input extends React.Component {
           type={ typeInput }
           value={ valueInput }
           onChange={ onChangeInput }
-          data-testid="title-input" 
+          data-testid="title-input"
         />
       </label>
     );
