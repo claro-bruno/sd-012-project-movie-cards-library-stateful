@@ -27,7 +27,7 @@ class MovieLibrary extends React.Component {
   * Consultei o repositório do ryanlaiber para resolver essa parte.
   * https://github.com/tryber/sd-012-project-movie-cards-library-stateful/blob/ryan-laiber-movie-cards-library-stateful/src/components/MovieLibrary.jsx
   */
- 
+
   onSearchTextChange({ target }) {
     const { value } = target;
     this.setState({
