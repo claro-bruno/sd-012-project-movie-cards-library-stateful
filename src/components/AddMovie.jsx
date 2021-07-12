@@ -9,7 +9,7 @@ const stateDefault = {
   storyLine: '',
   rating: 0,
   genre: 'action',
-}
+};
 
 class AddMovie extends React.Component{
   constructor() {
@@ -18,7 +18,7 @@ class AddMovie extends React.Component{
     this.state = stateDefault;
 
     this.handleChange = this.handleChange.bind(this);
-  }
+  };
 
   handleChange({ target }) {
     const { name } = target;
@@ -26,7 +26,7 @@ class AddMovie extends React.Component{
 
     this.setState({
       [name]: name === 'rating' ? Number(value) : value
-    })
+    });
   }
 
   render() {
