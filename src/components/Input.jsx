@@ -2,16 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class Input extends React.Component {
-    render() {
-      const { typeInput, textLabel, valueInput, onChangeInput } = this.props;
-      return (
-        <label htmlFor='titulo' data-testid='title-input-label'>
-          { textLabel }
-          <input type={ typeInput } value={ valueInput } onChange={ onChangeInput } data-testid='title-input' />
-        </label>
-
-        )
-    }
+  render() {
+    const { typeInput, textLabel, valueInput, onChangeInput } = this.props;
+    return (
+      <label htmlFor='titulo' data-testid='title-input-label'>
+        { textLabel }
+        <input 
+          type={ typeInput }
+          value={ valueInput }
+          onChange={ onChangeInput }
+          data-testid='title-input' />
+      </label>
+    )
+  }
 }
 
 Input.propTypes = PropTypes.exact({
@@ -23,4 +26,4 @@ Input.propTypes = PropTypes.exact({
     genre: PropTypes.string.isRequired,
 }).isRequired;
 
-export default Input; 
+export default Input;
