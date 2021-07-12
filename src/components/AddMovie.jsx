@@ -6,13 +6,19 @@ class AddMovie extends React.Component {
 
     this.state = {
       rating: 0,
+      genre: 'action',
     };
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleRatingChange = this.handleRatingChange.bind(this);
+    this.handleGenreChange = this.handleGenreChange.bind(this);
   }
 
-  handleChange(event) {
+  handleRatingChange(event) {
     this.setState({ rating: event.target.value });
+  }
+
+  handleGenreChange(event) {
+    this.setState({ genre: event.target.value });
   }
 
   render() {
@@ -46,8 +52,20 @@ class AddMovie extends React.Component {
             type="number"
             value={ rating }
             data-testid="rating-input"
-            onChange={ this.handleChange }
+            onChange={ this.handleRatingChange }
           />
+        </label>
+        <label data-testid="genre-input-label" htmlFor="genre-input">
+          Gênero
+          <select
+            value={ genre }
+            data-testid="genre-input"
+            onChange={ this.handleGenreChange }
+          >
+            <option selected value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
+          </select>
         </label>
       </form>
     );
