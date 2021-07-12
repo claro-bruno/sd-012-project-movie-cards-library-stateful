@@ -1,6 +1,11 @@
 // implement AddMovie component here
 import React from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
+import AddMovieStoryline from './AddMovieStoryline';
+import AddMovieImage from './AddMovieImage';
+import AddMovieRating from './AddMovieRating';
+import AddMovieSubtitle from './AddMovieSubtitle';
+import AddMovieTitle from './AddMovieTitle';
 
 const stateDefault = {
   subtitle: '',
@@ -11,85 +16,65 @@ const stateDefault = {
   genre: 'action',
 };
 
-class AddMovie extends React.Component{
+class AddMovie extends React.Component {
   constructor() {
     super();
-    
+
     this.state = stateDefault;
 
     this.handleChange = this.handleChange.bind(this);
-  };
+  }
 
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.check : target.value;
 
     this.setState({
-      [name]: name === 'rating' ? Number(value) : value
+      [name]: name === 'rating' ? Number(value) : value,
     });
   }
 
   render() {
+    const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
     const { onClick } = this.props;
-    return(
-      <form data-testid="add-movie-form" >
-        <label data-testid="title-input-label" >
+    return (
+      <form data-testid="add-movie-form">
+        <label data-testid="title-input-label">
           Título
-          <input 
-            data-testid="title-input"
-            type="text" 
-            name="title" 
-            id="title"
-            value={ this.state.title }
+          <AddMovieTitle
+            value={ title }
             onChange={ this.handleChange }
           />
         </label>
 
         <label data-testid="subtitle-input-label" >
           Subtítulo
-          <input 
-            
-            type="text" 
-            name="subtitle" 
-            id="subtitle" 
-            value={ this.state.subtitle }
+          <AddMovieSubtitle
+            value={ subtitle }
             onChange={ this.handleChange }
             />
         </label>
 
         <label data-testid="image-input-label" >
           Imagem
-          <input 
-            data-testid="image-input"
-            type="text"
-            name="imagePath"
-            id="imagePath"
-            value={ this.state.imagePath }
+          <AddMovieImage
+            value={ imagePath }
             onChange={ this.handleChange }
           />
         </label>
 
         <label data-testid="storyline-input-label" >
           Sinopse
-          <textarea
-            data-testid="storyline-input"
-            name="storyLine"
-            id="storyLine"
-            cols="30"
-            rows="10"
-            value={ this.state.storyLine }
+          <AddMovieStoryline 
+            value={ storyLine }
             onChange={ this.handleChange }
-          ></textarea>
+            />
         </label>
 
         <label data-testid="rating-input-label" >
           Avaliação
-          <input
-            data-testid="rating-input"
-            type="number"
-            name="rating"
-            id="rating"
-            value={ this.state.rating }
+          <AddMovieRating
+            value={ rating }
             onChange={ this.handleChange }
           />
         </label>
@@ -100,7 +85,7 @@ class AddMovie extends React.Component{
             data-testid="genre-input"
             name="genre"
             id="genre"
-            value={ this.state.genre }
+            value={ genre }
             onChange={ this.handleChange} 
           >
             <option data-testid="genre-option" value="action">Ação</option>
@@ -109,15 +94,14 @@ class AddMovie extends React.Component{
           </select>
         </label>
 
-        <button data-testid="send-button" onClick={ onClick && this.setState(stateDefault) }>Adicionar Filme</button>
+        <button data-testid="send-button" onClick={ onClick }>Adicionar filme</button>
       </form>
-    )
+    );
   }
-
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired
-}
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

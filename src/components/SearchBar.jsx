@@ -1,13 +1,20 @@
 // implement SearchBar component here
 import React from 'react';
-import ProtoTypes from 'prop-types'
+import ProtoTypes from 'prop-types';
 
-class SearchBar extends React.Component{
+class SearchBar extends React.Component {
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange, } = this.props;
-    return(
-      <form data-testid='search-bar-form' >
-        <label data-testid="text-input-label" >
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange,
+    } = this.props;
+    return (
+      <form data-testid="search-bar-form">
+        <label htmlFor="text-input-label" data-testid="text-input-label">
           Inclui o texto:
           <input
             data-testid="text-input"
@@ -18,21 +25,21 @@ class SearchBar extends React.Component{
           />
         </label>
 
-        <label data-testid="checkbox-input-label" >
+        <label htmlFor="checkbox-input-label" data-testid="checkbox-input-label">
           Mostrar somente favoritos
-          <input 
+          <input
             data-testid="checkbox-input"
             type="checkbox"
             name="bookMarkedOnly"
             checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange } 
+            onChange={ onBookmarkedChange }
           />
         </label>
 
-        <label data-testid="select-input-label" >
+        <label htmlFor="select-input-label" data-testid="select-input-label">
           Filtrar por gênero
           <select
-            data-testid="select-input" 
+            data-testid="select-input"
             name="selectedGenre"
             value={ selectedGenre }
             onChange={ onSelectedGenreChange }
@@ -41,10 +48,10 @@ class SearchBar extends React.Component{
             <option data-testid="select-option" value="action">Ação</option>
             <option data-testid="select-option" value="comedy">Comédia</option>
             <option data-testid="select-option" value="thriller">Suspense</option>
-         </select>
+          </select>
         </label>
       </form>
-    )
+    );
   }
 }
 
@@ -54,7 +61,7 @@ SearchBar.propTypes = {
   bookmarkedOnly: ProtoTypes.bool.isRequired,
   onBookmarkedChange: ProtoTypes.func.isRequired,
   selectedGenre: ProtoTypes.string.isRequired,
-  onSelectedGenreChange: ProtoTypes.func.isRequired
+  onSelectedGenreChange: ProtoTypes.func.isRequired,
 };
 
 export default SearchBar;
