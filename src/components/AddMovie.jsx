@@ -11,15 +11,15 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <label
-          htmlFor="text-input"
-          data-testid="text-input-label"
+          htmlFor="title-input"
+          data-testid="title-input-label"
         >
-          Inclui o texto
+          Título
           <input
             type="search"
-            name="text-input"
-            data-testid="text-input"
-            value={ searchText }
+            name="title-input"
+            data-testid="title-input"
+            value=""
             onChange={ onSearchTextChange }
           />
         </label>
