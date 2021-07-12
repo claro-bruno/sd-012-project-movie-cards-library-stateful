@@ -3,14 +3,14 @@ import React from 'react';
 import SearchBar from './SearchBar';
 
 class MovieLibrary extends React.Component{
-  constructor() {
+  constructor({ movies }) {
     super();
 
     this.state = {
       searchText: '',
       bookMarkedOnly: false,
       selectedGenre: '' ,
-      movies: this.props.movies
+      movies: movies
     };
 
     this.handleChange = this.handleChange.bind(this);

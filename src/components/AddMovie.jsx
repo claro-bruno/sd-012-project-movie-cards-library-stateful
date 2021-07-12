@@ -116,7 +116,7 @@ class AddMovie extends React.Component{
 
 }
 
-AddMovie.prototype = {
+AddMovie.propTypes = {
   onClick: PropTypes.func
 }
 

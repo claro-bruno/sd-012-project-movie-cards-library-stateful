@@ -48,7 +48,7 @@ class SearchBar extends React.Component{
   }
 }
 
-SearchBar.prototype = {
+SearchBar.propTypes = {
   searchText: ProtoTypes.string,
   onSearchTextChange: ProtoTypes.func,
   bookmarkedOnly: ProtoTypes.bool,
