@@ -32,17 +32,11 @@ class MovieLibrary extends Component {
     });
   }
 
+  /** Solução para substituir os if's que alternam o estado do checkbox entre true e false retirada de https://www.freecodecamp.org/learn/front-end-libraries/react/use-state-to-toggle-an-element */
   onBookmarkedChange() {
-    const { bookmarkedOnly } = this.state;
-    if (bookmarkedOnly === false) {
-      this.setState({
-        bookmarkedOnly: true,
-      });
-    } else {
-      this.setState({
-        bookmarkedOnly: false,
-      });
-    }
+    this.setState((state) => ({
+      bookmarkedOnly: !state.bookmarkedOnly,
+    }));
   }
 
   // Feito com ajuda de Márcio Daniel - Turma 8, Diogo Santana, Miguel Retroz, André Dantas (Turma 12)
