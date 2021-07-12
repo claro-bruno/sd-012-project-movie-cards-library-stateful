@@ -13,8 +13,8 @@ class SearchBar extends React.Component{
             data-testid="text-input"
             type="text"
             name="searchText"
-            value={searchText}
-            onChange={onSearchTextChange}
+            value={ searchText }
+            onChange={ onSearchTextChange }
           />
         </label>
 
@@ -23,19 +23,19 @@ class SearchBar extends React.Component{
           <input 
             data-testid="checkbox-input"
             type="checkbox"
-            name="bookmarkedOnly"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange} 
+            name="bookMarkedOnly"
+            checked={ bookmarkedOnly }
+            onChange={ onBookmarkedChange } 
           />
         </label>
 
         <label data-testid="select-input-label" >
           Filtrar por gênero
-         <select
-          data-testid="select-input" 
-          name="SelectedGenre"
-          value={selectedGenre}
-          onChange={onSelectedGenreChange}
+          <select
+            data-testid="select-input" 
+            name="selectedGenre"
+            value={ selectedGenre }
+            onChange={ onSelectedGenreChange }
           >
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>
@@ -49,12 +49,12 @@ class SearchBar extends React.Component{
 }
 
 SearchBar.propTypes = {
-  searchText: ProtoTypes.string,
-  onSearchTextChange: ProtoTypes.func,
-  bookmarkedOnly: ProtoTypes.bool,
-  onBookmarkedChange: ProtoTypes.func,
-  selectedGenre: ProtoTypes.string,
-  onSelectedGenreChange: ProtoTypes.func
+  searchText: ProtoTypes.string.isRequired,
+  onSearchTextChange: ProtoTypes.func.isRequired,
+  bookmarkedOnly: ProtoTypes.bool.isRequired,
+  onBookmarkedChange: ProtoTypes.func.isRequired,
+  selectedGenre: ProtoTypes.string.isRequired,
+  onSelectedGenreChange: ProtoTypes.func.isRequired
 };
 
 export default SearchBar;

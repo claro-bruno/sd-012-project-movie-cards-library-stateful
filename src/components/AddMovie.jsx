@@ -40,8 +40,8 @@ class AddMovie extends React.Component{
             type="text" 
             name="title" 
             id="title"
-            value={this.state.title}
-            onChange={this.handleChange}
+            value={ this.state.title }
+            onChange={ this.handleChange }
           />
         </label>
 
@@ -52,8 +52,8 @@ class AddMovie extends React.Component{
             type="text" 
             name="subtitle" 
             id="subtitle" 
-            value={this.state.subtitle}
-            onChange={this.handleChange}
+            value={ this.state.subtitle }
+            onChange={ this.handleChange }
             />
         </label>
 
@@ -64,8 +64,8 @@ class AddMovie extends React.Component{
             type="text"
             name="imagePath"
             id="imagePath"
-            value={this.state.imagePath}
-            onChange={this.handleChange}
+            value={ this.state.imagePath }
+            onChange={ this.handleChange }
           />
         </label>
 
@@ -77,8 +77,8 @@ class AddMovie extends React.Component{
             id="storyLine"
             cols="30"
             rows="10"
-            value={this.state.storyLine}
-            onChange={this.handleChange}
+            value={ this.state.storyLine }
+            onChange={ this.handleChange }
           ></textarea>
         </label>
 
@@ -89,8 +89,8 @@ class AddMovie extends React.Component{
             type="number"
             name="rating"
             id="rating"
-            value={this.state.rating}
-            onChange={this.handleChange}
+            value={ this.state.rating }
+            onChange={ this.handleChange }
           />
         </label>
 
@@ -100,8 +100,8 @@ class AddMovie extends React.Component{
             data-testid="genre-input"
             name="genre"
             id="genre"
-            value={this.state.genre}
-            onChange={this.handleChange}
+            value={ this.state.genre }
+            onChange={ this.handleChange} 
           >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -109,7 +109,7 @@ class AddMovie extends React.Component{
           </select>
         </label>
 
-        <button data-testid="send-button" onClick={onClick && this.setState(stateDefault)}>Adicionar Filme</button>
+        <button data-testid="send-button" onClick={ onClick && this.setState(stateDefault) }>Adicionar Filme</button>
       </form>
     )
   }
@@ -117,7 +117,7 @@ class AddMovie extends React.Component{
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func
+  onClick: PropTypes.func.isRequired
 }
 
 export default AddMovie;
