@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Title from './addMovie/Title';
 import Subtitle from './addMovie/Subtitle';
+import ImagePath from './addMovie/ImagePath';
+import TextArea from './addMovie/TextArea';
 
 class AddMovie extends Component {
 
@@ -27,13 +29,17 @@ class AddMovie extends Component {
   }
 
   render() {
+    const { title, subtitle, imagePath, storyline } = this.state;
+
     return (
       <form
         handleChange={ this.handleChange }
         data-testid="add-movie-form"
       >
-        <Title value={ this.state.title } handleChange={ this.handleChange } />
-        <Subtitle value={ this.state.subtitle } handleChange={ this.handleChange } />
+        <Title value={ title } handleChange={ this.handleChange } />
+        <Subtitle value={ subtitle } handleChange={ this.handleChange } />
+        <ImagePath value={ imagePath } handleChange={ this.handleChange } />
+        <TextArea value={ storyline } handleChange={ this.handleChange } />
       </form>
     );
   }
