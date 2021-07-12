@@ -4,7 +4,21 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieCard from './MovieCard';
 
+const INITIAL_STATE = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
+
 class MovieLibrary extends React.Component {
+  constructor() {
+    super();
+    this.state = INITIAL_STATE;
+  }
+
   render() {
     const { movies } = this.props;
     return (
