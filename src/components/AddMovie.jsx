@@ -13,7 +13,7 @@ class AddMovie extends Component {
             type="text"
             value={ title }
             data-testid="title-input"
-            onChange={ title = input.value }
+            onChange={ title.value = input.value }
           />
         </label>
       </form>
@@ -23,6 +23,6 @@ class AddMovie extends Component {
 
 AddMovie.propTypes = {
   title: PropTypes.string.isRequired,
-}
+};
 
 export default AddMovie;
