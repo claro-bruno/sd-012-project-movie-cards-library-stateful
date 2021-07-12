@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 class Title extends Component {
   render() {
-    const { title } = this.props;
-    const { handleChange } = this.props;
+    const { title, handleChange } = this.props;
 
     return (
       <label

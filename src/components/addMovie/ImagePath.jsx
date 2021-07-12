@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 class ImagePath extends Component {
   render() {
-    const { imagePath } = this.props;
-    const { handleChange } = this.props;
+    const { imagePath, handleChange } = this.props;
 
     return (
       <label

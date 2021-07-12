@@ -4,6 +4,7 @@ import Title from './addMovie/Title';
 import Subtitle from './addMovie/Subtitle';
 import ImagePath from './addMovie/ImagePath';
 import TextArea from './addMovie/TextArea';
+import Number from './addMovie/Number';
 
 class AddMovie extends Component {
 
@@ -29,7 +30,7 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
 
     return (
       <form
@@ -40,6 +41,7 @@ class AddMovie extends Component {
         <Subtitle value={ subtitle } handleChange={ this.handleChange } />
         <ImagePath value={ imagePath } handleChange={ this.handleChange } />
         <TextArea value={ storyline } handleChange={ this.handleChange } />
+        <Number value={ rating } handleChange={ this.handleChange } />
       </form>
     );
   }

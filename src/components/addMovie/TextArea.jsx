@@ -3,12 +3,11 @@ import PropTypes from 'prop-types';
 
 class TextArea extends Component {
   render() {
-    const { storyline } = this.props;
-    const { handleChange } = this.props;
+    const { storyline, handleChange } = this.props;
 
     return (
       <label
-        htmlFor="subtitle-input"
+        htmlFor="storyline-input"
         data-testid="storyline-input-label"
       >
         Sinopse

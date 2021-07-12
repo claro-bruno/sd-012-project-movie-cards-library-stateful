@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 
 class Subtitle extends Component {
   render() {
-    const { subtitle } = this.props;
-    const { handleChange } = this.props;
+    const { subtitle, handleChange } = this.props;
+
     return (
       <label
         htmlFor="subtitle-input"
