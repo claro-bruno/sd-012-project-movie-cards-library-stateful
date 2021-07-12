@@ -9,7 +9,7 @@ class AddMovieImage extends React.Component {
         Imagem
         <input
           data-testid="image-input"
-          type="number"
+          type="text"
           name="imagePath"
           id="imagePath"
           value={ value }
