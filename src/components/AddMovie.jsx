@@ -17,24 +17,32 @@ class AddMovie extends Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange() {
-    
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
-    const { onClick } = this.props;
-
+    const { title } = this.state;
     return (
       <form
-        onClick={ onClick }
+        handleChange={ this.handleChange }
         data-testid="add-movie-form"
       >
         <label
-          htmlFor="title-input-label"
+          htmlFor="input-label"
+          data-testid="title-input-label"
         >
           Título
           <input
-            data-testid="title-input-label"
+            type="text"
+            id="input-label"
+            name="title"
+            data-testid="title-input"
+            value={ title }
+            onChange={ this.handleChange }
           />
         </label>
       </form>
@@ -43,7 +51,7 @@ class AddMovie extends Component {
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default AddMovie;

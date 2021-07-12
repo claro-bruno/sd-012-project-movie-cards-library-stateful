@@ -2,14 +2,15 @@ import React from 'react';
 import MovieList from './components/MovieList';
 import movies from './data';
 import SearchBar from './components/SearchBar';
+import AddMovie from './components/AddMovie';
 
 class App extends React.Component {
   render() {
-    console.log(React.Component);
     return (
       <div className="App">
         <MovieList movies={ movies } />
         <SearchBar />
+        <AddMovie />
       </div>
     );
   }
