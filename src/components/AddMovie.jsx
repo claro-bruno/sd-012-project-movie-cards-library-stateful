@@ -17,15 +17,15 @@ class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-//requisitos feito com ajuda do Wadson Almeida!//
+  //  requisitos feito com ajuda do Wadson Almeida!
   handleChange(event) {
-    this.setState = ({ 
-      subtitle: event.target.value, 
-      title: event.target.value, 
-      imagePath: event.target.value, 
-      storyline: event.target.value, 
+    this.setState = ({
+      subtitle: event.target.value,
+      title: event.target.value,
+      imagePath: event.target.value,
+      storyline: event.target.value,
       rating: event.target.value, 
-      genre: event.target.value, 
+      genre: event.target.value,
     });
   }
 
