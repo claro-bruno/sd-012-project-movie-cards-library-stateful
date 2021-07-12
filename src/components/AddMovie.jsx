@@ -2,18 +2,20 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
+const stateDefault = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyLine: '',
+  rating: 0,
+  genre: 'action',
+}
+
 class AddMovie extends React.Component{
   constructor() {
     super();
     
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyLine: '',
-      rating: 0,
-      genre: 'action',
-    }
+    this.state = stateDefault;
 
     this.handleChange = this.handleChange.bind(this);
   }
@@ -107,7 +109,7 @@ class AddMovie extends React.Component{
           </select>
         </label>
 
-        <button data-testid="send-button" onClick={onClick}>Adicionar Filme</button>
+        <button data-testid="send-button" onClick={onClick && this.setState(stateDefault)}>Adicionar Filme</button>
       </form>
     )
   }
