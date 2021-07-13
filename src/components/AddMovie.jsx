@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Title from './Title';
+import Title from './Title.jsx';
 
 class AddMovie extends Component {
   constructor() {
@@ -24,7 +24,7 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         <Title
-        valueTitle={ title }
+          valueTitle={ title }
         />
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
