@@ -19,17 +19,18 @@ class AddMovie extends Component {
 
   render() {
     const {
-      title = '',
+      title
     } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="titleInput" data-testid="title-input-label">
+        <label htmlFor="title-input" data-testid="title-input-label">
           <input
-            id="titleInput"
+            id="title-input"
             type="text"
             value={ title }
             data-testid="title-input"
             onChange={ this.textInputHandler }
+            name="title"
           />
         </label>
       </form>
