@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Title from './Title';
+import TitleForm from './TitleForm';
 
 class AddMovie extends Component {
   constructor() {
@@ -23,7 +23,7 @@ class AddMovie extends Component {
     const { title, subtitle, imagePath } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <Title
+        <TitleForm
           valueTitle={ title }
         />
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
