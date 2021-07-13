@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Title from './Title.jsx';
+import Title from './Title';
 
 class AddMovie extends Component {
   constructor() {
