@@ -3,6 +3,7 @@ import MovieList from './components/MovieList';
 import movies from './data';
 import SearchBar from './components/SearchBar';
 import AddMovie from './components/AddMovie';
+import MovieLibrary from './components/MovieLibrary';
 
 class App extends React.Component {
   render() {
@@ -11,6 +12,7 @@ class App extends React.Component {
         <MovieList movies={ movies } />
         <SearchBar />
         <AddMovie />
+        <MovieLibrary movies={ movies } />
       </div>
     );
   }

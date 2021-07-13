@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Title from './addMovie/Title';
 import Subtitle from './addMovie/Subtitle';
 import ImagePath from './addMovie/ImagePath';
@@ -31,6 +32,15 @@ class AddMovie extends Component {
   }
 
   handleClick() {
+    const { onClick } = this.props;
+    onClick({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
     this.setState({
       subtitle: '',
       title: '',
@@ -55,10 +65,14 @@ class AddMovie extends Component {
         <TextArea value={ storyline } handleChange={ this.handleChange } />
         <Number value={ rating } handleChange={ this.handleChange } />
         <Select value={ genre } handleChange={ this.handleChange } />
-        <Button value={ this.state } handleClick={ this.handleClick } />
+        <Button onClick={ this.handleClick } />
       </form>
     );
   }
 }
 
 export default AddMovie;
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
