@@ -4,6 +4,7 @@ import React from 'react';
 import StringInput from './StringInput';
 import TxtAreaInput from './TxtAreaInput';
 import NumberInput from './NumberInput';
+import SelectInput from './SelectInput';
 
 const inputObject = [
   {
@@ -26,6 +27,12 @@ const inputObject = [
   },
 ];
 
+const options = [
+  { value: 'action', text: 'Ação' },
+  { value: 'comedy', text: 'Comédia' },
+  { value: 'thriller', text: 'Suspense' },
+];
+
 class AddMovie extends React.Component {
   constructor() {
     super();
@@ -36,6 +43,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
+      genre: 'action',
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -49,7 +57,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { storyline, rating } = this.state;
+    const { storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         { inputObject.map(({ name, text, testid, value }) => {
@@ -72,6 +80,11 @@ class AddMovie extends React.Component {
         <NumberInput
           value={ rating }
           onChange={ this.handleChange }
+        />
+        <SelectInput
+          value={ genre }
+          onChange={ this.handleChange }
+          options={ options }
         />
       </form>
     );
