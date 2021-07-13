@@ -8,10 +8,14 @@ class AddMovie extends React.Component {
     this.state = {
       title: '',
       subtitle: '',
+      imagePath: '',
+      storyline: '',
     };
 
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleSubtitleChange = this.handleSubtitleChange.bind(this);
+    this.handleImagePathChange = this.handleImagePathChange.bind(this);
+    this.handleStoryLineChange = this.handleStoryLineChange.bind(this);
   }
 
   handleTitleChange(event) {
@@ -22,8 +26,16 @@ class AddMovie extends React.Component {
     this.setState({ subtitle: event.target.value });
   }
 
+  handleImagePathChange(event) {
+    this.setState({ imagePath: event.target.value });
+  }
+
+  handleStoryLineChange(event) {
+    this.setState({ storyline: event.target.value });
+  }
+
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
 
     return (
       <form data-testid="add-movie-form">
@@ -45,6 +57,27 @@ class AddMovie extends React.Component {
             type="text"
             value={ subtitle }
             onChange={ this.handleSubtitleChange }
+          />
+        </label>
+        <label data-testid="image-input-label" htmlFor="imagePath">
+          Imagem
+          <input
+            data-testid="image-input"
+            name="imagePath"
+            type="text"
+            value={ imagePath }
+            onChange={ this.handleImagePathChange }
+          />
+        </label>
+        <label data-testid="storyline-input-label" htmlFor="storyline">
+          Sinopse
+          <textarea
+            data-testid="storyline-input"
+            name="storyline"
+            value={ storyline }
+            onChange={ this.handleStoryLineChange }
+            cols="30"
+            rows="10"
           />
         </label>
       </form>
