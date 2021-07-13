@@ -56,7 +56,7 @@ class AddMovie extends Component {
             value={ imagePath }
             data-testid="image-input"
             onChange={ this.textInputHandler }
-            name="image"
+            name="imagePath"
           />
         </label>
       </form>
