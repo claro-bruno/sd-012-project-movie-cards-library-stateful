@@ -18,6 +18,7 @@ class MovieLibrary extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.fetchMovies = this.fetchMovies.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   handleChange({ target }) {
@@ -45,8 +46,10 @@ class MovieLibrary extends React.Component {
     return movies;
   }
 
-  addMovie() {
-
+  addMovie(newMovie) {
+    const { movies } = this.state;
+    movies.push(newMovie);
+    this.setState({ movies });
   }
 
   render() {

@@ -9,11 +9,11 @@ import AddMovieTitle from './AddMovieTitle';
 import AddMovieGenre from './AddMovieGenre';
 
 const stateDefault = {
-  subtitle: '',
   title: '',
-  imagePath: '',
+  subtitle: '',
   storyLine: '',
   rating: 0,
+  imagePath: '',
   genre: 'action',
 };
 
@@ -24,6 +24,7 @@ class AddMovie extends React.Component {
     this.state = stateDefault;
 
     this.handleChange = this.handleChange.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   handleChange({ target }) {
@@ -35,9 +36,14 @@ class AddMovie extends React.Component {
     });
   }
 
+  addMovie() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(stateDefault);
+  }
+
   render() {
     const { title, subtitle, imagePath, storyLine, rating, genre } = this.state;
-    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <AddMovieTitle
@@ -67,7 +73,7 @@ class AddMovie extends React.Component {
         <button
           data-testid="send-button"
           type="button"
-          onClick={ onClick }
+          onClick={ this.addMovie }
         >
           Adicionar filme
         </button>
