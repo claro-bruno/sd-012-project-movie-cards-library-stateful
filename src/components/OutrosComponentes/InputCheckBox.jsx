@@ -12,10 +12,12 @@ class InputCheckBoxTag extends React.Component {
       >
         { textBoxLabel }
         <input
-          id="bookmarked"
+          name="bookmarkedOnly"
+          id="bookmarkedO"
           type="checkbox"
+          value={ bookmarkedOnly }
           checked={ bookmarkedOnly }
-          onChange={ onBookmarkedChange }
+          onClick={ onBookmarkedChange }
           data-testid={ dataTestidInput }
         />
       </label>
@@ -28,6 +30,7 @@ InputCheckBoxTag.propTypes = {
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
   dataTestidInput: PropTypes.string.isRequired,
+  // filtroTrue: PropTypes.func.isRequired,
 };
 
 export default InputCheckBoxTag;

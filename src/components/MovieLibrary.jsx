@@ -15,21 +15,18 @@ class MovieLibrary extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
   }
 
-  handleChange(e) {
-    this.setState({ searchText: e.target.value,
-      selectedGenre: e.target.value });
-  }
-
-  onBookmarkedChange(e) {
-    this.setState({ bookmarkedOnly: e.target.value });
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
     const { searchText, selectedGenre, bookmarkedOnly, movies } = this.state;
-
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -37,16 +34,17 @@ class MovieLibrary extends Component {
           onSearchTextChange={ this.handleChange }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
-          onBookmarkedChange={ this.onBookmarkedChange }
-          bookmarked={ bookmarkedOnly }
+          onBookmarkedChange={ this.handleChange }
+          checked={ bookmarkedOnly }
+          searchText={ searchText }
         />
         <MovieList
           movies={
             movies.filter((movieF) => movieF.title.includes(searchText)
             || movieF.subtitle.includes(searchText)
-            || movieF.storyline.includes(searchText)
-            || movieF.genre.includes(selectedGenre))
-            || movies.filter((favo) => favo.bookmarked.includes(bookmarkedOnly))
+            || movieF.storyline.includes(searchText))
+              .filter((movieF) => movieF.genre.includes(selectedGenre)
+              && (bookmarkedOnly ? movieF.bookmarked : true))
           }
         />
         <AddMovie />

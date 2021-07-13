@@ -12,6 +12,7 @@ class SearchBar extends React.Component {
       onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange,
+      // filtroTrue,
     } = this.props;
 
     return (
@@ -32,6 +33,7 @@ class SearchBar extends React.Component {
           dataTestidInput="checkbox-input"
           searchText="checkbox"
           dataTestid="checkbox-input"
+          // filtroTrue={ filtroTrue }
         />
 
         <SelectTag
@@ -52,6 +54,7 @@ SearchBar.propTypes = {
   onBookmarkedChange: PropTypes.func.isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
+  // filtroTrue: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

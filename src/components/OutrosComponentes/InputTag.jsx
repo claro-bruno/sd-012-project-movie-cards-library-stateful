@@ -12,6 +12,7 @@ class InputTag extends React.Component {
       >
         { textDoInput }
         <input
+          name="searchText"
           value={ searchText }
           onChange={ onSearchTextChange }
           id={ searchText }

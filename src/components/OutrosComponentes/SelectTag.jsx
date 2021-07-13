@@ -12,6 +12,7 @@ class SelectTag extends React.Component {
       >
         {selectLabelText}
         <select
+          name="selectedGenre"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
           id={ selectedGenre }

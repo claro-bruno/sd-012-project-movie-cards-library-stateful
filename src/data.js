@@ -45,5 +45,8 @@ const movies = [
     genre: 'fantasy',
   },
 ];
+const falsetrue = false;
+let test = movies.filter((e) => falsetrue === true ? e.bookmarked : movies)
+console.log(test);
 
 export default movies;
