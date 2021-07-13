@@ -1,6 +1,7 @@
 // implement AddMovie component here
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import StringInput from './StringInput';
 import TxtAreaInput from './TxtAreaInput';
 import NumberInput from './NumberInput';
@@ -47,6 +48,7 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   handleChange({ target }) {
