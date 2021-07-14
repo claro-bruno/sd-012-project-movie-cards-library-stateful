@@ -23,7 +23,7 @@ class MovieLibrary extends Component {
     return (
       <section>
         <SearchBar searchText={ searchText } />
-        <AddMovie />
+        <AddMovie /* onClick={ onClick } */ />
         <MovieList movies={ movies } />
       </section>
     );
