@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+/* import PropTypes from 'prop-types'; */
 import Title from './addMovie/Title';
 import Subtitle from './addMovie/Subtitle';
 import ImagePath from './addMovie/ImagePath';
@@ -8,20 +8,21 @@ import Number from './addMovie/Number';
 import Select from './addMovie/Select';
 import Button from './addMovie/Button';
 
+const initialState = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
 class AddMovie extends Component {
   constructor() {
     super();
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = initialState;
 
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -31,24 +32,10 @@ class AddMovie extends Component {
     });
   }
 
-  handleClick() {
-    const { onClick } = this.props;
-    onClick({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
+  onClick() {
+    console.log('função chamada!');
+
+    this.setState(initialState);
   }
 
   render() {
@@ -65,7 +52,7 @@ class AddMovie extends Component {
         <TextArea value={ storyline } handleChange={ this.handleChange } />
         <Number value={ rating } handleChange={ this.handleChange } />
         <Select value={ genre } handleChange={ this.handleChange } />
-        <Button onClick={ this.handleClick } />
+        <Button onClick={ this.onClick } />
       </form>
     );
   }
@@ -73,6 +60,7 @@ class AddMovie extends Component {
 
 export default AddMovie;
 
-AddMovie.propTypes = {
+/* AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
+ */
