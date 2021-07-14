@@ -47,7 +47,12 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         <fieldset className="add-movie">
-          { InputsData.map(({ dataTestidLabel, textLabel, dataTestid, type, keyState }) => (
+          { InputsData.map(({ 
+            dataTestidLabel, 
+            textLabel, 
+            dataTestid, 
+            type,
+            keyState }) => (
             <Input
               dataTestidLabel={ dataTestidLabel }
               textLabel={ textLabel }
