@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
-import InputsData from './InputsData';
+import InpData from './InpData';
 import Select from './Select';
 import genreInput from '../genreInput';
 
@@ -47,12 +47,7 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         <fieldset className="add-movie">
-          { InputsData.map(({ 
-            dataTestidLabel, 
-            textLabel, 
-            dataTestid, 
-            type,
-            keyState }) => (
+          { InpData.map(({ dataTestidLabel, textLabel, dataTestid, type, keyState }) => (
             <Input
               dataTestidLabel={ dataTestidLabel }
               textLabel={ textLabel }
