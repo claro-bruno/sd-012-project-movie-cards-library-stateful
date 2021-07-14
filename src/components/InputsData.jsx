@@ -1,4 +1,4 @@
-const inputs = [
+const InputsData = [
   {
     dataTestidLabel: 'title-input-label',
     textLabel: 'Título',
@@ -28,4 +28,4 @@ const inputs = [
     keyState: 'rating',
   },
 ];
-export default inputs;
+export default InputsData;

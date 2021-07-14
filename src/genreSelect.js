@@ -1,4 +1,8 @@
-const genreInputOptions = [
+const genreSelectOptions = [
+  {
+    value: '',
+    text: 'Todos',
+  },
   {
     value: 'action',
     text: 'Ação',
@@ -13,4 +17,4 @@ const genreInputOptions = [
   },
 ];
 
-export default genreInputOptions;
+export default genreSelectOptions;

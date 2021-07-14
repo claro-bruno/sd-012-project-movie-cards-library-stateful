@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
 import Select from './Select';
-import genreSelectOptions from '../data/genreSelectOptions';
+import genreSelect from '../genreSelect';
 
 class SearchBar extends Component {
   render() {
@@ -44,7 +44,7 @@ class SearchBar extends Component {
           name="selectedGenre"
           genre={ selectedGenre }
           dataTestidOption="select-option"
-          options={ genreSelectOptions }
+          options={ genreSelect }
         />
       </form>
     );
