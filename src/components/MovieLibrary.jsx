@@ -38,7 +38,7 @@ class MovieLibrary extends Component {
   }
 
   onClick({ target }) {
-    
+    console.log(target);
   }
 
   render() {
@@ -52,11 +52,11 @@ class MovieLibrary extends Component {
           searchText={ searchText }
           bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
-          onSearchTextChange={ onSearchTextChange }
-          onBookmarkedChange={ onBookmarkedChange }
-          onSelectedGenreChange={ onSelectedGenreChange }
+          onSearchTextChange={ this.onSearchTextChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
-        <AddMovie onClick={ onClick } />
+        <AddMovie onClick={ this.onClick } />
         <MovieList movies={ movies } />
       </section>
     );
@@ -67,6 +67,6 @@ export default MovieLibrary;
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
-    PropTypes.object,
+    {},
   ).isRequired,
 };
