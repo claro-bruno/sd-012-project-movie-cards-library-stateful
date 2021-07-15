@@ -14,25 +14,31 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
   onSearchTextChange({ target }) {
     const { value } = target;
-    this.setState(() => ({
+    this.setState((state) => ({
+      ...state,
       searchText: value,
     }));
   }
 
   onBookmarkedChange({ target }) {
     const { checked } = target;
-    this.setState(() => ({
+    this.setState((state) => ({
+      ...state,
       bookmarkedOnly: checked,
     }));
   }
 
   onSelectedGenreChange({ target }) {
     const { value } = target;
-    this.setState(() => ({
+    this.setState((state) => ({
+      ...state,
       selectedGenre: value,
     }));
   }
@@ -43,8 +49,6 @@ class MovieLibrary extends Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    /* const { movies } = this.props; */
-    console.log(movies);
 
     return (
       <section>

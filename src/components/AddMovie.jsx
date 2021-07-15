@@ -43,7 +43,7 @@ class AddMovie extends Component {
 
     return (
       <form
-        handleChange={ this.handleChange }
+        onChange={ this.handleChange }
         data-testid="add-movie-form"
       >
         <Title value={ title } handleChange={ this.handleChange } />
