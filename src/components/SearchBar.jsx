@@ -7,7 +7,8 @@ import Select from './searchBar/Select';
 class SearchBar extends Component {
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly,
-      onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
+      onBookmarkedChange, selectedGenre,
+      onSelectedGenreChange } = this.props;
     return (
       <section>
         <TextInput value={ searchText } onChange={ onSearchTextChange } />
