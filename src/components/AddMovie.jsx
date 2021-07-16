@@ -24,9 +24,10 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
 
-        {/* Achei muito legal essa idéia do Leonardo Ferreira de fazer um componente altamente dinãmido e decidir fazer algo parecido! */}
+        {/* Achei muito legal essa idéia do Leonardo Ferreira de fazer */}
+        {/* um componente altamente dinãmido e decidir fazer algo parecido! */}
 
-        <AutoForm 
+        <AutoForm
           valueTitle={ title }
           labelHtmlFor="title-input"
           labelDataTestId="title-input-label"
@@ -34,7 +35,7 @@ class AddMovie extends Component {
           onChange={ this.textInputHandler }
           nameInput="title"
         />
-        <AutoForm 
+        <AutoForm
           valueTitle={ subtitle }
           labelHtmlFor="subtitle-input"
           labelDataTestId="subtitle-input-label"
@@ -42,7 +43,7 @@ class AddMovie extends Component {
           onChange={ this.textInputHandler }
           nameInput="subtitle"
         />
-        <AutoForm 
+        <AutoForm
           valueTitle={ imagePath }
           labelHtmlFor="image-input"
           labelDataTestId="image-input-label"

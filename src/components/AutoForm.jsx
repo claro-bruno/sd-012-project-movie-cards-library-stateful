@@ -14,16 +14,16 @@ class AutoForm extends Component {
     } = this.props;
     return (
       <label htmlFor={ labelHtmlFor } data-testid={ labelDataTestId }>
-          {labelTitle}
-          <input
-            id={ labelHtmlFor }
-            type={ typeInput }
-            value={ valueInput }
-            data-testid={ labelDataTestId }
-            onChange={ onChange }
-            name={ nameInput }
-          />
-        </label>
+        {labelTitle}
+        <input
+          id={ labelHtmlFor }
+          type={ typeInput }
+          value={ valueInput }
+          data-testid={ labelDataTestId }
+          onChange={ onChange }
+          name={ nameInput }
+        />
+      </label>
     );
   }
 }
