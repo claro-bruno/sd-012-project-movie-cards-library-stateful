@@ -14,7 +14,7 @@ class MovieLibrary extends Component {
         <h2>Minha incrível Movie Library</h2>
         <SearchBar />
         {/* <MovieList movies={ this.props.movies } /> */}
-        {/* <AddMovie /> */}
+        <AddMovie />
       </div>
     );
   }
