@@ -16,6 +16,8 @@ class Number extends Component {
           id="rating-input"
           name="rating"
           data-testid="rating-input"
+          min="1"
+          max="10"
           value={ value }
           onChange={ handleChange }
         />

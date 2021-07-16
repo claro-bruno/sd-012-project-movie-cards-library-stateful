@@ -17,6 +17,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -43,13 +44,17 @@ class MovieLibrary extends Component {
     }));
   }
 
-  onClick({ target }) {
-    console.log(target);
+  onClick(addMovie) {
+    const { movies } = this.state;
+    this.setState(() => ({
+      movies: [...movies, addMovie],
+    }));
+    console.log(addMovie);
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-
+    console.log(movies);
     return (
       <section>
         <SearchBar
