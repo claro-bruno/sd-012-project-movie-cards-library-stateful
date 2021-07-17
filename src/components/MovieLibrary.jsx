@@ -5,23 +5,31 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  // constructor(props) {
-  //   super(props);
+  constructor(props) {
+    super(props);
 
-  // //   this.state = {
-  // //     searchText: '',
-  // //     bookmarkedOnly: false,
-  // //     selectedGenre: '',
-  // //   };
-  // }
+    this.state = {
+      // searchText: '',
+      // bookmarkedOnly: false,
+      // selectedGenre: '',
+      movies: props.movies,
+    };
+    this.addMovieToList = this.addMovieToList.bind(this);
+  }
+
+  addMovieToList(newMovie) {
+    this.setState((prevState) => ({
+      ...prevState, movies: [...prevState.movies, newMovie],
+    }));
+  }
 
   render() {
-    const { movies } = this.props;
+    const { movies } = this.state;
     return (
       <div>
         <SearchBar />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.addMovieToList } />
       </div>
     );
   }

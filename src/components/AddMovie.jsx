@@ -7,6 +7,7 @@ class AddMovie extends React.Component {
     super();
 
     this.state = {
+      bookmarked: false,
       title: '',
       subtitle: '',
       imagePath: '',
