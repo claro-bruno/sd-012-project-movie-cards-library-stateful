@@ -20,8 +20,6 @@ class AddMovie extends React.Component {
 
   transferInput({ target }) {
     const { name, value } = target;
-    /*  const value = target.type === 'checkbox' ? target.checked : target.value; */
-    console.log(name, value);
     this.setState({
       [name]: value,
     });
