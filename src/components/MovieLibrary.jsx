@@ -2,11 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-// import MovieCard from './MovieCard';
 import MovieList from './MovieList';
-
-// const INITIAL_STATE = {
-// };
 
 class MovieLibrary extends React.Component {
   constructor(props) {
