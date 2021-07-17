@@ -1,7 +1,8 @@
 import React from 'react';
-import data from '../data';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
+import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [data],
+      movies: { movies },
     };
   }
 
@@ -19,6 +20,7 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <SearchBar />
+        <MovieList movies={ movies } />
         <AddMovie />
       </div>
     );
