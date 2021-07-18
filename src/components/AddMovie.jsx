@@ -19,13 +19,13 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
+  // Achei muito legal essa idéia do Leonardo Ferreira de fazer
+  // um componente altamente dinãmido e decidir fazer algo parecido!
+
   render() {
     const { title, subtitle, imagePath } = this.state;
     return (
       <form data-testid="add-movie-form">
-
-        {/* Achei muito legal essa idéia do Leonardo Ferreira de fazer */}
-        {/* um componente altamente dinãmido e decidir fazer algo parecido! */}
 
         <AutoForm
           valueTitle={ title }
