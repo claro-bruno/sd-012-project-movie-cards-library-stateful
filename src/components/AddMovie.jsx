@@ -27,19 +27,6 @@ class AddMovie extends React.Component {
 
   incrementMovie() {
     const { onClick } = this.props;
-    /* const { importTitle, importSubtitle, importStoryline,
-      imagePath, importGenre, importRating } = this.state;
-
-    const newMovie = {
-      title: importTitle,
-      subtitle: importSubtitle,
-      storyline: importStoryline,
-      imagePath,
-      genre: importGenre,
-      rating: importRating,
-    };
-
-    onClick(newMovie); */
     onClick(this.state);
     this.setState(INITIAL_STATE);
   }
@@ -173,13 +160,13 @@ class AddMovie extends React.Component {
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
-  movies: PropTypes.shape({
-    imagePath: PropTypes.string,
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    storyline: PropTypes.string,
-    rating: PropTypes.number,
-  }).isRequired,
+  // movies: PropTypes.shape({
+  //  imagePath: PropTypes.string,
+  //  title: PropTypes.string,
+  //  subtitle: PropTypes.string,
+  //  storyline: PropTypes.string,
+  //  rating: PropTypes.number,
+  // }).isRequired,
 };
 
 export default AddMovie;
