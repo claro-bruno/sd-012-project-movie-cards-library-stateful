@@ -15,6 +15,7 @@ class MovieLibrary extends React.Component {
     };
     this.searchTextChange = this.searchTextChange.bind(this);
     this.transferInput = this.transferInput.bind(this);
+    this.changeMovie = this.changeMovie.bind(this);
   }
 
   searchTextChange({ target }) {
@@ -29,6 +30,12 @@ class MovieLibrary extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  changeMovie(Movie) {
+    this.setState((prevState) => ({
+      movies: [...prevState.movies, Movie],
+    }));
   }
 
   render() {
@@ -51,7 +58,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.transferInput }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.changeMovie } />
       </div>
     );
   }
