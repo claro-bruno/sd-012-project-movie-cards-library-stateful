@@ -1,10 +1,10 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
-    this.handleChangeTitle = this.handleChangeTitle.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
       subtitle: '',
@@ -16,14 +16,14 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChangeTitle(event) {
+  handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath } = this.state;
     return (
       <form
         data-testid="add-movie-form"
@@ -34,7 +34,7 @@ class AddMovie extends React.Component {
             type="text"
             name="title"
             value={ title }
-            onChange={ this.handleChangeTitle }
+            onChange={ this.handleChange }
             data-testid="title-input"
           />
         </label>
@@ -44,8 +44,18 @@ class AddMovie extends React.Component {
             type="text"
             name="subtitle"
             value={ subtitle }
-            onChange={ this.handleChangeTitle }
+            onChange={ this.handleChange }
             data-testid="subtitle-input"
+          />
+        </label>
+        <label htmlFor="subtitle-input" data-testid="image-input-label">
+          Imagem
+          <input
+            type="text"
+            name="imagePath"
+            value={ imagePath }
+            onChange={ this.handleChange }
+            data-testid="image-input"
           />
         </label>
       </form>
