@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class TitleForm extends Component {
-  render () {
-
+  render() {
     const { titleValue, titleOnChange } = this.props;
 
     return (
@@ -25,6 +24,6 @@ class TitleForm extends Component {
 TitleForm.propTypes = {
   titleOnChange: PropTypes.string.isRequired,
   titleValue: PropTypes.string.isRequired,
-}
+};
 
 export default TitleForm;
