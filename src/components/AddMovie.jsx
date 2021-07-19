@@ -6,13 +6,15 @@ class AddMovie extends React.Component {
     this.state = {
       subtitle: '',
       title: '',
-    //   imagePath: '',
-    //   storyline: '',
+      imagePath: '',
+      storyline: '',
     //   rating: 0,
     //   genre: 'action',
     };
     this.titleHandleChange = this.titleHandleChange.bind(this);
     this.subtitleHandleChange = this.subtitleHandleChange.bind(this);
+    this.imageHandleChange = this.imageHandleChange.bind(this);
+    this.storylineHandleChange = this.storylineHandleChange.bind(this);
   }
 
   titleHandleChange(event) {
@@ -23,8 +25,16 @@ class AddMovie extends React.Component {
     this.setState({ subtitle: event.target.value });
   }
 
+  imageHandleChange(event) {
+    this.setState({ imagePath: event.target.value });
+  }
+
+  storylineHandleChange(event) {
+    this.setState({ storyline: event.target.value });
+  }
+
   render() {
-    const { title, subtitle } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input">
@@ -43,6 +53,24 @@ class AddMovie extends React.Component {
             data-testid="subtitle-input"
             value={ subtitle }
             onChange={ this.subtitleHandleChange }
+          />
+        </label>
+        <label data-testid="image-input-label" htmlFor="image-input">
+          Imagem
+          <input
+            id="image-input"
+            data-testid="image-input"
+            value={ imagePath }
+            onChange={ this.imageHandleChange }
+          />
+        </label>
+        <label data-testid="storyline-input-label" htmlFor="storyline-input">
+          Sinopse
+          <textarea
+            id="storyline-input"
+            data-testid="storyline-input"
+            value={ storyline }
+            onChange={ this.storylineHandleChange }
           />
         </label>
       </form>
