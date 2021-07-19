@@ -1,12 +1,19 @@
 import React from 'react';
 import Header from './components/Header';
 import './App.css';
+import SearchBar from './components/SearchBar';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <h1>OI</h1>
+      <SearchBar
+        searchText=""
+        onSearchTextChange={ () => {} }
+        bookmarkedOnly="true"
+        selectedGenre=""
+        onSelectedGenreChange={ () => {} }
+      />
     </div>
   );
 }
