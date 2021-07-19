@@ -11,8 +11,6 @@ class AddMovie extends Component {
     this.textInputHandler = this.textInputHandler.bind(this);
   }
 
-  // Este trecho do código foi resolvido com ajuda do projeto do Leonardo Ferreira.
-
   textInputHandler(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
