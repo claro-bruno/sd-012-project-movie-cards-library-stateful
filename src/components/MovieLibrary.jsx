@@ -10,7 +10,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: { movies }
+      movies: { movies },
     };
   }
 
@@ -22,7 +22,6 @@ class MovieLibrary extends Component {
       </div>
     );
   }
-
 }
 
 export default MovieLibrary;
