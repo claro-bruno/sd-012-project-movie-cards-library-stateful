@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ImagePathForm from './Forms/ImagePathform';
+import SubtitleForm from './Forms/Subtitleform';
 import TitleForm from './Forms/Titleform';
 
 class AddMovie extends Component {
@@ -29,28 +31,14 @@ class AddMovie extends Component {
           titleValue={ title }
           titleOnChange={ this.textInputHandler }
         />
-        <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            id="subtitle-input"
-            type="text"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.textInputHandler }
-            name="subtitle"
-          />
-        </label>
-        <label htmlFor="image-input" data-testid="image-input-label">
-          Imagem
-          <input
-            id="image-input"
-            type="text"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.textInputHandler }
-            name="imagePath"
-          />
-        </label>
+        <SubtitleForm
+          subtitleValue={ subtitle }
+          subtitleOnChange={ this.textInputHandler }
+        />
+        <ImagePathForm 
+          imagePathValue={ imagePath }
+          imagePathOnChange={ this.textInputHandler }
+        />
       </form>
     );
   }
