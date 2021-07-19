@@ -22,8 +22,9 @@ class AddMovie extends React.Component {
     });
   }
 
+  // eslint-disable-next-line max-lines-per-function
   render() {
-    const { title, subtitle, imagePath, storyline } = this.state;
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form
         data-testid="add-movie-form"
@@ -66,6 +67,16 @@ class AddMovie extends React.Component {
             value={ storyline }
             onChange={ this.handleChange }
             data-testid="storyline-input"
+          />
+        </label>
+        <label htmlFor="rating-input" data-testid="rating-input-label">
+          Avaliação
+          <input
+            type="number"
+            name="rating"
+            value={ rating }
+            onChange={ this.handleChange }
+            data-testid="rating-input"
           />
         </label>
       </form>
