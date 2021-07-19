@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TitleForm from './TitleForm';
+import TitleForm from './Forms/Titleform';
 
 class AddMovie extends Component {
   constructor() {
@@ -25,9 +25,9 @@ class AddMovie extends Component {
     } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <TitleForm 
-        titleValue={ title }
-        titleOnChange={ this.textInputHandler }
+        <TitleForm
+          titleValue={ title }
+          titleOnChange={ this.textInputHandler }
         />
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
           Subtítulo
