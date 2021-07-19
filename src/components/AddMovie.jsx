@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import TitleForm from './Forms/Titleform';
 import ImagePathForm from './Forms/ImagePathform';
 import SubtitleForm from './Forms/Subtitleform';
-import TitleForm from './Forms/Titleform';
 
 class AddMovie extends Component {
   constructor() {
@@ -35,7 +35,7 @@ class AddMovie extends Component {
           subtitleValue={ subtitle }
           subtitleOnChange={ this.textInputHandler }
         />
-        <ImagePathForm 
+        <ImagePathForm
           imagePathValue={ imagePath }
           imagePathOnChange={ this.textInputHandler }
         />
