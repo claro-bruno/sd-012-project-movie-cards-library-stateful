@@ -1,12 +1,11 @@
 import React from 'react';
-import SearchBar from './SearchBar'
+import SearchBar from './SearchBar';
 
-class MovieLibrary extends React.Component{
-    render(){
-        return(
-        <SearchBar caneca='agua' OnSearchTextChange />
-        )
-    }
+class MovieLibrary extends React.Component {
+  render() {
+    return (
+    );
+  }
 }
 
 export default MovieLibrary;
