@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import PropType from 'prop-tupes';
+import PropType from 'prop-types';
 
 class SearchBar extends Component {
-  rende() {
+  render() {
     const {
       searchText,
       onSearchTextChange,
@@ -10,8 +10,9 @@ class SearchBar extends Component {
       onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange } = this.props;
+
     return (
-      <p />
+      <form  data-testid="search-bar-form" ></form>
     );
   }
 }
