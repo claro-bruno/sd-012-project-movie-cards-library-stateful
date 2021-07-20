@@ -3,21 +3,25 @@ import PropTypes from 'prop-types';
 
 class Button extends Component {
   render() {
-    const { buttonName, onClickButton } = this.props;
+    const { name, dataTestId, onClick, btnText } = this.props;
     return (
       <button
         type="button"
-        data-testid="send-button"
-        onClick={ onClickButton }
+        name={ name }
+        data-testid={ dataTestId }
+        onClick={ onClick }
       >
-        { buttonName }
+        { btnText }
       </button>
     );
   }
 }
 
-Button.propTypes = {
+Button.propTypes = PropTypes.exact({
+  btnText: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  dataTestId: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-}.isRequired;
+}).isRequired;
 
 export default Button;

@@ -10,11 +10,13 @@ class MovieLibrary extends Component {
     this.submitOnClick = this.submitOnClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
+    const { movies } = this.props;
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      movies,
     };
   }
 
@@ -27,9 +29,10 @@ class MovieLibrary extends Component {
   }
 
   submitOnClick(newMovie) {
-    this.setState((stateReset) => ({
-      movies: [...stateReset.movies, newMovie],
-    }));
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, newMovie],
+    });
   }
 
   render() {
@@ -45,7 +48,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.submitOnClick } />
+        <AddMovie onClick={ () => {} } />
       </div>
     );
   }

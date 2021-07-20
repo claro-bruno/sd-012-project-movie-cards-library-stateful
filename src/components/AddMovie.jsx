@@ -1,58 +1,56 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Input from './Forms/Inputs';
+// import Input from './Forms/Inputs';
 import Select from './Forms/Select';
 import Textarea from './Forms/Textarea';
-import Button from './Forms/Button';
+
+const INITIAL_STATE = {
+  subtitle: '',
+  title: '',
+  imagePath: '',
+  storyline: '',
+  rating: 0,
+  genre: 'action',
+};
 
 class AddMovie extends Component {
-  constructor() {
-    super();
-    this.submitOnClick = this.submitOnClick.bind(this);
+  constructor(props) {
+    super(props);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.buttonForm = this.buttonForm.bind(this);
 
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+    this.state = INITIAL_STATE;
   }
 
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-
     this.setState({
       [name]: value,
     });
   }
 
   handleClick() {
-    this.setState = ({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
+    const { onClick } = this.props;
+    onClick(INITIAL_STATE);
   }
 
   handleTitle() {
     const { title } = this.state;
     return (
       <div>
-        <Input
-          inputLabel="Título"
-          inputType="text"
-          inputName="title"
-          inputValue={ title }
-          onChange={ this.handleChange }
-        />
+        <label htmlFor="titleId" data-testid="title-input-label">
+          Título
+          <input
+            id="titleId"
+            type="text"
+            name="title"
+            value={ title }
+            onChange={ this.handleChange }
+            data-testid="title-input"
+          />
+        </label>
       </div>
     );
   }
@@ -61,13 +59,17 @@ class AddMovie extends Component {
     const { subtitle } = this.state;
     return (
       <div>
-        <Input
-          inputLabel="Subtítulo"
-          inputType="text"
-          inputName="subtitle"
-          inputValue={ subtitle }
-          onChange={ this.handleChange }
-        />
+        <label htmlFor="subtitleId" data-testid="subtitle-input-label">
+          Subtítulo
+          <input
+            id="subtitleId"
+            type="text"
+            name="subtitle"
+            value={ subtitle }
+            onChange={ this.handleChange }
+            data-testid="subtitle-input"
+          />
+        </label>
       </div>
     );
   }
@@ -76,13 +78,17 @@ class AddMovie extends Component {
     const { imagePath } = this.state;
     return (
       <div>
-        <Input
-          inputLabel="Imagem"
-          inputType="text"
-          inputName="image"
-          inputValue={ imagePath }
-          onChange={ this.handleChange }
-        />
+        <label htmlFor="imageId" data-testid="image-input-label">
+          Imagem
+          <input
+            id="imageId"
+            type="text"
+            // name="image"
+            defaultValue={ imagePath }
+            onChange={ this.handleChange }
+            data-testid="image-input"
+          />
+        </label>
       </div>
     );
   }
@@ -91,13 +97,17 @@ class AddMovie extends Component {
     const { rating } = this.state;
     return (
       <div>
-        <Input
-          inputLabel="Avaliação"
-          inputType="number"
-          inputName="rating"
-          inputValue={ rating }
-          onChange={ this.handleChange }
-        />
+        <label htmlFor="ratingId" data-testid="rating-input-label">
+          Avaliação
+          <input
+            id="ratingId"
+            type="number"
+            name="rating"
+            value={ rating }
+            onChange={ this.handleChange }
+            data-testid="rating-input"
+          />
+        </label>
       </div>
     );
   }
@@ -108,7 +118,7 @@ class AddMovie extends Component {
       <div>
         <Textarea
           inputLabel="Sinopse"
-          inputName="story"
+          // inputName="story"
           inputValue={ storyline }
           onChangeText={ this.handleChange }
         />
@@ -131,25 +141,16 @@ class AddMovie extends Component {
 
   buttonForm() {
     return (
-      <Button
-        buttonName="Adicionar filme"
-        onClickButton={ this.submitOnClick }
-      />
+      <div>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.handleClick }
+        >
+          Adicionar filme
+        </button>
+      </div>
     );
-  }
-
-  submitOnClick() {
-    const { onClick } = this.props;
-    onClick(this.state);
-
-    this.setState = ({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
   }
 
   render() {
@@ -167,8 +168,8 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = PropTypes.exact({
+AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
-}).isRequired;
+};
 
 export default AddMovie;
