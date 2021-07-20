@@ -6,13 +6,13 @@ class ImagePathForm extends Component {
     const { imagePathValue, imagePathOnChange } = this.props;
 
     return (
-      <label htmlFor="imagePath-input" data-testid="imagePath-input-label">
+      <label htmlFor="imagePath-input" data-testid="image-input-label">
         Imagem
         <input
           id="imagePath-input"
           type="text"
           value={ imagePathValue }
-          data-testid="imagePath-input"
+          data-testid="image-input"
           onChange={ imagePathOnChange }
           name="imagePath"
         />
