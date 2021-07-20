@@ -10,7 +10,7 @@ class RatingForm extends Component {
         Avaliação
         <input
           id="rating-input"
-          type="text"
+          type="number"
           value={ ratingValue }
           data-testid="rating-input"
           onChange={ ratingOnChange }
@@ -23,7 +23,7 @@ class RatingForm extends Component {
 
 RatingForm.propTypes = {
   ratingOnChange: PropTypes.string.isRequired,
-  ratingValue: PropTypes.string.isRequired,
+  ratingValue: PropTypes.number.isRequired,
 };
 
 export default RatingForm;

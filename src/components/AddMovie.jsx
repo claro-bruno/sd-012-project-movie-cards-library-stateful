@@ -12,7 +12,7 @@ class AddMovie extends Component {
       title: '',
       subtitle: '',
       imagePath: '',
-      rating: '',
+      rating: 0,
     };
     this.textInputHandler = this.textInputHandler.bind(this);
   }
