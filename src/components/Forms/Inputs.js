@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Inputs extends Component {
+class Input extends Component {
   render() {
     const {
       idInput,
@@ -13,7 +13,7 @@ class Inputs extends Component {
           id={ idInput }
           type={ inputType }
           name={ inputName }
-          value={ inputValue }
+          defaultValue={ inputValue }
           onChange={ onChangeInput }
           data-testid={ `${inputName}-input` }
         />
@@ -22,7 +22,7 @@ class Inputs extends Component {
   }
 }
 
-Inputs.propTypes = PropTypes.exact({
+Input.propTypes = PropTypes.exact({
   type: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
@@ -30,4 +30,4 @@ Inputs.propTypes = PropTypes.exact({
   onChange: PropTypes.func.isRequired,
 }).isRequired;
 
-export default Inputs;
+export default Input;
