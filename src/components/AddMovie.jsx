@@ -39,6 +39,10 @@ class AddMovie extends Component {
           imagePathValue={ imagePath }
           imagePathOnChange={ this.textInputHandler }
         />
+        <StorylineForm
+          storylineValue={ storylinePath }
+          storylineOnChange={ this.textInputHandler }
+        />
       </form>
     );
   }
