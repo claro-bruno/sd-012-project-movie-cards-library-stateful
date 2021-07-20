@@ -18,7 +18,7 @@ class Select extends React.Component {
       >
         { labelText }
         <select
-          name={ name }
+          id={ name }
           data-testid={ testid }
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }

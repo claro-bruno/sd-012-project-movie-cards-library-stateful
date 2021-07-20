@@ -2,12 +2,35 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+
+    this.handleTitleChange = this.handleTitleChange.bind(this);
+    this.handleTitleClick = this.handleTitleClick.bind(this);
+  }
+
+  handleTitleChange(e) {
+    this.setState({ title: e.target.value });
+  }
+
+  handleTitleClick() {
+    const { callback } = this.props;
+    const { title } = this.state;
+    callback(title);
+  }
+
   render() {
-    const { searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-    } = this.props;
+    const {
+      title,
+    } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label
@@ -16,25 +39,11 @@ class AddMovie extends React.Component {
         >
           Título
           <input
-            type="search"
+            type="text"
             name="title-input"
             data-testid="title-input"
-            value=""
-            onChange={ onSearchTextChange }
-          />
-        </label>
-        <button type="submit">Search</button>
-        <label
-          htmlFor="checkbox-input"
-          data-testid="checkbox-input-label"
-        >
-          Mostrar somente favoritos
-          <input
-            type="checkbox"
-            name="checkbox-input"
-            data-testid="checkbox-input"
-            checked={ bookmarkedOnly }
-            onChange={ onBookmarkedChange }
+            value={ title }
+            onChange={ this.handleTitleChange }
           />
         </label>
       </form>
@@ -43,10 +52,7 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
+  callback: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
