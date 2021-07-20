@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import Input from './Forms/Inputs';
 import Select from './Forms/Select';
 import Textarea from './Forms/Textarea';
+import Button from './Forms/Button';
 
 class AddMovie extends Component {
   constructor() {
     super();
-
+    this.submitOnClick = this.submitOnClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
 
@@ -128,13 +129,30 @@ class AddMovie extends Component {
     );
   }
 
-  submitOnClick(movie) {
-    movie(this.state);
-    this.handleClick();
+  buttonForm() {
+    return (
+      <Button
+        buttonName="Adicionar filme"
+        onClickButton={ this.submitOnClick }
+      />
+    );
+  }
+
+  submitOnClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+
+    this.setState = ({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
-    // const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         {this.handleTitle()}
@@ -143,13 +161,13 @@ class AddMovie extends Component {
         {this.handleRating()}
         {this.handleTextArea()}
         {this.handleSelect()}
+        {this.buttonForm()}
       </form>
     );
   }
 }
 
 AddMovie.propTypes = PropTypes.exact({
-  // imagePath: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
 }).isRequired;
 

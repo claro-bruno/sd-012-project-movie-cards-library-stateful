@@ -7,7 +7,7 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-
+    this.submitOnClick = this.submitOnClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
@@ -26,6 +26,12 @@ class MovieLibrary extends Component {
     });
   }
 
+  submitOnClick(newMovie) {
+    this.setState((stateReset) => ({
+      movies: [...stateReset.movies, newMovie],
+    }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -38,9 +44,8 @@ class MovieLibrary extends Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.handleChange }
         />
-        { movies
-          .filter((movie) => <MovieList key={ movie.title } movies={ movie } />) }
-        <AddMovie />
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ this.submitOnClick } />
       </div>
     );
   }
@@ -48,7 +53,14 @@ class MovieLibrary extends Component {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
-    PropTypes.object,
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      storyline: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      imagePath: PropTypes.string.isRequired,
+      genre: PropTypes.string.isRequired,
+    }),
   ).isRequired,
 };
 
