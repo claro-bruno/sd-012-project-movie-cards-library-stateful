@@ -47,7 +47,7 @@ class AddMovie extends Component {
           storylineValue={ storylinePath }
           storylineOnChange={ this.textInputHandler }
         />
-        <RatingForm 
+        <RatingForm
           ratingValue={ rating }
           ratingOnChange={ this.textInputHandler }
         />
