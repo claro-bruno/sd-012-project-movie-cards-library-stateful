@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Input from './Input';
+import TextArea from './TextArea';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -32,49 +34,43 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath } = this.state;
+    const { title, subtitle, imagePath, storyline } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label
-          htmlFor="title-input"
-          data-testid="title-input-label"
-        >
-          Título
-          <input
-            type="text"
-            name="title-input"
-            data-testid="title-input"
-            value={ title }
-            onChange={ this.handleTitleChange }
-          />
-        </label>
+        <Input
+          name="title-input"
+          testid="title-input"
+          inputText={ title }
+          labelText="Título"
+          inputType="text"
+          callback={ (event) => this.handleChange(event, 'title') }
+        />
         <br />
-        <label
-          htmlFor="subtitle-input"
-          data-testid="subtitle-input-label"
-        >
-          Subtítulo
-          <input
-            type="text"
-            name="subtitle-input"
-            data-testid="subtitle-input"
-            value={ subtitle }
-            onChange={ (event) => this.handleChange(event, 'subtitle') }
-          />
-        </label>
-        <label
-          htmlFor="image-input"
-          data-testid="image-input-label"
-        >
-          Imagem
-          <input
-            type="text"
-            name="image-input"
-            data-testid="image-input"
-            value={ imagePath }
-            onChange={ (event) => this.handleChange(event, 'imagePath') }
-          />
-        </label>
+        <Input
+          name="subtitle-input"
+          testid="subtitle-input"
+          inputText={ subtitle }
+          labelText="Subtítulo"
+          inputType="text"
+          callback={ (event) => this.handleChange(event, 'subtitle')  }
+        />
+        <br />
+        <Input
+          name="image-input"
+          testid="image-input"
+          inputText={ imagePath }
+          labelText="Imagem"
+          inputType="text"
+          callback={ (event) => this.handleChange(event, 'imagePath') }
+        />
+        <br />
+        <TextArea
+          name="storyline-input"
+          testid="storyline-input"
+          inputText={ storyline }
+          labelText="Sinopse"
+          callback={ (event) => this.handleChange(event, 'storyline') }
+        />
       </form>
     );
   }
