@@ -57,8 +57,8 @@ class AddMovie extends Component {
           ratingOnChange={ this.textInputHandler }
         />
         <GenreForm
-        genreValue={ genre }
-        genreOnChange={ this.textInputHandler }
+          genreValue={ genre }
+          genreOnChange={ this.textInputHandler }
         />
       </form>
     );
