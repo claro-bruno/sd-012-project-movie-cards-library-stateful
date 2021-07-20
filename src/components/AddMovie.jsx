@@ -17,6 +17,10 @@ class AddMovie extends React.Component {
     this.handleTitleClick = this.handleTitleClick.bind(this);
   }
 
+  handleChange(event, stateName) {
+    this.setState({ [stateName]: event.target.value });
+  }
+
   handleTitleChange(e) {
     this.setState({ title: e.target.value });
   }
@@ -30,6 +34,7 @@ class AddMovie extends React.Component {
   render() {
     const {
       title,
+      subtitle,
     } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -44,6 +49,20 @@ class AddMovie extends React.Component {
             data-testid="title-input"
             value={ title }
             onChange={ this.handleTitleChange }
+          />
+        </label>
+        <br />
+        <label
+          htmlFor="subtitle-input"
+          data-testid="subtitle-input-label"
+        >
+          Subtítulo
+          <input
+            type="text"
+            name="subtitle-input"
+            data-testid="subtitle-input"
+            value={ subtitle }
+            onChange={ (event) => this.handleChange(event, 'subtitle') }
           />
         </label>
       </form>
