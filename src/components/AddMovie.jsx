@@ -3,7 +3,7 @@ import TitleForm from './Forms/Titleform';
 import ImagePathForm from './Forms/ImagePathform';
 import SubtitleForm from './Forms/Subtitleform';
 import StorylineForm from './Forms/Storylineform';
-import RatingForm from './Forms/Ratingform';
+// import RatingForm from './Forms/Ratingform';
 
 class AddMovie extends Component {
   constructor() {
@@ -12,7 +12,7 @@ class AddMovie extends Component {
       title: '',
       subtitle: '',
       imagePath: '',
-      rating: 0,
+      // rating: 0,
     };
     this.textInputHandler = this.textInputHandler.bind(this);
   }
@@ -27,7 +27,7 @@ class AddMovie extends Component {
       title,
       subtitle,
       imagePath,
-      rating,
+      // rating,
     } = this.state;
     return (
       <form data-testid="add-movie-form">
