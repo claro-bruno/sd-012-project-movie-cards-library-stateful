@@ -3,12 +3,8 @@ import PropTypes from 'prop-types';
 
 class Select extends React.Component {
   render() {
-    const {
-      name,
-      testid,
-      labelText,
-      selectedGenre,
-      onSelectedGenreChange,
+    const { name, testid, labelText, selectedGenre, onSelectedGenreChange,
+      optionList, optionId,
     } = this.props;
     const labelid = `${testid}-label`;
     return (
@@ -23,30 +19,15 @@ class Select extends React.Component {
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
         >
-          <option
-            value=""
-            data-testid="select-option"
-          >
-            Todos
-          </option>
-          <option
-            value="action"
-            data-testid="select-option"
-          >
-            Ação
-          </option>
-          <option
-            value="comedy"
-            data-testid="select-option"
-          >
-            Comédia
-          </option>
-          <option
-            value="thriller"
-            data-testid="select-option"
-          >
-            Suspense
-          </option>
+          {optionList.map((element) => (
+            <option
+              key={ element.value }
+              value={ element.value }
+              data-testid={ optionId }
+            >
+              { element.content }
+            </option>
+          ))}
         </select>
       </label>
     );
@@ -59,6 +40,11 @@ Select.propTypes = {
   labelText: PropTypes.string.isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
+  optionList: PropTypes.shape({
+    value: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired,
+  }).isRequired,
+  optionId: PropTypes.string.isRequired,
 };
 
 export default Select;

@@ -1,31 +1,29 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Select from './Select';
+import Input from './Input';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
+      selectedGenre, onSelectedGenreChange,
     } = this.props;
+    const searchBarSelect = [
+      { value: '', content: 'Todos' },
+      { value: 'action', content: 'Ação' },
+      { value: 'comedy', content: 'Comédia' },
+      { value: 'thriller', content: 'Suspense' },
+    ];
     return (
       <form data-testid="search-bar-form">
-        <label
-          htmlFor="text-input"
-          data-testid="text-input-label"
-        >
-          Inclui o texto
-          <input
-            type="search"
-            name="text-input"
-            data-testid="text-input"
-            value={ searchText }
-            onChange={ onSearchTextChange }
-          />
-        </label>
+        <Input
+          name="text-input"
+          testid="text-input"
+          inputText={ searchText }
+          labelText="Inclui o texto"
+          inputType="search"
+          callback={ onSearchTextChange }
+        />
         <button type="submit">Search</button>
         <label
           htmlFor="checkbox-input"
@@ -43,9 +41,11 @@ class SearchBar extends React.Component {
         <Select
           name="select-input"
           testid="select-input"
+          optionId="select-option"
           labelText="Filtrar por gênero"
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
+          optionList={ searchBarSelect }
         />
       </form>
     );
