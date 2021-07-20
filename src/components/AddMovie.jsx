@@ -16,7 +16,7 @@ class AddMovie extends React.Component {
 
   render() {
     return (
-      <h1>Eu sou o AddMovie</h1>
+      <form data-testid="add-movie-form" />
     );
   }
 }
