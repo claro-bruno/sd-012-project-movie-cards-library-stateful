@@ -4,6 +4,7 @@ import ImagePathForm from './Forms/ImagePathform';
 import SubtitleForm from './Forms/Subtitleform';
 import StorylineForm from './Forms/Storylineform';
 import RatingForm from './Forms/Ratingform';
+import GenreForm from './Forms/Genreform';
 
 class AddMovie extends Component {
   constructor() {
@@ -14,6 +15,7 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
+      genre: 'action',
     };
     this.textInputHandler = this.textInputHandler.bind(this);
   }
@@ -30,6 +32,7 @@ class AddMovie extends Component {
       imagePath,
       storyline,
       rating,
+      genre,
     } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -52,6 +55,10 @@ class AddMovie extends Component {
         <RatingForm
           ratingValue={ rating }
           ratingOnChange={ this.textInputHandler }
+        />
+        <GenreForm
+        genreValue={ genre }
+        genreOnChange={ this.textInputHandler }
         />
       </form>
     );
