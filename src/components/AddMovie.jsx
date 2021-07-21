@@ -1,5 +1,6 @@
 import React from 'react';
 import FormInput from './FormsInput';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -11,9 +12,17 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
+      genre: 'action',
     };
+    this.handleClick = this.handleClick.bind(this);
     this.onChangeHandle = this.onChangeHandle.bind(this);
     this.renderFormInput = this.renderFormInput.bind(this);
+  }
+
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState(this);
   }
 
   onChangeHandle({ target }) {
@@ -43,7 +52,7 @@ class AddMovie extends React.Component {
     const { imagePath } = this.state;
     const { storyline } = this.state;
     const { rating } = this.state;
-
+    const { genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         { this.renderFormInput('Título', 'title', 'text', title) }
@@ -59,6 +68,19 @@ class AddMovie extends React.Component {
             data-testid="storyline-input"
             onChange={ this.onChangeHandle }
           />
+        </div>
+        <div tmlhFor="genre" data-testid="genre-input-label">
+          Gênero
+          <select
+            id="genre"
+            data-testid="genre-input"
+            value={ genre }
+            onChange={ this.onChangeHandle }
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
         </div>
       </form>
     );
