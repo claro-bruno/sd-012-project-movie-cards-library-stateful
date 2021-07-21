@@ -3,6 +3,7 @@ import InputText from './InputText';
 import Textarea from './Textarea';
 import InputNumber from './InputNumber';
 import InputSelect from './InputSelect';
+import Button from './Button';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -16,6 +17,19 @@ class AddMovie extends React.Component {
       rating: '0',
       genre: 'action',
     };
+
+    this.sendMovieData = this.sendMovieData.bind(this);
+  }
+
+  sendMovieData() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: '0',
+      genre: 'action',
+    });
   }
 
   render() {
@@ -57,6 +71,11 @@ class AddMovie extends React.Component {
           inputId="genre-input"
           value={ genre }
           onChange={ ({ target }) => this.setState({ genre: target.value }) }
+        />
+        <Button
+          dataTestId="send-button"
+          onClick={ this.sendMovieData }
+          innerText="Adicionar filme"
         />
       </form>
     );
