@@ -15,14 +15,28 @@ class MovieLibray extends Component {
       selectedGenre: '',
       movies,
     };
-    // this.listaFilmes = this.listaFilmes.bind(this);
+    this.mudaEstado = this.mudaEstado.bind(this);
+  }
+
+  mudaEstado(event) {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
-    const { movies } = this.state;
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
-        <SearchBar />
+        <SearchBar
+          searchText={ searchText }
+          onSearchTextChange={ this.mudaEstado }
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ this.mudaEstado }
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ this.mudaEstado }
+        />
         <MovieList movies={ movies } />
         <AddMovie />
       </div>
