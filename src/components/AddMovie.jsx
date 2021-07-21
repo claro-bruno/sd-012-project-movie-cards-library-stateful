@@ -24,16 +24,14 @@ class AddMovie extends Component {
   }
 
   handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name, value } = target;
     this.setState({
       [name]: value,
     });
   }
 
   handleClick() {
-    const { onClick } = this.props;
-    onClick(INITIAL_STATE);
+    this.setState(INITIAL_STATE);
   }
 
   handleTitle() {
@@ -140,12 +138,18 @@ class AddMovie extends Component {
   }
 
   buttonForm() {
+    const { onClick } = this.props;
+    const { state } = this;
     return (
       <div>
         <button
-          type="button"
+          type="submit"
+          onClick={ (e) => {
+            e.preventDefault();
+            onClick(state);
+            this.handleClick();
+          } }
           data-testid="send-button"
-          onClick={ this.handleClick }
         >
           Adicionar filme
         </button>

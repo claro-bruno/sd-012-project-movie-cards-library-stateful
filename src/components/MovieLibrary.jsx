@@ -7,7 +7,7 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    this.submitOnClick = this.submitOnClick.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.filtering = this.filtering.bind(this);
     // this.handleSearchText = this.handleSearchText.bind(this);
@@ -51,8 +51,16 @@ class MovieLibrary extends Component {
     });
   }
 
-  // Eu verifiquei a o PR do Eric Kreis para resolução da função de filtragem para os requisitos 17 e 18.
+  // Eu verifiquei a o PR do Eric Kreis para resolução da função de filtragem para os requisitos 17 e 18 e 19.
   // https://github.com/tryber/sd-012-project-movie-cards-library-stateful/pull/61/files
+
+  onClick(movie) {
+    const { state } = this;
+    const listMovie = [...state.movies, movie];
+    this.setState({
+      movies: listMovie,
+    });
+  }
 
   filtering() {
     const { bookmarkedOnly, selectedGenre, searchText, movies } = this.state;
@@ -74,13 +82,6 @@ class MovieLibrary extends Component {
     return moviesList;
   }
 
-  submitOnClick(newMovie) {
-    const { movies } = this.state;
-    this.setState({
-      movies: [...movies, newMovie],
-    });
-  }
-
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -94,7 +95,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ this.filtering() } />
-        <AddMovie onClick={ () => {} } />
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
