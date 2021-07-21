@@ -7,9 +7,11 @@ class AddMovie extends React.Component {
     this.state = {
       title: '',
       subtitle: '',
+      imagePath: '',
     };
     this.onChangeHandle = this.onChangeHandle.bind(this);
     this.onChangeSubTitle = this.onChangeSubTitle.bind(this);
+    this.onChangeImage = this.onChangeImage.bind(this);
   }
 
   onChangeHandle({ target }) {
@@ -28,9 +30,19 @@ class AddMovie extends React.Component {
     });
   }
 
+  onChangeImage({ target }) {
+    const { value } = target;
+
+    this.setState({
+      imagePath: value,
+    });
+  }
+
   render() {
     const { title } = this.state;
     const { subtitle } = this.state;
+    const { imagePath } = this.state;
+
     console.log(subtitle);
     return (
       <form data-testid="add-movie-form">
@@ -53,6 +65,17 @@ class AddMovie extends React.Component {
             value={ subtitle }
             data-testid="subtitle-input"
             onChange={ this.onChangeSubTitle }
+          />
+        </div>
+        <div htmlFor="image-input" data-testid="image-input-label">
+          Imagem
+          <input
+            id="image-input"
+            name="imagePath"
+            type="text"
+            value={ imagePath }
+            data-testid="image-input"
+            onChange={ this.onChangeImage }
           />
         </div>
       </form>
