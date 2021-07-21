@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import PropType, { func } from 'prop-types';
+import PropType from 'prop-types';
+import DadosIniciais from './DadosIniciais';
+import DadosFinais from './DadosFinais';
 
 class AddMovie extends Component {
   constructor() {
@@ -35,39 +37,19 @@ class AddMovie extends Component {
     } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label htmlFor="titleInput" data-testid="title-input-label">
-          Título
-          <input
-            type="text"
-            value={ title }
-            data-testid="title-input"
-            onChange={ this.alteraItem }
-            name="title"
-            id="titleInput"
-          />
-        </label>
-        <label htmlFor="subtitleInput" data-testid="subtitle-input-label">
-          Subtítulo
-          <input
-            type="text"
-            value={ subtitle }
-            data-testid="subtitle-input"
-            onChange={ this.alteraItem }
-            name="subtitle"
-            id="subtitleInput"
-          />
-        </label>
-        <label htmlFor="imageInput" data-testid="image-input-label">
-          Imagem
-          <input
-            type="text"
-            value={ imagePath }
-            data-testid="image-input"
-            onChange={ this.alteraItem }
-            name="imagePath"
-            id="imageInput"
-          />
-        </label>
+        <DadosIniciais
+          title={ title }
+          subtitle={ subtitle }
+          imagePath={ imagePath }
+          onChange={ this.alteraItem }
+        />
+        <DadosFinais
+          storyline={ storyline }
+          rating={ rating }
+          genre={ genre }
+          onChange={ this.alteraItem }
+        />
+        <button data-testid="send-button" >Adicionar filme</button>
       </form>
     );
   }
