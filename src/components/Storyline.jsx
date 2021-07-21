@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Storyline extends Component {
+class Storyline extends React.Component {
   render() {
     const { storyline, onChange } = this.props;
     return (

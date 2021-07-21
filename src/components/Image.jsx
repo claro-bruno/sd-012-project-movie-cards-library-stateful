@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Image extends Component {
+class Image extends React.Component {
   render() {
     const { imagePath, onChange } = this.props;
     return (

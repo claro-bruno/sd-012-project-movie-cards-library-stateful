@@ -8,15 +8,6 @@ import RatingNewMovie from './RatingNewMovie';
 import Genre from './Genre';
 import ButtonAddMovie from './ButtonAddMovie';
 
-const STATE_INITIAL = {
-  subtitle: '',
-  title: '',
-  imagePath: '',
-  storyline: '',
-  rating: 0,
-  genre: 'action',
-};
-
 class AddMovie extends React.Component {
   constructor() {
     super();
@@ -24,7 +15,14 @@ class AddMovie extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
 
-    this.state = STATE_INITIAL;
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
   }
 
   handleChange(event) {

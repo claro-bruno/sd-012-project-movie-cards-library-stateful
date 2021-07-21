@@ -6,33 +6,26 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
-    super(props);
+    super();
 
-    this.changeStateFilter = this.changeStateFilter.bind(this);
+    this.globalChange = this.globalChange.bind(this);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
+
     };
   }
 
-  changeStateFilter({ target }) {
-    const { name, value } = target;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-
-    if ((name === searchText) && (value.length > 0)) {
-      this.setState({ searchText: target.value });
-    }
-
-    if ((name === bookmarkedOnly) && (value !== false)) {
-      this.setState({ bookmarkedOnly: target.value });
-    }
-
-    if ((name === selectedGenre) && (value.length > 0)) {
-      this.setState({ selectedGenre: target.value });
-    }
+  // Função retirada do Course //
+  globalChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
@@ -41,14 +34,14 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.changeStateFilter }
+          onSearchTextChange={ this.globalChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.changeStateFilter }
+          onBookmarkedChange={ this.globalChange }
           selectedGenre={ selectedGenre }
-          onSelectedGenreChange={ this.changeStateFilter }
+          onSelectedGenreChange={ this.globalChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie />
+        <AddMovie onClick={ this.XXX } />
       </div>
     );
   }

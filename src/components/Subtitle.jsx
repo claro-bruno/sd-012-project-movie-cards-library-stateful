@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-class Subtitle extends Component {
+class Subtitle extends React.Component {
   render() {
     const { subtitle, onChange } = this.props;
     return (
