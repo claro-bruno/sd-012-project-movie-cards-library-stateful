@@ -31,7 +31,7 @@ class AddMovie extends Component {
               data-testid="title-input"
               value={ title }
               type="text"
-              onChange={ handleChange }
+              onChange={ this.handleChange }
             />
           </label>
         </form>
