@@ -66,7 +66,7 @@ describe('16 - Configure o estado inicial do componente `<MovieLibrary />`', () 
     expect(selectInput).toHaveValue('');
   });
 
-  it.skip('Renderize todos os filmes passados pela prop `movies`', () => {
+  it('Renderize todos os filmes passados pela prop `movies`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const movieCards = getAllByTestId(movieCardTestId);
     expect(movieCards).toHaveLength(movies.length);
@@ -107,13 +107,13 @@ describe('17 - Renderize `<SearchBar />` dentro de `<MovieLibrary />`', () => {
 });
 
 describe('18 - Renderize `<MovieList />` dentro de `<MovieLibrary />`', () => {
-  it.skip('Renderize o componente `<MovieList />`', () => {
+  it('Renderize o componente `<MovieList />`', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const movieList = getAllByTestId('movie-list');
     expect(movieList).toHaveLength(1);
   });
 
-  it.skip('Filtre os filmes por título de acordo com o que for digitado na barra de busca', () => {
+  it('Filtre os filmes por título de acordo com o que for digitado na barra de busca', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={ movies } />);
     const textInput = getByTestId(textTestId);
 

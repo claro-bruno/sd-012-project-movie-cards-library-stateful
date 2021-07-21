@@ -14,6 +14,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
+      bookmarked: false,
     };
 
     this.ButtonClick = this.ButtonClick.bind(this);
@@ -26,11 +27,12 @@ class AddMovie extends React.Component {
   }
 
   ButtonClick() {
-    const { callback } = this.props;
-    const movie = { ...this.state };
-    // callback(movie);
-    this.state = this.initialState;
-    // this.setState({});
+    const { onClick } = this.props;
+    // const movie = { ...this.state };
+    // console.log(movie, this.state);
+    onClick({ ...this.state });
+    // this.state = this.initialState;
+    this.setState({ ...this.initialState });
   }
 
   newInput(name, text, labelText, type) {
@@ -88,7 +90,7 @@ class AddMovie extends React.Component {
           optionList={ addMovieSelect }
         />
         <br />
-        <button type="submit" data-testid="send-button" onClick={ this.ButtonClick() }>
+        <button type="submit" data-testid="send-button" onClick={ this.ButtonClick }>
           Adicionar filme
         </button>
       </form>
@@ -97,7 +99,7 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = {
-  callback: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
