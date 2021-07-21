@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import TextArea from './TextArea';
 import NumberInput from './NumberInput';
 import Select from './Select';
+import TextArea from './TextArea';
 import InputTotal from './InputTotal';
 
 class AddMovie extends Component {
