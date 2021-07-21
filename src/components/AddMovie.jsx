@@ -1,6 +1,5 @@
 import React from 'react';
 import FormInput from './FormsInput';
-import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -17,12 +16,6 @@ class AddMovie extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.onChangeHandle = this.onChangeHandle.bind(this);
     this.renderFormInput = this.renderFormInput.bind(this);
-  }
-
-  handleClick() {
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState(this);
   }
 
   onChangeHandle({ target }) {
