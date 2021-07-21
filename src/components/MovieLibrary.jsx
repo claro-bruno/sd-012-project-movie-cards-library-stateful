@@ -9,6 +9,7 @@ class MovieLibrary extends React.Component {
     super();
 
     this.globalChange = this.globalChange.bind(this);
+    this.addMovieClick = this.addMovieClick.bind(this);
 
     this.state = {
       searchText: '',
@@ -28,6 +29,10 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  addMovieClick(newMovie) {
+    this.setState((prevState) => ({ movies: [...prevState.movies, newMovie] }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -41,7 +46,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={ this.globalChange }
         />
         <MovieList movies={ movies } />
-        <AddMovie onClick={ this.XXX } />
+        <AddMovie onClick={ this.addMovieClick } />
       </div>
     );
   }
