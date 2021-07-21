@@ -18,13 +18,14 @@ class MovieLibrary extends React.Component {
     this.MovieCallBack = this.MovieCallBack.bind(this);
   }
 
-  componentDidMount() {
-    const myMovies = this.state;
-    const { movies } = this.props;
-    movies.forEach((element) => {
-      myMovies.push(element);
-    });
-  }
+  // componentDidMount() {
+  //   const myMovies = this.state.movies;
+  //   const { movies } = this.props;
+  //   console.log(movies);
+  //   movies.forEach((element) => {
+  //     myMovies.push(element);
+  //   });
+  // }
 
   titleInputCallBack(event) {
     this.setState({ searchText: event.target.value });
@@ -39,7 +40,6 @@ class MovieLibrary extends React.Component {
   }
 
   MovieCallBack(newMovie) {
-    console.log(newMovie);
     const { movies } = this.state;
     movies.push(newMovie);
   }

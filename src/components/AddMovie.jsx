@@ -28,7 +28,7 @@ class AddMovie extends React.Component {
   ButtonClick() {
     const { callback } = this.props;
     const movie = { ...this.state };
-    callback(movie);
+    // callback(movie);
     this.state = this.initialState;
     // this.setState({});
   }
