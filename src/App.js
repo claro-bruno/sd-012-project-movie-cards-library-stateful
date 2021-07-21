@@ -11,6 +11,8 @@ class App extends React.Component {
     this.state = {
       movies: [],
     };
+
+    this.getMovies = this.getMovies.bind(this);
   }
 
   getMovies(data) {
