@@ -13,11 +13,11 @@ class App extends React.Component {
     };
   }
 
-  getMovies() {
-    const { movies } = this.state
+  getMovies(data) {
+    const { movies } = this.state;
     this.setState({
-      movies: ...movies
-    })
+      movies: [...movies, data],
+    });
   }
 
   render() {

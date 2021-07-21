@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import InputText from './InputText';
 import Textarea from './Textarea';
 import InputNumber from './InputNumber';
@@ -23,7 +24,7 @@ class AddMovie extends React.Component {
 
   sendMovieData() {
     const { onClick } = this.props;
-    onClick();
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -83,5 +84,9 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
