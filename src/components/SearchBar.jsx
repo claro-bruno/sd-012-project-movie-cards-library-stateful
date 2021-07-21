@@ -34,21 +34,20 @@ class SearchBar extends Component {
             />
           </label>
         </section>
-        <Select 
+        <Select
           name=""
           dataTestId="select-input"
           labelText="Filtrar por gênero"
           valueSelect={ selectedGenre }
-          selectChange= { onSelectedGenreChange }
+          selectChange={ onSelectedGenreChange }
           dataTestIdOptions="select-option"
-          options={[
-            { value: "",text:"Todos" },
-            { value: "action", text:"Ação" },
-            { value: "comedy", text:"Comédia" },
-            { value: "thriller", text:"Suspense" }
-          ]}
+          options={ [
+            { value: '', text: 'Todos' },
+            { value: 'action', text: 'Ação' },
+            { value: 'comedy', text: 'Comédia' },
+            { value: 'thriller', text: 'Suspense' },
+          ] }
         />
-        
       </form>
 
     );

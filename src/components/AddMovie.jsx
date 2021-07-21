@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import Input from './Input';
+import PropTypes from 'prop-types';
+
 import TextArea from './TextArea';
-import Number from './Number';
+import NumberInput from './NumberInput';
 import Select from './Select';
+import InputTotal from './InputTotal';
 
 class AddMovie extends Component {
   constructor() {
@@ -22,12 +24,12 @@ class AddMovie extends Component {
 
   handleChange(event) {
     const { name, value } = event.target;
-    this.setState({ [name]: value === 'rating' ?  Number(value): value });
+    this.setState({ [name]: name === 'rating' ? Number(value) : value });
   }
 
   addMovie() {
-    const {onClick} = this.props
-    onClick({...this.state})
+    const { onClick } = this.props;
+    onClick({ ...this.state });
     this.setState({
       subtitle: '',
       title: '',
@@ -35,8 +37,7 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    })
-
+    });
   }
 
   render() {
@@ -44,61 +45,54 @@ class AddMovie extends Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-          <Input
-            labelText="Título"
-            dataTestId="title-input"
-            valueText={ title }
-            onTextChange={ this.handleChange }
-            name="title"
-          />
-          <Input
-            labelText="Subtítulo"
-            dataTestId="subtitle-input"
-            valueText={ subtitle }
-            onTextChange={ this.handleChange }
-            name="subtitle"
-          />
-          <Input
-            labelText="Imagem"
-            dataTestId="image-input"
-            valueText={ imagePath }
-            onTextChange={ this.handleChange }
-            name="imagePath"
+          <InputTotal
+            handleChange={ this.handleChange }
+            title={ title }
+            subtitle={ subtitle }
+            imagePath={ imagePath }
           />
           <TextArea
-          labelText="Sinopse"
-          dataTestId="storyline-input"
-          valueText={ storyline }
-          onTextChange={ this.handleChange }
-          name="storyline" 
+            labelText="Sinopse"
+            dataTestId="storyline-input"
+            valueText={ storyline }
+            onTextChange={ this.handleChange }
+            name="storyline"
           />
-          <Number
+          <NumberInput
             labelText="Avaliação"
             dataTestId="rating-input"
             valueText={ rating }
             onTextChange={ this.handleChange }
             name="rating"
           />
-          <Select 
+          <Select
             name="genre"
             dataTestId="genre-input"
             labelText="Gênero"
             valueSelect={ genre }
-            selectChange= { this.handleChange }
+            selectChange={ this.handleChange }
             dataTestIdOptions="genre-option"
-            options={[
-              { value: "action", text:"Ação" },
-              { value: "comedy", text:"Comédia" },
-              { value: "thriller", text:"Suspense" }
-            ]}
-         />
-          <button type="button" data-testid="send-button" onClick={this.addMovie}>Adicionar filme</button> 
-
+            options={ [
+              { value: 'action', text: 'Ação' },
+              { value: 'comedy', text: 'Comédia' },
+              { value: 'thriller', text: 'Suspense' },
+            ] }
+          />
+          <button
+            type="button"
+            data-testid="send-button"
+            onClick={ this.addMovie }
+          >
+            Adicionar filme
+          </button>
         </form>
       </div>
-
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
