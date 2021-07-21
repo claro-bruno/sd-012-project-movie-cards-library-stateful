@@ -9,23 +9,69 @@ class MovieLibrary extends Component {
     super(props);
     this.submitOnClick = this.submitOnClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
-
-    const { movies } = this.props;
+    this.filtering = this.filtering.bind(this);
+    // this.handleSearchText = this.handleSearchText.bind(this);
+    // this.handlebookmarkedOnly = this.handlebookmarkedOnly.bind(this);
+    // this.handleSelectedGenre = this.handleSelectedGenre.bind(this);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: props.movies,
     };
   }
 
+  // handleSearchText(event) {
+  //   this.setState({ searchText: event.target.value });
+  // }
+
+  // handlebookmarkedOnly(event) {
+  //   this.setState({ searchText: event.target.value });
+  // }
+
+  // handleSelectedGenre(event) {
+  //   this.setState({ searchText: event.target.value });
+  // }
+
+  // handleChange({ target }) {
+  //   const { name, value } = target;
+
+  //   this.setState({
+  //     [name]: value,
+  //   });
+  // }
+
   handleChange({ target }) {
-    const { name, value } = target;
+    const { name, type } = target;
+    const value = (type === 'checkbox' ? target.checked : target.value);
 
     this.setState({
       [name]: value,
     });
+  }
+
+  // Eu verifiquei a o PR do Eric Kreis para resolução da função de filtragem para os requisitos 17 e 18.
+  // https://github.com/tryber/sd-012-project-movie-cards-library-stateful/pull/61/files
+
+  filtering() {
+    const { bookmarkedOnly, selectedGenre, searchText, movies } = this.state;
+    let moviesList = movies;
+
+    if (bookmarkedOnly) {
+      moviesList = movies.filter(({ bookmarked }) => bookmarked === true);
+    }
+    if (selectedGenre) {
+      moviesList = movies.filter(({ genre }) => genre === selectedGenre);
+    }
+    if (searchText) {
+      moviesList = movies.filter(({ title, subtitle, storyline }) => (
+        title.includes(searchText)
+        || subtitle.includes(searchText)
+        || storyline.includes(searchText)
+      ));
+    }
+    return moviesList;
   }
 
   submitOnClick(newMovie) {
@@ -36,18 +82,18 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
           searchText={ searchText }
-          onSearchTextChange={ this.handleChange }
           bookmarkedOnly={ bookmarkedOnly }
-          onBookmarkedChange={ this.handleChange }
           selectedGenre={ selectedGenre }
+          onSearchTextChange={ this.handleChange }
+          onBookmarkedChange={ this.handleChange }
           onSelectedGenreChange={ this.handleChange }
         />
-        <MovieList movies={ movies } />
+        <MovieList movies={ this.filtering() } />
         <AddMovie onClick={ () => {} } />
       </div>
     );
