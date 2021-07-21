@@ -6,8 +6,8 @@ export default class SearchBar extends Component {
     const {
       searchText,
       onSearchTextChange,
-      // bookmarkedOnly,
-      // onBookmarkedChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
       // selectedGenre,
       // onSelectedGenreChange
     } = this.props;
@@ -20,10 +20,19 @@ export default class SearchBar extends Component {
             Inclui o texto:
             <input
               data-testid="text-input"
-              name="imputTest"
               type="text"
               value={ searchText }
               onChange={ onSearchTextChange }
+            />
+          </label>
+
+          <label data-testid="checkbox-input-label" htmlFor="Mostrar somente favoritos">
+            Mostrar somente favoritos
+            <input
+              data-testid="checkbox-input"
+              type="checkbox"
+              onChange={ onBookmarkedChange }
+              checked={ bookmarkedOnly }
             />
           </label>
 
@@ -36,8 +45,8 @@ export default class SearchBar extends Component {
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
-  // bookmarkedOnly: PropTypes.bool.isRequired,
-  // onBookmarkedChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
   // selectedGenre: PropTypes.string.isRequired,
   // onSelectedGenreChange: PropTypes.func.isRequired,
 };
