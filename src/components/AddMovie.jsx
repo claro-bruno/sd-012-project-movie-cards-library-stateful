@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import FormInput from './FormsInput';
 
 class AddMovie extends React.Component {
@@ -16,6 +17,19 @@ class AddMovie extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.onChangeHandle = this.onChangeHandle.bind(this);
     this.renderFormInput = this.renderFormInput.bind(this);
+  }
+
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   onChangeHandle({ target }) {
@@ -75,9 +89,20 @@ class AddMovie extends React.Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </div>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={ this.handleClick }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+};
 
 export default AddMovie;
