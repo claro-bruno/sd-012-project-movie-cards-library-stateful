@@ -4,7 +4,9 @@ export default class SearchBar extends Component {
   render() {
     return (
       <div>
-        oi
+        <from data-testid="search-bar-form">
+          Dentro do form
+        </from>
       </div>
     );
   }
