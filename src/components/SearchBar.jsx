@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Proptypes from 'prop-types';
+import Input from './Input';
+import Select from './Select';
 
 class SearchBar extends Component {
   render() {
@@ -12,18 +14,16 @@ class SearchBar extends Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <div>
-        <form data-testid="search-bar-form">
-          <label htmlFor="search-text" data-testid="text-input-label">
-            Inclui o texto
-            <input
-              data-testid="text-input"
-              type="text"
-              value={ searchText }
-              onChange={ onSearchTextChange }
-            />
-          </label>
 
+      <form data-testid="search-bar-form">
+        <Input
+          name=""
+          dataTestId="text-input"
+          labelText="Inclui o texto"
+          valueText={ searchText }
+          onTextChange={ onSearchTextChange }
+        />
+        <section>
           <label htmlFor="search-checkbox" data-testid="checkbox-input-label">
             Mostrar somente favoritos
             <input
@@ -33,22 +33,24 @@ class SearchBar extends Component {
               onChange={ onBookmarkedChange }
             />
           </label>
-          <label htmlFor="search-select" data-testid="select-input-label">
-            Filtrar por gênero
-            <select
-              data-testid="select-input"
-              value={ selectedGenre }
-              onChange={ onSelectedGenreChange }
-            >
-              <option data-testid="select-option" value="">Todos</option>
-              <option data-testid="select-option" value="action">Ação</option>
-              <option data-testid="select-option" value="comedy">Comédia</option>
-              <option data-testid="select-option" value="thriller">Suspense</option>
+        </section>
+        <Select 
+          name=""
+          dataTestId="select-input"
+          labelText="Filtrar por gênero"
+          valueSelect={ selectedGenre }
+          selectChange= { onSelectedGenreChange }
+          dataTestIdOptions="select-option"
+          options={[
+            { value: "",text:"Todos" },
+            { value: "action", text:"Ação" },
+            { value: "comedy", text:"Comédia" },
+            { value: "thriller", text:"Suspense" }
+          ]}
+        />
+        
+      </form>
 
-            </select>
-          </label>
-        </form>
-      </div>
     );
   }
 }
