@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Select extends Component {
   render() {
@@ -39,15 +40,15 @@ class Select extends Component {
   }
 }
 Select.propTypes = {
-  valueSelect: Proptypes.string.isRequired,
-  selectChange: Proptypes.func.isRequired,
-  dataTestId: Proptypes.string.isRequired,
-  labelText: Proptypes.string.isRequired,
-  name: Proptypes.string.isRequired,
-  dataTestIdOptions: Proptypes.string.isRequired,
-  options: Proptypes.arrayOf(Proptypes.shape({
-    value: Proptypes.string,
-    text: Proptypes.string,
+  valueSelect: PropTypes.string.isRequired,
+  selectChange: PropTypes.func.isRequired,
+  dataTestId: PropTypes.string.isRequired,
+  labelText: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  dataTestIdOptions: PropTypes.string.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string,
+    text: PropTypes.string,
   })).isRequired,
 };
 
