@@ -4,8 +4,7 @@ import PropTypes from 'prop-types';
 class Select extends React.Component {
   render() {
     const { name, testid, labelText, selectedGenre, onSelectedGenreChange,
-      optionList, optionId,
-    } = this.props;
+      optionList, optionId } = this.props;
     const labelid = `${testid}-label`;
     return (
       <label
@@ -19,7 +18,7 @@ class Select extends React.Component {
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
         >
-          {optionList.map((element) => (
+          { optionList.map((element) => (
             <option
               key={ element.value }
               value={ element.value }
@@ -40,10 +39,7 @@ Select.propTypes = {
   labelText: PropTypes.string.isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
-  optionList: PropTypes.shape({
-    value: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
-  }).isRequired,
+  optionList: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
   optionId: PropTypes.string.isRequired,
 };
 

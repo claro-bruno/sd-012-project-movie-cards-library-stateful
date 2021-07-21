@@ -3,6 +3,7 @@ import Header from './components/Header';
 import './App.css';
 import SearchBar from './components/SearchBar';
 import AddMovie from './components/AddMovie';
+import MovieLibrary from './components/MovieLibrary';
 
 class App extends React.Component {
   constructor() {
@@ -11,12 +12,12 @@ class App extends React.Component {
       searchText: '',
       bookmarked: false,
       selectedGenre: '',
-      movie: [],
+      movies: [],
     };
     this.titleInputCallBack = this.titleInputCallBack.bind(this);
     this.bookmarkCallBack = this.bookmarkCallBack.bind(this);
     this.selectGenreCallBack = this.selectGenreCallBack.bind(this);
-    this.newMovieCallBack = this.newMovieCallBack.bind(this);
+    this.MovieCallBack = this.MovieCallBack.bind(this);
   }
 
   titleInputCallBack(event) {
@@ -31,12 +32,14 @@ class App extends React.Component {
     this.setState({ selectedGenre: event.target.value });
   }
 
-  newMovieCallBack(movie) {
-    this.setState({ movie });
+  MovieCallBack(newMovie) {
+    console.log(newMovie);
+    const { movies } = this.state;
+    movies.push(newMovie);
   }
 
   render() {
-    const { searchText, selectedGenre, bookmarked } = this.state;
+    const { searchText, selectedGenre, bookmarked, movies } = this.state;
     return (
       <div className="App">
         <Header />
@@ -49,8 +52,9 @@ class App extends React.Component {
           onSelectedGenreChange={ this.selectGenreCallBack }
         />
         <AddMovie
-          callback={ this.newMovieCallBack }
+          callback={ this.MovieCallBack }
         />
+        <MovieLibrary movies={ movies } />
       </div>
     );
   }

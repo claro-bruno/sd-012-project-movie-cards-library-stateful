@@ -16,22 +16,34 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
 
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handleTitleClick = this.handleTitleClick.bind(this);
+    this.ButtonClick = this.ButtonClick.bind(this);
+    this.newInput = this.newInput.bind(this);
+    this.initialState = this.state;
   }
 
   handleChange(event, stateName) {
     this.setState({ [stateName]: event.target.value });
   }
 
-  handleTitleChange(e) {
-    this.setState({ title: e.target.value });
+  ButtonClick() {
+    const { callback } = this.props;
+    const movie = { ...this.state };
+    //  callback(movie);
+    this.state = this.initialState;
+    // this.setState({});
   }
 
-  handleTitleClick() {
-    const { callback } = this.props;
-    const { title } = this.state;
-    callback(title);
+  newInput(name, text, labelText, type) {
+    return (
+      <Input
+        name={ `${name}-input` }
+        testid={ `${name}-input` }
+        inputText={ text }
+        labelText={ labelText }
+        inputType={ type }
+        callback={ (event) => this.handleChange(event, `${name}`) }
+      />
+    );
   }
 
   render() {
@@ -43,23 +55,9 @@ class AddMovie extends React.Component {
     ];
     return (
       <form data-testid="add-movie-form">
-        <Input
-          name="title-input"
-          testid="title-input"
-          inputText={ title }
-          labelText="Título"
-          inputType="text"
-          callback={ (event) => this.handleChange(event, 'title') }
-        />
+        { this.newInput('title', title, 'Título', 'text') }
         <br />
-        <Input
-          name="subtitle-input"
-          testid="subtitle-input"
-          inputText={ subtitle }
-          labelText="Subtítulo"
-          inputType="text"
-          callback={ (event) => this.handleChange(event, 'subtitle') }
-        />
+        { this.newInput('subtitle', subtitle, 'Subtítulo', 'text') }
         <br />
         <Input
           name="image-input"
@@ -78,14 +76,8 @@ class AddMovie extends React.Component {
           callback={ (event) => this.handleChange(event, 'storyline') }
         />
         <br />
-        <Input
-          name="rating-input"
-          testid="rating-input"
-          inputText={ rating }
-          labelText="Avaliação"
-          inputType="number"
-          callback={ (event) => this.handleChange(event, 'rating') }
-        />
+        { this.newInput('rating', rating, 'Avaliação', 'number') }
+        <br />
         <Select
           name="genre-input"
           testid="genre-input"
@@ -95,6 +87,10 @@ class AddMovie extends React.Component {
           onSelectedGenreChange={ (event) => this.handleChange(event, 'genre') }
           optionList={ addMovieSelect }
         />
+        <br />
+        <button type="submit" data-testid="send-button" onClick={ this.ButtonClick() }>
+          Adicionar filme
+        </button>
       </form>
     );
   }
