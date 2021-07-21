@@ -2,6 +2,7 @@ import React from 'react';
 import InputText from './InputText';
 import Textarea from './Textarea';
 import InputNumber from './InputNumber';
+import InputSelect from './InputSelect';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -18,7 +19,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <InputText
@@ -37,7 +38,7 @@ class AddMovie extends React.Component {
           labelDescription="Imagem"
           inputId="image-input"
           value={ imagePath }
-          onChange={ ({ target }) => this.setState({ subtitle: target.value }) }
+          onChange={ ({ target }) => this.setState({ imagePath: target.value }) }
         />
         <Textarea
           labelDescription="Sinopse"
@@ -50,6 +51,12 @@ class AddMovie extends React.Component {
           inputId="rating-input"
           value={ rating }
           onChange={ ({ target }) => this.setState({ rating: target.value }) }
+        />
+        <InputSelect
+          labelDescription="Gênero"
+          inputId="genre-input"
+          value={ genre }
+          onChange={ ({ target }) => this.setState({ genre: target.value }) }
         />
       </form>
     );
