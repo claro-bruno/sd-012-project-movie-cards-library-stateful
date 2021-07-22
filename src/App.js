@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Header from './components/Header';
+import SearchBar from './components/SearchBar';
+import AddMovie from './components/AddMovie';
+import MovieLibrary from './components/MovieLibrary';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-    </div>
-  );
+class App extends Component {
+  render() {
+    const { movies } = this.state;
+    return (
+      <div className="App">
+        <Header />
+        <SearchBar />
+        <AddMovie />
+        <MovieLibrary movies={ movies } />
+      </div>
+    );
+  }
 }
 
 export default App;
