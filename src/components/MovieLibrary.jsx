@@ -16,7 +16,7 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies,
     };
-    this.onSearchTextChangee = this.onSearchTextChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
@@ -58,7 +58,7 @@ class MovieLibrary extends React.Component {
       moviesList = moviesList.filter((book) => book);
     }
     if (selectedGenre !== '') {
-      moviesList = movieList.filter((genre) => genre === selectedGenre);
+      moviesList = moviesList.filter((genre) => genre === selectedGenre);
     }
     return moviesList;
   }
