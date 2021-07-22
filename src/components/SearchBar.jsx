@@ -16,24 +16,19 @@ export default class SearchBar extends Component {
     } = this.props;
 
     return (
-      <div>
-        <form data-testid="search-bar-form">
-          <TextInput
-            searchText={ searchText }
-            onSearchTextChange={ onSearchTextChange }
-          />
+      <form data-testid="search-bar-form">
+        <TextInput searchText={ searchText } onSearchTextChange={ onSearchTextChange } />
 
-          <CheckboxInput
-            bookmarkedOnly={ bookmarkedOnly }
-            onBookmarkedChange={ onBookmarkedChange }
-          />
+        <CheckboxInput
+          bookmarkedOnly={ bookmarkedOnly }
+          onBookmarkedChange={ onBookmarkedChange }
+        />
 
-          <SelectInput
-            selectedGenre={ selectedGenre }
-            onSelectedGenreChange={ onSelectedGenreChange }
-          />
-        </form>
-      </div>
+        <SelectInput
+          selectedGenre={ selectedGenre }
+          onSelectedGenreChange={ onSelectedGenreChange }
+        />
+      </form>
     );
   }
 }
