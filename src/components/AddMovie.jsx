@@ -6,7 +6,6 @@ import SubtitleForm from './Forms/Subtitleform';
 import StorylineForm from './Forms/Storylineform';
 import RatingForm from './Forms/Ratingform';
 import GenreForm from './Forms/Genreform';
-import ButtonForm from './Forms/Buttonform';
 
 class AddMovie extends Component {
   constructor() {
