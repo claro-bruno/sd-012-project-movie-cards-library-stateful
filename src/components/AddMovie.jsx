@@ -19,12 +19,25 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.textInputHandler = this.textInputHandler.bind(this);
-    this.handler = this.handler.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   textInputHandler(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
+  }
+
+  addMovie() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
