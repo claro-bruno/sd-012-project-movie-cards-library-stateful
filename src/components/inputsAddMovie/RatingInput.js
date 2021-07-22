@@ -14,6 +14,9 @@ export default class RatingInput extends Component {
           type="number"
           value={ value }
           onChange={ handleChange }
+          min="0"
+          max="5"
+          step=".1"
         />
       </label>
     );
