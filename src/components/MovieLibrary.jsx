@@ -14,24 +14,23 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies,
     };
-    this.changeSearcher = this.changeSearcher.bind(this);
-    this.bookmarkedChange = this.bookmarkedChange.bind(this);
-    this.selectedGenreChange = this.selectedGenreChange.bind(this);
-    this.moviesFilter = this.moviesFilter.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.movieFilter = this.movieFilter.bind(this);
+  }
+  onSearchTextChange({ target }) {
+    this.setState({ searchText: target.value }, this.movieFilter);
   }
 
-  changeSearcher({ target }) {
-    this.setState({ searchText: target.value }, this.moviesFilter);
-  }
-
-  bookmarkedChange({ target }) {
+  onBookmarkedChange({ target }) {
     const { movies } = this.state;
     this.setState({ bookmarkedOnly: target.checked }, () => {
       this.setState({ movies: movies.filter(({ bookmarked }) => bookmarked) });
     });
   }
 
-  selectedGenreChange({ target }) {
+  onSelectedGenreChange({ target }) {
     const { movies } = this.state;
     this.setState({ selectedGenre: target.value }, () => {
       const { selectedGenre } = this.state;
@@ -39,18 +38,18 @@ class MovieLibrary extends Component {
     });
   }
 
-  moviesFilter() {
-    let isFiltered = '';
+  movieFilter() {
+    let filteredMovies = '';
     const { searchText, movies } = this.state;
     if (searchText.length < 1) {
       const { movies: propMovies } = this.props;
       this.setState({ movies: propMovies });
       return;
     }
-    isFiltered = movies.filter(({ title, subtitle, storyline }) => (
+    filteredMovies = movies.filter(({ title, subtitle, storyline }) => (
       `${title}${subtitle}${storyline}`.includes(searchText)
     ));
-    this.setState({ movies: isFiltered });
+    this.setState({ movies: filteredMovies });
   }
 
   render() {
@@ -60,11 +59,11 @@ class MovieLibrary extends Component {
         <h2>Minha incrível Movie Library</h2>
         <SearchBar
           searchText={ searchText }
-          changeSearcher={ this.changeSearcher }
+          onSearchTextChange={ this.onSearchTextChange }
           bookmarkedOnly={ bookmarkedOnly }
-          bookmarkedChange={ this.bookmarkedChange }
+          onBookmarkedChange={ this.onBookmarkedChange }
           selectedGenre={ selectedGenre }
-          selectedGenreChange={ this.selectedGenreChange }
+          onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
         <AddMovie />
