@@ -7,8 +7,9 @@ class ButtonForm extends Component {
 
     return (
       <button
-      data-testid="send-button"
-      onClick={ callbackButton }
+        data-testid="send-button"
+        type="button"
+        onClick={ callbackButton }
       >
         Adicionar filme
       </button>
