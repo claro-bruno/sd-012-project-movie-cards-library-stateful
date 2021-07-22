@@ -43,7 +43,7 @@ class SearchBar extends Component {
                 Comédia
               </option>
               <option data-testid="select-option" value="thriller">
-                Terror
+                Suspense
               </option>
             </select>
           </label>
