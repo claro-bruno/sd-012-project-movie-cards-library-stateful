@@ -15,6 +15,7 @@ export default class SelectInput extends Component {
       >
         Filtrar por gênero
         <select
+          name="selectedGenre"
           value={ selectedGenre }
           onChange={ onSelectedGenreChange }
           data-testid="select-input"

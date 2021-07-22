@@ -12,6 +12,7 @@ export default class CheckboxInput extends Component {
       <label data-testid="checkbox-input-label" htmlFor="Mostrar somente favoritos">
         Mostrar somente favoritos
         <input
+          name="bookmarkedOnly"
           data-testid="checkbox-input"
           type="checkbox"
           onChange={ onBookmarkedChange }

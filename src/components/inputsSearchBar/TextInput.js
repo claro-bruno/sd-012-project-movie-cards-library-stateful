@@ -12,6 +12,7 @@ export default class TextInput extends Component {
       <label data-testid="text-input-label" htmlFor="Inclui o texto:">
         Inclui o texto
         <input
+          name="searchText"
           data-testid="text-input"
           type="text"
           value={ searchText }
