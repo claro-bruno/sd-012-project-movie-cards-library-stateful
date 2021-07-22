@@ -51,14 +51,14 @@ class MovieLibrary extends React.Component {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     let moviesList = movies.filter(({ title, subtitle, storyline }) => (
       title.includes(searchText)
-      || subtitle.includes(searchText)
-      || storyline.includes(searchText)
+        || subtitle.includes(searchText)
+        || storyline.includes(searchText)
     ));
     if (bookmarkedOnly) {
-      moviesList = moviesList.filter((book) => book);
+      moviesList = moviesList.filter(({ book }) => book);
     }
     if (selectedGenre !== '') {
-      moviesList = moviesList.filter((genre) => genre === selectedGenre);
+      moviesList = moviesList.filter(({ genre }) => genre === selectedGenre);
     }
     return moviesList;
   }
