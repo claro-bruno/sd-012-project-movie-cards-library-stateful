@@ -17,6 +17,7 @@ class MovieLibray extends Component {
     };
     this.mudaEstado = this.mudaEstado.bind(this);
     this.filtro = this.filtro.bind(this);
+    this.AddFilme = this.AddFilme.bind(this);
   }
 
   // feito com ajuda do colega Julio Barros
@@ -46,7 +47,7 @@ class MovieLibray extends Component {
   AddFilme(filme) {
     const { movies } = this.state;
     this.setState({
-      [movies]: [...movies, filme],
+      movies: [...movies, filme],
     });
   }
 
