@@ -63,6 +63,6 @@ class MovieLibrary extends Component {
   }
 }
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(objectOf).isRequired,
+  movies: PropTypes.arrayOf(PropTypesobjectOf).isRequired,
 };
 export default MovieLibrary;
