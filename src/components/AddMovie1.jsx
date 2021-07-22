@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropType from 'prop-types';
 
-class DadosIniciais extends Component {
+class AddMovie1 extends Component {
   render() {
     const {
       title,
@@ -48,11 +48,11 @@ class DadosIniciais extends Component {
   }
 }
 
-DadosIniciais.propTypes = {
+AddMovie1.propTypes = {
   title: PropType.string.isRequired,
   subtitle: PropType.string.isRequired,
   imagePath: PropType.string.isRequired,
   onChange: PropType.func.isRequired,
 };
 
-export default DadosIniciais;
+export default AddMovie1;

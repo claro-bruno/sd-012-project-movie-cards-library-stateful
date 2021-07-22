@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropType from 'prop-types';
 
-class DadosFinais extends Component {
+class AddMovie2 extends Component {
   render() {
     const {
       storyline,
@@ -53,11 +53,11 @@ class DadosFinais extends Component {
   }
 }
 
-DadosFinais.propTypes = {
+AddMovie2.propTypes = {
   storyline: PropType.string.isRequired,
   rating: PropType.number.isRequired,
   genre: PropType.string.isRequired,
   onChange: PropType.func.isRequired,
 };
 
-export default DadosFinais;
+export default AddMovie2;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropType from 'prop-types';
-import DadosIniciais from './DadosIniciais';
-import DadosFinais from './DadosFinais';
+import AddMovie1 from './AddMovie1';
+import AddMovie2 from './AddMovie2';
 
 class AddMovie extends Component {
   constructor() {
@@ -37,13 +37,13 @@ class AddMovie extends Component {
     } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <DadosIniciais
+        <AddMovie1
           title={ title }
           subtitle={ subtitle }
           imagePath={ imagePath }
           onChange={ this.alteraItem }
         />
-        <DadosFinais
+        <AddMovie2
           storyline={ storyline }
           rating={ rating }
           genre={ genre }
