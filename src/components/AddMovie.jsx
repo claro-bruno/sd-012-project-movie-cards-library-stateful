@@ -51,7 +51,7 @@ class AddMovie extends React.Component {
           Título
           <input
             type="text"
-            name="title"
+            name="addTitle"
             data-testid="title-input"
             value={ title }
             onChange={ handleChange }
@@ -62,13 +62,13 @@ class AddMovie extends React.Component {
           <input
             data-testid="subtitle-input"
             type="text"
-            name="subtitle"
+            name="Subtítulo"
             id="Subtítulo"
             value={ subtitle }
             onChange={ handleChange }
           />
         </label>
-        <label htmlFor="Imagem" data-testid="image-input-label">
+        <label htmlFor="ImagemPath" data-testid="image-input-label">
           Imagem
           <input
             data-testid="image-input"
