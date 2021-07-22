@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import SelectInput from './SelectInput';
-import TextInput from './TextInput';
-import CheckboxInput from './CheckboxInput';
+import SelectInput from './inputs/SelectInput';
+import TextInput from './inputs/TextInput';
+import CheckboxInput from './inputs/CheckboxInput';
 
 export default class SearchBar extends Component {
   render() {
