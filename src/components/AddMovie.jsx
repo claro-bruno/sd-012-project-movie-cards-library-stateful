@@ -51,7 +51,7 @@ class AddMovie extends React.Component {
           Título
           <input
             type="text"
-            name="addTitle"
+            name="title"
             data-testid="title-input"
             value={ title }
             onChange={ handleChange }
@@ -62,7 +62,7 @@ class AddMovie extends React.Component {
           <input
             data-testid="subtitle-input"
             type="text"
-            name="Subtítulo"
+            name="subtitle"
             id="Subtítulo"
             value={ subtitle }
             onChange={ handleChange }
