@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 // import Select from './Forms/Select';
 // import Textarea from './Forms/Textarea';
 
+// requisitos feitos com ajuda do Wadson!
+
 const INITIAL_STATE = {
   subtitle: '',
   title: '',
