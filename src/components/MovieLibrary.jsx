@@ -80,8 +80,8 @@ class MovieLibrary extends React.Component {
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ onSelectedGenreChange }
         />
-        <MovieList movies={ filterMovies() } />
-        <AddMovie onClick={ () => {} } />
+        <MovieList movies={ movies } />
+        <AddMovie onClick={ filterMovies } />
       </div>
     );
   }
