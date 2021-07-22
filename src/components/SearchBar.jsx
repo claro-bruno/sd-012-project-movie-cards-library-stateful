@@ -24,7 +24,7 @@ class SearchBar extends React.Component {
           inputType="search"
           callback={ onSearchTextChange }
         />
-        <button type="submit">Search</button>
+        <button type="submit" onClick={ (e) => e.preventDefault() }>Search</button>
         <label
           htmlFor="checkbox-input"
           data-testid="checkbox-input-label"

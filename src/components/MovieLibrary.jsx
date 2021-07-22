@@ -5,13 +5,14 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const { movies } = props;
     this.state = {
       searchText: '',
-      bookmarked: false,
+      bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [],
+      movies,
     };
     this.titleInputCallBack = this.titleInputCallBack.bind(this);
     this.bookmarkCallBack = this.bookmarkCallBack.bind(this);
@@ -19,16 +20,7 @@ class MovieLibrary extends React.Component {
     this.MovieCallBack = this.MovieCallBack.bind(this);
     this.myFilter = this.myFilter.bind(this);
     this.movieFilter = this.movieFilter.bind(this);
-  }
-
-  componentDidMount() {
-    const { movies } = this.props;
-    const myMovies = this.state;
-    console.log(movies);
-    movies.forEach((movie) => {
-      myMovies.movies.push(movie);
-      // this.state.movies.push(movie);
-    });
+    this.bookmarkedMovieFilter = this.bookmarkedMovieFilter.bind(this);
   }
 
   titleInputCallBack(event) {
@@ -36,17 +28,16 @@ class MovieLibrary extends React.Component {
   }
 
   bookmarkCallBack(event) {
-    this.setState({ bookmarked: event.target.value });
+    this.setState({ bookmarkedOnly: event.target.checked });
   }
 
   selectGenreCallBack(event) {
     this.setState({ selectedGenre: event.target.value });
   }
 
-  MovieCallBack({ subtitle, title, imagePath, storyline, rating, genre }) {
-    const { movies } = this.state;
-    const newMovie = { subtitle, title, imagePath, storyline, rating, genre };
-    console.log(movies, newMovie);
+  MovieCallBack({ subtitle, title, imagePath, storyline, rating, genre, bookmarked }) {
+    const newMovie = { subtitle, title, imagePath, storyline, rating, genre, bookmarked };
+    console.log(newMovie);
     this.setState((prevState) => ({
       movies: [...prevState.movies, newMovie],
     }));
@@ -55,30 +46,61 @@ class MovieLibrary extends React.Component {
   movieFilter({ subtitle, title, imagePath, storyline, rating, genre }) {
     const { searchText, selectedGenre } = this.state;
     const movie = { subtitle, title, imagePath, storyline, rating, genre };
-    if (movie.title.toLowerCase().contains(searchText.toLowerCase())
-      || movie.subtitle.toLowerCase().contains(searchText.toLowerCase())
+    if (movie.title.toLowerCase().includes(searchText.toLowerCase())
+      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+      || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
       || movie.genre === selectedGenre) {
       return movie;
     }
   }
 
-  myFilter() {
+  bookmarkedMovieFilter() { //  { subtitle, title, imagePath, storyline, rating, genre }) {
     const { searchText, selectedGenre, movies } = this.state;
-    if (!searchText || !selectedGenre || !movies) {
+    if (!selectedGenre) {
+      if (!searchText) {
+        return movies.filter((movie) => movie.bookmarked === true)
+          .filter((movie) => movie.genre === selectedGenre)
+          .filter((movie) => (
+            movie.title.toLowerCase().includes(searchText.toLowerCase())
+          || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+          || movie.storyline.toLowerCase().includes(searchText.toLowerCase())));
+      }
+      return movies.filter((movie) => movie.bookmarked === true)
+        .filter((movie) => movie.genre === selectedGenre);
+    }
+    if (!searchText) {
+      return movies.filter((movie) => movie.bookmarked === true)
+        .filter((movie) => (
+          movie.title.toLowerCase().includes(searchText.toLowerCase())
+        || movie.storyline.toLowerCase().includes(searchText.toLowerCase()
+        || movie.subtitle.toLowerCase().includes(searchText.toLowerCase()))));
+    }
+    return movies.filter((movie) => movie.bookmarked === true);
+  }
+
+  myFilter() {
+    const { searchText, selectedGenre, movies, bookmarkedOnly } = this.state;
+    if (bookmarkedOnly === true) {
+      return this.bookmarkedMovieFilter();
+    }
+    if (!searchText || !selectedGenre) {
       return movies.filter(this.movieFilter);
+    }
+    if (searchText === '' && selectedGenre === '') {
+      return movies;
     }
     return movies;
   }
 
   render() {
-    const { searchText, selectedGenre, bookmarked } = this.state;
-    const allMovies = this.myFilter();
+    const { searchText, selectedGenre, bookmarkedOnly } = this.state;
+    const movies = this.myFilter();
     return (
       <div className="App">
         <SearchBar
           searchText={ searchText }
           onSearchTextChange={ this.titleInputCallBack }
-          bookmarkedOnly={ bookmarked }
+          bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={ this.bookmarkCallBack }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={ this.selectGenreCallBack }
@@ -86,7 +108,7 @@ class MovieLibrary extends React.Component {
         <AddMovie
           onClick={ this.MovieCallBack }
         />
-        <MovieList movies={ allMovies /*  this.myFilter()  */ } />
+        <MovieList movies={ movies } />
       </div>
     );
   }

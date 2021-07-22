@@ -19,6 +19,7 @@ class AddMovie extends React.Component {
 
     this.ButtonClick = this.ButtonClick.bind(this);
     this.newInput = this.newInput.bind(this);
+    this.inputArray = this.inputArray.bind(this);
     this.initialState = this.state;
   }
 
@@ -26,16 +27,48 @@ class AddMovie extends React.Component {
     this.setState({ [stateName]: event.target.value });
   }
 
-  ButtonClick() {
+  ButtonClick(event) {
+    event.preventDefault();
     const { onClick } = this.props;
-    // const movie = { ...this.state };
-    // console.log(movie, this.state);
     onClick({ ...this.state });
-    // this.state = this.initialState;
     this.setState({ ...this.initialState });
   }
 
-  newInput(name, text, labelText, type) {
+  inputArray() {
+    const { title, subtitle, imagePath, rating } = this.state;
+    return [
+      {
+        name: 'title',
+        text: title,
+        labelText: 'Título',
+        type: 'text',
+        stateName: 'title',
+      },
+      {
+        name: 'subtitle',
+        text: subtitle,
+        labelText: 'Subtítulo',
+        type: 'text',
+        stateName: 'subtitle',
+      },
+      {
+        name: 'image',
+        text: imagePath,
+        labelText: 'Imagem',
+        type: 'text',
+        stateName: 'imagePath',
+      },
+      {
+        name: 'rating',
+        text: rating,
+        labelText: 'Avaliação',
+        type: 'number',
+        stateName: 'rating',
+      },
+    ];
+  }
+
+  newInput({ name, text, labelText, type, stateName }) {
     return (
       <Input
         name={ `${name}-input` }
@@ -43,13 +76,13 @@ class AddMovie extends React.Component {
         inputText={ text }
         labelText={ labelText }
         inputType={ type }
-        callback={ (event) => this.handleChange(event, `${name}`) }
+        callback={ (event) => this.handleChange(event, stateName) }
       />
     );
   }
 
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+    const { storyline, genre } = this.state;
     const addMovieSelect = [
       { value: 'action', content: 'Ação' },
       { value: 'comedy', content: 'Comédia' },
@@ -57,18 +90,11 @@ class AddMovie extends React.Component {
     ];
     return (
       <form data-testid="add-movie-form">
-        { this.newInput('title', title, 'Título', 'text') }
+        { this.newInput(this.inputArray()[0]) }
         <br />
-        { this.newInput('subtitle', subtitle, 'Subtítulo', 'text') }
+        { this.newInput(this.inputArray()[1]) }
         <br />
-        <Input
-          name="image-input"
-          testid="image-input"
-          inputText={ imagePath }
-          labelText="Imagem"
-          inputType="text"
-          callback={ (event) => this.handleChange(event, 'imagePath') }
-        />
+        { this.newInput(this.inputArray()[2]) }
         <br />
         <TextArea
           name="storyline-input"
@@ -78,7 +104,7 @@ class AddMovie extends React.Component {
           callback={ (event) => this.handleChange(event, 'storyline') }
         />
         <br />
-        { this.newInput('rating', rating, 'Avaliação', 'number') }
+        { this.newInput(this.inputArray()[3]) }
         <br />
         <Select
           name="genre-input"
@@ -90,7 +116,11 @@ class AddMovie extends React.Component {
           optionList={ addMovieSelect }
         />
         <br />
-        <button type="submit" data-testid="send-button" onClick={ this.ButtonClick }>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={ (e) => this.ButtonClick(e) }
+        >
           Adicionar filme
         </button>
       </form>
