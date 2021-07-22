@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import TitleForm from './Forms/Titleform';
 import ImagePathForm from './Forms/ImagePathform';
 import SubtitleForm from './Forms/Subtitleform';
 import StorylineForm from './Forms/Storylineform';
 import RatingForm from './Forms/Ratingform';
 import GenreForm from './Forms/Genreform';
+import ButtonForm from './Forms/Buttonform';
 
 class AddMovie extends Component {
   constructor() {
@@ -18,6 +20,7 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.textInputHandler = this.textInputHandler.bind(this);
+    this.handler = this.handler.bind(this);
   }
 
   textInputHandler(event) {
@@ -59,6 +62,9 @@ class AddMovie extends Component {
         <GenreForm
           genreValue={ genre }
           genreOnChange={ this.textInputHandler }
+        />
+        <ButtonForm
+        onClick={ this.addMovie }
         />
       </form>
     );
