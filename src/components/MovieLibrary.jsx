@@ -37,30 +37,19 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  // Essa "cascata" primeiro tentei com if, a idéia das constantes é do repositório da Aldria Melo.
+  // link: https://github.com/tryber/sd-012-project-movie-cards-library-stateful/pull/159/files
   searchOnChange() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    let arrMovie = [];
-
-    if (searchText.value !== '') {
-      arrMovie = movies
-        .filter((movie) => (movie.title.toLowerCase().includes(searchText)
-      || movie.subtitle.toLowerCase().includes(searchText)
-      || movie.storyline.toLowerCase().includes(searchText)));
-      return arrMovie;
-    }
-
-    if (bookmarkedOnly.value === true) {
-      arrMovie = movies
-        .filter((movie) => (bookmarkedOnly ? movie.bookmarked === true : movie));
-      return arrMovie;
-    }
-
-    if (selectedGenre.value !== '') {
-      arrMovie = movies
-        .filter((movie) => (movie.genre.includes(selectedGenre)));
-      return arrMovie;
-    }
-    return movies;
+    const arrMovie = movies
+      .filter((movie) => (bookmarkedOnly ? movie.bookmarked === true : movie));
+    const arrMovieSearch = arrMovie
+      .filter((movie) => (movie.title.toLowerCase().includes(searchText)
+    || movie.subtitle.toLowerCase().includes(searchText)
+    || movie.storyline.toLowerCase().includes(searchText)));
+    const finalMovieList = arrMovieSearch
+      .filter((movie) => (movie.genre.includes(selectedGenre)));
+    return finalMovieList;
   }
 
   render() {
