@@ -76,13 +76,13 @@ class AddMovie extends Component {
     const { imagePath } = this.state;
     return (
       <div>
-        <label htmlFor="imageId" data-testid="image-input-label">
+        <label htmlFor="image-input" data-testid="image-input-label">
           Imagem
           <input
-            id="imageId"
+            // id="imageId"
             type="text"
-            // name="image"
-            defaultValue={ imagePath }
+            name="imagePath"
+            value={ imagePath }
             onChange={ this.handleChange }
             data-testid="image-input"
           />
@@ -116,8 +116,7 @@ class AddMovie extends Component {
       <div>
         <Textarea
           inputLabel="Sinopse"
-          // inputName="story"
-          inputValue={ storyline }
+          textValue={ storyline }
           onChangeText={ this.handleChange }
         />
       </div>

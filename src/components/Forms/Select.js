@@ -5,7 +5,7 @@ class Select extends Component {
   render() {
     const { inputsValue, inputLabel, onChangeSelect } = this.props;
     return (
-      <label htmlFor="genre" data-testid="genre-input-label">
+      <label htmlFor="genre-input" data-testid="genre-input-label">
         { inputLabel }
         <select
           value={ inputsValue }

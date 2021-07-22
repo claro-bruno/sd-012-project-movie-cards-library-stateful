@@ -10,9 +10,6 @@ class MovieLibrary extends Component {
     this.onClick = this.onClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.filtering = this.filtering.bind(this);
-    // this.handleSearchText = this.handleSearchText.bind(this);
-    // this.handlebookmarkedOnly = this.handlebookmarkedOnly.bind(this);
-    // this.handleSelectedGenre = this.handleSelectedGenre.bind(this);
 
     this.state = {
       searchText: '',
@@ -21,26 +18,6 @@ class MovieLibrary extends Component {
       movies: props.movies,
     };
   }
-
-  // handleSearchText(event) {
-  //   this.setState({ searchText: event.target.value });
-  // }
-
-  // handlebookmarkedOnly(event) {
-  //   this.setState({ searchText: event.target.value });
-  // }
-
-  // handleSelectedGenre(event) {
-  //   this.setState({ searchText: event.target.value });
-  // }
-
-  // handleChange({ target }) {
-  //   const { name, value } = target;
-
-  //   this.setState({
-  //     [name]: value,
-  //   });
-  // }
 
   handleChange({ target }) {
     const { name, type } = target;

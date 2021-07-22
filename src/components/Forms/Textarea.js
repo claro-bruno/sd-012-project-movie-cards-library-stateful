@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 
 class Textarea extends Component {
   render() {
-    const { textValue, onChangeText, inputLabel, inputName } = this.props;
+    const { textValue, onChangeText, inputLabel } = this.props;
     return (
-      <label htmlFor="story" data-testid="storyline-input-label">
+      <label htmlFor="storyline-input" data-testid="storyline-input-label">
         { inputLabel }
         <textarea
-          id="story"
+          // id="story"
           value={ textValue }
-          name={ inputName }
+          name="storyline"
           onChange={ onChangeText }
           data-testid="storyline-input"
         />
