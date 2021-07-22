@@ -10,7 +10,6 @@ class SearchBar extends Component {
         <label data-testid="text-input-label" htmlFor="textInput">
           Inclui o texto:
           <input
-            id="textInput"
             type="text"
             value={ searchText }
             onChange={ onSearchTextChange }
@@ -25,11 +24,11 @@ class SearchBar extends Component {
               data-testid="checkbox-input"
             />
           </label>
-          <label htmlFor="select-input" data-testid="select-input-label">
+          <label htmlFor="select-input-id" data-testid="select-input-label">
             Filtrar por gênero
             <select
               name=""
-              id="select-input"
+              id="select-input-id"
               value={ selectedGenre }
               onChange={ onSelectedGenreChange }
               data-testid="select-input-label"
