@@ -1,8 +1,8 @@
 import React from 'react';
 import Header from './components/Header';
-import SearchBar from './components/SearchBar';
 import AddMovie from './components/AddMovie';
 import './App.css';
+import MovieLibrary from './components/MovieLibrary';
 
 class App extends React.Component {
   constructor() {
@@ -23,18 +23,12 @@ class App extends React.Component {
   }
 
   render() {
+    const { movies } = this.state;
     return (
       <div className="App">
         <Header />
-        <SearchBar
-          searchText=""
-          onSearchTextChange=""
-          bookmarkedOnly=""
-          onBookmarkedChange=""
-          selectedGenre=""
-          onSelectedGenre=""
-        />
         <AddMovie onClick={ this.getMovies } />
+        <MovieLibrary movies={ movies } />
       </div>
     );
   }
