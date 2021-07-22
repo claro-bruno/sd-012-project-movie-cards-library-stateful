@@ -43,6 +43,13 @@ class MovieLibray extends Component {
     return filtraGenero;
   }
 
+  AddFilme(filme) {
+    const { movies } = this.state;
+    this.setState({
+      [movies]: [...movies, filme],
+    });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -56,7 +63,7 @@ class MovieLibray extends Component {
           onSelectedGenreChange={ this.mudaEstado }
         />
         <MovieList movies={ this.filtro() } />
-        <AddMovie />
+        <AddMovie onClick={ this.AddFilme } />
       </div>
     );
   }

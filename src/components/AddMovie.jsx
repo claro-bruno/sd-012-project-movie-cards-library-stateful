@@ -16,6 +16,20 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.alteraItem = this.alteraItem.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   alteraItem(event) {
@@ -26,7 +40,6 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const {
       subtitle,
       title,
@@ -49,7 +62,13 @@ class AddMovie extends Component {
           genre={ genre }
           onChange={ this.alteraItem }
         />
-        <button data-testid="send-button" >Adicionar filme</button>
+        <button
+          data-testid="send-button"
+          onClick={ this.handleClick }
+          type="button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
