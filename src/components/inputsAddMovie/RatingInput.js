@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export default class RatingInput extends Component {
   render() {
     const { value, handleChange } = this.props;
+    console.log(typeof value);
 
     return (
       <label data-testid="rating-input-label" htmlFor="Avaliação">

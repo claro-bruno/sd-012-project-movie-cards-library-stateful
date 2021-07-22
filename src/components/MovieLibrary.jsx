@@ -31,6 +31,8 @@ export default class MovieLibrary extends Component {
 
   handleClick(param) {
     console.log(param);
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, param] });
   }
 
   render() {
