@@ -19,7 +19,7 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.movieFilter = this.movieFilter.bind(this);
   }
-  
+
   onSearchTextChange({ target }) {
     this.setState({ searchText: target.value }, this.movieFilter);
   }
