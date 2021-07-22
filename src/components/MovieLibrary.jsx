@@ -1,22 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
-import MovieCard from './MovieCard';
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies,
     };
+
+    this.getFilteredMovies = this.getFilteredMovies.bind(this);
+  }
+
+  getFilteredMovies() {
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const filteredByBookmarked = movies
+      .filter((movie) => (bookmarkedOnly ? movie.bookmarked : movies));
+    const filteredBySearchText = filteredByBookmarked
+      .filter((movie) => movie.title.toLowerCase().includes(searchText)
+      || movie.subtitle.toLowerCase().includes(searchText)
+      || movie.storyline.toLowerCase().includes(searchText));
+    const filteredByGenre = filteredBySearchText
+      .filter((movie) => (selectedGenre === '' ? movies : movie.genre === selectedGenre));
+    return filteredByGenre;
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.props;
     return (
       <section>
         <SearchBar
@@ -33,7 +49,7 @@ class MovieLibrary extends React.Component {
             ({ target }) => this.setState({ selectedGenre: target.value })
           }
         />
-        { movies.map((movie, index) => <MovieCard key={ index } movie={ movie } />) }
+        <MovieList movies={ this.getFilteredMovies() } />
       </section>
     );
   }
