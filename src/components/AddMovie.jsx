@@ -29,8 +29,8 @@ class AddMovie extends Component {
   }
 
   addMovie() {
-    const { onClick } = this.props;
-    onClick(this.state);
+    const { callbackButton } = this.props;
+    callbackButton(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -77,7 +77,7 @@ class AddMovie extends Component {
           genreOnChange={ this.textInputHandler }
         />
         <ButtonForm
-          onClick={ this.addMovie }
+          callbackButton={ this.addMovie }
         />
       </form>
     );
@@ -85,7 +85,7 @@ class AddMovie extends Component {
 }
 
 AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  callbackButton: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
