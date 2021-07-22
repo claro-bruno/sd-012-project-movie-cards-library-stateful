@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -17,13 +18,22 @@ class MovieLibrary extends Component {
     };
 
     this.onChangeHandle = this.onChangeHandle.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
+  // Referencia para o handle do checkbox: https://stackoverflow.com/questions/26615779/react-checkbox-not-sending-onchange
   onChangeHandle({ target }) {
     const { name, type, checked } = target;
     const value = type === 'checkbox' ? checked : target.value;
     this.setState({
       [name]: value,
+    });
+  }
+
+  addMovie(newMovie) {
+    const { movies } = this.state;
+    this.setState({
+      movies: [...movies, newMovie],
     });
   }
 
@@ -41,6 +51,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onChangeHandle }
         />
         <MovieList movies={ movies } />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }
