@@ -43,38 +43,58 @@ class MovieLibrary extends React.Component {
     }));
   }
 
-  movieFilter({ subtitle, title, imagePath, storyline, rating, genre }) {
-    const { searchText, selectedGenre } = this.state;
-    const movie = { subtitle, title, imagePath, storyline, rating, genre };
-    if (movie.title.toLowerCase().includes(searchText.toLowerCase())
-      || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
-      || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
-      || movie.genre === selectedGenre) {
-      return movie;
-    }
-  }
-
-  bookmarkedMovieFilter() { //  { subtitle, title, imagePath, storyline, rating, genre }) {
+  movieFilter() {
     const { searchText, selectedGenre, movies } = this.state;
-    if (!selectedGenre) {
-      if (!searchText) {
-        return movies.filter((movie) => movie.bookmarked === true)
-          .filter((movie) => movie.genre === selectedGenre)
+    if (selectedGenre !== '') {
+      if (searchText !== '') {
+        console.log(`todos os filmes
+         com o genero ${selectedGenre} e o texto ${searchText}`);
+        return movies.filter((movie) => movie.genre === selectedGenre)
           .filter((movie) => (
             movie.title.toLowerCase().includes(searchText.toLowerCase())
           || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
           || movie.storyline.toLowerCase().includes(searchText.toLowerCase())));
       }
+      console.log(`todos os filmes com o genero ${selectedGenre}`);
+      return movies.filter((movie) => movie.genre === selectedGenre);
+    }
+    if (searchText !== '') {
+      console.log(`todos os filmes com o texto ${searchText}`);
+      return movies.filter((movie) => (
+        movie.title.toLowerCase().includes(searchText.toLowerCase())
+        || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
+        || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())));
+    }
+    console.log('todos os filmes');
+    return movies;
+  }
+
+  bookmarkedMovieFilter() {
+    const { searchText, selectedGenre, movies } = this.state;
+    if (selectedGenre !== '') {
+      if (searchText !== '') {
+        console.log(`todos os filmes 
+        favoritos com o genero ${selectedGenre} e o texto ${searchText}`);
+        return movies.filter((movie) => movie.bookmarked === true)
+          .filter((movie) => movie.genre === selectedGenre)
+          .filter((movie) => (
+            movie.storyline.toLowerCase().includes(searchText.toLowerCase())
+          || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+          || movie.title.toLowerCase().includes(searchText.toLowerCase())));
+      }
+      console.log(`todos os filmes favoritos com o genero ${selectedGenre}`);
       return movies.filter((movie) => movie.bookmarked === true)
         .filter((movie) => movie.genre === selectedGenre);
     }
-    if (!searchText) {
+    if (searchText !== '') {
+      console.log(`todos os filmes favoritos com o texto ${searchText}`);
       return movies.filter((movie) => movie.bookmarked === true)
         .filter((movie) => (
           movie.title.toLowerCase().includes(searchText.toLowerCase())
         || movie.storyline.toLowerCase().includes(searchText.toLowerCase()
         || movie.subtitle.toLowerCase().includes(searchText.toLowerCase()))));
     }
+    console.log('todos os filmes favoritos');
     return movies.filter((movie) => movie.bookmarked === true);
   }
 
@@ -84,7 +104,7 @@ class MovieLibrary extends React.Component {
       return this.bookmarkedMovieFilter();
     }
     if (!searchText || !selectedGenre) {
-      return movies.filter(this.movieFilter);
+      return this.movieFilter();
     }
     if (searchText === '' && selectedGenre === '') {
       return movies;
