@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import TitleForm from './Forms/Titleform';
 import ImagePathForm from './Forms/ImagePathform';
 import SubtitleForm from './Forms/Subtitleform';
@@ -82,5 +83,9 @@ class AddMovie extends Component {
     );
   }
 }
+
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired
+};
 
 export default AddMovie;
