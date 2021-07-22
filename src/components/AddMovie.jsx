@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-// import Input from './Forms/Inputs';
-// import Select from './Forms/Select';
-// import Textarea from './Forms/Textarea';
 
 // requisitos feitos com ajuda do Wadson!
 
@@ -82,7 +79,7 @@ class AddMovie extends Component {
           <input
             id="imageId"
             type="text"
-            // name="image"
+            name="image"
             defaultValue={ imagePath }
             onChange={ this.handleChange }
             data-testid="image-input"
@@ -173,6 +170,7 @@ class AddMovie extends Component {
         {this.handleRating()}
         {this.handleTextArea()}
         {this.handleSelect()}
+        {this.buttonForm()}
       </form>
     );
   }
