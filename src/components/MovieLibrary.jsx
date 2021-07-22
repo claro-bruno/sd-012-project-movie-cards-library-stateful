@@ -29,7 +29,7 @@ class MovieLibrary extends React.Component {
             ({ target }) => this.setState({ bookmarkedOnly: target.value })
           }
           selectedGenre={ selectedGenre }
-          onSelectedGenre={
+          onSelectedGenreChange={
             ({ target }) => this.setState({ selectedGenre: target.value })
           }
         />
