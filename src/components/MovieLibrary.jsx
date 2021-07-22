@@ -29,6 +29,7 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  // Essa função peguei do código do colega Vinicius Patriota
   addMovieClick(newMovie) {
     this.setState((prevState) => ({ movies: [...prevState.movies, newMovie] }));
   }
@@ -65,3 +66,6 @@ MovieLibrary.propTypes = {
 };
 
 export default MovieLibrary;
+
+// Recebi ajuda de dois amigos para fazer esse projeto. Ed Santos e Milton Castro me ajudaram //
+// entrando em call comigo e dando idéias para fazer algumas funções. //
