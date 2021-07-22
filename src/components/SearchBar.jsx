@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import SelectInput from './SelectInput';
+import TextInput from './TextInput';
+import CheckboxInput from './CheckboxInput';
 
 export default class SearchBar extends Component {
   render() {
@@ -8,34 +11,27 @@ export default class SearchBar extends Component {
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
-      // selectedGenre,
-      // onSelectedGenreChange
+      selectedGenre,
+      onSelectedGenreChange,
     } = this.props;
 
     return (
       <div>
         <form data-testid="search-bar-form">
+          <TextInput
+            searchText={ searchText }
+            onSearchTextChange={ onSearchTextChange }
+          />
 
-          <label data-testid="text-input-label" htmlFor="Inclui o texto:">
-            Inclui o texto:
-            <input
-              data-testid="text-input"
-              type="text"
-              value={ searchText }
-              onChange={ onSearchTextChange }
-            />
-          </label>
+          <CheckboxInput
+            bookmarkedOnly={ bookmarkedOnly }
+            onBookmarkedChange={ onBookmarkedChange }
+          />
 
-          <label data-testid="checkbox-input-label" htmlFor="Mostrar somente favoritos">
-            Mostrar somente favoritos
-            <input
-              data-testid="checkbox-input"
-              type="checkbox"
-              onChange={ onBookmarkedChange }
-              checked={ bookmarkedOnly }
-            />
-          </label>
-
+          <SelectInput
+            selectedGenre={ selectedGenre }
+            onSelectedGenreChange={ onSelectedGenreChange }
+          />
         </form>
       </div>
     );
@@ -47,6 +43,6 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
-  // selectedGenre: PropTypes.string.isRequired,
-  // onSelectedGenreChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
