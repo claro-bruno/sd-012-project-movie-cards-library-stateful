@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class Input extends React.Component {
+class Input extends Component {
   render() {
-    const { typeInput, textLabel, valueInput, onChangeInput } = this.props;
+    const {
+      idInput,
+      textLabel, typeInput, onChangeInput, idInputs, valueInput } = this.props;
     return (
-      <label htmlFor="titulo" data-testid="title-input-label">
-        { textLabel }
+      <label htmlFor={ idInputs } data-testid={ `${idInput}-input-label` }>
+        {textLabel}
         <input
+          id={ idInputs }
           type={ typeInput }
-          value={ valueInput }
+          name={ inputName }
+          defaultValue={ valueInput }
           onChange={ onChangeInput }
-          data-testid="title-input"
+          data-testid={ `${idInput}-input` }
         />
       </label>
     );
@@ -19,12 +23,11 @@ class Input extends React.Component {
 }
 
 Input.propTypes = PropTypes.exact({
-  subtitle: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  genre: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 }).isRequired;
 
 export default Input;
