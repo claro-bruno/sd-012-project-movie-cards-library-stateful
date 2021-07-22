@@ -1,4 +1,3 @@
-Viewed
 // implement AddMovie component here
 import React from 'react';
 import { func } from 'prop-types';
@@ -8,7 +7,7 @@ import InputRating from './InputRating';
 import InputSubtitle from './InputSubtitle';
 import InputTitle from './InputTitle.jsx';
 import Select from './Select';
-import TextStoryline from './TextStoryline';
+import TextStoryline from './TextStoryline.jsx';
 
 class AddMovie extends React.Component {
   constructor() {
