@@ -4,6 +4,7 @@ import SearchBar from './components/SearchBar';
 import './App.css';
 import AddMovie from './components/AddMovie';
 import MovieList from './components/MovieList';
+import MovieLibrary from './components/MovieLibrary';
 import movies from './data';
 
 export default class App extends Component {
@@ -24,6 +25,7 @@ export default class App extends Component {
         <SearchBar />
         <MovieList movies={ movies } />
         <AddMovie onClick={ this.handleClick } />
+        <MovieLibrary />
       </div>
     );
   }
