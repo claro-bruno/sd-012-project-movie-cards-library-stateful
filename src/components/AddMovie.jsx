@@ -4,9 +4,9 @@ import Button from './Button';
 import InputImage from './InputImage';
 import InputRating from './InputRating';
 import InputSubtitle from './InputSubtitle';
-import InputTitle from './InputTitle.jsx';
+import InputTitle from './InputTitle';
 import Select from './Select';
-import TextStoryline from './TextStoryline.jsx';
+import TextStoryline from './TextStoryline';
 
 class AddMovie extends React.Component {
   constructor() {
