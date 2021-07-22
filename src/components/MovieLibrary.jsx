@@ -2,22 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
+    this.searchOnChange = this.searchOnChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.addMovie = this.addMovie.bind(this);
     const { movies } = this.props;
     this.state = {
       searchText: '',
-      bookMarkedOnly: false,
+      bookmarkedOnly: false,
       selectedGenre: '',
       movies,
     };
-    this.searchOnChange = this.searchOnChange.bind(this);
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(target) {
+  handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
@@ -25,30 +27,56 @@ class MovieLibrary extends React.Component {
     });
   }
 
+  // Para resolver essa função consultei o repositório do Eder Santos
+  // link: https://github.com/tryber/sd-012-project-movie-cards-library-stateful/pull/74/files
+  addMovie(movie) {
+    this.setState((state) => {
+      const { movies } = state;
+      const newMovieList = [...movies, movie];
+      return { movies: newMovieList };
+    });
+  }
+
   searchOnChange() {
-    const { searchText, bookMarkedOnly, selectedGenre, movies } = this.state;
-    const arrMovie = movies
-      .filter((movie) => (bookMarkedOnly ? movie.bookmarked === true : movie))
-      .filter((movie) => (movie.genre === selectedGenre))
-      .filter((movie) => (movie.title.toLowerCase().includes(searchText)
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    let arrMovie = [];
+
+    if (searchText.value !== '') {
+      arrMovie = movies
+        .filter((movie) => (movie.title.toLowerCase().includes(searchText)
       || movie.subtitle.toLowerCase().includes(searchText)
       || movie.storyline.toLowerCase().includes(searchText)));
-    return arrMovie;
+      return arrMovie;
+    }
+
+    if (bookmarkedOnly.value === true) {
+      arrMovie = movies
+        .filter((movie) => (bookmarkedOnly ? movie.bookmarked === true : movie));
+      return arrMovie;
+    }
+
+    if (selectedGenre.value !== '') {
+      arrMovie = movies
+        .filter((movie) => (movie.genre.includes(selectedGenre)));
+      return arrMovie;
+    }
+    return movies;
   }
 
   render() {
-    const { searchText, bookMarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
           searchText={ searchText }
-          bookMarkedOnly={ bookMarkedOnly }
+          bookmarkedOnly={ bookmarkedOnly }
           selectedGenre={ selectedGenre }
           onSearchTextChange={ this.handleChange }
           onBookmarkedChange={ this.handleChange }
           onSelectedGenreChange={ this.handleChange }
         />
         <MovieList movies={ this.searchOnChange() } />
+        <AddMovie onClick={ this.addMovie } />
       </div>
     );
   }

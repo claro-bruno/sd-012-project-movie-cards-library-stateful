@@ -8,6 +8,8 @@ class SubtitleMovie extends React.Component {
       <label htmlFor="subtitle" data-testid="subtitle-input-label">
         Subtítulo
         <input
+          name="subtitle"
+          id="subtitle"
           type="text"
           data-testid="subtitle-input"
           onChange={ onSubChange }

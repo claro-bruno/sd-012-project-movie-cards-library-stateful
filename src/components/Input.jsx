@@ -5,7 +5,6 @@ class Input extends React.Component {
   render() {
     const {
       label,
-      labelDataTestid,
       dataTestid,
       name,
       type,
@@ -16,10 +15,11 @@ class Input extends React.Component {
     return (
       <label
         htmlFor="basicInput"
-        data-testid={ labelDataTestid }
+        data-testid="text-input-label"
       >
         { label }
         <input
+          id="basicInput"
           name={ name }
           type={ type }
           value={ value }

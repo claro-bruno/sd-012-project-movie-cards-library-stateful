@@ -8,6 +8,8 @@ class SinopseMovie extends React.Component {
       <label htmlFor="sinopse" data-testid="storyline-input-label">
         Sinopse
         <textarea
+          name="storyline"
+          id="sinopse"
           data-testid="storyline-input"
           value={ storyline }
           onChange={ onSinChange }

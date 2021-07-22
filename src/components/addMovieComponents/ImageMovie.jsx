@@ -8,6 +8,8 @@ class ImageMovie extends React.Component {
       <label htmlFor="movie-image" data-testid="image-input-label">
         Imagem
         <input
+          name="imagePath"
+          id="movie-image"
           type="text"
           data-testid="image-input"
           onChange={ onImgChange }

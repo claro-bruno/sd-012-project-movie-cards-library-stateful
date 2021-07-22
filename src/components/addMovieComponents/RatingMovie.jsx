@@ -8,6 +8,8 @@ class RatingMovie extends React.Component {
       <label htmlFor="rating" data-testid="rating-input-label">
         Avaliação
         <input
+          name="rating"
+          id="rating"
           type="number"
           data-testid="rating-input"
           onChange={ onRatChange }
