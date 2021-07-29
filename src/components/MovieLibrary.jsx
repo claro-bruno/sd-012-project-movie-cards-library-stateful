@@ -1,21 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import AddMovie from './AddMovie';
+import moviedata from '../data';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
 
-    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: moviedata,
     };
 
     this.getFilteredMovies = this.getFilteredMovies.bind(this);
+    this.getMovies = this.getMovies.bind(this);
+  }
+
+  getMovies(data) {
+    this.setState((prevState) => ({ movies: [...prevState.movies, data] }));
   }
 
   getFilteredMovies() {
@@ -43,25 +48,20 @@ class MovieLibrary extends React.Component {
           }
           bookmarkedOnly={ bookmarkedOnly }
           onBookmarkedChange={
-            ({ target }) => this.setState({ bookmarkedOnly: target.value })
+            ({ target }) => this.setState({
+              bookmarkedOnly: target.type === 'checkbox'
+                ? target.checked : target.value })
           }
           selectedGenre={ selectedGenre }
           onSelectedGenreChange={
             ({ target }) => this.setState({ selectedGenre: target.value })
           }
         />
+        <AddMovie onClick={ this.getMovies } />
         <MovieList movies={ this.getFilteredMovies() } />
       </section>
     );
   }
 }
-
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object),
-};
-
-MovieLibrary.defaultProps = {
-  movies: [],
-};
 
 export default MovieLibrary;
